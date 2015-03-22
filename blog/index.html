@@ -110,9 +110,9 @@
             <li><a class="blog-index-title"  href="http://kdheepak.com/blog/mac-osx-tweaks/">Mac OSX Tweaks  </a>
             <time pubdate="pubdate" datetime="2015-03-21T19:00:00+01:00">Sat 21 March 2015</time>
             </li>
-              <div class="entry-content"><h1 id="update">Update<a class="headerlink" href="#update" title="Permanent link">&para;</a></h1>
+              <div class="entry-content"><h2 id="update">Update<a class="headerlink" href="#update" title="Permanent link">&para;</a></h2>
 <p>I've decided to update a forked repo <a href="https://github.com/kdheepak89/dotfiles/blob/master/.osx">here</a> instead. </p>
-<h1 id="general-ui">General UI<a class="headerlink" href="#general-ui" title="Permanent link">&para;</a></h1>
+<h2 id="general-ui">General UI<a class="headerlink" href="#general-ui" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span class="cp"># Disable Dashboard</span>
 <span class="n">defaults</span> <span class="n">write</span> <span class="n">com</span><span class="p">.</span><span class="n">apple</span><span class="p">.</span><span class="n">dashboard</span> <span class="n">mcx</span><span class="o">-</span><span class="n">disabled</span> <span class="o">-</span><span class="kt">bool</span> <span class="nb">true</span>
 
@@ -131,7 +131,7 @@
 </pre></div>
 
 
-<h1 id="disks">Disks<a class="headerlink" href="#disks" title="Permanent link">&para;</a></h1>
+<h2 id="disks">Disks<a class="headerlink" href="#disks" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span class="cp"># Disks: disable Time Machine prompts</span>
 <span class="n">defaults</span> <span class="n">write</span> <span class="n">com</span><span class="p">.</span><span class="n">apple</span><span class="p">.</span><span class="n">TimeMachine</span> <span class="n">DoNotOfferNewDisksForBackup</span> <span class="o">-</span><span class="kt">bool</span> <span class="nb">true</span>
 
@@ -154,13 +154,13 @@
 </pre></div>
 
 
-<h1 id="keyboard">Keyboard<a class="headerlink" href="#keyboard" title="Permanent link">&para;</a></h1>
+<h2 id="keyboard">Keyboard<a class="headerlink" href="#keyboard" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span class="cp"># Set a blazingly fast keyboard repeat rate</span>
 <span class="n">defaults</span> <span class="n">write</span> <span class="n">NSGlobalDomain</span> <span class="n">KeyRepeat</span> <span class="o">-</span><span class="kt">int</span> <span class="mi">0</span>
 </pre></div>
 
 
-<h1 id="finder">Finder<a class="headerlink" href="#finder" title="Permanent link">&para;</a></h1>
+<h2 id="finder">Finder<a class="headerlink" href="#finder" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span class="cp"># Disable automatic termination of inactive apps</span>
 <span class="n">defaults</span> <span class="n">write</span> <span class="n">NSGlobalDomain</span> <span class="n">NSDisableAutomaticTermination</span> <span class="o">-</span><span class="kt">bool</span> <span class="nb">true</span>
 
@@ -187,7 +187,7 @@
 </pre></div>
 
 
-<h1 id="dock-hot-corners">Dock &amp; hot corners<a class="headerlink" href="#dock-hot-corners" title="Permanent link">&para;</a></h1>
+<h2 id="dock-hot-corners">Dock &amp; hot corners<a class="headerlink" href="#dock-hot-corners" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span class="cp"># Autohide the Dock</span>
 <span class="n">defaults</span> <span class="n">write</span> <span class="n">com</span><span class="p">.</span><span class="n">apple</span><span class="p">.</span><span class="n">dock</span> <span class="n">autohide</span> <span class="o">-</span><span class="kt">bool</span> <span class="nb">true</span>
 
@@ -196,7 +196,7 @@
 </pre></div>
 
 
-<h1 id="panels">Panels<a class="headerlink" href="#panels" title="Permanent link">&para;</a></h1>
+<h2 id="panels">Panels<a class="headerlink" href="#panels" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span class="cp"># Panels: expand save panel by default</span>
 <span class="n">defaults</span> <span class="n">write</span> <span class="n">NSGlobalDomain</span> <span class="n">NSNavPanelExpandedStateForSaveMode</span> <span class="o">-</span><span class="kt">bool</span> <span class="nb">true</span>
 
@@ -211,7 +211,7 @@
 </pre></div>
 
 
-<h1 id="screen">Screen<a class="headerlink" href="#screen" title="Permanent link">&para;</a></h1>
+<h2 id="screen">Screen<a class="headerlink" href="#screen" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span class="cp"># Screen: save screenshots to the desktop</span>
 <span class="n">defaults</span> <span class="n">write</span> <span class="n">com</span><span class="p">.</span><span class="n">apple</span><span class="p">.</span><span class="n">screencapture</span> <span class="n">location</span> <span class="o">-</span><span class="n">string</span> <span class="s">&quot;$HOME/Desktop&quot;</span>
 
@@ -220,7 +220,7 @@
 </pre></div>
 
 
-<h1 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h1>
+<h2 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span class="cp"># Misc: only use UTF-8 in Terminal.app</span>
 <span class="n">defaults</span> <span class="n">write</span> <span class="n">com</span><span class="p">.</span><span class="n">apple</span><span class="p">.</span><span class="n">terminal</span> <span class="n">StringEncodings</span> <span class="o">-</span><span class="n">array</span> <span class="mi">4</span>
 
@@ -229,16 +229,7 @@
 
 <span class="cp"># Misc: disable auto-correct</span>
 <span class="n">defaults</span> <span class="n">write</span> <span class="n">NSGlobalDomain</span> <span class="n">NSAutomaticSpellingCorrectionEnabled</span> <span class="o">-</span><span class="kt">bool</span> <span class="nb">false</span>
-</pre></div>
-
-
-<!---
-{% comment %} 
-for app in "Dashboard" "Dock" "Finder" "SystemUIServer" "Terminal" "iTunes"; do
-    killall "$app" > /dev/null 2>&1
-done
-{% uncomment %} 
---></div>
+</pre></div></div>
             <li><a class="blog-index-title"  href="http://kdheepak.com/projects/ames-market-test-bed/">AMES Market Test Bed  </a>
             <time pubdate="pubdate" datetime="2014-12-13T10:00:00+01:00">Sat 13 December 2014</time>
             </li>
