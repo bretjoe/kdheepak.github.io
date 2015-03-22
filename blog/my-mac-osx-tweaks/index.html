@@ -6,7 +6,7 @@
         <meta name="author" content="Dheepak Krishnamurthy" />
         <meta name="copyright" content="Dheepak Krishnamurthy" />
 
-        <meta name="description" content="UI General¶ # Show Dashboard as a space /usr/bin/defaults write com.apple.dock 'dashboard-in-overlay' -bool true # disable automatic spell checking defaults write -g NSAllowContinuousSpellChecking -bool false # don't treat period or colon as part of words # en_US_POSIX corresponds to the "United States (Computer)" setting that was shown ...
+        <meta name="description" content="Update¶ I've decided to update a forked repo here instead. UI General¶ # Show Dashboard as a space /usr/bin/defaults write com.apple.dock 'dashboard-in-overlay' -bool true # disable automatic spell checking defaults write -g NSAllowContinuousSpellChecking -bool false # don't treat period or colon as part of words ...
 " />
 <meta name="keywords" content=", blog, " />
         <title>My Mac OSX Tweaks  · Dheepak Krishnamurthy
@@ -73,7 +73,9 @@
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
 
-            <h1 id="ui-general">UI General<a class="headerlink" href="#ui-general" title="Permanent link">&para;</a></h1>
+            <h1 id="update">Update<a class="headerlink" href="#update" title="Permanent link">&para;</a></h1>
+<p>I've decided to update a forked repo <a href="https://github.com/kdheepak89/dotfiles/blob/master/.osx">here</a> instead. </p>
+<h1 id="ui-general">UI General<a class="headerlink" href="#ui-general" title="Permanent link">&para;</a></h1>
 <div class="highlight"><pre><span class="cp"># Show Dashboard as a space</span>
 <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">defaults</span> <span class="n">write</span> <span class="n">com</span><span class="p">.</span><span class="n">apple</span><span class="p">.</span><span class="n">dock</span> <span class="err">&#39;</span><span class="n">dashboard</span><span class="o">-</span><span class="n">in</span><span class="o">-</span><span class="n">overlay</span><span class="err">&#39;</span> <span class="o">-</span><span class="kt">bool</span> <span class="nb">true</span>
 
@@ -83,6 +85,9 @@
 <span class="cp"># don&#39;t treat period or colon as part of words</span>
 <span class="cp"># en_US_POSIX corresponds to the &quot;United States (Computer)&quot; setting that was shown in System Preferences in 10.8 and earlier</span>
 <span class="n">defaults</span> <span class="n">write</span> <span class="o">-</span><span class="n">g</span> <span class="n">AppleTextBreakLocale</span> <span class="n">en_US_POSIX</span>
+
+<span class="cp"># Disable the sound effects on boot</span>
+<span class="n">sudo</span> <span class="n">nvram</span> <span class="n">SystemAudioVolume</span><span class="o">=</span><span class="s">&quot; &quot;</span>
 </pre></div>
 
 
