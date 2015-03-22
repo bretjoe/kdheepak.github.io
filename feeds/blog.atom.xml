@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/blog.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-03-21T19:00:00+01:00</updated><entry><title>Mac OSX Tweaks</title><link href="http://kdheepak.com/blog/mac-osx-tweaks/" rel="alternate"></link><updated>2015-03-21T19:00:00+01:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-03-21:blog/mac-osx-tweaks/</id><summary type="html">&lt;h1 id="update"&gt;Update&lt;a class="headerlink" href="#update" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;I've decided to update a forked repo &lt;a href="https://github.com/kdheepak89/dotfiles/blob/master/.osx"&gt;here&lt;/a&gt; instead. &lt;/p&gt;
-&lt;h1 id="ui-general"&gt;UI General&lt;a class="headerlink" href="#ui-general" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="general-ui"&gt;General UI&lt;a class="headerlink" href="#general-ui" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# Disable Dashboard&lt;/span&gt;
 &lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dashboard&lt;/span&gt; &lt;span class="n"&gt;mcx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;disabled&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
 
