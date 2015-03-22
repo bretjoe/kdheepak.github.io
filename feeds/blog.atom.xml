@@ -127,7 +127,7 @@ for app in "Dashboard" "Dock" "Finder" "SystemUIServer" "Terminal" "iTunes"; do
     killall "$app" &gt; /dev/null 2&gt;&amp;1
 done
 {% uncomment %} 
---&gt;</summary></entry><entry><title>Mac OSX</title><link href="http://kdheepak.com/blog/mac-osx/" rel="alternate"></link><updated>2014-12-13T10:00:00+01:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-13:blog/mac-osx/</id><summary type="html">&lt;p&gt;This is a Geektool tutorial on how to customize your Mac OSX desktop homescreen. Using Geektool you can add a widget like functionality to your desktop.&lt;/p&gt;
+--&gt;</summary></entry><entry><title>Geektool and Desktop Widgets in OSX</title><link href="http://kdheepak.com/blog/geektool-and-desktop-widgets-in-osx/" rel="alternate"></link><updated>2014-12-13T10:00:00+01:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-13:blog/geektool-and-desktop-widgets-in-osx/</id><summary type="html">&lt;p&gt;This is a Geektool tutorial on how to customize your Mac OSX desktop homescreen. Using Geektool you can add a widget like functionality to your desktop.&lt;/p&gt;
 
 &lt;p title=""&gt;&lt;a href="https://plus.google.com/photos/+DheepakKrishnamurthy/albums/5969008662076135425" title=""&gt;&lt;img alt="" src="https://lh4.googleusercontent.com/TZkEbkEUgfXVhtL3XNgQ8tYNuaO_WF_WhgtuN0nYGJEx=s0" width="100%/" title="" style=""&gt;&lt;/a&gt;&lt;/p&gt;
 
