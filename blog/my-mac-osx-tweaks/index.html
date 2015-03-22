@@ -6,7 +6,7 @@
         <meta name="author" content="Dheepak Krishnamurthy" />
         <meta name="copyright" content="Dheepak Krishnamurthy" />
 
-        <meta name="description" content="Update¶ I've decided to update a forked repo here instead. UI General¶ # Disable Dashboard as a space /usr/bin/defaults write com.apple.dock 'dashboard-in-overlay' -bool false # disable automatic spell checking defaults write -g NSAllowContinuousSpellChecking -bool false # don't treat period or colon as part of words ...
+        <meta name="description" content="Update¶ I've decided to update a forked repo here instead. UI General¶ # Disable Dashboard defaults write com.apple.dashboard mcx-disabled -bool true # Don’t show Dashboard as a Space defaults write com.apple.dock dashboard-in-overlay -bool true # disable automatic spell checking defaults write -g NSAllowContinuousSpellChecking -bool ...
 " />
 <meta name="keywords" content=", blog, " />
         <title>My Mac OSX Tweaks  · Dheepak Krishnamurthy
@@ -76,8 +76,11 @@
             <h1 id="update">Update<a class="headerlink" href="#update" title="Permanent link">&para;</a></h1>
 <p>I've decided to update a forked repo <a href="https://github.com/kdheepak89/dotfiles/blob/master/.osx">here</a> instead. </p>
 <h1 id="ui-general">UI General<a class="headerlink" href="#ui-general" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span class="cp"># Disable Dashboard as a space</span>
-<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">defaults</span> <span class="n">write</span> <span class="n">com</span><span class="p">.</span><span class="n">apple</span><span class="p">.</span><span class="n">dock</span> <span class="err">&#39;</span><span class="n">dashboard</span><span class="o">-</span><span class="n">in</span><span class="o">-</span><span class="n">overlay</span><span class="err">&#39;</span> <span class="o">-</span><span class="kt">bool</span> <span class="nb">false</span>
+<div class="highlight"><pre><span class="cp"># Disable Dashboard</span>
+<span class="n">defaults</span> <span class="n">write</span> <span class="n">com</span><span class="p">.</span><span class="n">apple</span><span class="p">.</span><span class="n">dashboard</span> <span class="n">mcx</span><span class="o">-</span><span class="n">disabled</span> <span class="o">-</span><span class="kt">bool</span> <span class="nb">true</span>
+
+<span class="cp"># Don’t show Dashboard as a Space</span>
+<span class="n">defaults</span> <span class="n">write</span> <span class="n">com</span><span class="p">.</span><span class="n">apple</span><span class="p">.</span><span class="n">dock</span> <span class="n">dashboard</span><span class="o">-</span><span class="n">in</span><span class="o">-</span><span class="n">overlay</span> <span class="o">-</span><span class="kt">bool</span> <span class="nb">true</span>
 
 <span class="cp"># disable automatic spell checking</span>
 <span class="n">defaults</span> <span class="n">write</span> <span class="o">-</span><span class="n">g</span> <span class="n">NSAllowContinuousSpellChecking</span> <span class="o">-</span><span class="kt">bool</span> <span class="nb">false</span>
