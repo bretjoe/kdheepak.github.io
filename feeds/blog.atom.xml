@@ -31,7 +31,16 @@
 &lt;p&gt;&lt;a href="https://itunes.apple.com/us/app/flycut-clipboard-manager/id442160987?mt=12"&gt;https://itunes.apple.com/us/app/flycut-clipboard-manager/id442160987?mt=12&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="10-clipmenu"&gt;10. ClipMenu&lt;a class="headerlink" href="#10-clipmenu" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img alt="" src="http://www.clipmenu.com/images/screenshot/home/screenshot.jpg" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://www.clipmenu.com/"&gt;http://www.clipmenu.com/&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>Mac OSX Tweaks</title><link href="http://kdheepak.com/blog/mac-osx-tweaks/" rel="alternate"></link><updated>2015-03-21T19:00:00+01:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-03-21:blog/mac-osx-tweaks/</id><summary type="html">&lt;h1 id="update"&gt;Update&lt;a class="headerlink" href="#update" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://www.clipmenu.com/"&gt;http://www.clipmenu.com/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="11-xtrafinder"&gt;11. XtraFinder&lt;a class="headerlink" href="#11-xtrafinder" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="" src="https://www.trankynam.com/xtrafinder/screenshots/XtraFinderScreenshot7.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.trankynam.com/xtrafinder/"&gt;https://www.trankynam.com/xtrafinder/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="12-disk-inventory-x"&gt;12. Disk Inventory X&lt;a class="headerlink" href="#12-disk-inventory-x" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="" src="http://www.derlien.com/assets/main.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.derlien.com/"&gt;http://www.derlien.com/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="13-homebrew"&gt;13. Homebrew&lt;a class="headerlink" href="#13-homebrew" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;curl&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;fsSL&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//raw.githubusercontent.com/Homebrew/install/master/install)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>Mac OSX Tweaks</title><link href="http://kdheepak.com/blog/mac-osx-tweaks/" rel="alternate"></link><updated>2015-03-21T19:00:00+01:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-03-21:blog/mac-osx-tweaks/</id><summary type="html">&lt;h1 id="update"&gt;Update&lt;a class="headerlink" href="#update" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;I've decided to a repo &lt;a href="https://github.com/kdheepak89/dotfiles/blob/master/.osx"&gt;here&lt;/a&gt; instead. &lt;/p&gt;
 &lt;h1 id="general-ui"&gt;General UI&lt;a class="headerlink" href="#general-ui" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# Disable Dashboard&lt;/span&gt;
