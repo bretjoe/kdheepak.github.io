@@ -6,9 +6,10 @@
         <meta name="author" content="Dheepak Krishnamurthy" />
         <meta name="copyright" content="Dheepak Krishnamurthy" />
 
-        <meta name="description" content="All tags used in the Dheepak Krishnamurthy blog.
+        <meta name="description" content="Robotics and Microcontroller Projects
 " />
-        <title>All Tags · Dheepak Krishnamurthy
+<meta name="keywords" content=", blog, " />
+        <title>Robotics  · Dheepak Krishnamurthy
 </title>
         <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -50,7 +51,7 @@
                         <ul class="nav pull-right top-menu">
                             <li ><a href="http://kdheepak.com">Home</a></li>
                             <li ><a href="http://kdheepak.com/categories.html">Categories</a></li>
-                            <li  class="active"><a href="http://kdheepak.com/tags.html">Tags</a></li>
+                            <li ><a href="http://kdheepak.com/tags.html">Tags</a></li>
                             <li ><a href="http://kdheepak.com/blog">Blog</a></li>
                             <li><form class="navbar-search" action="http://kdheepak.com/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
                         </ul>
@@ -62,27 +63,49 @@
             <div class="row-fluid">
                 <div class="span1"></div>
                 <div class="span10">
-
+<article>
 <div class="row-fluid">
     <header class="page_header span10 offset2">
-    <h1><a href="/tags.html">All Tags</a></h1>
+    <h1><a href="http://kdheepak.com/blog/robotics/"> Robotics  </a></h1>
     </header>
 </div>
-<div class="row-fluid">
-    <div class="span8 offset2">
-        <form class="form-search">
-            <input type="text" class="input-medium search-query filterinput" placeholder="Find a tag">
-        </form>
-        <ul class="list-of-tags">
-        </ul>
-    </div>
-</div>
 
 <div class="row-fluid">
-    <div class="span8 offset2">
-    </div>
-</div>
+        <div class="span8 offset2 article-content">
 
+            <h3>Robotics and Microcontroller Projects</h3>
+
+<iframe width="420" height="345"
+src="https://www.youtube.com/embed/eoN-HOUOjBk">
+</iframe>
+
+<iframe width="420" height="345"
+src="https://www.youtube.com/embed/c4IKvbGKpBk">
+</iframe>
+            <aside>
+            <hr/>
+            <nav>
+            <ul class="articles_timeline">
+ 
+                <li class="previous_article">« <a href="http://kdheepak.com/blog/tasker-and-google-maps/" title="Previous: Tasker and Google Maps">Tasker and Google Maps</a></li>
+ 
+                <li class="next_article"><a href="http://kdheepak.com/blog/geektool-and-desktop-widgets-in-osx/" title="Next: Geektool and Desktop Widgets in OSX">Geektool and Desktop Widgets in OSX</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+ 
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-12-13T10:00:00+01:00">Dec 13, 2014</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#blog-ref">blog</a> 
+
+        </div>
+        </section>
+</div>
+</article>
                 </div>
                 <div class="span1"></div>
             </div>
@@ -95,7 +118,7 @@
         <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
     </ul>
 </div>
-</footer>        <script src="http://code.jquery.com/jquery.min.js"></script>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
         <script>
             function validateForm(query)
@@ -103,44 +126,6 @@
                 return (query.length > 0);
             }
         </script>
-
-
-<script>
-    (function ($) {
-        // custom css expression for a case-insensitive contains()
-        jQuery.expr[':'].Contains = function(a,i,m){
-            return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
-        };
-
-        function listFilter() {
-
-            $('.filterinput')
-            .change( function () {
-                var filter = $(this).val();
-                if(filter) {
-                    // this finds all links in a list that contain the input,
-                    // and hide the ones not containing the input while showing the ones that do
-                    $('.list-of-tags').find("a:not(:Contains(" + filter + "))").parent().hide();
-                    $('.list-of-tags').find("a:Contains(" + filter + ")").parent().show();
-                    } else {
-                    $('.list-of-tags').find("li").show();
-                }
-                return false;
-            })
-            .keyup( function () {
-                // fire the above change event after every letter
-                $(this).change();
-            });
-        }
-
-        //ondomready
-        $(function () {
-            listFilter($());
-        });
-    }(jQuery));
-
-</script>
-
 
     </body>
 </html>
