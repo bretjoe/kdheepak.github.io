@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/projects.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2014-12-13T10:00:00+01:00</updated><entry><title>AMES Market Test Bed</title><link href="http://kdheepak.com/projects/ames-market-test-bed/" rel="alternate"></link><updated>2014-12-13T10:00:00+01:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-13:projects/ames-market-test-bed/</id><summary type="html">&lt;p&gt;AMES is a Wholesale Power Market Test Bed. AMES stands for Agent-based Modeling of Electricity Systems. The AMES Market Package is an open source software implementation of the AMES Wholesale Power Market Test Bed in Java. The AMES Market Package version 2.06 was developed at Iowa State University, and is available for download &lt;a href="http://www2.econ.iastate.edu/tesfatsi/AMESMarketHome.htm"&gt;here&lt;/a&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/projects.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-04-02T00:00:00+02:00</updated><entry><title>ISO New England Test System</title><link href="http://kdheepak.com/projects/iso-new-england-test-system/" rel="alternate"></link><updated>2015-04-02T00:00:00+02:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-02:projects/iso-new-england-test-system/</id><summary type="html">&lt;p&gt;============================================================================&lt;/p&gt;
+&lt;p&gt;AMES Wholesale Power Market Test Bed (Java): A Free Open-Source Test-Bed&lt;br /&gt;
+        for the Agent-based Modeling of Electricity Systems &lt;/p&gt;
+&lt;p&gt;============================================================================&lt;/p&gt;
+&lt;p&gt;Running AMES test bed:&lt;/p&gt;
+&lt;p&gt;Windows:
+    Double click the AMESMarket.jar file.&lt;/p&gt;
+&lt;p&gt;Linux:
+    java -jar AMESMarket.jar&lt;/p&gt;
+&lt;p&gt;Dr. Leigh Tesfatsion - &lt;a href="http://www2.econ.iastate.edu/tesfatsi/"&gt;Link&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;Authors: Dheepak Krishnamurthy, Wanning Li and Leigh Tesfatsion&lt;/p&gt;
+&lt;p&gt;Affiliation: Iowa State University&lt;/p&gt;
+&lt;p&gt;Primary Contact: Dheepak Krishnamurthy - kdheepak89@gmail.com&lt;/p&gt;
+&lt;h1 id="introduction"&gt;Introduction&lt;a class="headerlink" href="#introduction" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;The 8-Zone Test System is a framework based on ISO New England data that has been implemented using the AMES Wholesale Power Market Test Bed.  AMES is a computational platform (Java/Python) permitting the small-scale study of U.S. centrally-managed wholesale power markets operating over AC transmission grids with congestion handled by locational marginal pricing.&lt;/p&gt;
+&lt;h1 id="additional-information-about-ames"&gt;Additional information about AMES:&lt;a class="headerlink" href="#additional-information-about-ames" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;AMES Wholesale Power Market Test Bed:  Homepage&lt;/p&gt;
+&lt;p&gt;http://www2.econ.iastate.edu/tesfatsi/amesmarkethome.htm&lt;/p&gt;
+&lt;h1 id="basic-information-about-the-8-zone-test-system"&gt;Basic information about the 8-Zone Test System:&lt;a class="headerlink" href="#basic-information-about-the-8-zone-test-system" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;The 8-Zone Test System consists of three basic parts:&lt;/p&gt;
+&lt;p&gt;(1)  Test System Data: Test System Data is based on data from ISO New England and other reliable sources.&lt;/p&gt;
+&lt;p&gt;(2)  Test System Construction Scripts: These scripts build test cases for the 8-Zone Test System that can be run by means of AMES.&lt;/p&gt;
+&lt;p&gt;(3)  Test System Output Parsing Scripts: These scripts parse the results of these test case runs to calculate costs and other desired outputs.&lt;/p&gt;
+&lt;h1 id="screenshots"&gt;Screenshots&lt;a class="headerlink" href="#screenshots" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Example of GUI&lt;/p&gt;
+&lt;p&gt;&lt;img alt="gendata_gui.png" src="https://bitbucket.org/repo/qMgKkx/images/2319030688-gendata_gui.png" /&gt;&lt;/p&gt;
+&lt;h1 id="future-work"&gt;Future work&lt;a class="headerlink" href="#future-work" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;A README file is in process.&lt;/p&gt;</summary></entry><entry><title>AMES Market Test Bed</title><link href="http://kdheepak.com/projects/ames-market-test-bed/" rel="alternate"></link><updated>2014-12-13T10:00:00+01:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-13:projects/ames-market-test-bed/</id><summary type="html">&lt;p&gt;AMES is a Wholesale Power Market Test Bed. AMES stands for Agent-based Modeling of Electricity Systems. The AMES Market Package is an open source software implementation of the AMES Wholesale Power Market Test Bed in Java. The AMES Market Package version 2.06 was developed at Iowa State University, and is available for download &lt;a href="http://www2.econ.iastate.edu/tesfatsi/AMESMarketHome.htm"&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Invited IEEE PES-GM Panel Talks&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;D. Krishnamurthy&lt;/em&gt;, Wanning Li. and L. Tesfatsion, “A Small-Scale Test System for Wholesale Electric Power Market Operations Based on ISO-NE Data”, in Development of IEEE Test Systems for Economic Analysis (Panel Session), IEEE Power Energy Soc. Gen. Meet., Vancouver, British Columbia, Jul. 2013. [Co-presenter]&lt;/p&gt;
 &lt;p&gt;A. G. Thomas, &lt;em&gt;D.Krishnamurthy&lt;/em&gt;, and L. Tesfatsion, “Multi-Agent System Capabilities of the AMES Wholesale Power Market Test Bed”, in Multi-Agent Systems Test Beds and Applications (Panel Session), IEEE Power Energy Soc. Gen. Meet., Van- couver, British Columbia, Jul. 2013. [Co-presenter]&lt;/p&gt;
