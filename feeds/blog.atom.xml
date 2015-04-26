@@ -58,7 +58,7 @@ pip install ghp-import
 If you create a User page, your website will be live at &lt;code&gt;$GHUSERNAME&lt;/code&gt;.github.io and a Project page will go up at &lt;code&gt;$GHUSERNAME&lt;/code&gt;.github.io/&lt;code&gt;$PROJECTNAME&lt;/code&gt;. 
 The rest of this blog assumes you want to create a User page.&lt;/p&gt;
 &lt;h1 id="create-a-directory-for-your-website"&gt;Create a directory for your website&lt;a class="headerlink" href="#create-a-directory-for-your-website" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;Assuming $GHUSERNAME is your github username, run the following commands. You can rename the 'website' folder to anything you want. &lt;/p&gt;
+&lt;p&gt;Assuming &lt;code&gt;$GHUSERNAME&lt;/code&gt; is your github username, run the following commands. You can rename the 'website' folder to anything you want. &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="x"&gt;git clone https://github.com/&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;GHUSERNAME&lt;/span&gt;&lt;span class="x"&gt;/&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;GHUSERNAME&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nv"&gt;github&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nv"&gt;io&lt;/span&gt;&lt;span class="x"&gt;/ website&lt;/span&gt;
 &lt;span class="x"&gt;cd website&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
