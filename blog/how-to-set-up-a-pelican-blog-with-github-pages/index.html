@@ -71,12 +71,31 @@
 </div>
 
 <div class="row-fluid">
-        <div class="span8 offset2 article-content">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="toc">
+<ul>
+<li><a href="#markdown">Markdown</a></li>
+<li><a href="#static-pages">Static pages</a></li>
+<li><a href="#enter-github-pages-and-pelican">Enter Github pages and Pelican</a></li>
+<li><a href="#install-required-packages">Install required packages</a></li>
+<li><a href="#create-a-github-account-and-a-user-or-project-page">Create a Github account and a User or Project page</a></li>
+<li><a href="#create-a-directory-for-your-website">Create a directory for your website</a></li>
+<li><a href="#run-pelican-quickstart">Run Pelican quickstart</a></li>
+<li><a href="#content-of-your-blog">Content of your blog</a></li>
+<li><a href="#push-your-content-to-github">Push your content to Github</a></li>
+</ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
 
-            <p>I've been quite vocal about the benefits of blogging using Markdown, and using a static page generator instead of the conventional CMS. 
+            
+<p>I've been quite vocal about the benefits of blogging using Markdown, and using a static page generator instead of the conventional CMS. 
 But a lot of people I've spoken to have expressed their doubts about the simplicity of the process. 
 I figured if I could fit it in one blog post it should be simple enough, right?</p>
-<h1 id="markdown">Markdown<a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h1>
+<h1 id="markdown">Markdown<a class="headerlink" href="#markdown" title="Permanent link">¶</a></h1>
 <p>Advantages</p>
 <ul>
 <li>Easy to learn - It has almost no syntax. You can learn how to format like in a pro in half an hour</li>
@@ -95,9 +114,9 @@ You can even use your favourite text editor, which is obviously VIM, right?</li>
 </li>
 </ul>
 <p>This is what this post looks like in Markdown. </p>
-<p><img alt="" src="../../images/markdown-example.png" /></p>
+<p><img alt="" src="../../images/markdown-example.png"/></p>
 <p>It really is that simple.</p>
-<h1 id="static-pages">Static pages<a class="headerlink" href="#static-pages" title="Permanent link">&para;</a></h1>
+<h1 id="static-pages">Static pages<a class="headerlink" href="#static-pages" title="Permanent link">¶</a></h1>
 <p>Advantages </p>
 <ul>
 <li>Fast - It loads extremely quickly.</li>
@@ -109,40 +128,32 @@ You can even use your favourite text editor, which is obviously VIM, right?</li>
 <li>Typically required web development experience to make changes to website</li>
 <li>Complicated and a lot of work for a lot of pages e.g. a personal blog</li>
 </ul>
-<h1 id="enter-github-pages-and-pelican">Enter Github pages and Pelican<a class="headerlink" href="#enter-github-pages-and-pelican" title="Permanent link">&para;</a></h1>
+<h1 id="enter-github-pages-and-pelican">Enter Github pages and Pelican<a class="headerlink" href="#enter-github-pages-and-pelican" title="Permanent link">¶</a></h1>
 <p>Github pages takes away from all the disadvantages of static pages, and adds a few pros as well. 
 Version control was a big plus for me. 
 And static site generators like Jekyll and Pelican make it extremely easy to create web content without any actual web development.
 I choose Pelican because it was Python based, and it seemed to have a good selection of themes.</p>
-<h1 id="install-required-packages">Install required packages<a class="headerlink" href="#install-required-packages" title="Permanent link">&para;</a></h1>
+<h1 id="install-required-packages">Install required packages<a class="headerlink" href="#install-required-packages" title="Permanent link">¶</a></h1>
 <div class="highlight"><pre>pip install pelican
 pip install markdown
 pip install ghp-import
 </pre></div>
-
-
 <p>ghp-import is a cli that allows you to easily push your changes to your github repository</p>
 <p>These are optional packages to install that may come in handy later</p>
 <div class="highlight"><pre>pip install Pillow beautifulsoup4 cssmin cssprefixer cssutils pretty six smartypants typogrify webassets
 </pre></div>
-
-
-<h1 id="create-a-github-account-and-a-user-or-project-page">Create a Github account and a User or Project page<a class="headerlink" href="#create-a-github-account-and-a-user-or-project-page" title="Permanent link">&para;</a></h1>
+<h1 id="create-a-github-account-and-a-user-or-project-page">Create a Github account and a User or Project page<a class="headerlink" href="#create-a-github-account-and-a-user-or-project-page" title="Permanent link">¶</a></h1>
 <p><a href="http://pages.github.com/">Github pages</a> has instructions on how to create a User or Project page, and will in fact walk you through the process. 
 If you create a User page, your website will be live at <code>$GHUSERNAME</code>.github.io and a Project page will go up at <code>$GHUSERNAME</code>.github.io/<code>$PROJECTNAME</code>. 
 The rest of this blog assumes you want to create a User page.</p>
-<h1 id="create-a-directory-for-your-website">Create a directory for your website<a class="headerlink" href="#create-a-directory-for-your-website" title="Permanent link">&para;</a></h1>
+<h1 id="create-a-directory-for-your-website">Create a directory for your website<a class="headerlink" href="#create-a-directory-for-your-website" title="Permanent link">¶</a></h1>
 <p>Assuming <code>$GHUSERNAME</code> is your github username, run the following commands. You can rename the 'website' folder to anything you want. </p>
 <div class="highlight"><pre><span class="x">git clone https://github.com/</span><span class="p">$</span><span class="nv">GHUSERNAME</span><span class="x">/</span><span class="p">$</span><span class="nv">GHUSERNAME</span><span class="p">.</span><span class="nv">github</span><span class="p">.</span><span class="nv">io</span><span class="x">/ website</span>
 <span class="x">cd website</span>
 </pre></div>
-
-
-<h1 id="run-pelican-quickstart">Run Pelican quickstart<a class="headerlink" href="#run-pelican-quickstart" title="Permanent link">&para;</a></h1>
+<h1 id="run-pelican-quickstart">Run Pelican quickstart<a class="headerlink" href="#run-pelican-quickstart" title="Permanent link">¶</a></h1>
 <div class="highlight"><pre>pelican-quickstart
 </pre></div>
-
-
 <p>This is what you might get. Answer all the questions</p>
 <div class="highlight"><pre>➜  website  pelican-quickstart
 
@@ -175,14 +186,10 @@ Done. Your new project is available at /path/to/website
 
 ➜  website
 </pre></div>
-
-
-<h1 id="content-of-your-blog">Content of your blog<a class="headerlink" href="#content-of-your-blog" title="Permanent link">&para;</a></h1>
+<h1 id="content-of-your-blog">Content of your blog<a class="headerlink" href="#content-of-your-blog" title="Permanent link">¶</a></h1>
 <p>Create an sample post.</p>
 <div class="highlight"><pre>vim content/example.md
 </pre></div>
-
-
 <p>Type in the following and save it.</p>
 <div class="highlight"><pre><span class="n">Title</span><span class="o">:</span> <span class="n">My</span> <span class="n">First</span> <span class="n">Post</span>
 <span class="n">Date</span><span class="o">:</span> <span class="mi">2015</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="o">:</span><span class="mi">20</span>
@@ -190,26 +197,18 @@ Done. Your new project is available at /path/to/website
 
 <span class="n">Hello</span> <span class="n">world</span><span class="o">.</span>
 </pre></div>
-
-
 <p>Type the following to convert all your markdown or ReST posts to HTML. </p>
 <div class="highlight"><pre>make html
 </pre></div>
-
-
 <p>You can also type the following to serve a local version of your site to view the output of your hardwork</p>
 <div class="highlight"><pre>make serve
 </pre></div>
-
-
 <p>This will be visible at localhost:8000 by default.</p>
-<h1 id="push-your-content-to-github">Push your content to Github<a class="headerlink" href="#push-your-content-to-github" title="Permanent link">&para;</a></h1>
+<h1 id="push-your-content-to-github">Push your content to Github<a class="headerlink" href="#push-your-content-to-github" title="Permanent link">¶</a></h1>
 <p>If you installed everything correctly, you can type the following to push your website to your Github repository.
 You need to have ghp-import installed for this to work.</p>
 <div class="highlight"><pre>make github
 </pre></div>
-
-
 <p>You are done! If you have any questions regarding any of this, you can shoot me questions in the comments below.</p>
 <section>
 <p id="comment-message">So what do you think? Leave your comments below. </p>
