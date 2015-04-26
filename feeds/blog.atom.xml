@@ -1,5 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/blog.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-04-01T00:00:00+02:00</updated><entry><title>Mac OSX Productivity Apps</title><link href="http://kdheepak.com/blog/mac-osx-productivity-apps/" rel="alternate"></link><updated>2015-04-01T00:00:00+02:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-01:blog/mac-osx-productivity-apps/</id><summary type="html">&lt;h2 id="1-alfred"&gt;1. Alfred&lt;a class="headerlink" href="#1-alfred" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/blog.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-04-24T19:00:00+02:00</updated><entry><title>How to set up a Pelican blog with Github pages</title><link href="http://kdheepak.com/blog/how-to-set-up-a-pelican-blog-with-github-pages/" rel="alternate"></link><updated>2015-04-24T19:00:00+02:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-24:blog/how-to-set-up-a-pelican-blog-with-github-pages/</id><summary type="html">&lt;p&gt;I've been quite vocal about the benefits of blogging using Markdown, and using a static page generator instead of the conventional CMS. 
+But a lot of people I've spoken to have expressed their doubts about the simplicity of the process. 
+I figured if I could fit it in one blog post it should be simple enough, right?&lt;/p&gt;
+&lt;h1 id="markdown"&gt;Markdown&lt;a class="headerlink" href="#markdown" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Advantages&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Easy to learn - It has almost no syntax. You can learn how to format like in a pro in half an hour&lt;/li&gt;
+&lt;li&gt;Fast - You don't have to deal with HTML tags or WYSIWYG editors. &lt;/li&gt;
+&lt;li&gt;Platform independent - You can edit your blog posts from anywhere, be it on your PC, tablet or mobile device. 
+You can even use your favourite text editor, which is obviously VIM, right?&lt;/li&gt;
+&lt;li&gt;Markdown handles all of the following beautifully:&lt;ul&gt;
+&lt;li&gt;lists&lt;/li&gt;
+&lt;li&gt;links&lt;/li&gt;
+&lt;li&gt;headers&lt;/li&gt;
+&lt;li&gt;blockquotes&lt;/li&gt;
+&lt;li&gt;bold and emphasized text&lt;/li&gt;
+&lt;li&gt;blockquotes&lt;/li&gt;
+&lt;li&gt;code blocks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is what this post looks like in Markdown. &lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="../../images/markdown-example.png" /&gt;&lt;/p&gt;
+&lt;p&gt;It really is that simple.&lt;/p&gt;
+&lt;h1 id="static-pages"&gt;Static pages&lt;a class="headerlink" href="#static-pages" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Advantages &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fast - It loads extremely quickly.&lt;/li&gt;
+&lt;li&gt;Portable - You can easily move from a server space and deployed elsewhere&lt;/li&gt;
+&lt;li&gt;Cheaper - It is cost effective for a small website / personal blogs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Disadvantages &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Typically required web development experience to make changes to website&lt;/li&gt;
+&lt;li&gt;Complicated and a lot of work for a lot of pages e.g. a personal blog&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="enter-github-pages-and-pelican"&gt;Enter Github pages and Pelican&lt;a class="headerlink" href="#enter-github-pages-and-pelican" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Github pages takes away from all the disadvantages of static pages, and adds a few pros as well. 
+Version control was a big plus for me. 
+And static site generators like Jekyll and Pelican make it extremely easy to create web content without any actual web development.
+I choose Pelican because it was Python based, and it seemed to have a good selection of themes.&lt;/p&gt;
+&lt;h1 id="install-required-packages"&gt;Install required packages&lt;a class="headerlink" href="#install-required-packages" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pip install pelican
+pip install markdown
+pip install ghp-import
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;ghp-import is a cli that allows you to easily push your changes to your github repository&lt;/p&gt;
+&lt;p&gt;These are optional packages to install that may come in handy later&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pip install Pillow beautifulsoup4 cssmin cssprefixer cssutils pretty six smartypants typogrify webassets
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1 id="create-a-github-account-and-a-user-or-project-page"&gt;Create a Github account and a User or Project page&lt;a class="headerlink" href="#create-a-github-account-and-a-user-or-project-page" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://pages.github.com/"&gt;Github pages&lt;/a&gt; has instructions on how to create a User or Project page, and will in fact walk you through the process. 
+If you create a User page, your website will be live at &lt;code&gt;$GHUSERNAME&lt;/code&gt;.github.io and a Project page will go up at &lt;code&gt;$GHUSERNAME&lt;/code&gt;.github.io/&lt;code&gt;$PROJECTNAME&lt;/code&gt;. 
+The rest of this blog assumes you want to create a User page.&lt;/p&gt;
+&lt;h1 id="create-a-directory-for-your-website"&gt;Create a directory for your website&lt;a class="headerlink" href="#create-a-directory-for-your-website" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Assuming $GHUSERNAME is your github username, run the following commands. You can rename the 'website' folder to anything you want. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="x"&gt;git clone https://github.com/&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;GHUSERNAME&lt;/span&gt;&lt;span class="x"&gt;/&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;GHUSERNAME&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nv"&gt;github&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nv"&gt;io&lt;/span&gt;&lt;span class="x"&gt;/ website&lt;/span&gt;
+&lt;span class="x"&gt;cd website&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1 id="run-pelican-quickstart"&gt;Run Pelican quickstart&lt;a class="headerlink" href="#run-pelican-quickstart" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pelican-quickstart
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is what you might get. Answer all the questions&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;➜  website  pelican-quickstart
+
+Welcome to pelican-quickstart v3.5.0.
+
+This script will help you create a new Pelican-based website.
+
+Please answer the following questions so this script can generate the files
+needed by Pelican.
+
+
+&amp;gt; Where do you want to create your new web site? [.] 
+&amp;gt; What will be the title of this web site? Dheepak Krishnamurthy
+&amp;gt; Who will be the author of this web site? Dheepak Krishnamurthy
+&amp;gt; What will be the default language of this web site? [en] 
+&amp;gt; Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) Y
+&amp;gt; What is your URL prefix? (see above example; no trailing slash) http://kdheepak.com
+&amp;gt; Do you want to enable article pagination? (Y/n) Y
+&amp;gt; How many articles per page do you want? [10] 
+&amp;gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) Y
+&amp;gt; Do you want an auto-reload &amp;amp; simpleHTTP script to assist with theme and site development? (Y/n) Y
+&amp;gt; Do you want to upload your website using FTP? (y/N) N
+&amp;gt; Do you want to upload your website using SSH? (y/N) N
+&amp;gt; Do you want to upload your website using Dropbox? (y/N) N
+&amp;gt; Do you want to upload your website using S3? (y/N) N
+&amp;gt; Do you want to upload your website using Rackspace Cloud Files? (y/N) N
+&amp;gt; Do you want to upload your website using GitHub Pages? (y/N) Y
+&amp;gt; Is this your personal page (username.github.io)? (y/N) Y
+Done. Your new project is available at /path/to/website
+
+➜  website
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1 id="content-of-your-blog"&gt;Content of your blog&lt;a class="headerlink" href="#content-of-your-blog" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Create an sample post.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;vim content/example.md
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Type in the following and save it.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Title&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;My&lt;/span&gt; &lt;span class="n"&gt;First&lt;/span&gt; &lt;span class="n"&gt;Post&lt;/span&gt;
+&lt;span class="n"&gt;Date&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2015&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;23&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;
+&lt;span class="n"&gt;Category&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Example&lt;/span&gt;
+
+&lt;span class="n"&gt;Hello&lt;/span&gt; &lt;span class="n"&gt;world&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Type the following to convert all your markdown or ReST posts to HTML. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;make html
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can also type the following to serve a local version of your site to view the output of your hardwork&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;make serve
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will be visible at localhost:8000 by default.&lt;/p&gt;
+&lt;h1 id="push-your-content-to-github"&gt;Push your content to Github&lt;a class="headerlink" href="#push-your-content-to-github" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;If you installed everything correctly, you can type the following to push your website to your Github repository.
+You need to have ghp-import installed for this to work.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;make github
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You are done! If you have any questions regarding any of this, you can shoot me questions in the comments below.&lt;/p&gt;</summary></entry><entry><title>Mac OSX Productivity Apps</title><link href="http://kdheepak.com/blog/mac-osx-productivity-apps/" rel="alternate"></link><updated>2015-04-01T00:00:00+02:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-01:blog/mac-osx-productivity-apps/</id><summary type="html">&lt;h2 id="1-alfred"&gt;1. Alfred&lt;a class="headerlink" href="#1-alfred" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img alt="" src="http://www.alfredapp.com/images/features/main/open_applications_files@2x.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="http://www.alfredapp.com/images/features/sub/calculator_dictionary@2x.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.alfredapp.com/"&gt;http://www.alfredapp.com/&lt;/a&gt;&lt;/p&gt;
