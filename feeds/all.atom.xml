@@ -205,126 +205,207 @@ You need to have ghp-import installed for this to work.&lt;/p&gt;
 &lt;h2 id="13-homebrew"&gt;13. Homebrew&lt;a class="headerlink" href="#13-homebrew" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class="k"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>Mac OSX Tweaks</title><link href="http://kdheepak.com/blog/mac-osx-tweaks/" rel="alternate"></link><updated>2015-03-21T19:00:00+01:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-03-21:blog/mac-osx-tweaks/</id><summary type="html">&lt;h1 id="update"&gt;Update&lt;a class="headerlink" href="#update" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;I've decided to a repo &lt;a href="https://github.com/kdheepak89/dotfiles/blob/master/.osx"&gt;here&lt;/a&gt; instead. &lt;/p&gt;
+&lt;p&gt;I've decided to maintain a repo &lt;a href="https://github.com/kdheepak89/dotfiles/blob/master/.osx"&gt;here&lt;/a&gt; instead. &lt;/p&gt;
+&lt;hr /&gt;
 &lt;h1 id="general-ui"&gt;General UI&lt;a class="headerlink" href="#general-ui" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# Disable Dashboard&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dashboard&lt;/span&gt; &lt;span class="n"&gt;mcx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;disabled&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;# Disable Dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
 
-&lt;span class="cp"&gt;# Don’t show Dashboard as a Space&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dock&lt;/span&gt; &lt;span class="n"&gt;dashboard&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;in&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;overlay&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+# Don’t show Dashboard as a Space
+defaults write com.apple.dock dashboard-in-overlay -bool true
 
-&lt;span class="cp"&gt;# disable automatic spell checking&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="n"&gt;NSAllowContinuousSpellChecking&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;
+# disable automatic spell checking
+defaults write -g NSAllowContinuousSpellChecking -bool false
 
-&lt;span class="cp"&gt;# don&amp;#39;t treat period or colon as part of words&lt;/span&gt;
-&lt;span class="cp"&gt;# en_US_POSIX corresponds to the &amp;quot;United States (Computer)&amp;quot; setting that was shown in System Preferences in 10.8 and earlier&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="n"&gt;AppleTextBreakLocale&lt;/span&gt; &lt;span class="n"&gt;en_US_POSIX&lt;/span&gt;
+# don&amp;#39;t treat period or colon as part of words
+# en_US_POSIX corresponds to the &amp;quot;United States (Computer)&amp;quot; setting that was shown in System Preferences in 10.8 and earlier
+defaults write -g AppleTextBreakLocale en_US_POSIX
 
-&lt;span class="cp"&gt;# Disable the sound effects on boot&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;nvram&lt;/span&gt; &lt;span class="n"&gt;SystemAudioVolume&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot; &amp;quot;&lt;/span&gt;
+# Disable the sound effects on boot
+sudo nvram SystemAudioVolume=&amp;quot; &amp;quot;
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;h1 id="disks"&gt;Disks&lt;a class="headerlink" href="#disks" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# Disks: disable Time Machine prompts&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TimeMachine&lt;/span&gt; &lt;span class="n"&gt;DoNotOfferNewDisksForBackup&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;# Disks: disable Time Machine prompts
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
-&lt;span class="cp"&gt;# Disks: disable local Time Machine backups&lt;/span&gt;
-&lt;span class="n"&gt;hash&lt;/span&gt; &lt;span class="n"&gt;tmutil&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;null&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;tmutil&lt;/span&gt; &lt;span class="n"&gt;disablelocal&lt;/span&gt;
+# Disks: disable local Time Machine backups
+hash tmutil &amp;amp;&amp;gt; /dev/null &amp;amp;&amp;amp; sudo tmutil disablelocal
 
-&lt;span class="cp"&gt;# Disks: disable disk image verification&lt;/span&gt;
-&lt;span class="cp"&gt;# defaults write com.apple.frameworks.diskimages skip-verify -bool true&lt;/span&gt;
-&lt;span class="cp"&gt;# defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true&lt;/span&gt;
-&lt;span class="cp"&gt;# defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true&lt;/span&gt;
+# Disks: disable disk image verification
+# defaults write com.apple.frameworks.diskimages skip-verify -bool true
+# defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
+# defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 
-&lt;span class="cp"&gt;# don&amp;#39;t save .DS_Store files on network volumes&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;desktopservices&lt;/span&gt; &lt;span class="n"&gt;DSDontWriteNetworkStores&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+# don&amp;#39;t save .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
-&lt;span class="cp"&gt;# Expand save panel by default&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;NSGlobalDomain&lt;/span&gt; &lt;span class="n"&gt;NSNavPanelExpandedStateForSaveMode&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
-&lt;span class="cp"&gt;# Don’t automatically rearrange Spaces based on most recent use&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dock&lt;/span&gt; &lt;span class="n"&gt;mru&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;spaces&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;
+# Don’t automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;h1 id="keyboard"&gt;Keyboard&lt;a class="headerlink" href="#keyboard" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# Set a blazingly fast keyboard repeat rate&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;NSGlobalDomain&lt;/span&gt; &lt;span class="n"&gt;KeyRepeat&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;# Set a blazingly fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 0
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;h1 id="finder"&gt;Finder&lt;a class="headerlink" href="#finder" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# Disable automatic termination of inactive apps&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;NSGlobalDomain&lt;/span&gt; &lt;span class="n"&gt;NSDisableAutomaticTermination&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;# Disable automatic termination of inactive apps
+defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 
-&lt;span class="cp"&gt;# Finder: disable window animations and Get Info animations&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;finder&lt;/span&gt; &lt;span class="n"&gt;DisableAllAnimations&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+# Finder: disable window animations and Get Info animations
+defaults write com.apple.finder DisableAllAnimations -bool true
 
-&lt;span class="cp"&gt;# Finder: show all filename extensions&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;NSGlobalDomain&lt;/span&gt; &lt;span class="n"&gt;AppleShowAllExtensions&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+# Finder: show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
-&lt;span class="cp"&gt;# Disable the warning when changing a file extension&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;finder&lt;/span&gt; &lt;span class="n"&gt;FXEnableExtensionChangeWarning&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;
+# Disable the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-&lt;span class="cp"&gt;# Save to disk (not to iCloud) by default&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;NSGlobalDomain&lt;/span&gt; &lt;span class="n"&gt;NSDocumentSaveNewDocumentsToCloud&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;
+# Save to disk (not to iCloud) by default
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
-&lt;span class="cp"&gt;# Finder: disable window and Get Info animations&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;finder&lt;/span&gt; &lt;span class="n"&gt;DisableAllAnimations&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+# Finder: disable window and Get Info animations
+defaults write com.apple.finder DisableAllAnimations -bool true
 
-&lt;span class="cp"&gt;# Finder: show the ~/Library folder (in OS X Lion)&lt;/span&gt;
-&lt;span class="n"&gt;chflags&lt;/span&gt; &lt;span class="n"&gt;nohidden&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;Library&lt;/span&gt;
+# Finder: show the ~/Library folder (in OS X Lion)
+chflags nohidden ~/Library
 
-&lt;span class="cp"&gt;# Finder: empty Trash securely by default&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;finder&lt;/span&gt; &lt;span class="n"&gt;EmptyTrashSecurely&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+# Finder: empty Trash securely by default
+defaults write com.apple.finder EmptyTrashSecurely -bool true
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;h1 id="dock-hot-corners"&gt;Dock &amp;amp; hot corners&lt;a class="headerlink" href="#dock-hot-corners" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# Autohide the Dock&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dock&lt;/span&gt; &lt;span class="n"&gt;autohide&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;# Autohide the Dock
+defaults write com.apple.dock autohide -bool true
 
-&lt;span class="cp"&gt;# Magnify Dock icons on hover&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dock&lt;/span&gt; &lt;span class="n"&gt;magnification&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;
+# Magnify Dock icons on hover
+defaults write com.apple.dock magnification -bool false
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;h1 id="panels"&gt;Panels&lt;a class="headerlink" href="#panels" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# Panels: expand save panel by default&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;NSGlobalDomain&lt;/span&gt; &lt;span class="n"&gt;NSNavPanelExpandedStateForSaveMode&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;# Panels: expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
-&lt;span class="cp"&gt;# Panels: expand print panel by default&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;NSGlobalDomain&lt;/span&gt; &lt;span class="n"&gt;PMPrintingExpandedStateForPrint&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+# Panels: expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 
-&lt;span class="cp"&gt;# Panels: disable the “Are you sure you want to open this application?” dialog&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LaunchServices&lt;/span&gt; &lt;span class="n"&gt;LSQuarantine&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;
+# Panels: disable the “Are you sure you want to open this application?” dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-&lt;span class="cp"&gt;# Panels: enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;NSGlobalDomain&lt;/span&gt; &lt;span class="n"&gt;AppleKeyboardUIMode&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+# Panels: enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;h1 id="screen"&gt;Screen&lt;a class="headerlink" href="#screen" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# Screen: save screenshots to the desktop&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;screencapture&lt;/span&gt; &lt;span class="n"&gt;location&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;$HOME/Desktop&amp;quot;&lt;/span&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; Screen: save screenshots to the desktop&lt;/span&gt;
+&lt;span class="x"&gt;defaults write com.apple.screencapture location -string &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;HOME&lt;/span&gt;&lt;span class="x"&gt;/Desktop&amp;quot;&lt;/span&gt;
 
-&lt;span class="cp"&gt;# Screen: disable shadow in screenshots&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;screencapture&lt;/span&gt; &lt;span class="n"&gt;disable&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;shadow&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; Screen: disable shadow in screenshots&lt;/span&gt;
+&lt;span class="x"&gt;defaults write com.apple.screencapture disable-shadow -bool true&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;h1 id="misc"&gt;Misc&lt;a class="headerlink" href="#misc" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# Misc: only use UTF-8 in Terminal.app&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;terminal&lt;/span&gt; &lt;span class="n"&gt;StringEncodings&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;# Misc: only use UTF-8 in Terminal.app
+defaults write com.apple.terminal StringEncodings -array 4
 
-&lt;span class="cp"&gt;# Misc: disable Dictionary results&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;spotlight&lt;/span&gt; &lt;span class="n"&gt;DictionaryLookupEnabled&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;
+# Misc: disable Dictionary results
+defaults write com.apple.spotlight DictionaryLookupEnabled -bool false
 
-&lt;span class="cp"&gt;# Misc: disable auto-correct&lt;/span&gt;
-&lt;span class="n"&gt;defaults&lt;/span&gt; &lt;span class="n"&gt;write&lt;/span&gt; &lt;span class="n"&gt;NSGlobalDomain&lt;/span&gt; &lt;span class="n"&gt;NSAutomaticSpellingCorrectionEnabled&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;
+# Misc: disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;!---
 {% comment %} 
