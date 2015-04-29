@@ -46,6 +46,22 @@
         }
         init_mathjax();
         </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $("div.collapseheader").click(function () {
+            $header = $(this).children("span").first();
+            $codearea = $(this).children(".input_area");
+            console.log($(this).children());
+            $codearea.slideToggle(500, function () {
+                $header.text(function () {
+                    return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
+                });
+            });
+        });
+        });
+        </script>
         <script type="text/javascript"
         src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
         </script>
@@ -120,7 +136,7 @@
                     <div class="accordion-inner">
                         <ul class="list-articles-category">
  
-                            <li><time pubdate="pubdate" datetime="2015-04-28T00:00:00+02:00">Tue 28 April 2015</time><a href="http://kdheepak.com/blog/active-reactive-and-apparent-power/">Active, Reactive and Apparent Power  </a></li>
+                            <li><time pubdate="pubdate" datetime="2015-04-29T00:00:00+02:00">Wed 29 April 2015</time><a href="http://kdheepak.com/blog/active-reactive-and-apparent-power/">Active, Reactive and Apparent Power  </a></li>
  
                             <li><time pubdate="pubdate" datetime="2015-04-24T19:00:00+02:00">Fri 24 April 2015</time><a href="http://kdheepak.com/blog/how-to-set-up-a-pelican-blog-with-github-pages/">How to set up a Pelican blog with Github pages  </a></li>
  

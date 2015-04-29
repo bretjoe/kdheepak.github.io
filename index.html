@@ -45,6 +45,22 @@
         }
         init_mathjax();
         </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $("div.collapseheader").click(function () {
+            $header = $(this).children("span").first();
+            $codearea = $(this).children(".input_area");
+            console.log($(this).children());
+            $codearea.slideToggle(500, function () {
+                $header.text(function () {
+                    return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
+                });
+            });
+        });
+        });
+        </script>
         <script type="text/javascript"
         src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
         </script>
@@ -147,7 +163,7 @@ On this website, I intend to share interesting projects I’m currently working 
                     posted in
                 <a href="http://kdheepak.com/categories.html#blog-ref">blog</a>
                 <div class="recent-posts-time">
-                <time pubdate="pubdate" datetime="2015-04-28T00:00:00+02:00">Tue 28 April 2015</time>
+                <time pubdate="pubdate" datetime="2015-04-29T00:00:00+02:00">Wed 29 April 2015</time>
                 </div>
                 </section>
             </article>
