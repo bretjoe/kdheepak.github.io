@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/blog.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-04-29T00:00:00+02:00</updated><entry><title>Active, Reactive and Apparent Power</title><link href="http://kdheepak.com/blog/active-reactive-and-apparent-power/" rel="alternate"></link><updated>2015-04-29T00:00:00+02:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-29:blog/active-reactive-and-apparent-power/</id><summary type="html">&lt;p&gt;This post covers the basics of the types of Power in power systems. This post was generated from an iPython Notebook&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/blog.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-05-01T19:00:00+02:00</updated><entry><title>Active, Reactive and Apparent Power</title><link href="http://kdheepak.com/blog/active-reactive-and-apparent-power/" rel="alternate"></link><updated>2015-05-01T19:00:00+02:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-29:blog/active-reactive-and-apparent-power/</id><summary type="html">&lt;p&gt;This post covers the basics of the types of Power in power systems. This post was generated from an iPython Notebook&lt;/p&gt;
 &lt;p&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
@@ -2239,11 +2239,10 @@ AAAASUVORK5CYII=
 &lt;p&gt;$p = \frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t) + \frac{V_{max}I_{max}}{2} \sin 2\omega t \sin \theta $&lt;/p&gt;
 &lt;p&gt;The first term can be rewritten as&lt;/p&gt;
 &lt;p&gt;$\frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t)$&lt;/p&gt;
-&lt;p&gt;$\frac{V_{max}I_{max}}{2} \cos\theta \cos^2 \omega t$&lt;/p&gt;
-&lt;p&gt;$\frac{V_{max}\cos \omega t}{\sqrt{2}} \frac{I_{max}\cos\theta\cos \omega t}{\sqrt{2}}$&lt;/p&gt;
-&lt;p&gt;$|V|\cos \omega t \times |I|\cos \omega t \cos\theta$&lt;/p&gt;
+&lt;p&gt;$V_{max}I_{max} \cos\theta \cos^2 \omega t$&lt;/p&gt;
+&lt;p&gt;$V_{max}\cos \omega t \times I_{max}\cos\theta\cos \omega t$&lt;/p&gt;
 &lt;p&gt;Similarly the second term can be rewritten as&lt;/p&gt;
-&lt;p&gt;$|V|\cos \omega t \times |I|\sin \omega t \sin\theta$&lt;/p&gt;
+&lt;p&gt;$V_{max}\cos \omega t \times I_{max}\sin \omega t \sin\theta$&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2254,9 +2253,18 @@ AAAASUVORK5CYII=
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;From the above figure we can see that power can be written as&lt;/p&gt;
-&lt;p&gt;$P = v_{a} \times i_{R}$&lt;/p&gt;
-&lt;p&gt;$Q = v_{a} \times i_{X}$&lt;/p&gt;
-&lt;p&gt;$P$ or active power or real power is the power that is dissipated in the resistor, in the form of heat energy. $Q$ or reactive power is the power that oscillates between the source and inductor or the capacitor. 
+&lt;p&gt;$p_{active} = v_{a} \times i_{R}$&lt;/p&gt;
+&lt;p&gt;$p_{reactive} = v_{a} \times i_{X}$&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="Special-cases"&gt;Special cases&lt;a class="anchor-link" href="#Special-cases"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;$P$ or active power or real power is the power that is dissipated in the resistor, in the form of heat energy. $Q$ or reactive power is the power that oscillates between the source and inductor or the capacitor. 
 And $\theta$ is determined by the nature of the impedance.&lt;/p&gt;
 &lt;p&gt;Let's look at three cases&lt;/p&gt;
 
@@ -2268,7 +2276,7 @@ And $\theta$ is determined by the nature of the impedance.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Case-1-:-$\theta$-is-zero"&gt;Case 1 : $\theta$ is zero&lt;a class="anchor-link" href="#Case-1-:-$\theta$-is-zero"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
+&lt;h3 id="Case-1-:-$\theta$-is-zero"&gt;Case 1 : $\theta$ is zero&lt;a class="anchor-link" href="#Case-1-:-$\theta$-is-zero"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3116,7 +3124,7 @@ Vfv/LHPJ6k9XvboAAAAASUVORK5CYII=
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Case-2-:-$\theta$-is-90"&gt;Case 2 : $\theta$ is 90&lt;a class="anchor-link" href="#Case-2-:-$\theta$-is-90"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
+&lt;h3 id="Case-2-:-$\theta$-is-90"&gt;Case 2 : $\theta$ is 90&lt;a class="anchor-link" href="#Case-2-:-$\theta$-is-90"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3125,7 +3133,7 @@ Vfv/LHPJ6k9XvboAAAAASUVORK5CYII=
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;$\theta$ is 90, the load is purely inductive&lt;/p&gt;
+&lt;p&gt;When $\theta$ is 90, the load is purely inductive&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3945,7 +3953,7 @@ ImlNwVdERERERETS2v8BxKRZEitj2LAAAAAASUVORK5CYII=
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Case-3-:-$\theta$-is--90"&gt;Case 3 : $\theta$ is -90&lt;a class="anchor-link" href="#Case-3-:-$\theta$-is--90"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
+&lt;h3 id="Case-3-:-$\theta$-is--90"&gt;Case 3 : $\theta$ is -90&lt;a class="anchor-link" href="#Case-3-:-$\theta$-is--90"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3954,7 +3962,7 @@ ImlNwVdERERERETS2v8BxKRZEitj2LAAAAAASUVORK5CYII=
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Let us assume $\theta$ is -90, the load is purely capacitive&lt;/p&gt;
+&lt;p&gt;When $\theta$ is -90, the load is purely capacitive&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
