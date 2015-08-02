@@ -217,6 +217,16 @@ $(window).scroll(function() {
 </script>
 
 <script>
+$(".fixed-action-btn").hover(function(){
+    $('.fixed-action-btn .btn-large .material-icons').text('description');
+    $('.fixed-action-btn.scrolled .btn-large .material-icons').text('keyboard_arrow_up');
+    }, function(){
+        $('.fixed-action-btn .btn-large .material-icons').text('keyboard_arrow_right');
+        $('.fixed-action-btn.scrolled .btn-large .material-icons').text('keyboard_arrow_up');
+});
+</script>
+
+<script>
 // jQuery to change FAB
 $(window).scroll(function() {
         var scroll = $(window).scrollTop();
@@ -238,6 +248,16 @@ $(window).scroll(function() {
         $('.fixed-action-btn a.btn-large i').removeClass('md-light');
         $('.fixed-action-btn a.btn-large i').addClass('md-dark');
     }
+});
+</script>
+
+<script>
+$(".fixed-action-btn").hover(function(){
+    $('.fixed-action-btn .btn-large .material-icons').text('description');
+    $('.fixed-action-btn.scrolled .btn-large .material-icons').text('keyboard_arrow_up');
+    }, function(){
+        $('.fixed-action-btn .btn-large .material-icons').text('keyboard_arrow_right');
+        $('.fixed-action-btn.scrolled .btn-large .material-icons').text('keyboard_arrow_up');
 });
 </script>
 
