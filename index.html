@@ -1,52 +1,48 @@
 <!DOCTYPE html>
-<html lang="en-US">
-    <head>
-        <meta charset="utf-8"> 
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Dheepak Krishnamurthy" />
-        <meta name="copyright" content="Dheepak Krishnamurthy" />
+<html lang="en">
 
-        <meta name="description" content="My name is Dheepak Krishnamurthy. This is my personal blog." />
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="My name is Dheepak Krishnamurthy. This is my personal blog." />
+   
+
+    <meta name="author" content="Dheepak Krishnamurthy" />
+    <meta name="copyright" content="Dheepak Krishnamurthy" />
+
+
         <meta name="twitter:creator" content="@kdheepak89">
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta property="og:title" content="I’m an engineer."/>
-<meta name="twitter:title" content="I’m an engineer.">
-<meta property="og:url" content="http://kdheepak.com" />
-<meta property="og:description" content="My name is Dheepak Krishnamurthy. This is my personal blog." />
-<meta name="twitter:description" content="My name is Dheepak Krishnamurthy. This is my personal blog.">
-<meta property="og:site_name" content="Dheepak Krishnamurthy" />
-<meta property="og:article:author" content="Dheepak Krishnamurthy" />
-<meta property="og:image" content="/theme/images/apple-touch-icon-152x152.png" />
-<meta name="twitter:image" content="/theme/images/apple-touch-icon-152x152.png" >
-        <title>Dheepak Krishnamurthy
-</title>
-        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
-        <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-        <script type="text/javascript">
-        init_mathjax = function() {
-            if (window.MathJax) {
-                // MathJax loaded
-                MathJax.Hub.Config({
-                    tex2jax: {
-                        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                        displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
-                    },
-                    displayAlign: 'left', // Change this to 'center' to center equations.
-                    "HTML-CSS": {
-                        styles: {'.MathJax_Display': {"margin": 0}}
-                    }
-                });
-                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    <title>Dheepak Krishnamurthy</title>
+
+    <!-- iPython Notebook script -->
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+            <script type="text/javascript">
+            init_mathjax = function() {
+                if (window.MathJax) {
+                    // MathJax loaded
+                    MathJax.Hub.Config({
+                        tex2jax: {
+                            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                            displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+                        },
+                        displayAlign: 'left', // Change this to 'center' to center equations.
+                        "HTML-CSS": {
+                            styles: {'.MathJax_Display': {"margin": 0}}
+                        }
+                    });
+                    MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+                }
             }
-        }
-        init_mathjax();
+            init_mathjax();
         </script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+      <!-- iPython Notebook script for collapsing and expanding code -->
         <script type="text/javascript">
         jQuery(document).ready(function($) {
             $("div.collapseheader").click(function () {
@@ -64,18 +60,33 @@
         <script type="text/javascript"
         src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
         </script>
-<link rel="stylesheet" href="http://kdheepak.com/theme/css/style.min.css?3f67ac0d">
-        <link rel="shortcut icon" href="http://kdheepak.com/theme/images/favicon.ico" type="image/x-icon" type="image/png" />
-        <link rel="icon" href="http://kdheepak.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
-        <link rel="apple-touch-icon" href="http://kdheepak.com/theme/images/apple-touch-icon.png"  type="image/png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="http://kdheepak.com/theme/images/apple-touch-icon-57x57.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="http://kdheepak.com/theme/images/apple-touch-icon-72x72.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="http://kdheepak.com/theme/images/apple-touch-icon-76x76.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="http://kdheepak.com/theme/images/apple-touch-icon-114x114.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="http://kdheepak.com/theme/images/apple-touch-icon-120x120.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="http://kdheepak.com/theme/images/apple-touch-icon-144x144.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="http://kdheepak.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
-        <link href="http://kdheepak.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Dheepak Krishnamurthy - Full Atom Feed" />
+    <!-- Bootstrap Core CSS -->
+    <link href="/theme/css/bootstrap.min.css" rel="stylesheet">
+
+         <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="/theme/css/materialize.min.css">
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+
+    <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link href="/theme/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Fredericka+the+Great|Permanent+Marker|Pacifico|Nova+Round|EB+Garamond|Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+    <!-- Custom CSS -->
+    <link href="/theme/css/pelican-smoothie.css" rel="stylesheet">
+    <link href="/theme/css/pygment.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -85,206 +96,150 @@
     ga('send', 'pageview');
 </script>
 
-<script src="//static.getclicky.com/js" type="text/javascript"></script>
-<script type="text/javascript">try{ clicky.init(100862983); }catch(e){}</script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/100862983ns.gif" /></p></noscript>
 <!-- start Mixpanel --><script type="text/javascript">(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
     for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
-        mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
+mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
     <!-- end Mixpanel -->
 
 <script>
-    mixpanel.track("Page", {"Name": "Home Page" }) ;   
+    mixpanel.track("Page", {"Name": "Home Page" }) ;
 </script>
-    </head>
-    <body>
-        <div id="content-sans-footer">
-        <div class="navbar navbar-static-top">
-            <div class="navbar-inner">
-                <div class="container-fluid">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+<!-- Intro Header -->
+<header class="intro" style="background-image: url(''); background-color: darkblue;">
+    <div class="intro-body">
+        <div class="container">
+            <div class="row">
+                  <div class="col-sm-1 fixed-action-btn">
+                    <ul>
+                      <li><a href='#contact' class="page-scroll btn-floating blue"><i class="material-icons">textsms</i></a></li>
+                      <li><a href='#about' class="page-scroll btn-floating green"><i class="material-icons">info_outline</i></a></li>
+                    </ul>
+                    <a href='/blog' class="btn-floating btn-large white page-scroll">
+                      <i class="material-icons md-dark">keyboard_arrow_right</i>
                     </a>
-                    <a class="brand" href="http://kdheepak.com/"><span class=site-name>Dheepak Krishnamurthy</span></a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav pull-right top-menu">
-                            <li  class="active"><a href="http://kdheepak.com">Home</a></li>
-                            <li ><a href="http://kdheepak.com/categories.html">Categories</a></li>
-                            <li ><a href="http://kdheepak.com/tags.html">Tags</a></li>
-                            <li ><a href="http://kdheepak.com/archives.html">Archives</a></li>
-                            <li><form class="navbar-search" action="http://kdheepak.com/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
-                        </ul>
-                    </div>
+                  </div>
+                <div class="col-sm-10 col-sm-offset-1">
+                    <h1 class="brand-heading">Dheepak Krishnamurthy</h1>
+                    <p class="intro-text">Engineer & Tinkerer.</p>
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span1"></div>
-                <div class="span10">
-<div class="row-fluid">
-    <header class="page-header span12">
-    <h1><a href="http://kdheepak.com">I’m an engineer.</a></h1>
-    </header>
+    </div>
+</header>
 
-    <div class="row-fluid">
-        <div class="span8">
-            <header>
-            <h1 id="about-me">About me</h1>
-            </header>
-            <div class="article-content">
-                <div itemscope itemtype="http://schema.org/Person"><p>My name is <span itemprop="name">Dheepak Krishnamurthy</span>. I’ve dabbled with mobile application and web development, home automation and photography. I’m currently working towards a Master’s degree in Electrical Engineering.
-</p><p> 
+
+<!-- About Section -->
+<section id="about" class="container content-section text-center" href="#">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <h2>About Me</h2>
+            <div itemscope itemtype="http://schema.org/Person"><p>My name is <span itemprop="name">Dheepak Krishnamurthy</span>. I’ve dabbled with mobile application and web development, home automation and photography. I’m currently working towards a Master’s degree in Electrical Engineering.
+</p><p>
 <img src="images/coverPicture.jpg" alt="Alt text! And a picture of me!" style="width:100%">
 </p><p>
 I love reading up on the history of places. My dream is that one day I’d have travelled to every country in the world (Four down, 192 to go!). I love watching movies and having discussions with friends about them. I’ve been on the seemingly never ending quest of completing IMDb’s top 250 movies of all time (An embarrassingly small 91 down, 159 to go). I love reading books and comic books. I love technology an extraordinarily unusual amount and even occasionally contribute to a technology news and media network. Check them out <a href="https://unleashthephones.com/" title="UnleashThePhones.com" itemprop="url">here</a>, they are really cool!
 </p><p>
-On this website, I intend to share interesting projects I’m currently working on or have worked on in the past, also as a way of establishing an archive. If you find anything interesting, feel absolutely free to email me, or contact me on Facebook, Twitter or Google Plus.
+On this website, I intend to share interesting projects I’m currently working on or have worked on in the past, partly also as a way of establishing an archive. If you find anything interesting, feel absolutely free to get in touch with me.
 </p></div>
-            </div>
         </div>
+    </div>
+</section>
 
-        <div class="span4">
-            <header>
-            <h1 id="my-projects">My Projects</h1>
-            </header>
-            <ul class="list-all-articles">
+<!-- Contact Section -->
+<section id="contact" class="container content-section text-center" href="#">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>Contact Me</h2>
+            <p>Feel free to email me if you want to contact me, or to just say hello!</p>
+            <p><a href="mailto:me@kdheepak.com">me@kdheepak.com</a>
+            </p>
+            <ul class="list-inline banner-social-buttons">
                 <li>
-                <a href="https://github.com/kdheepak89" title="Github">Github</a> <span class="proj-desc">My Github page</span>
+                    <a href="http://twitter.com/kdheepak89" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                </li>
+                <li>
+                    <a href="http://github.com/kdheepak89" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                </li>
+                <li>
+                    <a href="https://plus.google.com/+DheepakKrishnamurthy/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
                 </li>
             </ul>
-            <ul class="list-all-articles">
-                <li>
-                <a href="http://kdheepak.com/projects/ames-market-test-bed" title="Ames Market Test Bed">Ames Market Test Bed</a> <span class="proj-desc">The AMES Market Package is an open source software implementation of the AMES Wholesale Power Market Test Bed in Java.</span>
-                </li>
-            </ul>
         </div>
     </div>
+</section>
 
-    <div class="row-fluid">
-        <div class="span12">
-            <header>
-            <h1 id="recent-posts">Recent Posts <a id="allposts" href="http://kdheepak.com/archives.html">all posts</a></h1>
-            </header>
-        <div class="recent-posts">
-            <article>
-                <a href="http://kdheepak.com/blog/active-reactive-and-apparent-power/">Active, Reactive and Apparent Power  </a>
-                <section>
-                    posted in
-                <a href="http://kdheepak.com/categories.html#blog-ref">blog</a>
-                <div class="recent-posts-time">
-                <time pubdate="pubdate" datetime="2015-04-29T19:00:00+02:00">Wed 29 April 2015</time>
-                </div>
-                </section>
-            </article>
-            <article>
-                <a href="http://kdheepak.com/blog/how-to-set-up-a-pelican-blog-with-github-pages/">How to set up a Pelican blog with Github pages  </a>
-                <section>
-                    posted in
-                <a href="http://kdheepak.com/categories.html#blog-ref">blog</a>
-                <div class="recent-posts-time">
-                <time pubdate="pubdate" datetime="2015-04-24T19:00:00+02:00">Fri 24 April 2015</time>
-                </div>
-                </section>
-            </article>
-            <article>
-                <a href="http://kdheepak.com/blog/mac-osx-productivity-apps/">Mac OSX Productivity Apps  </a>
-                <section>
-                    posted in
-                <a href="http://kdheepak.com/categories.html#blog-ref">blog</a>
-                <div class="recent-posts-time">
-                <time pubdate="pubdate" datetime="2015-04-01T19:00:00+02:00">Wed 01 April 2015</time>
-                </div>
-                </section>
-            </article>
-            <article>
-                <a href="http://kdheepak.com/blog/mac-osx-tweaks/">Mac OSX Tweaks  </a>
-                <section>
-                    posted in
-                <a href="http://kdheepak.com/categories.html#blog-ref">blog</a>
-                <div class="recent-posts-time">
-                <time pubdate="pubdate" datetime="2015-03-21T19:00:00+01:00">Sat 21 March 2015</time>
-                </div>
-                </section>
-            </article>
-            <article>
-                <a href="http://kdheepak.com/projects/ames-market-test-bed/">AMES Market Test Bed  </a>
-                <section>
-                    posted in
-                <a href="http://kdheepak.com/categories.html#projects-ref">projects</a>
-                <div class="recent-posts-time">
-                <time pubdate="pubdate" datetime="2014-12-13T10:00:00+01:00">Sat 13 December 2014</time>
-                </div>
-                </section>
-            </article>
-            <article>
-                <a href="http://kdheepak.com/blog/geektool-and-desktop-widgets-in-osx/">Geektool and Desktop Widgets in OSX  </a>
-                <section>
-                    posted in
-                <a href="http://kdheepak.com/categories.html#blog-ref">blog</a>
-                <div class="recent-posts-time">
-                <time pubdate="pubdate" datetime="2014-12-13T10:00:00+01:00">Sat 13 December 2014</time>
-                </div>
-                </section>
-            </article>
-            <article>
-                <a href="http://kdheepak.com/blog/robotics/">Robotics  </a>
-                <section>
-                    posted in
-                <a href="http://kdheepak.com/categories.html#blog-ref">blog</a>
-                <div class="recent-posts-time">
-                <time pubdate="pubdate" datetime="2014-12-13T10:00:00+01:00">Sat 13 December 2014</time>
-                </div>
-                </section>
-            </article>
-            <article>
-                <a href="http://kdheepak.com/blog/tasker-and-google-maps/">Tasker and Google Maps  </a>
-                <section>
-                    posted in
-                <a href="http://kdheepak.com/categories.html#blog-ref">blog</a>
-                <div class="recent-posts-time">
-                <time pubdate="pubdate" datetime="2014-12-13T10:00:00+01:00">Sat 13 December 2014</time>
-                </div>
-                </section>
-            </article>
-            <article>
-                <a href="http://kdheepak.com/blog/home-monitoring-system/">Home monitoring system  </a>
-                <section>
-                    posted in
-                <a href="http://kdheepak.com/categories.html#blog-ref">blog</a>
-                <div class="recent-posts-time">
-                <time pubdate="pubdate" datetime="2014-12-13T09:00:00+01:00">Sat 13 December 2014</time>
-                </div>
-                </section>
-            </article>
-        </div>
-        </div>
+    <!-- Footer -->
+    <footer>
+    <div id="footer" class="container text-center">
+            <div xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/" about="http://kdheepak.com/"> All content by Dheepak Krishnamurthy on this page is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</div>
     </div>
-</div>
-                </div>
-                <div class="span1"></div>
-            </div>
-        </div>
-        <div id="push"></div>
-    </div>
-<footer>
-<div id="footer">
-    <ul class="footer-content">
-        <li class="elegant-license"><div xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/" about="http://kdheepak.com/"> All content by Dheepak Krishnamurthy on this page is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</div></li>
-        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
-    </ul>
-</div>
-</footer>        <script src="http://code.jquery.com/jquery.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-        <script>
-            function validateForm(query)
-            {
-                return (query.length > 0);
-            }
-        </script>
-    </body>
-    <!-- Theme: Elegant built for Pelican
-    License : http://oncrashreboot.com/pelican-elegant -->
+    </footer>
+
+    <!-- jQuery -->
+    <script src="/theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/theme/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/theme/js/jquery.easing.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/theme/js/pelican-smoothie.js"></script>
+    
+<script>
+// jQuery to change FAB
+$(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+      if (scroll + 150 > $('.fixed-action-btn').offset().top ) {
+        $(".fixed-action-btn").addClass("scrolled");
+        $(".fixed-action-btn a.btn-large").attr("href", "#page-top")
+        $('.fixed-action-btn .btn-large .material-icons').text('keyboard_arrow_up');
+        $('.fixed-action-btn .btn-large').addClass('customcolor');
+        $('.fixed-action-btn .btn-large').removeClass('white');
+        $('.fixed-action-btn a.btn-large i').addClass('md-light');
+        $('.fixed-action-btn a.btn-large i').removeClass('md-dark');
+    }
+      if ( $('.fixed-action-btn').offset().top < 150 + 150 ) {
+        $(".fixed-action-btn").removeClass("scrolled");
+        $(".fixed-action-btn a.btn-large").attr("href", "/blog")
+        $('.fixed-action-btn .btn-large .material-icons').text('keyboard_arrow_right');
+        $('.fixed-action-btn .btn-large').removeClass('customcolor');
+        $('.fixed-action-btn .btn-large').addClass('white');
+        $('.fixed-action-btn a.btn-large i').removeClass('md-light');
+        $('.fixed-action-btn a.btn-large i').addClass('md-dark');
+    }
+});
+</script>
+
+<script>
+// jQuery to change FAB
+$(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+      if (scroll + 150 > $('.fixed-action-btn').offset().top ) {
+        $(".fixed-action-btn").addClass("scrolled");
+        $(".fixed-action-btn a.btn-large").attr("href", "#page-top")
+        $('.fixed-action-btn .btn-large .material-icons').text('keyboard_arrow_up');
+        $('.fixed-action-btn .btn-large').addClass('customcolor');
+        $('.fixed-action-btn .btn-large').removeClass('white');
+        $('.fixed-action-btn a.btn-large i').addClass('md-light');
+        $('.fixed-action-btn a.btn-large i').removeClass('md-dark');
+    }
+      if ( $('.fixed-action-btn').offset().top < 150 + 150 ) {
+        $(".fixed-action-btn").removeClass("scrolled");
+        $(".fixed-action-btn a.btn-large").attr("href", "/blog")
+        $('.fixed-action-btn .btn-large .material-icons').text('keyboard_arrow_right');
+        $('.fixed-action-btn .btn-large').removeClass('customcolor');
+        $('.fixed-action-btn .btn-large').addClass('white');
+        $('.fixed-action-btn a.btn-large i').removeClass('md-light');
+        $('.fixed-action-btn a.btn-large i').addClass('md-dark');
+    }
+});
+</script>
+
+</body>
 </html>

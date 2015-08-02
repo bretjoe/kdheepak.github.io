@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/blog.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-05-26T18:15:00+02:00</updated><entry><title>Active, Reactive and Apparent Power</title><link href="http://kdheepak.com/blog/active-reactive-and-apparent-power/" rel="alternate"></link><updated>2015-05-01T19:00:00+02:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-29:blog/active-reactive-and-apparent-power/</id><summary type="html">&lt;p&gt;This post covers the basics of the types of Power in power systems. This post was generated from an iPython Notebook&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/blog.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-05-26T18:15:00-06:00</updated><entry><title>Active, Reactive and Apparent Power</title><link href="http://kdheepak.com/blog/active-reactive-and-apparent-power.html" rel="alternate"></link><updated>2015-05-01T19:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-29:blog/active-reactive-and-apparent-power.html</id><summary type="html">&lt;p&gt;This post covers the basics of the types of Power in power systems. This post was generated from an iPython Notebook&lt;/p&gt;
 &lt;p&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
@@ -4816,7 +4816,7 @@ ImlNwVdERERERETS2v8BxKRZEitj2LAAAAAASUVORK5CYII=
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</summary><category term="Power Systems"></category></entry><entry><title>How to set up a Pelican blog with Github pages</title><link href="http://kdheepak.com/blog/how-to-set-up-a-pelican-blog-with-github-pages/" rel="alternate"></link><updated>2015-05-26T18:15:00+02:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-24:blog/how-to-set-up-a-pelican-blog-with-github-pages/</id><summary type="html">
+&lt;/div&gt;&lt;/p&gt;</summary><category term="Power Systems"></category></entry><entry><title>How to set up a Pelican blog with Github pages</title><link href="http://kdheepak.com/blog/how-to-set-up-a-pelican-blog-with-github-pages.html" rel="alternate"></link><updated>2015-05-26T18:15:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-24:blog/how-to-set-up-a-pelican-blog-with-github-pages.html</id><summary type="html">
 &lt;p&gt;I've been quite vocal about the benefits of blogging using Markdown, and using a static page generator instead of the conventional CMS. 
 But a lot of people I've spoken to have expressed their doubts about the simplicity of the process. 
 I figured if I could fit it in one blog post I could claim it were simple, right?&lt;/p&gt;
@@ -4934,7 +4934,7 @@ Done. Your new project is available at /path/to/website
 You need to have ghp-import installed for this to work.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;make github
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;You are done! If you have any questions regarding any of this, you can shoot me questions in the comments below.&lt;/p&gt;</summary><category term="Pelican"></category></entry><entry><title>Mac OSX Productivity Apps</title><link href="http://kdheepak.com/blog/mac-osx-productivity-apps/" rel="alternate"></link><updated>2015-04-01T19:00:00+02:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-01:blog/mac-osx-productivity-apps/</id><summary type="html">&lt;h2 id="1-alfred"&gt;1. Alfred&lt;a class="headerlink" href="#1-alfred" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;You are done! If you have any questions regarding any of this, you can shoot me questions in the comments below.&lt;/p&gt;</summary><category term="Pelican"></category></entry><entry><title>Mac OSX Productivity Apps</title><link href="http://kdheepak.com/blog/mac-osx-productivity-apps.html" rel="alternate"></link><updated>2015-04-01T19:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-01:blog/mac-osx-productivity-apps.html</id><summary type="html">&lt;h2 id="1-alfred"&gt;1. Alfred&lt;a class="headerlink" href="#1-alfred" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img alt="" src="http://www.alfredapp.com/images/features/main/open_applications_files@2x.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="http://www.alfredapp.com/images/features/sub/calculator_dictionary@2x.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.alfredapp.com/"&gt;http://www.alfredapp.com/&lt;/a&gt;&lt;/p&gt;
@@ -4975,7 +4975,7 @@ You need to have ghp-import installed for this to work.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.derlien.com/"&gt;http://www.derlien.com/&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="13-homebrew"&gt;13. Homebrew&lt;a class="headerlink" href="#13-homebrew" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class="k"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="OSX"></category></entry><entry><title>Mac OSX Tweaks</title><link href="http://kdheepak.com/blog/mac-osx-tweaks/" rel="alternate"></link><updated>2015-03-21T19:00:00+01:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-03-21:blog/mac-osx-tweaks/</id><summary type="html">&lt;h1 id="update"&gt;Update&lt;a class="headerlink" href="#update" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="OSX"></category></entry><entry><title>Mac OSX Tweaks</title><link href="http://kdheepak.com/blog/mac-osx-tweaks.html" rel="alternate"></link><updated>2015-03-21T19:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-03-21:blog/mac-osx-tweaks.html</id><summary type="html">&lt;h1 id="update"&gt;Update&lt;a class="headerlink" href="#update" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;I've decided to maintain a repo &lt;a href="https://github.com/kdheepak89/dotfiles/blob/master/.osx"&gt;here&lt;/a&gt; instead. &lt;/p&gt;
 &lt;hr /&gt;
 &lt;h1 id="general-ui"&gt;General UI&lt;a class="headerlink" href="#general-ui" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
@@ -5104,7 +5104,7 @@ for app in "Dashboard" "Dock" "Finder" "SystemUIServer" "Terminal" "iTunes"; do
     killall "$app" &gt; /dev/null 2&gt;&amp;1
 done
 {% uncomment %} 
---&gt;</summary><category term="OSX"></category></entry><entry><title>Geektool and Desktop Widgets in OSX</title><link href="http://kdheepak.com/blog/geektool-and-desktop-widgets-in-osx/" rel="alternate"></link><updated>2014-12-13T10:00:00+01:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-13:blog/geektool-and-desktop-widgets-in-osx/</id><summary type="html">&lt;p&gt;This is a Geektool tutorial on how to customize your Mac OSX desktop homescreen. Using Geektool you can add a widget like functionality to your desktop.&lt;/p&gt;
+--&gt;</summary><category term="OSX"></category></entry><entry><title>Geektool and Desktop Widgets in OSX</title><link href="http://kdheepak.com/blog/geektool-and-desktop-widgets-in-osx.html" rel="alternate"></link><updated>2014-12-13T10:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-13:blog/geektool-and-desktop-widgets-in-osx.html</id><summary type="html">&lt;p&gt;This is a Geektool tutorial on how to customize your Mac OSX desktop homescreen. Using Geektool you can add a widget like functionality to your desktop.&lt;/p&gt;
 
 &lt;p title=""&gt;&lt;a href="https://plus.google.com/photos/+DheepakKrishnamurthy/albums/5969008662076135425" title=""&gt;&lt;img alt="" src="https://lh4.googleusercontent.com/TZkEbkEUgfXVhtL3XNgQ8tYNuaO_WF_WhgtuN0nYGJEx=s0" width="100%/" title="" style=""&gt;&lt;/a&gt;&lt;/p&gt;
 
@@ -5136,7 +5136,7 @@ done
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;br&gt;
-You can also display your battery level, uptime, network connectivity status. There are also loads of preset Geeklets that you can download to get yourself a good looking homescreen. Sky is the limit!&lt;/p&gt;</summary><category term="OSX"></category></entry><entry><title>Robotics</title><link href="http://kdheepak.com/blog/robotics/" rel="alternate"></link><updated>2014-12-13T10:00:00+01:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-13:blog/robotics/</id><summary type="html">&lt;h3&gt;Robotics and Microcontroller Projects&lt;/h3&gt;
+You can also display your battery level, uptime, network connectivity status. There are also loads of preset Geeklets that you can download to get yourself a good looking homescreen. Sky is the limit!&lt;/p&gt;</summary><category term="OSX"></category></entry><entry><title>Robotics</title><link href="http://kdheepak.com/blog/robotics.html" rel="alternate"></link><updated>2014-12-13T10:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-13:blog/robotics.html</id><summary type="html">&lt;h3&gt;Robotics and Microcontroller Projects&lt;/h3&gt;
 
 &lt;iframe width="420" height="345"
 src="https://www.youtube.com/embed/eoN-HOUOjBk"&gt;
@@ -5144,7 +5144,7 @@ src="https://www.youtube.com/embed/eoN-HOUOjBk"&gt;
 
 &lt;iframe width="420" height="345"
 src="https://www.youtube.com/embed/c4IKvbGKpBk"&gt;
-&lt;/iframe&gt;</summary><category term="Robotics"></category></entry><entry><title>Tasker and Google Maps</title><link href="http://kdheepak.com/blog/tasker-and-google-maps/" rel="alternate"></link><updated>2014-12-13T10:00:00+01:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-13:blog/tasker-and-google-maps/</id><summary type="html">&lt;h3&gt;Android Projects&lt;/h3&gt;
+&lt;/iframe&gt;</summary><category term="Robotics"></category></entry><entry><title>Tasker and Google Maps</title><link href="http://kdheepak.com/blog/tasker-and-google-maps.html" rel="alternate"></link><updated>2014-12-13T10:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-13:blog/tasker-and-google-maps.html</id><summary type="html">&lt;h3&gt;Android Projects&lt;/h3&gt;
 
 &lt;p&gt;I’ve shared this on &lt;a href="http://unleashthephones.com/2013/06/03/tasker-tutorial-integrating-google-calendar-and-google-directions-using-transit/"&gt;UnleashThePhones&lt;/a&gt; a while back as well. This is a small tutorial on how to use Python with SL4A.&lt;/p&gt;
 
@@ -5190,7 +5190,7 @@ src="https://www.youtube.com/embed/c4IKvbGKpBk"&gt;
 
 &lt;p&gt;BeautifulSoup is supported by SL4A in python, which can make it extremely easy to parse information. I haven’t used it in my script though, since mine was a very small program. But it is nice to know that is an option. Big shoutout to PocketTables for offering a world of useful information on Tasker. I found their posts to be extremely helpful. Tasker is an amazing application and is extremely powerful. It can allow for a world of customization.&lt;/p&gt;
 
-&lt;p&gt;If you have any questions about this setup please do let me know.&lt;/p&gt;</summary><category term="Tasker"></category><category term="Android"></category></entry><entry><title>Home monitoring system</title><link href="http://kdheepak.com/blog/home-monitoring-system/" rel="alternate"></link><updated>2014-12-13T09:00:00+01:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-13:blog/home-monitoring-system/</id><summary type="html">&lt;h1 id="example"&gt;Example&lt;a class="headerlink" href="#example" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;If you have any questions about this setup please do let me know.&lt;/p&gt;</summary><category term="Tasker"></category><category term="Android"></category></entry><entry><title>Home monitoring system</title><link href="http://kdheepak.com/blog/home-monitoring-system.html" rel="alternate"></link><updated>2014-12-13T09:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-13:blog/home-monitoring-system.html</id><summary type="html">&lt;h1 id="example"&gt;Example&lt;a class="headerlink" href="#example" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Monitoring temperature using Raspberry Pi&lt;/p&gt;
 &lt;div id="containerTextF"&gt;
 The current ambient room temperature is: 75.76 °F

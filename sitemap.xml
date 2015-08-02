@@ -5,91 +5,77 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://kdheepak.com/</loc>
-<lastmod>2015-07-25T17:43:19-00:00</lastmod>
+<lastmod>2015-08-02T12:06:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://kdheepak.com/archives.html</loc>
-<lastmod>2015-07-25T17:43:19-00:00</lastmod>
+<lastmod>2015-08-02T12:06:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/tags.html</loc>
-<lastmod>2015-07-25T17:43:19-00:00</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://kdheepak.com/categories.html</loc>
-<lastmod>2015-07-25T17:43:19-00:00</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://kdheepak.com/blog/active-reactive-and-apparent-power/</loc>
-<lastmod>2015-05-01T19:00:00+02:00</lastmod>
+<loc>http://kdheepak.com/projects/ames-market-test-bed.html</loc>
+<lastmod>2014-12-13T10:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/how-to-set-up-a-pelican-blog-with-github-pages/</loc>
-<lastmod>2015-05-26T18:15:00+02:00</lastmod>
+<loc>http://kdheepak.com/blog/active-reactive-and-apparent-power.html</loc>
+<lastmod>2015-05-01T19:00:00-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/mac-osx-productivity-apps/</loc>
-<lastmod>2015-04-01T19:00:00+02:00</lastmod>
+<loc>http://kdheepak.com/blog/how-to-set-up-a-pelican-blog-with-github-pages.html</loc>
+<lastmod>2015-05-26T18:15:00-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/mac-osx-tweaks/</loc>
-<lastmod>2015-03-21T19:00:00+01:00</lastmod>
+<loc>http://kdheepak.com/blog/mac-osx-productivity-apps.html</loc>
+<lastmod>2015-04-01T19:00:00-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/projects/ames-market-test-bed/</loc>
-<lastmod>2014-12-13T10:00:00+01:00</lastmod>
+<loc>http://kdheepak.com/blog/mac-osx-tweaks.html</loc>
+<lastmod>2015-03-21T19:00:00-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/geektool-and-desktop-widgets-in-osx/</loc>
-<lastmod>2014-12-13T10:00:00+01:00</lastmod>
+<loc>http://kdheepak.com/blog/geektool-and-desktop-widgets-in-osx.html</loc>
+<lastmod>2014-12-13T10:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/robotics/</loc>
-<lastmod>2014-12-13T10:00:00+01:00</lastmod>
+<loc>http://kdheepak.com/blog/robotics.html</loc>
+<lastmod>2014-12-13T10:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/tasker-and-google-maps/</loc>
-<lastmod>2014-12-13T10:00:00+01:00</lastmod>
+<loc>http://kdheepak.com/blog/tasker-and-google-maps.html</loc>
+<lastmod>2014-12-13T10:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/home-monitoring-system/</loc>
-<lastmod>2014-12-13T09:00:00+01:00</lastmod>
+<loc>http://kdheepak.com/blog/home-monitoring-system.html</loc>
+<lastmod>2014-12-13T09:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>

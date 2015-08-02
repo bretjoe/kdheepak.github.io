@@ -102,7 +102,7 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
     <!-- end Mixpanel -->
 
 <script>
-    mixpanel.track("Page", {"Name": "Dheepak Krishnamurthy", "page": "Archives" });
+    mixpanel.track("Page", {"Name": "Mac OSX Tweaks" }) ;   
 </script>
 </head>
 
@@ -110,62 +110,197 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
 
 
 
+
+    <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header-article" style="background-color: darkblue;">
+    <header class="intro-header-article" style="background-image: url('');background-color: darkblue;">
         <div class="intro-body">
             <div class="container">
                 <div class="row">
-                      <div class="col-sm-2 fixed-action-btn">
-                        <a href='/blog' class="btn-floating btn-large white page-scroll">
-                          <i class="md-dark material-icons">keyboard_arrow_left</i>
-                        </a>
-                      </div>
-                    <div class="col-sm-10 col-sm-offset-2">
-                    <h1 class="article-heading">All Posts</h1>
+                    <div class="col-sm-2 fixed-action-btn">
+                    <a href='/blog' class="btn-floating btn-large white page-scroll">
+                      <i class="md-dark material-icons">keyboard_arrow_left</i>
+                    </a>
                     </div>
+                    <div class="col-sm-10 col-sm-offset-2">
+                    <h1 class="article-heading">Mac OSX Tweaks</h1>
+                        <h2 class="article-subheading"> </h2>
+<span class="meta last-updated">
+Published on 
+<time pubdate="pubdate" datetime="2015-03-21T19:00:00-06:00">Mar 21, 2015</time>
+</span>                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-<div class="container">
-    <div class="row">
-            <div class="col-md-10 col-md-offset-2">
-            <h2>2015</h2>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="entry-content">
+                    <h1 id="update">Update<a class="headerlink" href="#update" title="Permanent link">&para;</a></h1>
+<p>I've decided to maintain a repo <a href="https://github.com/kdheepak89/dotfiles/blob/master/.osx">here</a> instead. </p>
+<hr />
+<h1 id="general-ui">General UI<a class="headerlink" href="#general-ui" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre># Disable Dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
+
+# Don’t show Dashboard as a Space
+defaults write com.apple.dock dashboard-in-overlay -bool true
+
+# disable automatic spell checking
+defaults write -g NSAllowContinuousSpellChecking -bool false
+
+# don&#39;t treat period or colon as part of words
+# en_US_POSIX corresponds to the &quot;United States (Computer)&quot; setting that was shown in System Preferences in 10.8 and earlier
+defaults write -g AppleTextBreakLocale en_US_POSIX
+
+# Disable the sound effects on boot
+sudo nvram SystemAudioVolume=&quot; &quot;
+</pre></div>
+
+
+<h1 id="disks">Disks<a class="headerlink" href="#disks" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre># Disks: disable Time Machine prompts
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
+# Disks: disable local Time Machine backups
+hash tmutil &amp;&gt; /dev/null &amp;&amp; sudo tmutil disablelocal
+
+# Disks: disable disk image verification
+# defaults write com.apple.frameworks.diskimages skip-verify -bool true
+# defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
+# defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
+
+# don&#39;t save .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+# Don’t automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+</pre></div>
+
+
+<h1 id="keyboard">Keyboard<a class="headerlink" href="#keyboard" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre># Set a blazingly fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 0
+</pre></div>
+
+
+<h1 id="finder">Finder<a class="headerlink" href="#finder" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre># Disable automatic termination of inactive apps
+defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+
+# Finder: disable window animations and Get Info animations
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+# Finder: show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Disable the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Save to disk (not to iCloud) by default
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
+# Finder: disable window and Get Info animations
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+# Finder: show the ~/Library folder (in OS X Lion)
+chflags nohidden ~/Library
+
+# Finder: empty Trash securely by default
+defaults write com.apple.finder EmptyTrashSecurely -bool true
+</pre></div>
+
+
+<h1 id="dock-hot-corners">Dock &amp; hot corners<a class="headerlink" href="#dock-hot-corners" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre># Autohide the Dock
+defaults write com.apple.dock autohide -bool true
+
+# Magnify Dock icons on hover
+defaults write com.apple.dock magnification -bool false
+</pre></div>
+
+
+<h1 id="panels">Panels<a class="headerlink" href="#panels" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre># Panels: expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+# Panels: expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+
+# Panels: disable the “Are you sure you want to open this application?” dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# Panels: enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+</pre></div>
+
+
+<h1 id="screen">Screen<a class="headerlink" href="#screen" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span class="err">#</span><span class="x"> Screen: save screenshots to the desktop</span>
+<span class="x">defaults write com.apple.screencapture location -string &quot;</span><span class="p">$</span><span class="nv">HOME</span><span class="x">/Desktop&quot;</span>
+
+<span class="err">#</span><span class="x"> Screen: disable shadow in screenshots</span>
+<span class="x">defaults write com.apple.screencapture disable-shadow -bool true</span>
+</pre></div>
+
+
+<h1 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre># Misc: only use UTF-8 in Terminal.app
+defaults write com.apple.terminal StringEncodings -array 4
+
+# Misc: disable Dictionary results
+defaults write com.apple.spotlight DictionaryLookupEnabled -bool false
+
+# Misc: disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+</pre></div>
+
+
+<!---
+{% comment %} 
+for app in "Dashboard" "Dock" "Finder" "SystemUIServer" "Terminal" "iTunes"; do
+    killall "$app" > /dev/null 2>&1
+done
+{% uncomment %} 
+-->
+                    </div>
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'kdheepak89'; // required: replace example with your forum shortname
+            var disqus_identifier = 'mac-osx-tweaks';
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+                </div>
             </div>
-            <ul>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/active-reactive-and-apparent-power.html">Active, Reactive and Apparent Power</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/how-to-set-up-a-pelican-blog-with-github-pages.html">How to set up a Pelican blog with Github pages</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/mac-osx-productivity-apps.html">Mac OSX Productivity Apps</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/mac-osx-tweaks.html">Mac OSX Tweaks</a></li>
-            </div>
-            </ul>
-            <div class="col-md-10 col-md-offset-2">
-            <h2>2014</h2>
-            </div>
-            <ul>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/geektool-and-desktop-widgets-in-osx.html">Geektool and Desktop Widgets in OSX</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/robotics.html">Robotics</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/tasker-and-google-maps.html">Tasker and Google Maps</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/home-monitoring-system.html">Home monitoring system</a></li>
-            </div>
-            </ul>
-    </div>
-</div>
+        </div>
+    </article>
+
+    <hr>
+
 
     <!-- Footer -->
     <footer>
@@ -219,7 +354,6 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
         }
     });
     </script>
-
 
 </body>
 </html>
