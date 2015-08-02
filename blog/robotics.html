@@ -102,7 +102,7 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
     <!-- end Mixpanel -->
 
 <script>
-    mixpanel.track("Page", {"Name": "Robotics" }) ;   
+    mixpanel.track("Page", {"Name": "Robotics" }) ;
 </script>
 </head>
 
@@ -158,6 +158,93 @@ src="https://www.youtube.com/embed/c4IKvbGKpBk">
     </article>
 
     <hr>
+
+
+    <!-- jQuery -->
+    <script src="/theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/theme/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/theme/js/jquery.easing.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/theme/js/pelican-smoothie.js"></script>
+    
+    <script>
+    // jQuery to change FAB
+    $(window).scroll(function() {
+            var scroll = $(window).scrollTop();
+          if (scroll > $('.fixed-action-btn').offset().top ) {
+            $(".fixed-action-btn").addClass("scrolled");
+            $(".fixed-action-btn a.btn-large").attr("href", "#page-top")
+            $('.fixed-action-btn .btn-large .material-icons').text('keyboard_arrow_up');
+            $('.fixed-action-btn .btn-large').addClass('customcolor');
+            $('.fixed-action-btn .btn-large').removeClass('white');
+            $('.fixed-action-btn a.btn-large i').addClass('md-light');
+            $('.fixed-action-btn a.btn-large i').removeClass('md-dark');
+        }
+          if (scroll > 200 ) {
+            $(".fixed-action-btn").addClass("scrolled");
+            $(".fixed-action-btn a.btn-large").attr("href", "#page-top")
+            $('.fixed-action-btn .btn-large .material-icons').text('keyboard_arrow_up');
+            $('.fixed-action-btn .btn-large').addClass('customcolor');
+            $('.fixed-action-btn .btn-large').removeClass('white');
+            $('.fixed-action-btn a.btn-large i').addClass('md-light');
+            $('.fixed-action-btn a.btn-large i').removeClass('md-dark');
+        }
+          if ( $('.fixed-action-btn').offset().top < 150 ) {
+            $(".fixed-action-btn").removeClass("scrolled");
+            $(".fixed-action-btn a.btn-large").attr("href", "/blog")
+            $('.fixed-action-btn .btn-large .material-icons').text('keyboard_arrow_left');
+            $('.fixed-action-btn .btn-large').removeClass('customcolor');
+            $('.fixed-action-btn .btn-large').addClass('white');
+            $('.fixed-action-btn a.btn-large i').removeClass('md-light');
+            $('.fixed-action-btn a.btn-large i').addClass('md-dark');
+        }
+    });
+    </script>
+
+        <script type="text/javascript">
+var disqus_shortname = 'kdheepak89';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
 
 
     <!-- Footer -->
