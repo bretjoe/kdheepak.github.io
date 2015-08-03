@@ -109,9 +109,9 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
 <!-- Intro Header -->
-<header class="intro" style="background-image: url(''); background-color: darkblue;">
+<header class="intro" style="background-image: url(''); background-color: white;">
     <div class="intro-body">
-        <div class="container">
+        <div class="container background-color">
             <div class="row">
                 <div class="avatarBox col-sm-12">
                     <img style="background-image: url('images/avatarPicture.jpg')">
@@ -198,7 +198,7 @@ On this website, I intend to share interesting projects I’m currently working 
 // jQuery to change FAB
 $(window).scroll(function() {
         var scroll = $(window).scrollTop();
-      if (scroll + 225 > $('.btn-floating.btn-large').offset().top ) {
+      if (scroll > window.innerHeight/4 ) {
         $(".fixed-action-btn").addClass("scrolled");
         $(".fixed-action-btn a.btn-large").attr("href", "#page-top")
         $('.fixed-action-btn .btn-large .material-icons').text('keyboard_arrow_up');
@@ -207,7 +207,7 @@ $(window).scroll(function() {
         $('.fixed-action-btn a.btn-large i').addClass('md-light');
         $('.fixed-action-btn a.btn-large i').removeClass('md-dark');
     }
-      if ( $('.fixed-action-btn').offset().top < 150 + 150 + 150 ) {
+      if (scroll < window.innerHeight/4  ) {
         $(".fixed-action-btn").removeClass("scrolled");
         $(".fixed-action-btn a.btn-large").attr("href", "/blog")
         $('.fixed-action-btn .btn-large .material-icons').text('keyboard_arrow_right');
@@ -233,7 +233,7 @@ $(".fixed-action-btn").hover(function(){
 // jQuery to change FAB
 $(window).scroll(function() {
         var scroll = $(window).scrollTop();
-      if (scroll + 225 > $('.btn-floating.btn-large').offset().top ) {
+      if (scroll > window.innerHeight/4 ) {
         $(".fixed-action-btn").addClass("scrolled");
         $(".fixed-action-btn a.btn-large").attr("href", "#page-top")
         $('.fixed-action-btn .btn-large .material-icons').text('keyboard_arrow_up');
@@ -242,7 +242,7 @@ $(window).scroll(function() {
         $('.fixed-action-btn a.btn-large i').addClass('md-light');
         $('.fixed-action-btn a.btn-large i').removeClass('md-dark');
     }
-      if ( $('.fixed-action-btn').offset().top < 150 + 150 + 150 ) {
+      if (scroll < window.innerHeight/4  ) {
         $(".fixed-action-btn").removeClass("scrolled");
         $(".fixed-action-btn a.btn-large").attr("href", "/blog")
         $('.fixed-action-btn .btn-large .material-icons').text('keyboard_arrow_right');
