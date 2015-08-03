@@ -398,6 +398,9 @@ a:focus {
 
 
 .intro .fixed-action-btn {
+    padding-top: 400px !important;
+}
+.intro .fixed-action-btn.scrolled {
     padding-top: 75px !important;
 }
 
@@ -505,6 +508,15 @@ a.anchor-link {
         margin-top: 15px;
     }
 }
+
+.avatarBox img {
+    object-fit: cover;
+    height: 256px;
+    width: 256px;
+    border-radius: 256px;
+    border: 3px solid white;
+    background-size: cover;
+ }
 
 @media(max-width:767px) {
     .fixed-action-btn {
