@@ -110,6 +110,7 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
 
 
 
+    <div class="content-block">
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
@@ -133,7 +134,6 @@ Updated on
             </div>
         </div>
     </header>
-
 
     <!-- Post Content -->
     <article>
@@ -288,6 +288,7 @@ You need to have ghp-import installed for this to work.</p>
 
     <hr>
 
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -312,7 +313,7 @@ You need to have ghp-import installed for this to work.</p>
     // jQuery to change FAB
     $(window).scroll(function() {
             var scroll = $(window).scrollTop();
-          if (scroll > $('.fixed-action-btn').offset().top ) {
+          if (scroll > window.innerHeight/6 ) {
             $(".fixed-action-btn").addClass("scrolled");
             $(".fixed-action-btn a.btn-large").attr("href", "#page-top")
             $('.fixed-action-btn .btn-large .material-icons').text('keyboard_arrow_up');
@@ -330,7 +331,7 @@ You need to have ghp-import installed for this to work.</p>
             $('.fixed-action-btn a.btn-large i').addClass('md-light');
             $('.fixed-action-btn a.btn-large i').removeClass('md-dark');
         }
-          if ( $('.fixed-action-btn').offset().top < 150 ) {
+          if (scroll < window.innerHeight/6 ) {
             $(".fixed-action-btn").removeClass("scrolled");
             $(".fixed-action-btn a.btn-large").attr("href", "/blog")
             $('.fixed-action-btn .btn-large .material-icons').text('keyboard_arrow_left');
