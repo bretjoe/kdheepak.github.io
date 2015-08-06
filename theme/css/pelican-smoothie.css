@@ -68,7 +68,7 @@ a {
 a:hover,
 a:focus {
     text-decoration: none;
-    color: #1d9b6c;
+    color: #092AF6;
 }
 
 .light {
@@ -185,7 +185,7 @@ a:focus {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-    background-color: darkblue;
+    background-color: #03ABF4;
     padding: 50px 0 50px 0;
     border-radius: 25px 25px 0px 0px;
 }
@@ -207,7 +207,8 @@ a:focus {
 }
 
 .intro-header-article {
-    background:  no-repeat bottom center scroll;
+    background-color: #03ABF4;
+ /*   background:  no-repeat bottom center scroll; */
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -217,7 +218,7 @@ a:focus {
     border-radius: 25px 25px 0px 0px;
 }
 
-.intro-header-article .intro { font-weight: 300; font-size: 1.5rem; color: #81d4fa; }
+.intro-header-article .intro { font-weight: 300; font-size: 1.5rem; }
 .intro-header-article h1 { font-size: 4rem; margin: 0; }
 @media screen and (max-width: 480px) { .intro-header-article h1 { font-size: 2rem; } }
 .intro-header-article p { margin: 0; }
@@ -231,6 +232,7 @@ a:focus {
 .intro .intro-body .brand-heading {
     font-size: 40px;
     font-family: 'Nova Round', cursive;
+    color: white;
 }
 
 .intro-header-article .article-heading {
@@ -246,6 +248,7 @@ a:focus {
 .intro .intro-body .intro-text {
     font-size: 18px;
     font-family: 'Permanent Marker', cursive;
+    color: white;
 }
 
 .intro-header-article .article-subheading {
@@ -437,6 +440,9 @@ a:focus {
 .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
 .material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
 
+.fixed-action-btn.scrolled a:hover {
+    background-color: #092AF6;
+}
 .fixed-action-btn.scrolled {
     position: fixed !important;
     right: auto;
@@ -504,10 +510,10 @@ ul li {
 
 .btn-default:hover,
 .btn-default:focus {
-    border: 1px solid darkblue;
+    border: 1px solid #092AF6;
     outline: 0;
     color: #fff;
-    background-color: darkblue;
+    background-color: #092AF6;
 }
 
 ul.banner-social-buttons {
