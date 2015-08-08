@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="My name is Dheepak Krishnamurthy. This is my personal blog." />
-   
 
     <meta name="author" content="Dheepak Krishnamurthy" />
     <meta name="copyright" content="Dheepak Krishnamurthy" />
@@ -80,7 +79,7 @@
     <!-- Custom CSS -->
     <link href="/theme/css/pelican-smoothie.css" rel="stylesheet">
     <link href="/theme/css/pygment.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="http://kdheepak.com/theme/tipuesearch/tipuesearch.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -108,6 +107,12 @@ mixpanel.track("Page", {"Name": "Dheepak Krishnamurthy", "page": "Archives", "ur
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
+   <div class="search-button">
+            <form id="search" class="floating-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);"> 
+            <input type="search" class="search-query" placeholder="Search" name="q"></form>
+       </div>
+
+    
 
 
     <div class="content-block">
@@ -186,7 +191,8 @@ mixpanel.track("Page", {"Name": "Dheepak Krishnamurthy", "page": "Archives", "ur
 
     <!-- Custom Theme JavaScript -->
     <script src="/theme/js/pelican-smoothie.js"></script>
-    
+    <script type="text/javascript" src="http://kdheepak.com/theme/tipuesearch/tipuesearch_set.js"></script>
+    <script type="text/javascript" src="http://kdheepak.com/theme/tipuesearch/tipuesearch.min.js"></script>
     <script>
     // jQuery to change FAB
     $(window).scroll(function() {

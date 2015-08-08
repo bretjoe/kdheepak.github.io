@@ -99,10 +99,6 @@
     for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
 mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
     <!-- end Mixpanel -->
-
-<script>
-    mixpanel.track("Page", {"Name": "Robotics", "url": "blog/robotics.html"  }) ;
-</script>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -116,73 +112,24 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
 
 
     <div class="content-block">
-
-    <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header-article" style="background-image: url('');">
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-2 fixed-action-btn">
-                    <a href='http://kdheepak.com/blog' class="btn-floating btn-large white page-scroll">
-                      <i class="md-dark material-icons">keyboard_arrow_left</i>
-                    </a>
-                    </div>
-                    <div class="col-sm-10 col-sm-offset-1">
-                    <h1 class="article-heading">Robotics</h1>
-                        <h2 class="article-subheading"> </h2>
-<span class="meta last-updated">
-Published on 
-<time pubdate="pubdate" datetime="2014-12-13T10:00:00-07:00">Dec 13, 2014</time>
-</span>                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Post Content -->
-    <article>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <div class="entry-content">
-                    <h3>Robotics and Microcontroller Projects</h3>
-
-<iframe width="420" height="345"
-src="https://www.youtube.com/embed/eoN-HOUOjBk">
-</iframe>
-
-<iframe width="420" height="345"
-src="https://www.youtube.com/embed/c4IKvbGKpBk">
-</iframe>
-                    </div>
-    <hr />
-    <section class="comments" id="comments">
-        <h2>Comments</h2>
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = 'kdheepak89'; // required: replace example with your forum shortname
-            var disqus_identifier = 'robotics';
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function () {
-                var dsq = document.createElement('script');
-                dsq.type = 'text/javascript';
-                dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
+<div class="entry-content">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js">
+    </script>
+    <script type="text/javascript" src="http://kdheepak.com/theme/tipuesearch/tipuesearch_set.js"></script>
+    <script type="text/javascript" src="http://kdheepak.com/theme/tipuesearch/tipuesearch.min.js"></script>
+        <script>
+            $(document).ready(function() {
+            $('#tipue_search_input').tipuesearch({
+                'show': 8,
+                'mode': 'json',
+                'contentLocation': 'http://kdheepak.com/tipuesearch_content.json'
+                });
+            });
         </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
-            Disqus.</a></noscript>
-    </section>
-                </div>
-            </div>
-        </div>
-    </article>
-
-    <hr>
-
+    <div align="center"><input type="text" size="60" id="tipue_search_input">
+        <input type="button" id="tipue_search_button" value="Search"></div>
+    <div id="tipue_search_content"></div>
+</div>
     </div>
 
     <!-- Footer -->
