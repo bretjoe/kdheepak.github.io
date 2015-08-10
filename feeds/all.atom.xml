@@ -5190,7 +5190,21 @@ src="https://www.youtube.com/embed/c4IKvbGKpBk"&gt;
 
 &lt;p&gt;BeautifulSoup is supported by SL4A in python, which can make it extremely easy to parse information. I haven’t used it in my script though, since mine was a very small program. But it is nice to know that is an option. Big shoutout to PocketTables for offering a world of useful information on Tasker. I found their posts to be extremely helpful. Tasker is an amazing application and is extremely powerful. It can allow for a world of customization.&lt;/p&gt;
 
-&lt;p&gt;If you have any questions about this setup please do let me know.&lt;/p&gt;</summary><category term="Tasker"></category><category term="Android"></category></entry><entry><title>Home monitoring system</title><link href="http://kdheepak.com/blog/home-monitoring-system.html" rel="alternate"></link><updated>2014-12-13T09:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-13:blog/home-monitoring-system.html</id><summary type="html">&lt;h1 id="example"&gt;Example&lt;a class="headerlink" href="#example" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;If you have any questions about this setup please do let me know.&lt;/p&gt;</summary><category term="Tasker"></category><category term="Android"></category></entry><entry><title>Tasker Projects</title><link href="http://kdheepak.com/blog/tasker-projects.html" rel="alternate"></link><updated>2014-12-12T19:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-12:blog/tasker-projects.html</id><summary type="html">&lt;h1 id="google-calendar"&gt;Google Calendar&lt;a class="headerlink" href="#google-calendar" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://kdheepak.com/blog/tasker-and-google-maps.html"&gt;This page&lt;/a&gt; contains information about the &lt;a href="https://github.com/kdheepak89/tasker_sl4a"&gt;profile&lt;/a&gt; that uses Tasker to get contextual information from Google Calendar and react based on it.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/kdheepak89/tasker_sl4a"&gt;&lt;img src="https://raw.githubusercontent.com/kdheepak89/tasker_sl4a/master/Screenshots/7.png" align="middle" height="600"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id="tell-me-a-joke"&gt;Tell me a Joke&lt;a class="headerlink" href="#tell-me-a-joke" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://github.com/kdheepak89/Tasker_Jokes"&gt;This profile&lt;/a&gt; reads a random joke from &lt;a href="reddit.com/r/jokes/top"&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/kdheepak89/Tasker_Jokes"&gt;&lt;img src="https://raw.githubusercontent.com/kdheepak89/Tasker_Jokes/master/Tasker_Demo.gif" align="middle" height="400"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id="whatsapp-client"&gt;WhatsApp Client&lt;a class="headerlink" href="#whatsapp-client" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://github.com/kdheepak89/Tasker_WhatsPush"&gt;This profile&lt;/a&gt; interacts with WhatsApp and allows you to send messages using your desktop&lt;/p&gt;
+&lt;p&gt;&lt;div class="videobox"&gt;
+                &lt;iframe width="640" height="390"
+                    src='https://www.youtube.com/embed/plTJ5NGCchM'
+                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
+                    allowFullScreen&gt;
+                &lt;/iframe&gt;
+            &lt;/div&gt; &lt;/p&gt;</summary><category term="Tasker"></category><category term="Android"></category></entry><entry><title>Home monitoring system</title><link href="http://kdheepak.com/blog/home-monitoring-system.html" rel="alternate"></link><updated>2014-12-11T09:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-11:blog/home-monitoring-system.html</id><summary type="html">&lt;h1 id="example"&gt;Example&lt;a class="headerlink" href="#example" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Monitoring temperature using Raspberry Pi&lt;/p&gt;
 &lt;div id="containerTextF"&gt;
 The current ambient room temperature is: 75.76 °F
