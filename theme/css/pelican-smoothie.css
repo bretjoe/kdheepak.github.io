@@ -33,6 +33,7 @@ h6 {
 }
 article p {
     text-align: justify;
+    word-break: break-all;
 }
 
 #about p {
@@ -533,7 +534,7 @@ input[type=search] {
 }
 input::-webkit-search-decoration,
 input::-webkit-search-cancel-button {
-	display: none; 
+	display: none;
 }
 
 .fixed-action-btn .search-button{
@@ -565,7 +566,7 @@ input[type=search] {
 	-webkit-border-radius: 10em;
 	-moz-border-radius: 10em;
 	border-radius: 10em;
-	
+
 	-webkit-transition: all .5s;
 	-moz-transition: all .5s;
 	transition: all .5s;
