@@ -10,6 +10,9 @@
     <meta name="author" content="Dheepak Krishnamurthy" />
     <meta name="copyright" content="Dheepak Krishnamurthy" />
 
+    <meta name="keywords" content="Pelican, blog, How to set up a Pelican blog with GitHub Pages" />
+        <meta name="description" content="Here, I will show how to set up a working static blog on github pages using Pelican. Pelican is a static site generator, written in Python ..." />
+
 
         <meta name="twitter:creator" content="@kdheepak89">
         <meta property="og:type" content="article" />
@@ -189,13 +192,13 @@ Version control was a big plus for me.
 And static site generators like Jekyll and Pelican make it extremely easy to create web content without any actual web development.
 I choose Pelican because it was Python based, and it seemed to have a good selection of themes.</p>
 <h1 id="install-required-packages">Install required packages<a class="headerlink" href="#install-required-packages" title="Permanent link">¶</a></h1>
-<div class="highlight"><pre>pip install pelican
-pip install markdown
-pip install ghp-import
+<div class="highlight"><pre><span class="code-line">pip install pelican</span>
+<span class="code-line">pip install markdown</span>
+<span class="code-line">pip install ghp-import</span>
 </pre></div>
 <p>ghp-import is a cli that allows you to easily push your changes to your github repository</p>
 <p>These are optional packages to install that may come in handy later</p>
-<div class="highlight"><pre>pip install Pillow beautifulsoup4 cssmin cssprefixer cssutils pretty six smartypants typogrify webassets
+<div class="highlight"><pre><span class="code-line">pip install Pillow beautifulsoup4 cssmin cssprefixer cssutils pretty six smartypants typogrify webassets</span>
 </pre></div>
 <h1 id="create-a-github-account-and-a-user-or-project-page">Create a Github account and a User or Project page<a class="headerlink" href="#create-a-github-account-and-a-user-or-project-page" title="Permanent link">¶</a></h1>
 <p><a href="http://pages.github.com/">Github pages</a> has instructions on how to create a User or Project page, and will in fact walk you through the process. 
@@ -203,66 +206,66 @@ If you create a User page, your website will be live at <code>$GHUSERNAME</code>
 The rest of this blog assumes you want to create a User page.</p>
 <h1 id="create-a-directory-for-your-website">Create a directory for your website<a class="headerlink" href="#create-a-directory-for-your-website" title="Permanent link">¶</a></h1>
 <p>Assuming <code>$GHUSERNAME</code> is your github username, run the following commands. You can rename the 'website' folder to anything you want. </p>
-<div class="highlight"><pre><span class="x">git clone https://github.com/</span><span class="p">$</span><span class="nv">GHUSERNAME</span><span class="x">/</span><span class="p">$</span><span class="nv">GHUSERNAME</span><span class="p">.</span><span class="nv">github</span><span class="p">.</span><span class="nv">io</span><span class="x">/ website</span>
-<span class="x">cd website</span>
+<div class="highlight"><pre><span class="code-line"><span class="x">git clone https://github.com/</span><span class="p">$</span><span class="nv">GHUSERNAME</span><span class="x">/</span><span class="p">$</span><span class="nv">GHUSERNAME</span><span class="p">.</span><span class="nv">github</span><span class="p">.</span><span class="nv">io</span><span class="x">/ website</span></span>
+<span class="code-line"><span class="x">cd website</span></span>
 </pre></div>
 <h1 id="run-pelican-quickstart">Run Pelican quickstart<a class="headerlink" href="#run-pelican-quickstart" title="Permanent link">¶</a></h1>
-<div class="highlight"><pre>pelican-quickstart
+<div class="highlight"><pre><span class="code-line">pelican-quickstart</span>
 </pre></div>
 <p>This is what you might get. Answer all the questions</p>
-<div class="highlight"><pre>➜  website  pelican-quickstart
-
-Welcome to pelican-quickstart v3.5.0.
-
-This script will help you create a new Pelican-based website.
-
-Please answer the following questions so this script can generate the files
-needed by Pelican.
-
-
-&gt; Where do you want to create your new web site? [.] 
-&gt; What will be the title of this web site? Dheepak Krishnamurthy
-&gt; Who will be the author of this web site? Dheepak Krishnamurthy
-&gt; What will be the default language of this web site? [en] 
-&gt; Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) Y
-&gt; What is your URL prefix? (see above example; no trailing slash) http://kdheepak.com
-&gt; Do you want to enable article pagination? (Y/n) Y
-&gt; How many articles per page do you want? [10] 
-&gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) Y
-&gt; Do you want an auto-reload &amp; simpleHTTP script to assist with theme and site development? (Y/n) Y
-&gt; Do you want to upload your website using FTP? (y/N) N
-&gt; Do you want to upload your website using SSH? (y/N) N
-&gt; Do you want to upload your website using Dropbox? (y/N) N
-&gt; Do you want to upload your website using S3? (y/N) N
-&gt; Do you want to upload your website using Rackspace Cloud Files? (y/N) N
-&gt; Do you want to upload your website using GitHub Pages? (y/N) Y
-&gt; Is this your personal page (username.github.io)? (y/N) Y
-Done. Your new project is available at /path/to/website
-
-➜  website
+<div class="highlight"><pre><span class="code-line">➜  website  pelican-quickstart</span>
+<span class="code-line"></span>
+<span class="code-line">Welcome to pelican-quickstart v3.5.0.</span>
+<span class="code-line"></span>
+<span class="code-line">This script will help you create a new Pelican-based website.</span>
+<span class="code-line"></span>
+<span class="code-line">Please answer the following questions so this script can generate the files</span>
+<span class="code-line">needed by Pelican.</span>
+<span class="code-line"></span>
+<span class="code-line"></span>
+<span class="code-line">&gt; Where do you want to create your new web site? [.] </span>
+<span class="code-line">&gt; What will be the title of this web site? Dheepak Krishnamurthy</span>
+<span class="code-line">&gt; Who will be the author of this web site? Dheepak Krishnamurthy</span>
+<span class="code-line">&gt; What will be the default language of this web site? [en] </span>
+<span class="code-line">&gt; Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) Y</span>
+<span class="code-line">&gt; What is your URL prefix? (see above example; no trailing slash) http://kdheepak.com</span>
+<span class="code-line">&gt; Do you want to enable article pagination? (Y/n) Y</span>
+<span class="code-line">&gt; How many articles per page do you want? [10] </span>
+<span class="code-line">&gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) Y</span>
+<span class="code-line">&gt; Do you want an auto-reload &amp; simpleHTTP script to assist with theme and site development? (Y/n) Y</span>
+<span class="code-line">&gt; Do you want to upload your website using FTP? (y/N) N</span>
+<span class="code-line">&gt; Do you want to upload your website using SSH? (y/N) N</span>
+<span class="code-line">&gt; Do you want to upload your website using Dropbox? (y/N) N</span>
+<span class="code-line">&gt; Do you want to upload your website using S3? (y/N) N</span>
+<span class="code-line">&gt; Do you want to upload your website using Rackspace Cloud Files? (y/N) N</span>
+<span class="code-line">&gt; Do you want to upload your website using GitHub Pages? (y/N) Y</span>
+<span class="code-line">&gt; Is this your personal page (username.github.io)? (y/N) Y</span>
+<span class="code-line">Done. Your new project is available at /path/to/website</span>
+<span class="code-line"></span>
+<span class="code-line">➜  website</span>
 </pre></div>
 <h1 id="content-of-your-blog">Content of your blog<a class="headerlink" href="#content-of-your-blog" title="Permanent link">¶</a></h1>
 <p>Create an sample post.</p>
-<div class="highlight"><pre>vim content/example.md
+<div class="highlight"><pre><span class="code-line">vim content/example.md</span>
 </pre></div>
 <p>Type in the following and save it.</p>
-<div class="highlight"><pre><span class="n">Title</span><span class="o">:</span> <span class="n">My</span> <span class="n">First</span> <span class="n">Post</span>
-<span class="n">Date</span><span class="o">:</span> <span class="mi">2015</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="o">:</span><span class="mi">20</span>
-<span class="n">Category</span><span class="o">:</span> <span class="n">Example</span>
-
-<span class="n">Hello</span> <span class="n">world</span><span class="o">.</span>
+<div class="highlight"><pre><span class="code-line"><span class="n">Title</span><span class="o">:</span> <span class="n">My</span> <span class="n">First</span> <span class="n">Post</span></span>
+<span class="code-line"><span class="n">Date</span><span class="o">:</span> <span class="mi">2015</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="o">:</span><span class="mi">20</span></span>
+<span class="code-line"><span class="n">Category</span><span class="o">:</span> <span class="n">Example</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="n">Hello</span> <span class="n">world</span><span class="o">.</span></span>
 </pre></div>
 <p>Type the following to convert all your markdown or ReST posts to HTML. </p>
-<div class="highlight"><pre>make html
+<div class="highlight"><pre><span class="code-line">make html</span>
 </pre></div>
 <p>You can also type the following to serve a local version of your site to view the output of your hardwork</p>
-<div class="highlight"><pre>make serve
+<div class="highlight"><pre><span class="code-line">make serve</span>
 </pre></div>
 <p>This will be visible at localhost:8000 by default.</p>
 <h1 id="push-your-content-to-github">Push your content to Github<a class="headerlink" href="#push-your-content-to-github" title="Permanent link">¶</a></h1>
 <p>If you installed everything correctly, you can type the following to push your website to your Github repository.
 You need to have ghp-import installed for this to work.</p>
-<div class="highlight"><pre>make github
+<div class="highlight"><pre><span class="code-line">make github</span>
 </pre></div>
 <p>You are done! If you have any questions regarding any of this, you can shoot me questions in the comments below.</p>
                     </div>
