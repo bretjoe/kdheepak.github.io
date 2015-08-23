@@ -74,7 +74,17 @@ the buffer to be available by changing the "1 sec" in the above code&lt;/p&gt;
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</summary><category term="Emacs"></category><category term="LaTeX"></category></entry><entry><title>Active, Reactive and Apparent Power</title><link href="http://kdheepak.com/blog/active-reactive-and-apparent-power.html" rel="alternate"></link><updated>2015-05-01T19:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-29:blog/active-reactive-and-apparent-power.html</id><summary type="html">&lt;p&gt;This post covers the basics of the types of Power in power systems. This post was generated from an iPython Notebook&lt;/p&gt;
+&lt;/script&gt;</summary><category term="Emacs"></category><category term="LaTeX"></category></entry><entry><title>Create Emacsclient.app using AppleScript</title><link href="http://kdheepak.com/blog/create-emacsclientapp-using-applescript.html" rel="alternate"></link><updated>2015-07-18T10:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-07-18:blog/create-emacsclientapp-using-applescript.html</id><summary type="html">&lt;p&gt;Open Automator and go to File-&amp;gt;New. Click on Application.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="../../images/emacsclient1.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Then search for 'Run AppleScript' and drag it to the window on the right.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="../../images/emacsclient2.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Copy paste the following gist to the window&lt;/p&gt;
+&lt;script src="https://gist.github.com/kdheepak89/9e287b937edb2509eab9.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;Save the application in /Applications or /Users/$USER/Applications. Now you can
+quickly open emacsclient from Alfred. &lt;/p&gt;
+&lt;p&gt;Also check out Alfred workflows in the link below&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/franzheidl/alfred-workflows#open-with-emacs"&gt;https://github.com/franzheidl/alfred-workflows#open-with-emacs&lt;/a&gt;&lt;/p&gt;</summary><category term="emacs"></category><category term="applescript"></category><category term="osx"></category></entry><entry><title>Active, Reactive and Apparent Power</title><link href="http://kdheepak.com/blog/active-reactive-and-apparent-power.html" rel="alternate"></link><updated>2015-05-01T19:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-29:blog/active-reactive-and-apparent-power.html</id><summary type="html">&lt;p&gt;This post covers the basics of the types of Power in power systems. This post was generated from an iPython Notebook&lt;/p&gt;
 &lt;p&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
