@@ -125,7 +125,14 @@ the buffer to be available by changing the "1 sec" in the above code&lt;/p&gt;
 &lt;p&gt;Save the application in /Applications or /Users/$USER/Applications. Now you can
 quickly open emacsclient from Alfred. &lt;/p&gt;
 &lt;p&gt;Also check out Alfred workflows in the link below&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/franzheidl/alfred-workflows#open-with-emacs"&gt;https://github.com/franzheidl/alfred-workflows#open-with-emacs&lt;/a&gt;&lt;/p&gt;</summary><category term="emacs"></category><category term="applescript"></category><category term="osx"></category></entry><entry><title>Active, Reactive and Apparent Power</title><link href="http://kdheepak.com/blog/active-reactive-and-apparent-power.html" rel="alternate"></link><updated>2015-05-01T19:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-29:blog/active-reactive-and-apparent-power.html</id><summary type="html">&lt;p&gt;This post covers the basics of the types of Power in power systems. This post was generated from an iPython Notebook&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/franzheidl/alfred-workflows#open-with-emacs"&gt;https://github.com/franzheidl/alfred-workflows#open-with-emacs&lt;/a&gt;&lt;/p&gt;</summary><category term="emacs"></category><category term="applescript"></category><category term="osx"></category></entry><entry><title>Better git log with git ls</title><link href="http://kdheepak.com/blog/better-git-log-with-git-ls.html" rel="alternate"></link><updated>2015-06-01T20:45:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-06-01:blog/better-git-log-with-git-ls.html</id><summary type="html">&lt;p&gt;Add the following command to ~/.gitconfig&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="k"&gt;[alias]&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;    &lt;span class="na"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;log --graph --abbrev-commit --decorate --color=always --date=relative --format=format:&amp;#39;%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) - %C(dim red)%an%C(reset)%C(bold yellow)%d%C(reset)&amp;#39; --all&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here is an example of what the command output looks like.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="../../images/gitls.png" /&gt;&lt;/p&gt;</summary><category term="git"></category></entry><entry><title>Active, Reactive and Apparent Power</title><link href="http://kdheepak.com/blog/active-reactive-and-apparent-power.html" rel="alternate"></link><updated>2015-05-01T19:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-29:blog/active-reactive-and-apparent-power.html</id><summary type="html">&lt;p&gt;This post covers the basics of the types of Power in power systems. This post was generated from an iPython Notebook&lt;/p&gt;
 &lt;p&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
