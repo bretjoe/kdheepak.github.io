@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Installing gdb and fixing the certificate issue" />
 
     <meta name="author" content="Dheepak Krishnamurthy" />
     <meta name="copyright" content="Dheepak Krishnamurthy" />
@@ -15,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<title>How to install gdb on OSX - Dheepak Krishnamurthy</title>
+<title>Emacs workflow - Dheepak Krishnamurthy</title>
 
     <!-- iPython Notebook script -->
     <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
@@ -103,7 +102,7 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
     <!-- end Mixpanel -->
 
 <script>
-    mixpanel.track("Page", {"Name": "How to install gdb on OSX", "url": "drafts/how-to-install-gdb-on-osx.html"  }) ;
+    mixpanel.track("Page", {"Name": "Emacs workflow", "url": "drafts/emacs-workflow.html"  }) ;
 </script>
 </head>
 
@@ -131,11 +130,11 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
                     </a>
                     </div>
                     <div class="col-sm-10 col-sm-offset-1">
-                    <h1 class="article-heading">How to install gdb on OSX</h1>
+                    <h1 class="article-heading">Emacs workflow</h1>
                         <h2 class="article-subheading"> </h2>
 <span class="meta last-updated">
 Published on 
-<time pubdate="pubdate" datetime="2015-08-27T10:52:17-06:00">Aug 27, 2015</time>
+<time pubdate="pubdate" datetime="2015-09-06T00:00:00-06:00">Sep 6, 2015</time>
 </span>                    </div>
                 </div>
             </div>
@@ -148,13 +147,114 @@ Published on
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
-                    <div class="highlight"><pre><span class="code-line">brew tap homebrew/dupes </span>
-<span class="code-line">brew install gdb</span>
+                    <p>/usr/local/bin/emacs</p>
+<div class="highlight"><pre><span class="code-line"><span class="c">#!/bin/sh</span></span>
+<span class="code-line">/Applications/Emacs.app/Contents/MacOS/Emacs <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span> <span class="p">&amp;</span></span>
 </pre></div>
 
 
-<p>Certificate issue can be resolved by the following steps</p>
-<div class="highlight"><pre><span class="code-line">sudo security add-trust -d -r trustRoot -p basic -p codeSign -k /Library/Keychains/System.keychain ~/Desktop/gdb-cert.cer</span>
+<p>/usr/local/bin/ec</p>
+<div class="highlight"><pre><span class="code-line"><span class="c">#!/bin/zsh</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="c"># This script starts emacs daemon if it is not running, opens whatever file</span></span>
+<span class="code-line"><span class="c"># you pass in and changes the focus to emacs.  Without any arguments, it just</span></span>
+<span class="code-line"><span class="c"># opens the current buffer or *scratch* if nothing else is open.  The following</span></span>
+<span class="code-line"><span class="c"># example will open ~/.bashrc</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="c"># ec ~/.bashrc</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="c"># You can also pass it multiple files, it will open them all.  Unbury-buffer</span></span>
+<span class="code-line"><span class="c"># will cycle through those files in order</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="c"># The compliment to the script is et, which opens emacs in the terminal</span></span>
+<span class="code-line"><span class="c"># attached to a daemon</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="c"># If you want to execute elisp, pass in -e whatever.</span></span>
+<span class="code-line"><span class="c"># You may also want to stop the output from returning to the terminal, like</span></span>
+<span class="code-line"><span class="c"># ec -e &quot;(message \&quot;Hello\&quot;)&quot; &gt; /dev/null</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="c"># emacsclient options for reference</span></span>
+<span class="code-line"><span class="c"># -a &quot;&quot; starts emacs daemon and reattaches</span></span>
+<span class="code-line"><span class="c"># -c creates a new frame</span></span>
+<span class="code-line"><span class="c"># -n returns control back to the terminal</span></span>
+<span class="code-line"><span class="c"># -e eval the script</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="c"># Number of current visible frames,</span></span>
+<span class="code-line"><span class="c"># Emacs daemon always has a visible frame called F1</span></span>
+<span class="code-line">visible_frames<span class="o">()</span> <span class="o">{</span></span>
+<span class="code-line">  emacsclient -a <span class="s2">&quot;&quot;</span> -e <span class="s1">&#39;(length (visible-frame-list))&#39;</span></span>
+<span class="code-line"><span class="o">}</span></span>
+<span class="code-line"></span>
+<span class="code-line">change_focus<span class="o">()</span> <span class="o">{</span></span>
+<span class="code-line">  emacsclient -n -e <span class="s2">&quot;(select-frame-set-input-focus (selected-frame))&quot;</span> &gt; /dev/null</span>
+<span class="code-line"><span class="o">}</span></span>
+<span class="code-line"></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="c"># try switching to the frame incase it is just minimized</span></span>
+<span class="code-line"><span class="c"># will start a server if not running</span></span>
+<span class="code-line"><span class="nb">test</span> <span class="s2">&quot;</span><span class="k">$(</span>visible_frames<span class="k">)</span><span class="s2">&quot;</span> -eq <span class="s2">&quot;1&quot;</span> <span class="o">&amp;&amp;</span> change_focus</span>
+<span class="code-line"></span>
+<span class="code-line"><span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="k">$(</span>visible_frames<span class="k">)</span><span class="s2">&quot;</span> -lt  <span class="s2">&quot;2&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="c"># need to create a frame</span></span>
+<span class="code-line">  <span class="c"># -c $@ with no args just opens the scratch buffer</span></span>
+<span class="code-line">  emacsclient -n -c <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> change_focus</span>
+<span class="code-line"><span class="k">else</span> <span class="c"># there is already a visible frame besides the daemon, so</span></span>
+<span class="code-line">  change_focus</span>
+<span class="code-line">  <span class="c"># -n $@ errors if there are no args</span></span>
+<span class="code-line">  <span class="nb">test</span>  <span class="s2">&quot;</span><span class="nv">$#&quot;</span><span class="s2"> -ne &quot;</span>0<span class="s2">&quot; &amp;&amp; emacsclient -n &quot;</span><span class="nv">$@</span><span class="s2">&quot;</span></span>
+<span class="code-line"><span class="s2">fi</span></span>
+</pre></div>
+
+
+<p>/usr/local/bin/et</p>
+<div class="highlight"><pre><span class="code-line"><span class="c">#!/bin/zsh</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="c"># Makes sure emacs daemon is running and opens the file in Emacs in</span></span>
+<span class="code-line"><span class="c"># the terminal.</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="c"># If you want to execute elisp, use -e whatever, like so</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="c"># et -e &quot;(message \&quot;Word up\&quot;)&quot;</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="c"># You may want to redirect that to /dev/null if you don&#39;t want the</span></span>
+<span class="code-line"><span class="c"># return to printed on the terminal.  Also, just echoing a message</span></span>
+<span class="code-line"><span class="c"># may not be visible if Emacs then gives you a message about what</span></span>
+<span class="code-line"><span class="c"># to do when do with the frame</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="c"># The compliment to this script is ec</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="c"># Emacsclient option reference</span></span>
+<span class="code-line"><span class="c"># -a &quot;&quot; starts emacs daemon and reattaches</span></span>
+<span class="code-line"><span class="c"># -t starts in terminal, since I won&#39;t be using the gui</span></span>
+<span class="code-line"><span class="c"># can also pass in -n if you want to have the shell return right away</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="nb">exec </span>emacsclient -a <span class="s2">&quot;&quot;</span> -t <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span></span>
+</pre></div>
+
+
+<p>/usr/local/bin/es</p>
+<div class="highlight"><pre><span class="code-line"><span class="c">#!/bin/zsh</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="c"># simple script to shutdown the running Emacs daemon</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="c"># emacsclient options for reference</span></span>
+<span class="code-line"><span class="c"># -a Alternate editor, runs bin/false in this case</span></span>
+<span class="code-line"><span class="c"># -e eval the script</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="c"># If the server-process is bound and the server is in a good state, then kill</span></span>
+<span class="code-line"><span class="c"># the server</span></span>
+<span class="code-line"></span>
+<span class="code-line">server_ok<span class="o">()</span> <span class="o">{</span></span>
+<span class="code-line">  emacsclient -a <span class="s2">&quot;false&quot;</span> -e <span class="s2">&quot;(boundp &#39;server-process)&quot;</span></span>
+<span class="code-line"><span class="o">}</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;t&quot;</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="k">$(</span>server_ok<span class="k">)</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span></span>
+<span class="code-line">  <span class="nb">echo</span> <span class="s2">&quot;Shutting down Emacs server&quot;</span></span>
+<span class="code-line">  <span class="c"># wasn&#39;t removing emacs from ALT-TAB on mac</span></span>
+<span class="code-line">  <span class="c"># emacsclient -e &quot;(server-force-delete)&quot;</span></span>
+<span class="code-line">  emacsclient -e <span class="s1">&#39;(spacemacs/kill-emacs)&#39;</span></span>
+<span class="code-line"><span class="k">else</span></span>
+<span class="code-line">  <span class="nb">echo</span> <span class="s2">&quot;Emacs server not running&quot;</span></span>
+<span class="code-line"><span class="k">fi</span></span>
 </pre></div>
                     </div>
     <hr />
@@ -164,7 +264,7 @@ Published on
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'kdheepak89'; // required: replace example with your forum shortname
-            var disqus_identifier = 'how-to-install-gdb-on-osx';
+            var disqus_identifier = 'emacs-workflow';
             /* * * DON'T EDIT BELOW THIS LINE * * */
             (function () {
                 var dsq = document.createElement('script');
