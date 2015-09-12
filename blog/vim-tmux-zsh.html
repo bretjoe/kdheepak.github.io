@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="I&#39;v not found a ..." />
+
+    <meta name="author" content="Dheepak Krishnamurthy" />
+    <meta name="copyright" content="Dheepak Krishnamurthy" />
+
+
+        <meta name="twitter:creator" content="@kdheepak89">
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<title>Vim, tmux and zsh - the productivity trio - Dheepak Krishnamurthy</title>
+
+    <!-- iPython Notebook script -->
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+            <script type="text/javascript">
+            init_mathjax = function() {
+                if (window.MathJax) {
+                    // MathJax loaded
+                    MathJax.Hub.Config({
+                        tex2jax: {
+                            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                            displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+                        },
+                        displayAlign: 'left', // Change this to 'center' to center equations.
+                        "HTML-CSS": {
+                            styles: {'.MathJax_Display': {"margin": 0}}
+                        }
+                    });
+                    MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+                }
+            }
+            init_mathjax();
+        </script>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+      <!-- iPython Notebook script for collapsing and expanding code -->
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $("div.collapseheader").click(function () {
+            $header = $(this).children("span").first();
+            $codearea = $(this).children(".input_area");
+            console.log($(this).children());
+            $codearea.slideToggle(500, function () {
+                $header.text(function () {
+                    return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
+                });
+            });
+        });
+        });
+        </script>
+        <script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+    <!-- Bootstrap Core CSS -->
+    <link href="/theme/css/bootstrap.min.css" rel="stylesheet">
+
+         <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="/theme/css/materialize.min.css">
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+
+    <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="/theme/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Permanent+Marker|Pacifico|Nova+Round|EB+Garamond|Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+    <!-- Custom CSS -->
+    <link href="/theme/css/pelican-smoothie.css" rel="stylesheet">
+    <link href="/theme/css/pygment.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://kdheepak.com/theme/tipuesearch/tipuesearch.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-47173621-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+<!-- start Mixpanel --><script type="text/javascript">(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+    for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
+    <!-- end Mixpanel -->
+
+<script>
+    mixpanel.track("Page", {"Name": "Vim, tmux and zsh - the productivity trio", "url": "blog/vim-tmux-zsh.html"  }) ;
+</script>
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+   <div class="search-button">
+            <form id="search" class="floating-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);">
+            <input type="search" class="search-query" placeholder="Search" name="q"></form>
+       </div>
+
+
+
+
+    <div class="content-block">
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header-article" style="background-image: url('');">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2 fixed-action-btn">
+                    <a href='http://kdheepak.com/blog' class="btn-floating btn-large white page-scroll">
+                      <i class="md-dark material-icons">keyboard_arrow_left</i>
+                    </a>
+                    </div>
+                    <div class="col-sm-10 col-sm-offset-1">
+                    <h1 class="article-heading">Vim, tmux and zsh - the productivity trio</h1>
+                        <h2 class="article-subheading"> </h2>
+<span class="meta last-updated">
+Published on 
+<time pubdate="pubdate" datetime="2015-05-08T22:58:18-06:00">May 8, 2015</time>
+</span>                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="entry-content">
+                    <p>I'v not found a greater combination of tools than vim, tmux and zsh. I've detailed below some of the configuration to get it working the way I want it to.</p>
+<p><img alt="vim-tmux-zsh" src="/images/vim-tmux-zsh.png" /></p>
+<h2 id="tmux">tmux<a class="headerlink" href="#tmux" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span class="code-line"><span class="err">#</span><span class="x"> Change prefix key to `</span></span>
+<span class="code-line"><span class="x">unbind C-b</span></span>
+<span class="code-line"><span class="x">set -g prefix `</span></span>
+<span class="code-line"><span class="x">bind-key ` send-prefix</span></span>
+<span class="code-line"><span class="x">bind-key C-a set-option -g prefix C-a</span></span>
+<span class="code-line"><span class="x">bind-key C-b set-option -g prefix `</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="err">#</span><span class="x"> we might need ` at some point, allow switching</span></span>
+<span class="code-line"><span class="x">bind-key C-a set-option -g prefix C-a</span></span>
+<span class="code-line"><span class="x">bind-key C-b set-option -g prefix `</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="x">setw -g monitor-activity on</span></span>
+<span class="code-line"><span class="x">set -g visual-activity on</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="x">set-window-option -g window-status-current-bg yellow</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="x">set -g mouse-resize-pane on</span></span>
+<span class="code-line"><span class="x">set-option -g mouse-select-pane on</span></span>
+<span class="code-line"><span class="x">set-option -g mouse-select-window on</span></span>
+<span class="code-line"><span class="x">set-window-option -g mode-mouse on</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="x">setw -g mode-mouse on</span></span>
+<span class="code-line"><span class="x">set -g terminal-overrides &#39;xterm*:smcup@:rmcup@&#39;</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="err">#</span><span class="x"> set-option -g default-command &quot;reattach-to-user-namespace -l zsh&quot;</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="err">#</span><span class="x"> Use vim keybindings in copy mode</span></span>
+<span class="code-line"><span class="x">setw -g mode-keys vi</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="x">bind-key -t vi-copy v begin-selection</span></span>
+<span class="code-line"><span class="x">bind-key -t vi-copy y copy-pipe &quot;reattach-to-user-namespace pbcopy&quot;</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="x">unbind -t vi-copy Enter</span></span>
+<span class="code-line"><span class="x">bind-key -t vi-copy Enter copy-pipe &quot;reattach-to-user-namespace pbcopy&quot;</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="cp">##</span><span class="c"> Keep your finger on ctrl, or don&#39;t</span><span class="x"></span></span>
+<span class="code-line"><span class="x">bind-key ^D detach-client</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="cp">##</span><span class="c"> Pane resize in all four directions using vi bindings.</span><span class="x"></span></span>
+<span class="code-line"><span class="cp">##</span><span class="c"> Can use these raw but I map them to shift-ctrl-&lt;h,j,k,l&gt; in iTerm.</span><span class="x"></span></span>
+<span class="code-line"><span class="x">bind -r H resize-pane -L 5</span></span>
+<span class="code-line"><span class="x">bind -r J resize-pane -D 5</span></span>
+<span class="code-line"><span class="x">bind -r K resize-pane -U 5</span></span>
+<span class="code-line"><span class="x">bind -r L resize-pane -R 5</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="cp">##</span><span class="c"> Smart pane switching with awareness of vim splits.</span><span class="x"></span></span>
+<span class="code-line"><span class="cp">##</span><span class="c"> Source: https://github.com/christoomey/vim-tmux-navigator</span><span class="x"></span></span>
+<span class="code-line"><span class="x">bind -n C-h run &quot;(tmux display-message -p &#39;</span><span class="cp">#{</span><span class="nf">pane_current_command</span><span class="cp">}</span><span class="x">&#39; | grep -iqE &#39;(^|\/)g?(view|vim?)(diff)?</span><span class="p">$</span><span class="x">&#39; &amp;&amp; tmux send-keys C-h) || tmux select-pane -L&quot;</span></span>
+<span class="code-line"><span class="x">bind -n C-j run &quot;(tmux display-message -p &#39;</span><span class="cp">#{</span><span class="nf">pane_current_command</span><span class="cp">}</span><span class="x">&#39; | grep -iqE &#39;(^|\/)g?(view|vim?)(diff)?</span><span class="p">$</span><span class="x">&#39; &amp;&amp; tmux send-keys C-j) || tmux select-pane -D&quot;</span></span>
+<span class="code-line"><span class="x">bind -n C-k run &quot;(tmux display-message -p &#39;</span><span class="cp">#{</span><span class="nf">pane_current_command</span><span class="cp">}</span><span class="x">&#39; | grep -iqE &#39;(^|\/)g?(view|vim?)(diff)?</span><span class="p">$</span><span class="x">&#39; &amp;&amp; tmux send-keys C-k) || tmux select-pane -U&quot;</span></span>
+<span class="code-line"><span class="x">bind -n C-l run &quot;(tmux display-message -p &#39;</span><span class="cp">#{</span><span class="nf">pane_current_command</span><span class="cp">}</span><span class="x">&#39; | grep -iqE &#39;(^|\/)g?(view|vim?)(diff)?</span><span class="p">$</span><span class="x">&#39; &amp;&amp; tmux send-keys C-l) || tmux select-pane -R&quot;</span></span>
+<span class="code-line"><span class="x">bind -n C-\ run &quot;(tmux display-message -p &#39;</span><span class="cp">#{</span><span class="nf">pane_current_command</span><span class="cp">}</span><span class="x">&#39; | grep -iqE &#39;(^|\/)g?(view|vim?)(diff)?</span><span class="p">$</span><span class="x">&#39; &amp;&amp; tmux send-keys &#39;C-\\&#39;) || tmux select-pane -l&quot;</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="x">set -g default-terminal &quot;xterm&quot;</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="cp">##</span><span class="c"> No escape time for vi mode</span><span class="x"></span></span>
+<span class="code-line"><span class="x">set -sg escape-time 0</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="cp">##</span><span class="c"> Screen like binding for last window</span><span class="x"></span></span>
+<span class="code-line"><span class="x">unbind l</span></span>
+<span class="code-line"><span class="x">bind C-a last-window</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="cp">##</span><span class="c"> Bigger history</span><span class="x"></span></span>
+<span class="code-line"><span class="x">set -g history-limit 10000</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="cp">##</span><span class="c"> New windows/pane in $PWD</span><span class="x"></span></span>
+<span class="code-line"><span class="x">bind c new-window -c &quot;</span><span class="cp">#{</span><span class="nf">pane_current_path</span><span class="cp">}</span><span class="x">&quot;</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="cp">##</span><span class="c"> force a reload of the config file</span><span class="x"></span></span>
+<span class="code-line"><span class="x">unbind r</span></span>
+<span class="code-line"><span class="x">bind r source-file ~/.tmux.conf \; display &quot;Reloaded!&quot;</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="cp">##</span><span class="c"> Easy bindings for split</span><span class="x"></span></span>
+<span class="code-line"><span class="x">unbind %</span></span>
+<span class="code-line"><span class="x">bind | split-window -h  -c &quot;</span><span class="cp">#{</span><span class="nf">pane_current_path</span><span class="cp">}</span><span class="x">&quot;</span></span>
+<span class="code-line"><span class="x">bind - split-window -v  -c &quot;</span><span class="cp">#{</span><span class="nf">pane_current_path</span><span class="cp">}</span><span class="x">&quot;</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="cp">#</span><span class="nf">bind</span><span class="x"> y run &#39;tmux save-buffer - | reattach-to-user-namespace pbcopy &#39;</span></span>
+<span class="code-line"><span class="cp">#</span><span class="nf">bind</span><span class="x"> C-y run &#39;tmux save-buffer - | reattach-to-user-namespace pbcopy &#39;</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="err">#</span><span class="x"> start window numbering at 1</span></span>
+<span class="code-line"><span class="x">set -g base-index 1</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="err">#</span><span class="x"> start pane numbering at 1</span></span>
+<span class="code-line"><span class="x">set -g pane-base-index 1</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="x">bind-key -n C-S-Left swap-window -t -1</span></span>
+<span class="code-line"><span class="x">bind-key -n C-S-Right swap-window -t +1</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="cp">##</span><span class="c"> Here is a jewel of a bind which does the task of flipping the orientation of the current pane with the pane before it (in the ordering) -- I had a SO question on this and nobody answered.</span><span class="x"></span></span>
+<span class="code-line"><span class="x">bind -n M-f move-pane -t &#39;.-&#39;</span></span>
+<span class="code-line"><span class="x">bind M-f move-pane -t &#39;.-&#39;</span></span>
+<span class="code-line"><span class="x">bind -n M-r move-pane -h -t &#39;.-&#39;</span></span>
+<span class="code-line"><span class="x">bind M-r move-pane -h -t &#39;.-&#39;</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="cp">##</span><span class="c"># Join windows: &lt;prefix&gt; s, &lt;prefix&gt; j</span><span class="x"></span></span>
+<span class="code-line"><span class="x">bind-key j command-prompt -p &quot;join pane from:&quot;  &quot;join-pane -s &#39;%%&#39;&quot;</span></span>
+<span class="code-line"><span class="x">bind-key s command-prompt -p &quot;send pane to:&quot;  &quot;join-pane -t &#39;%%&#39;&quot;</span></span>
+</pre></div>
+
+
+<h2 id="zsh">zsh<a class="headerlink" href="#zsh" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span class="code-line"><span class="err">#</span><span class="x"> Path to your oh-my-zsh installation.</span></span>
+<span class="code-line"><span class="x">export ZSH=/Users/dheepakkrishnamurthy/.oh-my-zsh</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="x">ZSH_THEME=&quot;rawsyntax&quot;</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="x">alias vim=&#39;mvim -v&#39;</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="x">export TERM=xterm-256color</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="x">source </span><span class="p">$</span><span class="nv">ZSH</span><span class="x">/oh-my-zsh.sh</span></span>
+</pre></div>
+
+
+<h2 id="vim">vim<a class="headerlink" href="#vim" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span class="code-line">Plugin &#39;altercation/vim-colors-solarized&#39;</span>
+<span class="code-line">Plugin &#39;bling/vim-airline&#39;</span>
+<span class="code-line">Plugin &#39;christoomey/vim-tmux-navigator&#39;</span>
+<span class="code-line">Plugin &#39;fholgado/minibufexpl.vim&#39;</span>
+<span class="code-line">Plugin &#39;honza/vim-snippets&#39;</span>
+<span class="code-line">Plugin &#39;jeffkreeftmeijer/vim-numbertoggle&#39;</span>
+<span class="code-line">Plugin &#39;morhetz/gruvbox&#39;</span>
+<span class="code-line">Plugin &#39;plasticboy/vim-markdown&#39;</span>
+<span class="code-line">Plugin &#39;scrooloose/nerdcommenter&#39;</span>
+<span class="code-line">Plugin &#39;scrooloose/nerdtree&#39;</span>
+<span class="code-line">Plugin &#39;searchcomplete&#39;</span>
+<span class="code-line">Plugin &#39;sjl/gundo.vim&#39;</span>
+<span class="code-line">Plugin &#39;tomasr/molokai&#39;</span>
+<span class="code-line">Plugin &#39;tpope/vim-repeat&#39;</span>
+<span class="code-line">Plugin &#39;tpope/vim-surround&#39;</span>
+</pre></div>
+                    </div>
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'kdheepak89'; // required: replace example with your forum shortname
+            var disqus_identifier = 'vim-tmux-zsh';
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+    </section>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+    <div id="footer" class="container text-center">
+        <div xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/" about="http://kdheepak.com/"> All content by Dheepak Krishnamurthy on this page is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</div>    </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="/theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/theme/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/theme/js/jquery.easing.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/theme/js/pelican-smoothie.js"></script>
+    <script type="text/javascript" src="http://kdheepak.com/theme/tipuesearch/tipuesearch_set.js"></script>
+    <script type="text/javascript" src="http://kdheepak.com/theme/tipuesearch/tipuesearch.min.js"></script>
+    <script>
+    // jQuery to change FAB
+    $(window).scroll(function() {
+            var scroll = $(window).scrollTop();
+          if (scroll > window.innerHeight/6 ) {
+            $(".fixed-action-btn").addClass("scrolled");
+            $(".fixed-action-btn a.btn-large").attr("href", "#page-top")
+            $('.fixed-action-btn .btn-large .material-icons').text('keyboard_arrow_up');
+            $('.fixed-action-btn .btn-large').addClass('customcolor');
+            $('.fixed-action-btn .btn-large').removeClass('white');
+            $('.fixed-action-btn a.btn-large i').addClass('md-light');
+            $('.fixed-action-btn a.btn-large i').removeClass('md-dark');
+        }
+          if (scroll > 200 ) {
+            $(".fixed-action-btn").addClass("scrolled");
+            $(".fixed-action-btn a.btn-large").attr("href", "#page-top")
+            $('.fixed-action-btn .btn-large .material-icons').text('keyboard_arrow_up');
+            $('.fixed-action-btn .btn-large').addClass('customcolor');
+            $('.fixed-action-btn .btn-large').removeClass('white');
+            $('.fixed-action-btn a.btn-large i').addClass('md-light');
+            $('.fixed-action-btn a.btn-large i').removeClass('md-dark');
+        }
+          if (scroll < window.innerHeight/6 ) {
+            $(".fixed-action-btn").removeClass("scrolled");
+            $(".fixed-action-btn a.btn-large").attr("href", "http://kdheepak.com/blog")
+            $('.fixed-action-btn .btn-large .material-icons').text('keyboard_arrow_left');
+            $('.fixed-action-btn .btn-large').removeClass('customcolor');
+            $('.fixed-action-btn .btn-large').addClass('white');
+            $('.fixed-action-btn a.btn-large i').removeClass('md-light');
+            $('.fixed-action-btn a.btn-large i').addClass('md-dark');
+        }
+    });
+    </script>
+
+</body>
+</html>
