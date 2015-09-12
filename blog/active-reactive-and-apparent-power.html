@@ -156,10 +156,10 @@ Updated on
 
 <div class="collapseheader inner_cell"><span style="font-weight: bold;">Collapse Code</span>
 <div class="input_area">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
-<span class="o">%</span> <span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-ipynb"><pre class="ipynb">from __future__ import division
+% matplotlib inline
+import matplotlib.pyplot as plt
+import numpy as np
 </pre></div>
 
 </div>
@@ -197,24 +197,24 @@ Updated on
 
 <div class="collapseheader inner_cell"><span style="font-weight: bold;">Expand Code</span>
 <div class="input_area" style="display:none">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">f0</span> <span class="o">=</span> <span class="mi">60</span> <span class="c"># Hz (frequency)</span>
-<span class="n">phi</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span> <span class="c"># phase shift</span>
+<div class="highlight-ipynb"><pre class="ipynb">f0 = 60 # Hz (frequency)
+phi = -np.pi/2 # phase shift
 
-<span class="n">Av</span> <span class="o">=</span> <span class="mf">155.563491861</span> <span class="c"># voltage peak</span>
-<span class="n">Ai</span> <span class="o">=</span> <span class="mf">7.07106781187</span> <span class="c"># current peak</span>
+Av = 155.563491861 # voltage peak
+Ai = 7.07106781187 # current peak
 
-<span class="n">fs</span> <span class="o">=</span> <span class="mi">4000</span> <span class="c"># steps</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.000</span><span class="p">,</span> <span class="mi">6</span><span class="o">/</span><span class="n">f0</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span> <span class="c"># plot from 0 to .02 secs</span>
+fs = 4000 # steps
+t = np.arange(0.000, 6/f0, 1.0/fs) # plot from 0 to .02 secs
 
-<span class="n">v</span> <span class="o">=</span> <span class="n">Av</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span>
-<span class="n">i</span> <span class="o">=</span> <span class="n">Ai</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span> <span class="p">)</span>
+v = Av * np.cos(2 * np.pi * f0 * t + phi)
+i = Ai * np.cos(2 * np.pi * f0 * t )
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Voltage&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Current&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="n">f0</span><span class="p">,</span> <span class="o">-</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">])</span>
+fig, ax = plt.subplots(1,1,figsize = (16,10))
+ax.plot(t, v, label = &#39;Voltage&#39;)
+ax.plot(t, i, label = &#39;Current&#39;)
+ax.axis([0, 2/f0, -200, 200])
 
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+ax.legend();
 </pre></div>
 
 </div>
@@ -741,8 +741,8 @@ kiRJjWCBKkmSJElqBAtUSZIkSVIj/H+y9KUkbQIgBwAAAABJRU5ErkJggg==
 
 <div class="collapseheader inner_cell"><span style="font-weight: bold;">Expand Code</span>
 <div class="input_area" style="display:none">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="k">def</span> <span class="nf">rms</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<div class="highlight-ipynb"><pre class="ipynb">def rms(x):
+    return np.sqrt(np.mean(x**2))
 </pre></div>
 
 </div>
@@ -767,18 +767,18 @@ kiRJjWCBKkmSJElqBAtUSZIkSVIj/H+y9KUkbQIgBwAAAABJRU5ErkJggg==
 
 <div class="collapseheader inner_cell"><span style="font-weight: bold;">Expand Code</span>
 <div class="input_area" style="display:none">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="k">print</span> <span class="s">&#39;Maximum&#39;</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-<span class="k">print</span> <span class="s">&#39;Minimum&#39;</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-<span class="k">print</span> <span class="s">&#39;RMS&#39;</span><span class="p">,</span> <span class="n">rms</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<div class="highlight-ipynb"><pre class="ipynb">print &#39;Maximum&#39;, max(v)
+print &#39;Minimum&#39;, min(v)
+print &#39;RMS&#39;, rms(v)
 
-<span class="k">print</span> <span class="s">&#39;Ratio max/rms&#39;</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">/</span><span class="n">rms</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+print &#39;Ratio max/rms&#39;, max(v)/rms(v)
 
-<span class="k">try</span><span class="p">:</span> 
-    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_approx_equal</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">/</span><span class="n">rms</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&#39;Numbers not equal&#39;</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&#39;Maximum value = √2 x RMS value&#39;</span>
+try: 
+    np.testing.assert_approx_equal(np.sqrt(2), max(v)/rms(v))
+except:
+    print &#39;Numbers not equal&#39;
+else:
+    print &#39;Maximum value = √2 x RMS value&#39;
 </pre></div>
 
 </div>
@@ -854,44 +854,44 @@ Maximum value = √2 x RMS value
 
 <div class="collapseheader inner_cell"><span style="font-weight: bold;">Expand Code</span>
 <div class="input_area" style="display:none">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">f0</span> <span class="o">=</span> <span class="mi">60</span> <span class="c"># Hz (frequency)</span>
-<span class="n">phi</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span> <span class="c"># phase shift</span>
+<div class="highlight-ipynb"><pre class="ipynb">f0 = 60 # Hz (frequency)
+phi = -np.pi/6 # phase shift
 
-<span class="n">Av</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c"># voltage peak</span>
-<span class="n">Ai</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c"># current peak</span>
+Av = 10*np.sqrt(2) # voltage peak
+Ai = 5*np.sqrt(2) # current peak
 
-<span class="n">fs</span> <span class="o">=</span> <span class="mi">4000</span> <span class="c"># steps</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.000</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">f0</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span> <span class="c"># plot from 0 to .02 secs</span>
+fs = 4000 # steps
+t = np.arange(0.000, 1/f0, 1.0/fs) # plot from 0 to .02 secs
 
-<span class="n">v</span> <span class="o">=</span> <span class="n">Av</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span>
-<span class="n">i</span> <span class="o">=</span> <span class="n">Ai</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span> <span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+v = Av * np.cos(2 * np.pi * f0 * t + phi)
+i = Ai * np.cos(2 * np.pi * f0 * t )
+fig, axs = plt.subplots(2,1,figsize = (16,10))
 
-<span class="n">ax1</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+ax1 = axs[0]
 
-<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">)</span>
+ax1.axhline(linewidth=0.25, color=&#39;black&#39;)
+ax1.axvline(linewidth=0.25, color=&#39;black&#39;)
 
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Voltage in phase A&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Current in phase A&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">&#39;Voltage and Current&#39;</span><span class="p">)</span>
+ax1.plot(t, v, label = &#39;Voltage in phase A&#39;)
+ax1.plot(t, i, label = &#39;Current in phase A&#39;)
+ax1.set_ylabel(&#39;Voltage and Current&#39;)
 
-<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">f0</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">]);</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+ax1.axis([0, 1/f0, -20, 20]);
+ax1.legend()
 
 
-<span class="n">ax2</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+ax2 = axs[1]
 
-<span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">)</span>
+ax2.axhline(linewidth=0.25, color=&#39;black&#39;)
+ax2.axvline(linewidth=0.25, color=&#39;black&#39;)
 
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="o">*</span><span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Power in phase A&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;g&#39;</span><span class="p">)</span>
+ax2.plot(t, v*i, label = &#39;Power in phase A&#39;, color=&#39;g&#39;)
 
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">&#39;Power&#39;</span><span class="p">)</span>
-<span class="c"># for tl in ax2.get_yticklabels():</span>
-<span class="c">#     tl.set_color(&#39;g&#39;)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">f0</span><span class="p">,</span> <span class="o">-</span><span class="mi">120</span><span class="p">,</span> <span class="mi">120</span><span class="p">]);</span>
+ax2.set_ylabel(&#39;Power&#39;)
+# for tl in ax2.get_yticklabels():
+#     tl.set_color(&#39;g&#39;)
+ax2.legend()
+ax2.axis([0, 1/f0, -120, 120]);
 </pre></div>
 
 </div>
@@ -1575,52 +1575,52 @@ gg==
 
 <div class="collapseheader inner_cell"><span style="font-weight: bold;">Expand Code</span>
 <div class="input_area" style="display:none">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">f0</span> <span class="o">=</span> <span class="mi">60</span> <span class="c"># Hz (frequency)</span>
-<span class="n">phi</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span> <span class="c"># phase shift</span>
+<div class="highlight-ipynb"><pre class="ipynb">f0 = 60 # Hz (frequency)
+phi = -np.pi/3 # phase shift
 
-<span class="n">Av</span> <span class="o">=</span> <span class="mi">110</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c"># voltage peak</span>
-<span class="n">Ai</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c"># current peak</span>
+Av = 110*np.sqrt(2) # voltage peak
+Ai = 5*np.sqrt(2) # current peak
 
-<span class="n">fs</span> <span class="o">=</span> <span class="mi">4000</span> <span class="c"># steps</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.000</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">f0</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span> <span class="c"># plot from 0 to .02 secs</span>
+fs = 4000 # steps
+t = np.arange(0.000, 1/f0, 1.0/fs) # plot from 0 to .02 secs
 
-<span class="n">v</span> <span class="o">=</span> <span class="n">Av</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span>
-<span class="n">i</span> <span class="o">=</span> <span class="n">Ai</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span> <span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+v = Av * np.cos(2 * np.pi * f0 * t + phi)
+i = Ai * np.cos(2 * np.pi * f0 * t )
+fig, axs = plt.subplots(1,1,figsize = (16,5))
 
-<span class="c"># ax1 = axs[0]</span>
+# ax1 = axs[0]
 
-<span class="c"># ax1.axhline(linewidth=0.25, color=&#39;black&#39;)</span>
-<span class="c"># ax1.axvline(linewidth=0.25, color=&#39;black&#39;)</span>
+# ax1.axhline(linewidth=0.25, color=&#39;black&#39;)
+# ax1.axvline(linewidth=0.25, color=&#39;black&#39;)
 
-<span class="c"># ax1.plot(t, v, label = &#39;Voltage in phase A&#39;)</span>
-<span class="c"># ax1.plot(t, i, label = &#39;Current in phase A&#39;)</span>
-<span class="c"># ax1.set_ylabel(&#39;Voltage and Current&#39;)</span>
+# ax1.plot(t, v, label = &#39;Voltage in phase A&#39;)
+# ax1.plot(t, i, label = &#39;Current in phase A&#39;)
+# ax1.set_ylabel(&#39;Voltage and Current&#39;)
 
-<span class="c"># ax1.axis([0, 1/f0, -200, 200]);</span>
-<span class="c"># ax1.legend(loc=&#39;lower left&#39;)</span>
+# ax1.axis([0, 1/f0, -200, 200]);
+# ax1.legend(loc=&#39;lower left&#39;)
 
-<span class="n">ax2</span> <span class="o">=</span> <span class="n">axs</span>
+ax2 = axs
 
-<span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">)</span>
+ax2.axhline(linewidth=0.25, color=&#39;black&#39;)
+ax2.axvline(linewidth=0.25, color=&#39;black&#39;)
 
-<span class="c">#$p = \frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t) </span>
-<span class="c">#                         + \frac{V_{max}I_{max}}{2} \sin 2\omega t \sin \theta $</span>
+#$p = \frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t) 
+#                         + \frac{V_{max}I_{max}}{2} \sin 2\omega t \sin \theta $
 
-<span class="n">p_R</span> <span class="o">=</span> <span class="n">Av</span><span class="o">*</span><span class="n">Ai</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span><span class="p">)))</span>
-<span class="n">p_X</span> <span class="o">=</span> <span class="n">Av</span><span class="o">*</span><span class="n">Ai</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span><span class="p">)))</span>
+p_R = Av*Ai/2*(np.cos(phi) * (1 + np.cos(2 * 2 * np.pi * f0 * t)))
+p_X = Av*Ai/2*(np.sin(phi) * (np.sin(2 * 2 * np.pi * f0 * t)))
 
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p_R</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Instantaneous Active Power in phase A&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p_X</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Instantaneous Reactive Power in phase A&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
+ax2.plot(t, p_R, label = &#39;Instantaneous Active Power in phase A&#39;, linestyle=&#39;--&#39;, color = &#39;b&#39;)
+ax2.plot(t, p_X, label = &#39;Instantaneous Reactive Power in phase A&#39;, linestyle=&#39;-.&#39;, color = &#39;r&#39;)
 
-<span class="c">#ax2.plot(t, v*i, label = &#39;Power in phase A&#39;, color=&#39;g&#39;)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p_R</span><span class="o">+</span><span class="n">p_X</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Instantaneous Power in phase A&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;g&#39;</span><span class="p">)</span>
+#ax2.plot(t, v*i, label = &#39;Power in phase A&#39;, color=&#39;g&#39;)
+ax2.plot(t, p_R+p_X, label = &#39;Instantaneous Power in phase A&#39;, color=&#39;g&#39;)
 
 
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">&#39;Power&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&#39;lower left&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">f0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1500</span><span class="p">,</span> <span class="mi">1500</span><span class="p">]);</span>
+ax2.set_ylabel(&#39;Power&#39;)
+ax2.legend(loc=&#39;lower left&#39;)
+ax2.axis([0, 1/f0, -1500, 1500]);
 </pre></div>
 
 </div>
@@ -2157,21 +2157,21 @@ TkSuQmCC
 
 <div class="collapseheader inner_cell"><span style="font-weight: bold;">Expand Code</span>
 <div class="input_area" style="display:none">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">import</span> <span class="nn">SchemDraw</span> <span class="kn">as</span> <span class="nn">schem</span>
-<span class="kn">import</span> <span class="nn">SchemDraw.elements</span> <span class="kn">as</span> <span class="nn">e</span>
+<div class="highlight-ipynb"><pre class="ipynb">import SchemDraw as schem
+import SchemDraw.elements as e
 
-<span class="n">d</span> <span class="o">=</span> <span class="n">schem</span><span class="o">.</span><span class="n">Drawing</span><span class="p">()</span>
+d = schem.Drawing()
 
-<span class="n">V1</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">e</span><span class="o">.</span><span class="n">SOURCE_SIN</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&#39;$V_{a}$&#39;</span> <span class="p">)</span>
-<span class="n">L1</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s">&#39;right&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&#39;$I_{a}$&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s">&#39;down&#39;</span><span class="p">,</span> <span class="n">botlabel</span><span class="o">=</span><span class="s">&#39;$R$&#39;</span> <span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s">&#39;right&#39;</span> <span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">e</span><span class="o">.</span><span class="n">INDUCTOR2</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s">&#39;down&#39;</span><span class="p">,</span> <span class="n">botlabel</span><span class="o">=</span><span class="s">&#39;$L$&#39;</span> <span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="n">V1</span><span class="o">.</span><span class="n">start</span> <span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">e</span><span class="o">.</span><span class="n">GND</span> <span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+V1 = d.add( e.SOURCE_SIN, label=&#39;$V_{a}$&#39; )
+L1 = d.add( e.LINE, d=&#39;right&#39;, label=&#39;$I_{a}$&#39;)
+d.push()
+R = d.add( e.RES, d=&#39;down&#39;, botlabel=&#39;$R$&#39; )
+d.pop()
+d.add( e.LINE, d=&#39;right&#39; )
+d.add( e.INDUCTOR2, d=&#39;down&#39;, botlabel=&#39;$L$&#39; )
+d.add( e.LINE, to=V1.start )
+d.add( e.GND )
+d.draw()
 </pre></div>
 
 </div>
@@ -2272,22 +2272,22 @@ B4eZFXNwmFkxB4eZFXNwmFkxB4eZFft/HXoQ7V2BIQ4AAAAASUVORK5CYII=
 
 <div class="collapseheader inner_cell"><span style="font-weight: bold;">Expand Code</span>
 <div class="input_area" style="display:none">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<div class="highlight-ipynb"><pre class="ipynb">fig, ax = plt.subplots(1,1,figsize = (4,4))
 
-<span class="n">soa</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span> 
-<span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">V</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">soa</span><span class="p">)</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">angles</span><span class="o">=</span><span class="s">&#39;xy&#39;</span><span class="p">,</span><span class="n">scale_units</span><span class="o">=</span><span class="s">&#39;xy&#39;</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+soa =np.array([[0,0,0,5],[0,0,0,10],[0,0,5,0],[0,0,5,5]]) 
+X,Y,U,V = zip(*soa)
+ax = plt.gca()
+ax.quiver(X,Y,U,V,angles=&#39;xy&#39;,scale_units=&#39;xy&#39;,scale=1)
+ax.set_xlim([-1,10])
+ax.set_ylim([-1,10])
 
-<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">r&#39;$I_{X}$&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s">r&#39;$I_{R}$&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s">r&#39;$I_{an}$&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s">r&#39;$V_{an}$&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s">r&#39;$\theta$&#39;</span><span class="p">)</span>
+ax.text(5, 0, r&#39;$I_{X}$&#39;)
+ax.text(0, 5, r&#39;$I_{R}$&#39;)
+ax.text(5, 5, r&#39;$I_{an}$&#39;)
+ax.text(0, 10, r&#39;$V_{an}$&#39;)
+ax.text(0.25, 1, r&#39;$\theta$&#39;)
 
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s">&#39;off&#39;</span><span class="p">);</span>
+ax.axis(&#39;off&#39;);
 </pre></div>
 
 </div>
@@ -2445,53 +2445,53 @@ And $\theta$ is determined by the nature of the impedance.</p>
 
 <div class="collapseheader inner_cell"><span style="font-weight: bold;">Expand Code</span>
 <div class="input_area" style="display:none">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">f0</span> <span class="o">=</span> <span class="mi">60</span> <span class="c"># Hz (frequency)</span>
-<span class="n">phi</span> <span class="o">=</span> <span class="mi">0</span> <span class="c"># phase shift</span>
+<div class="highlight-ipynb"><pre class="ipynb">f0 = 60 # Hz (frequency)
+phi = 0 # phase shift
 
-<span class="n">Av</span> <span class="o">=</span> <span class="mi">110</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c"># voltage peak</span>
-<span class="n">Ai</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c"># current peak</span>
+Av = 110*np.sqrt(2) # voltage peak
+Ai = 5*np.sqrt(2) # current peak
 
-<span class="n">fs</span> <span class="o">=</span> <span class="mi">4000</span> <span class="c"># steps</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.000</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">f0</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span> <span class="c"># plot from 0 to .02 secs</span>
+fs = 4000 # steps
+t = np.arange(0.000, 1/f0, 1.0/fs) # plot from 0 to .02 secs
 
-<span class="n">v</span> <span class="o">=</span> <span class="n">Av</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span>
-<span class="n">i</span> <span class="o">=</span> <span class="n">Ai</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span> <span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-
-
-<span class="n">ax1</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">)</span>
-
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Voltage in phase A&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Current in phase A&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">&#39;Voltage and Current&#39;</span><span class="p">)</span>
-
-<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">f0</span><span class="p">,</span> <span class="o">-</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">]);</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&#39;lower left&#39;</span><span class="p">)</span>
-
-<span class="n">ax2</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">)</span>
-
-<span class="c">#$p = \frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t) </span>
-<span class="c">#                         + \frac{V_{max}I_{max}}{2} \sin 2\omega t \sin \theta $</span>
-
-<span class="n">p_R</span> <span class="o">=</span> <span class="n">Av</span><span class="o">*</span><span class="n">Ai</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span><span class="p">)))</span>
-<span class="n">p_X</span> <span class="o">=</span> <span class="n">Av</span><span class="o">*</span><span class="n">Ai</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span><span class="p">)))</span>
-
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p_R</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Instantaneous Active Power in phase A&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p_X</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Instantaneous Reactive Power in phase A&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
-
-<span class="c">#ax2.plot(t, v*i, label = &#39;Power in phase A&#39;, color=&#39;g&#39;)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p_R</span><span class="o">+</span><span class="n">p_X</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Instantaneous Power in phase A&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;g&#39;</span><span class="p">)</span>
+v = Av * np.cos(2 * np.pi * f0 * t + phi)
+i = Ai * np.cos(2 * np.pi * f0 * t )
+fig, axs = plt.subplots(2,1,figsize = (16,10))
 
 
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">&#39;Power&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&#39;lower left&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">f0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1500</span><span class="p">,</span> <span class="mi">1500</span><span class="p">]);</span>
+ax1 = axs[0]
+
+ax1.axhline(linewidth=0.25, color=&#39;black&#39;)
+ax1.axvline(linewidth=0.25, color=&#39;black&#39;)
+
+ax1.plot(t, v, label = &#39;Voltage in phase A&#39;)
+ax1.plot(t, i, label = &#39;Current in phase A&#39;)
+ax1.set_ylabel(&#39;Voltage and Current&#39;)
+
+ax1.axis([0, 1/f0, -200, 200]);
+ax1.legend(loc=&#39;lower left&#39;)
+
+ax2 = axs[1]
+
+ax2.axhline(linewidth=0.25, color=&#39;black&#39;)
+ax2.axvline(linewidth=0.25, color=&#39;black&#39;)
+
+#$p = \frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t) 
+#                         + \frac{V_{max}I_{max}}{2} \sin 2\omega t \sin \theta $
+
+p_R = Av*Ai/2*(np.cos(phi) * (1 + np.cos(2 * 2 * np.pi * f0 * t)))
+p_X = Av*Ai/2*(np.sin(phi) * (np.sin(2 * 2 * np.pi * f0 * t)))
+
+ax2.plot(t, p_R, label = &#39;Instantaneous Active Power in phase A&#39;, linestyle=&#39;--&#39;, color = &#39;b&#39;)
+ax2.plot(t, p_X, label = &#39;Instantaneous Reactive Power in phase A&#39;, linestyle=&#39;-.&#39;, color = &#39;r&#39;)
+
+#ax2.plot(t, v*i, label = &#39;Power in phase A&#39;, color=&#39;g&#39;)
+ax2.plot(t, p_R+p_X, label = &#39;Instantaneous Power in phase A&#39;, color=&#39;g&#39;)
+
+
+ax2.set_ylabel(&#39;Power&#39;)
+ax2.legend(loc=&#39;lower left&#39;)
+ax2.axis([0, 1/f0, -1500, 1500]);
 </pre></div>
 
 </div>
@@ -3293,52 +3293,52 @@ Vfv/LHPJ6k9XvboAAAAASUVORK5CYII=
 
 <div class="collapseheader inner_cell"><span style="font-weight: bold;">Expand Code</span>
 <div class="input_area" style="display:none">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">f0</span> <span class="o">=</span> <span class="mi">60</span> <span class="c"># Hz (frequency)</span>
-<span class="n">phi</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span> <span class="c"># phase shift</span>
+<div class="highlight-ipynb"><pre class="ipynb">f0 = 60 # Hz (frequency)
+phi = -np.pi/2 # phase shift
 
-<span class="n">Av</span> <span class="o">=</span> <span class="mi">110</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c"># voltage peak</span>
-<span class="n">Ai</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c"># current peak</span>
+Av = 110*np.sqrt(2) # voltage peak
+Ai = 5*np.sqrt(2) # current peak
 
-<span class="n">fs</span> <span class="o">=</span> <span class="mi">4000</span> <span class="c"># steps</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.000</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">f0</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span> <span class="c"># plot from 0 to .02 secs</span>
+fs = 4000 # steps
+t = np.arange(0.000, 1/f0, 1.0/fs) # plot from 0 to .02 secs
 
-<span class="n">v</span> <span class="o">=</span> <span class="n">Av</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span>
-<span class="n">i</span> <span class="o">=</span> <span class="n">Ai</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span> <span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+v = Av * np.cos(2 * np.pi * f0 * t + phi)
+i = Ai * np.cos(2 * np.pi * f0 * t )
+fig, axs = plt.subplots(2,1,figsize = (16,10))
 
-<span class="n">ax1</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+ax1 = axs[0]
 
-<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">)</span>
+ax1.axhline(linewidth=0.25, color=&#39;black&#39;)
+ax1.axvline(linewidth=0.25, color=&#39;black&#39;)
 
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Voltage in phase A&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Current in phase A&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">&#39;Voltage and Current&#39;</span><span class="p">)</span>
+ax1.plot(t, v, label = &#39;Voltage in phase A&#39;)
+ax1.plot(t, i, label = &#39;Current in phase A&#39;)
+ax1.set_ylabel(&#39;Voltage and Current&#39;)
 
-<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">f0</span><span class="p">,</span> <span class="o">-</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">]);</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&#39;upper left&#39;</span><span class="p">)</span>
+ax1.axis([0, 1/f0, -200, 200]);
+ax1.legend(loc=&#39;upper left&#39;)
 
-<span class="n">ax2</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+ax2 = axs[1]
 
-<span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">)</span>
+ax2.axhline(linewidth=0.25, color=&#39;black&#39;)
+ax2.axvline(linewidth=0.25, color=&#39;black&#39;)
 
-<span class="c">#$p = \frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t) </span>
-<span class="c">#                         + \frac{V_{max}I_{max}}{2} \sin 2\omega t \sin \theta $</span>
+#$p = \frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t) 
+#                         + \frac{V_{max}I_{max}}{2} \sin 2\omega t \sin \theta $
 
-<span class="n">p_R</span> <span class="o">=</span> <span class="n">Av</span><span class="o">*</span><span class="n">Ai</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span><span class="p">)))</span>
-<span class="n">p_X</span> <span class="o">=</span> <span class="n">Av</span><span class="o">*</span><span class="n">Ai</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span><span class="p">)))</span>
+p_R = Av*Ai/2*(np.cos(phi) * (1 + np.cos(2 * 2 * np.pi * f0 * t)))
+p_X = Av*Ai/2*(np.sin(phi) * (np.sin(2 * 2 * np.pi * f0 * t)))
 
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p_R</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Instantaneous Active Power in phase A&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p_X</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Instantaneous Reactive Power in phase A&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
+ax2.plot(t, p_R, label = &#39;Instantaneous Active Power in phase A&#39;, linestyle=&#39;--&#39;, color = &#39;b&#39;)
+ax2.plot(t, p_X, label = &#39;Instantaneous Reactive Power in phase A&#39;, linestyle=&#39;-.&#39;, color = &#39;r&#39;)
 
-<span class="c">#ax2.plot(t, v*i, label = &#39;Power in phase A&#39;, color=&#39;g&#39;)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p_R</span><span class="o">+</span><span class="n">p_X</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Instantaneous Power in phase A&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;g&#39;</span><span class="p">)</span>
+#ax2.plot(t, v*i, label = &#39;Power in phase A&#39;, color=&#39;g&#39;)
+ax2.plot(t, p_R+p_X, label = &#39;Instantaneous Power in phase A&#39;, color=&#39;g&#39;)
 
 
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">&#39;Power&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&#39;upper left&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">f0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1500</span><span class="p">,</span> <span class="mi">1500</span><span class="p">]);</span>
+ax2.set_ylabel(&#39;Power&#39;)
+ax2.legend(loc=&#39;upper left&#39;)
+ax2.axis([0, 1/f0, -1500, 1500]);
 </pre></div>
 
 </div>
@@ -4122,52 +4122,52 @@ ImlNwVdERERERETS2v8BxKRZEitj2LAAAAAASUVORK5CYII=
 
 <div class="collapseheader inner_cell"><span style="font-weight: bold;">Expand Code</span>
 <div class="input_area" style="display:none">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="n">f0</span> <span class="o">=</span> <span class="mi">60</span> <span class="c"># Hz (frequency)</span>
-<span class="n">phi</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span> <span class="c"># phase shift</span>
+<div class="highlight-ipynb"><pre class="ipynb">f0 = 60 # Hz (frequency)
+phi = -np.pi/2 # phase shift
 
-<span class="n">Av</span> <span class="o">=</span> <span class="mi">110</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c"># voltage peak</span>
-<span class="n">Ai</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c"># current peak</span>
+Av = 110*np.sqrt(2) # voltage peak
+Ai = 5*np.sqrt(2) # current peak
 
-<span class="n">fs</span> <span class="o">=</span> <span class="mi">4000</span> <span class="c"># steps</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.000</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">f0</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span> <span class="c"># plot from 0 to .02 secs</span>
+fs = 4000 # steps
+t = np.arange(0.000, 1/f0, 1.0/fs) # plot from 0 to .02 secs
 
-<span class="n">v</span> <span class="o">=</span> <span class="n">Av</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span>
-<span class="n">i</span> <span class="o">=</span> <span class="n">Ai</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span> <span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+v = Av * np.cos(2 * np.pi * f0 * t + phi)
+i = Ai * np.cos(2 * np.pi * f0 * t )
+fig, axs = plt.subplots(2,1,figsize = (16,10))
 
-<span class="n">ax1</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+ax1 = axs[0]
 
-<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">)</span>
+ax1.axhline(linewidth=0.25, color=&#39;black&#39;)
+ax1.axvline(linewidth=0.25, color=&#39;black&#39;)
 
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Voltage in phase A&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Current in phase A&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">&#39;Voltage and Current&#39;</span><span class="p">)</span>
+ax1.plot(t, v, label = &#39;Voltage in phase A&#39;)
+ax1.plot(t, i, label = &#39;Current in phase A&#39;)
+ax1.set_ylabel(&#39;Voltage and Current&#39;)
 
-<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">f0</span><span class="p">,</span> <span class="o">-</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">]);</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&#39;upper left&#39;</span><span class="p">)</span>
+ax1.axis([0, 1/f0, -200, 200]);
+ax1.legend(loc=&#39;upper left&#39;)
 
-<span class="n">ax2</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+ax2 = axs[1]
 
-<span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">)</span>
+ax2.axhline(linewidth=0.25, color=&#39;black&#39;)
+ax2.axvline(linewidth=0.25, color=&#39;black&#39;)
 
-<span class="c">#$p = \frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t) </span>
-<span class="c">#                         + \frac{V_{max}I_{max}}{2} \sin 2\omega t \sin \theta $</span>
+#$p = \frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t) 
+#                         + \frac{V_{max}I_{max}}{2} \sin 2\omega t \sin \theta $
 
-<span class="n">p_R</span> <span class="o">=</span> <span class="n">Av</span><span class="o">*</span><span class="n">Ai</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span><span class="p">)))</span>
-<span class="n">p_X</span> <span class="o">=</span> <span class="n">Av</span><span class="o">*</span><span class="n">Ai</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span><span class="p">)))</span>
+p_R = Av*Ai/2*(np.cos(phi) * (1 + np.cos(2 * 2 * np.pi * f0 * t)))
+p_X = Av*Ai/2*(np.sin(phi) * (np.sin(2 * 2 * np.pi * f0 * t)))
 
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p_R</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Instantaneous Active Power in phase A&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p_X</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Instantaneous Reactive Power in phase A&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
+ax2.plot(t, p_R, label = &#39;Instantaneous Active Power in phase A&#39;, linestyle=&#39;--&#39;, color = &#39;b&#39;)
+ax2.plot(t, p_X, label = &#39;Instantaneous Reactive Power in phase A&#39;, linestyle=&#39;-.&#39;, color = &#39;r&#39;)
 
-<span class="c">#ax2.plot(t, v*i, label = &#39;Power in phase A&#39;, color=&#39;g&#39;)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p_R</span><span class="o">+</span><span class="n">p_X</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Instantaneous Power in phase A&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;g&#39;</span><span class="p">)</span>
+#ax2.plot(t, v*i, label = &#39;Power in phase A&#39;, color=&#39;g&#39;)
+ax2.plot(t, p_R+p_X, label = &#39;Instantaneous Power in phase A&#39;, color=&#39;g&#39;)
 
 
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">&#39;Power&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&#39;upper left&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">f0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1500</span><span class="p">,</span> <span class="mi">1500</span><span class="p">]);</span>
+ax2.set_ylabel(&#39;Power&#39;)
+ax2.legend(loc=&#39;upper left&#39;)
+ax2.axis([0, 1/f0, -1500, 1500]);
 </pre></div>
 
 </div>

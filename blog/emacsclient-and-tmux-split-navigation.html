@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Everything related to Homebrew on OSX" />
+        <meta name="description" content="I use the following set of lisps my .emacs to get seamless navigation between emacs splits and tmux panes ..." />
 
     <meta name="author" content="Dheepak Krishnamurthy" />
     <meta name="copyright" content="Dheepak Krishnamurthy" />
@@ -15,7 +15,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<title>Uninstalling and Re-Installing Homebrew on OSX - Dheepak Krishnamurthy</title>
+<title>Emacsclient and tmux split navigation - Dheepak Krishnamurthy</title>
 
     <!-- iPython Notebook script -->
     <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
@@ -103,7 +103,7 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
     <!-- end Mixpanel -->
 
 <script>
-    mixpanel.track("Page", {"Name": "Uninstalling and Re-Installing Homebrew on OSX", "url": "drafts/uninstalling-and-re-installing-homebrew-on-osx.html"  }) ;
+    mixpanel.track("Page", {"Name": "Emacsclient and tmux split navigation", "url": "blog/emacsclient-and-tmux-split-navigation.html"  }) ;
 </script>
 </head>
 
@@ -131,11 +131,11 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
                     </a>
                     </div>
                     <div class="col-sm-10 col-sm-offset-1">
-                    <h1 class="article-heading">Uninstalling and Re-Installing Homebrew on OSX</h1>
+                    <h1 class="article-heading">Emacsclient and tmux split navigation</h1>
                         <h2 class="article-subheading"> </h2>
 <span class="meta last-updated">
 Published on 
-<time pubdate="pubdate" datetime="2015-08-27T10:52:17-06:00">Aug 27, 2015</time>
+<time pubdate="pubdate" datetime="2015-07-26T22:00:00-06:00">Jul 26, 2015</time>
 </span>                    </div>
                 </div>
             </div>
@@ -148,39 +148,44 @@ Published on
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
-                    <p>https://gist.github.com/mxcl/1173223</p>
-<div class="highlight"><pre><span class="code-line"><span class="c">#!/bin/sh</span></span>
-<span class="code-line"><span class="c"># Just copy and paste the lines below (all at once, it won&#39;t work line by line!)</span></span>
-<span class="code-line"><span class="c"># MAKE SURE YOU ARE HAPPY WITH WHAT IT DOES FIRST! THERE IS NO WARRANTY!</span></span>
+                    <p>I've described some of the scripts that I use regularly when using emacs in the terminal. I also using emacs with tmux, even though it seems like emacs itself could be tweaked to replace tmux. Currently, my tmux+zsh setup has been much more powerful that what emacs alone can provide. zsh did not play well, even with multiterm and I've had mixed results with getting ipython to work well inside emacs.</p>
+<p>I use the following set of lisps my .emacs to get seamless navigation between emacs splits and tmux panes.</p>
+<div class="highlight"><pre><span class="code-line">;; Many thanks to the author of and contributors to the following posts:</span>
+<span class="code-line">;; https://gist.github.com/mislav/5189704</span>
+<span class="code-line">;; http://robots.thoughtbot.com/post/53022241323/seamlessly-navigate-vim-and-tmux-splits</span>
+<span class="code-line">;;</span>
+<span class="code-line">;; TODO: Make a script that generates tmux and emacs code without duplication</span>
+<span class="code-line">;;</span>
+<span class="code-line">;; NOTE: My keybindings are not the default emacs ones, using windmove</span>
 <span class="code-line"></span>
-<span class="code-line"><span class="k">function</span> abort <span class="o">{</span></span>
-<span class="code-line">  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span></span>
-<span class="code-line">  <span class="nb">exit </span>1</span>
-<span class="code-line"><span class="o">}</span></span>
+<span class="code-line">;; Try to move direction, which is supplied as arg</span>
+<span class="code-line">;; If cannot move that direction, send a tmux command to do appropriate move</span>
+<span class="code-line">(defun windmove-emacs-or-tmux(dir tmux-cmd)</span>
+<span class="code-line">(interactive)</span>
+<span class="code-line">(if (ignore-errors (funcall (intern (concat &quot;windmove-&quot; dir))))</span>
+<span class="code-line">nil                       ;; Moving within emacs</span>
+<span class="code-line">(shell-command tmux-cmd)) ;; At edges, send command to tmux</span>
+<span class="code-line">)</span>
 <span class="code-line"></span>
-<span class="code-line"><span class="nb">set</span> -e</span>
-<span class="code-line"></span>
-<span class="code-line">/usr/bin/which -s git <span class="o">||</span> abort <span class="s2">&quot;brew install git first!&quot;</span></span>
-<span class="code-line"><span class="nb">test</span> -d /usr/local/.git <span class="o">||</span> abort <span class="s2">&quot;brew update first!&quot;</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="nb">cd</span> <span class="sb">`</span>brew --prefix<span class="sb">`</span></span>
-<span class="code-line">git checkout master</span>
-<span class="code-line">git ls-files -z <span class="p">|</span> pbcopy</span>
-<span class="code-line">rm -rf Cellar</span>
-<span class="code-line">bin/brew prune</span>
-<span class="code-line">pbpaste <span class="p">|</span> xargs -0 rm</span>
-<span class="code-line">rm -r Library/Homebrew Library/Aliases Library/Formula Library/Contributions </span>
-<span class="code-line"><span class="nb">test</span> -d Library/LinkedKegs <span class="o">&amp;&amp;</span> rm -r Library/LinkedKegs</span>
-<span class="code-line">rmdir -p bin Library share/man/man1 2&gt; /dev/null</span>
-<span class="code-line">rm -rf .git</span>
-<span class="code-line">rm -rf ~/Library/Caches/Homebrew</span>
-<span class="code-line">rm -rf ~/Library/Logs/Homebrew</span>
-<span class="code-line">rm -rf /Library/Caches/Homebrew</span>
+<span class="code-line">;Move between windows with custom keybindings</span>
+<span class="code-line">(global-set-key (kbd &quot;C-k&quot;)</span>
+<span class="code-line">   &#39;(lambda () (interactive) (windmove-emacs-or-tmux &quot;up&quot;  &quot;tmux select-pane -U&quot;)))</span>
+<span class="code-line">(global-set-key (kbd &quot;C-j&quot;)</span>
+<span class="code-line">   &#39;(lambda () (interactive) (windmove-emacs-or-tmux &quot;down&quot;  &quot;tmux select-pane -D&quot;)))</span>
+<span class="code-line">(global-set-key (kbd &quot;C-l&quot;)</span>
+<span class="code-line">   &#39;(lambda () (interactive) (windmove-emacs-or-tmux &quot;right&quot; &quot;tmux select-pane -R&quot;)))</span>
+<span class="code-line">(global-set-key (kbd &quot;C-h&quot;)</span>
+<span class="code-line">   &#39;(lambda () (interactive) (windmove-emacs-or-tmux &quot;left&quot;  &quot;tmux select-pane -L&quot;)))</span>
 </pre></div>
 
 
-<p>Set permission on Homebrew folder</p>
-<div class="highlight"><pre><span class="code-line"><span class="x">sudo chown -R </span><span class="p">$</span><span class="nv">USER</span><span class="x"> /Library/Caches/Homebrew/</span></span>
+<p>The following was added to .tmux.conf</p>
+<div class="highlight"><pre><span class="code-line">## Smart pane switching with awareness of emacs splits.</span>
+<span class="code-line">bind -n C-h run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys C-h) || tmux select-pane -L&quot;</span>
+<span class="code-line">bind -n C-j run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys C-j) || tmux select-pane -D&quot;</span>
+<span class="code-line">bind -n C-k run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys C-k) || tmux select-pane -U&quot;</span>
+<span class="code-line">bind -n C-l run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys C-l) || tmux select-pane -R&quot;</span>
+<span class="code-line">bind -n C-\ run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys &#39;C-\\&#39;) || tmux select-pane -l&quot;</span>
 </pre></div>
                     </div>
     <hr />
@@ -190,7 +195,7 @@ Published on
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'kdheepak89'; // required: replace example with your forum shortname
-            var disqus_identifier = 'uninstalling-and-re-installing-homebrew-on-osx';
+            var disqus_identifier = 'emacsclient-and-tmux-split-navigation';
             /* * * DON'T EDIT BELOW THIS LINE * * */
             (function () {
                 var dsq = document.createElement('script');
