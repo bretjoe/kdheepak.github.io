@@ -325,7 +325,7 @@ quickly open emacsclient from Alfred. &lt;/p&gt;
 
 
 &lt;p&gt;Here is an example of what the command output looks like.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="../../images/gitls.png" /&gt;&lt;/p&gt;</summary><category term="git"></category></entry><entry><title>Vim, tmux and zsh - the productivity trio</title><link href="http://kdheepak.com/blog/vim-tmux-zsh.html" rel="alternate"></link><updated>2015-05-08T22:58:18-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-05-08:blog/vim-tmux-zsh.html</id><summary type="html">&lt;p&gt;I'v not found a greater combination of tools than vim, tmux and zsh. I've detailed below some of the configuration to get it working the way I want it to.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="../../images/gitls.png" /&gt;&lt;/p&gt;</summary><category term="git"></category></entry><entry><title>Vim, tmux and zsh - the productivity trio</title><link href="http://kdheepak.com/blog/vim-tmux-zsh.html" rel="alternate"></link><updated>2015-05-08T22:58:18-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-05-08:blog/vim-tmux-zsh.html</id><summary type="html">&lt;p&gt;I've not found a greater combination of tools than vim, tmux and zsh. I've detailed below some of the configuration to get it working the way I want it to.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="vim-tmux-zsh" src="/images/vim-tmux-zsh.png" /&gt;&lt;/p&gt;
 &lt;h2 id="tmux"&gt;tmux&lt;a class="headerlink" href="#tmux" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; Change prefix key to `&lt;/span&gt;&lt;/span&gt;
