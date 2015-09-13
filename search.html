@@ -105,7 +105,7 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-   <div class="search-button">
+   <div class="search-button" style="display: block;">
             <form id="search" class="floating-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);">
             <input type="search" class="search-query" placeholder="Search" name="q"></form>
        </div>
@@ -115,6 +115,10 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
 
     <div class="content-block">
 <div class="entry-content">
+
+<div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js">
     </script>
     <script type="text/javascript" src="http://kdheepak.com/theme/tipuesearch/tipuesearch_set.js"></script>
@@ -128,10 +132,21 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
                 });
             });
         </script>
-    <div align="center"><input type="text" size="60" id="tipue_search_input">
-        <input type="button" id="tipue_search_button" value="Search"></div>
+   <div class="search-button" style="display: block;">
+            <form id="search" class="floating-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);">
+            <input type="search" class="search-query" placeholder="Search" name="q"></form>
+       </div>
+    <div align="center">
+        <input type="text" size="60" id="tipue_search_input" style="display: none;">
+        <input type="button" id="tipue_search_button" value="Search" style="display: none;">
+    </div>
     <div id="tipue_search_content"></div>
 </div>
+
+</div>
+</div>
+</div>
+
     </div>
 
     <!-- Footer -->

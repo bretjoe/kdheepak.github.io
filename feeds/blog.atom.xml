@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/blog.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-08-27T22:52:17-06:00</updated><entry><title>Uninstalling and Re-Installing Homebrew on OSX</title><link href="http://kdheepak.com/blog/uninstalling-and-re-installing-homebrew-on-osx.html" rel="alternate"></link><updated>2015-08-27T22:52:17-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-08-27:blog/uninstalling-and-re-installing-homebrew-on-osx.html</id><summary type="html">&lt;p&gt;&lt;a href="https://gist.github.com/mxcl/1173223"&gt;Gist&lt;/a&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/blog.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-09-12T19:59:22-06:00</updated><entry><title>Patched fonts madness</title><link href="http://kdheepak.com/blog/patched-fonts-madness.html" rel="alternate"></link><updated>2015-09-12T19:59:22-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-09-12:blog/patched-fonts-madness.html</id><summary type="html">&lt;p&gt;Getting patched fonts for a powerline in the terminal can be quite an adventure. I almost gave up on it, but now that I've figured it out it seems extremely obvious.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;# pip install --user powerline-status&lt;/span&gt;
+&lt;span class="code-line"&gt;# brew install fontforge --with-python&lt;/span&gt;
+&lt;span class="code-line"&gt;git clone https://github.com/powerline/fonts.git&lt;/span&gt;
+&lt;span class="code-line"&gt;cd fonts&lt;/span&gt;
+&lt;span class="code-line"&gt;./install.sh&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Most importantly, select the font with the word &lt;code&gt;powerline&lt;/code&gt; in the name in the preferences option of your terminal.&lt;/p&gt;</summary><category term="vim"></category><category term="tmux"></category></entry><entry><title>Uninstalling and Re-Installing Homebrew on OSX</title><link href="http://kdheepak.com/blog/uninstalling-and-re-installing-homebrew-on-osx.html" rel="alternate"></link><updated>2015-08-27T22:52:17-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-08-27:blog/uninstalling-and-re-installing-homebrew-on-osx.html</id><summary type="html">&lt;p&gt;&lt;a href="https://gist.github.com/mxcl/1173223"&gt;Gist&lt;/a&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;&lt;/span&gt;
 &lt;span class="code-line"&gt;&lt;span class="c"&gt;# Just copy and paste the lines below (all at once, it won&amp;#39;t work line by line!)&lt;/span&gt;&lt;/span&gt;
 &lt;span class="code-line"&gt;&lt;span class="c"&gt;# MAKE SURE YOU ARE HAPPY WITH WHAT IT DOES FIRST! THERE IS NO WARRANTY!&lt;/span&gt;&lt;/span&gt;

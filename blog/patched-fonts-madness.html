@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="My name is Dheepak Krishnamurthy. This is my personal blog." />
+        <meta name="description" content="Getting patched fonts for a ..." />
 
     <meta name="author" content="Dheepak Krishnamurthy" />
     <meta name="copyright" content="Dheepak Krishnamurthy" />
@@ -15,7 +15,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-    <title>Dheepak Krishnamurthy</title>
+<title>Patched fonts madness - Dheepak Krishnamurthy</title>
 
     <!-- iPython Notebook script -->
     <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
@@ -103,7 +103,7 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
     <!-- end Mixpanel -->
 
 <script>
-mixpanel.track("Page", {"Name": "Dheepak Krishnamurthy", "page": "Not Found", "url": "404.html" });
+    mixpanel.track("Page", {"Name": "Patched fonts madness", "url": "blog/patched-fonts-madness.html"  }) ;
 </script>
 </head>
 
@@ -118,102 +118,74 @@ mixpanel.track("Page", {"Name": "Dheepak Krishnamurthy", "page": "Not Found", "u
 
 
     <div class="content-block">
+
+    <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header-article">
+    <header class="intro-header-article" style="background-image: url('');">
         <div class="intro-body">
             <div class="container">
                 <div class="row">
-                      <div class="col-sm-2 fixed-action-btn">
-                        <a href='http://kdheepak.com/blog' class="btn-floating btn-large white page-scroll">
-                          <i class="md-dark material-icons">keyboard_arrow_left</i>
-                        </a>
-                      </div>
-                    <div class="col-sm-10 col-sm-offset-2">
-                    <h1 class="article-heading">Post Not Found</h1>
+                    <div class="col-sm-2 fixed-action-btn">
+                    <a href='http://kdheepak.com/blog' class="btn-floating btn-large white page-scroll">
+                      <i class="md-dark material-icons">keyboard_arrow_left</i>
+                    </a>
                     </div>
+                    <div class="col-sm-10 col-sm-offset-1">
+                    <h1 class="article-heading">Patched fonts madness</h1>
+                        <h2 class="article-subheading"> </h2>
+<span class="meta last-updated">
+Published on 
+<time pubdate="pubdate" datetime="2015-09-12T19:59:22-06:00">Sep 12, 2015</time>
+</span>                    </div>
                 </div>
             </div>
         </div>
     </header>
 
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="entry-content">
+                    <p>Getting patched fonts for a powerline in the terminal can be quite an adventure. I almost gave up on it, but now that I've figured it out it seems extremely obvious.</p>
+<div class="highlight"><pre><span class="code-line"># pip install --user powerline-status</span>
+<span class="code-line"># brew install fontforge --with-python</span>
+<span class="code-line">git clone https://github.com/powerline/fonts.git</span>
+<span class="code-line">cd fonts</span>
+<span class="code-line">./install.sh</span>
+</pre></div>
 
 
-<div class="container">
-    <div class="row">
+<p>Most importantly, select the font with the word <code>powerline</code> in the name in the preferences option of your terminal.</p>
+                    </div>
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'kdheepak89'; // required: replace example with your forum shortname
+            var disqus_identifier = 'patched-fonts-madness';
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+    </section>
+                </div>
+            </div>
+        </div>
+    </article>
 
-            <div class="col-md-10 col-md-offset-2">
-    The page you were looking for was not found. Do you want to try looking below instead?
-            </div>
+    <hr>
 
-            <div class="col-md-10 col-md-offset-2">
-            <h2>2015</h2>
-            </div>
-            <ul>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="http://kdheepak.com/blog/patched-fonts-madness.html">Patched fonts madness</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="http://kdheepak.com/blog/uninstalling-and-re-installing-homebrew-on-osx.html">Uninstalling and Re-Installing Homebrew on OSX</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="http://kdheepak.com/blog/how-to-add-line-numbers-for-code-blocks-in-pelican.html">How to add line numbers for code blocks in Pelican</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="http://kdheepak.com/blog/emacsclient-and-tmux-split-navigation.html">Emacsclient and tmux split navigation</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="http://kdheepak.com/blog/emacs-workflow-using-emacs-in-the-terminal.html">Emacs workflow - Using Emacs in the terminal</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="http://kdheepak.com/blog/emacs-tips-close-compilation-buffer-if-successful.html">Emacs Tips - Close compilation buffer</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="http://kdheepak.com/blog/create-emacsclientapp-using-applescript.html">Create Emacsclient.app using AppleScript</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="http://kdheepak.com/blog/better-git-log-with-git-ls.html">Better git log with git ls</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="http://kdheepak.com/blog/vim-tmux-zsh.html">Vim, tmux and zsh - the productivity trio</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="http://kdheepak.com/blog/beginners-guide-to-getting-started-with-vim.html">Beginners guide to getting started with Vim</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="http://kdheepak.com/blog/active-reactive-and-apparent-power.html">Active, Reactive and Apparent Power</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="http://kdheepak.com/blog/how-to-set-up-a-pelican-blog-with-github-pages.html">How to set up a Pelican blog with Github pages</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="http://kdheepak.com/blog/mac-osx-productivity-apps.html">Mac OSX Productivity Apps</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="http://kdheepak.com/blog/mac-osx-tweaks.html">Mac OSX Tweaks</a></li>
-            </div>
-            </ul>
-            <div class="col-md-10 col-md-offset-2">
-            <h2>2014</h2>
-            </div>
-            <ul>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="http://kdheepak.com/blog/geektool-and-desktop-widgets-in-osx.html">Geektool and Desktop Widgets in OSX</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="http://kdheepak.com/blog/robotics.html">Robotics</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="http://kdheepak.com/blog/tasker-and-google-maps.html">Tasker and Google Maps</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="http://kdheepak.com/blog/tasker-projects.html">Tasker Projects</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="http://kdheepak.com/blog/home-monitoring-system.html">Home monitoring system</a></li>
-            </div>
-            </ul>
-    </div>
-</div>
     </div>
 
     <!-- Footer -->
@@ -268,7 +240,6 @@ mixpanel.track("Page", {"Name": "Dheepak Krishnamurthy", "page": "Not Found", "u
         }
     });
     </script>
-
 
 </body>
 </html>
