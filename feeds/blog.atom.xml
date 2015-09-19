@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/blog.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-09-12T19:59:22-06:00</updated><entry><title>Patched fonts madness</title><link href="http://kdheepak.com/blog/patched-fonts-madness.html" rel="alternate"></link><updated>2015-09-12T19:59:22-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-09-12:blog/patched-fonts-madness.html</id><summary type="html">&lt;p&gt;Getting patched fonts for a powerline in the terminal can be quite an adventure. I almost gave up on it, but now that I've figured it out it seems extremely obvious.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/blog.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-09-19T09:05:36-06:00</updated><entry><title>Change $PATH inside vim</title><link href="http://kdheepak.com/blog/change-path-inside-vim.html" rel="alternate"></link><updated>2015-09-19T09:05:36-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-09-19:blog/change-path-inside-vim.html</id><summary type="html">&lt;p&gt;Save the following script in &lt;code&gt;/usr/local/bin/cpvim&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="c"&gt;#!/bin/zsh&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="nb"&gt;source&lt;/span&gt; ~/.zshrc &amp;gt;/dev/null 2&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;1&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$VIM_PATH&lt;/span&gt; &lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="nb"&gt;exec &lt;/span&gt;nvim &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Add the following to your .zshrc&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;alias vim=/usr/local/bin/cpvim&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="neovim"></category><category term="vim"></category><category term="osx"></category></entry><entry><title>Patched fonts madness</title><link href="http://kdheepak.com/blog/patched-fonts-madness.html" rel="alternate"></link><updated>2015-09-12T19:59:22-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-09-12:blog/patched-fonts-madness.html</id><summary type="html">&lt;p&gt;Getting patched fonts for a powerline in the terminal can be quite an adventure. I almost gave up on it, but now that I've figured it out it seems extremely obvious.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;# pip install --user powerline-status&lt;/span&gt;
 &lt;span class="code-line"&gt;# brew install fontforge --with-python&lt;/span&gt;
 &lt;span class="code-line"&gt;git clone https://github.com/powerline/fonts.git&lt;/span&gt;
