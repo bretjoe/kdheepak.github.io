@@ -150,42 +150,42 @@ Published on
                     <div class="entry-content">
                     <p>I've described some of the scripts that I use regularly when using emacs in the terminal. I also using emacs with tmux, even though it seems like emacs itself could be tweaked to replace tmux. Currently, my tmux+zsh setup has been much more powerful that what emacs alone can provide. zsh did not play well, even with multiterm and I've had mixed results with getting ipython to work well inside emacs.</p>
 <p>I use the following set of lisps my .emacs to get seamless navigation between emacs splits and tmux panes.</p>
-<div class="highlight"><pre><span class="code-line">;; Many thanks to the author of and contributors to the following posts:</span>
-<span class="code-line">;; https://gist.github.com/mislav/5189704</span>
-<span class="code-line">;; http://robots.thoughtbot.com/post/53022241323/seamlessly-navigate-vim-and-tmux-splits</span>
-<span class="code-line">;;</span>
-<span class="code-line">;; TODO: Make a script that generates tmux and emacs code without duplication</span>
-<span class="code-line">;;</span>
-<span class="code-line">;; NOTE: My keybindings are not the default emacs ones, using windmove</span>
-<span class="code-line"></span>
-<span class="code-line">;; Try to move direction, which is supplied as arg</span>
-<span class="code-line">;; If cannot move that direction, send a tmux command to do appropriate move</span>
-<span class="code-line">(defun windmove-emacs-or-tmux(dir tmux-cmd)</span>
-<span class="code-line">(interactive)</span>
-<span class="code-line">(if (ignore-errors (funcall (intern (concat &quot;windmove-&quot; dir))))</span>
-<span class="code-line">nil                       ;; Moving within emacs</span>
-<span class="code-line">(shell-command tmux-cmd)) ;; At edges, send command to tmux</span>
-<span class="code-line">)</span>
-<span class="code-line"></span>
-<span class="code-line">;Move between windows with custom keybindings</span>
-<span class="code-line">(global-set-key (kbd &quot;C-k&quot;)</span>
-<span class="code-line">   &#39;(lambda () (interactive) (windmove-emacs-or-tmux &quot;up&quot;  &quot;tmux select-pane -U&quot;)))</span>
-<span class="code-line">(global-set-key (kbd &quot;C-j&quot;)</span>
-<span class="code-line">   &#39;(lambda () (interactive) (windmove-emacs-or-tmux &quot;down&quot;  &quot;tmux select-pane -D&quot;)))</span>
-<span class="code-line">(global-set-key (kbd &quot;C-l&quot;)</span>
-<span class="code-line">   &#39;(lambda () (interactive) (windmove-emacs-or-tmux &quot;right&quot; &quot;tmux select-pane -R&quot;)))</span>
-<span class="code-line">(global-set-key (kbd &quot;C-h&quot;)</span>
-<span class="code-line">   &#39;(lambda () (interactive) (windmove-emacs-or-tmux &quot;left&quot;  &quot;tmux select-pane -L&quot;)))</span>
+<div class="highlight"><pre>;; Many thanks to the author of and contributors to the following posts:
+;; https://gist.github.com/mislav/5189704
+;; http://robots.thoughtbot.com/post/53022241323/seamlessly-navigate-vim-and-tmux-splits
+;;
+;; TODO: Make a script that generates tmux and emacs code without duplication
+;;
+;; NOTE: My keybindings are not the default emacs ones, using windmove
+
+;; Try to move direction, which is supplied as arg
+;; If cannot move that direction, send a tmux command to do appropriate move
+(defun windmove-emacs-or-tmux(dir tmux-cmd)
+(interactive)
+(if (ignore-errors (funcall (intern (concat &quot;windmove-&quot; dir))))
+nil                       ;; Moving within emacs
+(shell-command tmux-cmd)) ;; At edges, send command to tmux
+)
+
+;Move between windows with custom keybindings
+(global-set-key (kbd &quot;C-k&quot;)
+   &#39;(lambda () (interactive) (windmove-emacs-or-tmux &quot;up&quot;  &quot;tmux select-pane -U&quot;)))
+(global-set-key (kbd &quot;C-j&quot;)
+   &#39;(lambda () (interactive) (windmove-emacs-or-tmux &quot;down&quot;  &quot;tmux select-pane -D&quot;)))
+(global-set-key (kbd &quot;C-l&quot;)
+   &#39;(lambda () (interactive) (windmove-emacs-or-tmux &quot;right&quot; &quot;tmux select-pane -R&quot;)))
+(global-set-key (kbd &quot;C-h&quot;)
+   &#39;(lambda () (interactive) (windmove-emacs-or-tmux &quot;left&quot;  &quot;tmux select-pane -L&quot;)))
 </pre></div>
 
 
 <p>The following was added to .tmux.conf</p>
-<div class="highlight"><pre><span class="code-line">## Smart pane switching with awareness of emacs splits.</span>
-<span class="code-line">bind -n C-h run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys C-h) || tmux select-pane -L&quot;</span>
-<span class="code-line">bind -n C-j run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys C-j) || tmux select-pane -D&quot;</span>
-<span class="code-line">bind -n C-k run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys C-k) || tmux select-pane -U&quot;</span>
-<span class="code-line">bind -n C-l run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys C-l) || tmux select-pane -R&quot;</span>
-<span class="code-line">bind -n C-\ run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys &#39;C-\\&#39;) || tmux select-pane -l&quot;</span>
+<div class="highlight"><pre>## Smart pane switching with awareness of emacs splits.
+bind -n C-h run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys C-h) || tmux select-pane -L&quot;
+bind -n C-j run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys C-j) || tmux select-pane -D&quot;
+bind -n C-k run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys C-k) || tmux select-pane -U&quot;
+bind -n C-l run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys C-l) || tmux select-pane -R&quot;
+bind -n C-\ run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys &#39;C-\\&#39;) || tmux select-pane -l&quot;
 </pre></div>
                     </div>
     <hr />

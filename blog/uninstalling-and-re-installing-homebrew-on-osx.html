@@ -149,40 +149,40 @@ Published on
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
                     <p><a href="https://gist.github.com/mxcl/1173223">Gist</a></p>
-<div class="highlight"><pre><span class="code-line"><span class="c">#!/bin/sh</span></span>
-<span class="code-line"><span class="c"># Just copy and paste the lines below (all at once, it won&#39;t work line by line!)</span></span>
-<span class="code-line"><span class="c"># MAKE SURE YOU ARE HAPPY WITH WHAT IT DOES FIRST! THERE IS NO WARRANTY!</span></span>
-<span class="code-line"></span>
-<span class="code-line">brew list &gt; ~/brew_list.txt</span>
-<span class="code-line"></span>
-<span class="code-line"><span class="k">function</span> abort <span class="o">{</span></span>
-<span class="code-line">  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span></span>
-<span class="code-line">  <span class="nb">exit </span>1</span>
-<span class="code-line"><span class="o">}</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="nb">set</span> -e</span>
-<span class="code-line"></span>
-<span class="code-line">/usr/bin/which -s git <span class="o">||</span> abort <span class="s2">&quot;brew install git first!&quot;</span></span>
-<span class="code-line"><span class="nb">test</span> -d /usr/local/.git <span class="o">||</span> abort <span class="s2">&quot;brew update first!&quot;</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="nb">cd</span> <span class="sb">`</span>brew --prefix<span class="sb">`</span></span>
-<span class="code-line">git checkout master</span>
-<span class="code-line">git ls-files -z <span class="p">|</span> pbcopy</span>
-<span class="code-line">rm -rf Cellar</span>
-<span class="code-line">bin/brew prune</span>
-<span class="code-line">pbpaste <span class="p">|</span> xargs -0 rm</span>
-<span class="code-line">rm -r Library/Homebrew Library/Aliases Library/Formula Library/Contributions </span>
-<span class="code-line"><span class="nb">test</span> -d Library/LinkedKegs <span class="o">&amp;&amp;</span> rm -r Library/LinkedKegs</span>
-<span class="code-line">rmdir -p bin Library share/man/man1 2&gt; /dev/null</span>
-<span class="code-line">rm -rf .git</span>
-<span class="code-line">rm -rf ~/Library/Caches/Homebrew</span>
-<span class="code-line">rm -rf ~/Library/Logs/Homebrew</span>
-<span class="code-line">rm -rf /Library/Caches/Homebrew</span>
+<div class="highlight"><pre><span class="c">#!/bin/sh</span>
+<span class="c"># Just copy and paste the lines below (all at once, it won&#39;t work line by line!)</span>
+<span class="c"># MAKE SURE YOU ARE HAPPY WITH WHAT IT DOES FIRST! THERE IS NO WARRANTY!</span>
+
+brew list &gt; ~/brew_list.txt
+
+<span class="k">function</span> abort <span class="o">{</span>
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+  <span class="nb">exit </span>1
+<span class="o">}</span>
+
+<span class="nb">set</span> -e
+
+/usr/bin/which -s git <span class="o">||</span> abort <span class="s2">&quot;brew install git first!&quot;</span>
+<span class="nb">test</span> -d /usr/local/.git <span class="o">||</span> abort <span class="s2">&quot;brew update first!&quot;</span>
+
+<span class="nb">cd</span> <span class="sb">`</span>brew --prefix<span class="sb">`</span>
+git checkout master
+git ls-files -z <span class="p">|</span> pbcopy
+rm -rf Cellar
+bin/brew prune
+pbpaste <span class="p">|</span> xargs -0 rm
+rm -r Library/Homebrew Library/Aliases Library/Formula Library/Contributions 
+<span class="nb">test</span> -d Library/LinkedKegs <span class="o">&amp;&amp;</span> rm -r Library/LinkedKegs
+rmdir -p bin Library share/man/man1 2&gt; /dev/null
+rm -rf .git
+rm -rf ~/Library/Caches/Homebrew
+rm -rf ~/Library/Logs/Homebrew
+rm -rf /Library/Caches/Homebrew
 </pre></div>
 
 
 <p>Set permission on Homebrew folder</p>
-<div class="highlight"><pre><span class="code-line"><span class="x">sudo chown -R </span><span class="p">$</span><span class="nv">USER</span><span class="x"> /Library/Caches/Homebrew/</span></span>
+<div class="highlight"><pre><span class="x">sudo chown -R </span><span class="p">$</span><span class="nv">USER</span><span class="x"> /Library/Caches/Homebrew/</span>
 </pre></div>
                     </div>
     <hr />

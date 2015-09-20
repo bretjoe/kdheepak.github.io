@@ -153,16 +153,16 @@ check often if everything looks okay. Emacs has a good description of everything
 you can do with the <a href="http://emacswiki.org/emacs/CompileCommand">CompileCommand</a>.</p>
 <p>However, it does not have a description for auto-closing the buffer if the
 compilation was successful. <a href="http://emacs.stackexchange.com/a/336">StackOverflow</a> to the rescue!</p>
-<div class="highlight"><pre><span class="code-line"><span class="c1">; from enberg on #emacs</span></span>
-<span class="code-line"><span class="p">(</span><span class="k">setq</span> <span class="nv">compilation-finish-function</span></span>
-<span class="code-line"><span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nv">buf</span> <span class="nv">str</span><span class="p">)</span></span>
-<span class="code-line">    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null</span> <span class="p">(</span><span class="nv">string-match</span> <span class="s">&quot;.*exited abnormally.*&quot;</span> <span class="nv">str</span><span class="p">))</span></span>
-<span class="code-line">        <span class="c1">;;no errors, make the compilation window go away in a few seconds</span></span>
-<span class="code-line">        <span class="p">(</span><span class="k">progn</span></span>
-<span class="code-line">            <span class="p">(</span><span class="nv">run-at-time</span></span>
-<span class="code-line">            <span class="s">&quot;1 sec&quot;</span> <span class="no">nil</span> <span class="ss">&#39;delete-windows-on</span></span>
-<span class="code-line">            <span class="p">(</span><span class="nv">get-buffer-create</span> <span class="s">&quot;*compilation*&quot;</span><span class="p">))</span></span>
-<span class="code-line">        <span class="p">(</span><span class="nv">message</span> <span class="s">&quot;No Compilation Errors!&quot;</span><span class="p">)))))</span></span>
+<div class="highlight"><pre><span class="c1">; from enberg on #emacs</span>
+<span class="p">(</span><span class="k">setq</span> <span class="nv">compilation-finish-function</span>
+<span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nv">buf</span> <span class="nv">str</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null</span> <span class="p">(</span><span class="nv">string-match</span> <span class="s">&quot;.*exited abnormally.*&quot;</span> <span class="nv">str</span><span class="p">))</span>
+        <span class="c1">;;no errors, make the compilation window go away in a few seconds</span>
+        <span class="p">(</span><span class="k">progn</span>
+            <span class="p">(</span><span class="nv">run-at-time</span>
+            <span class="s">&quot;1 sec&quot;</span> <span class="no">nil</span> <span class="ss">&#39;delete-windows-on</span>
+            <span class="p">(</span><span class="nv">get-buffer-create</span> <span class="s">&quot;*compilation*&quot;</span><span class="p">))</span>
+        <span class="p">(</span><span class="nv">message</span> <span class="s">&quot;No Compilation Errors!&quot;</span><span class="p">)))))</span>
 </pre></div>
 
 

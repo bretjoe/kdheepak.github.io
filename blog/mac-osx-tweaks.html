@@ -152,122 +152,122 @@ Published on
 <p>I've decided to maintain a repo <a href="https://github.com/kdheepak89/dotfiles/blob/master/.osx">here</a> instead. </p>
 <hr />
 <h1 id="general-ui">General UI<a class="headerlink" href="#general-ui" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span class="code-line"># Disable Dashboard</span>
-<span class="code-line">defaults write com.apple.dashboard mcx-disabled -bool true</span>
-<span class="code-line"></span>
-<span class="code-line"># Don’t show Dashboard as a Space</span>
-<span class="code-line">defaults write com.apple.dock dashboard-in-overlay -bool true</span>
-<span class="code-line"></span>
-<span class="code-line"># disable automatic spell checking</span>
-<span class="code-line">defaults write -g NSAllowContinuousSpellChecking -bool false</span>
-<span class="code-line"></span>
-<span class="code-line"># don&#39;t treat period or colon as part of words</span>
-<span class="code-line"># en_US_POSIX corresponds to the &quot;United States (Computer)&quot; setting that was shown in System Preferences in 10.8 and earlier</span>
-<span class="code-line">defaults write -g AppleTextBreakLocale en_US_POSIX</span>
-<span class="code-line"></span>
-<span class="code-line"># Disable the sound effects on boot</span>
-<span class="code-line">sudo nvram SystemAudioVolume=&quot; &quot;</span>
+<div class="highlight"><pre># Disable Dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
+
+# Don’t show Dashboard as a Space
+defaults write com.apple.dock dashboard-in-overlay -bool true
+
+# disable automatic spell checking
+defaults write -g NSAllowContinuousSpellChecking -bool false
+
+# don&#39;t treat period or colon as part of words
+# en_US_POSIX corresponds to the &quot;United States (Computer)&quot; setting that was shown in System Preferences in 10.8 and earlier
+defaults write -g AppleTextBreakLocale en_US_POSIX
+
+# Disable the sound effects on boot
+sudo nvram SystemAudioVolume=&quot; &quot;
 </pre></div>
 
 
 <h1 id="disks">Disks<a class="headerlink" href="#disks" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span class="code-line"># Disks: disable Time Machine prompts</span>
-<span class="code-line">defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true</span>
-<span class="code-line"></span>
-<span class="code-line"># Disks: disable local Time Machine backups</span>
-<span class="code-line">hash tmutil &amp;&gt; /dev/null &amp;&amp; sudo tmutil disablelocal</span>
-<span class="code-line"></span>
-<span class="code-line"># Disks: disable disk image verification</span>
-<span class="code-line"># defaults write com.apple.frameworks.diskimages skip-verify -bool true</span>
-<span class="code-line"># defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true</span>
-<span class="code-line"># defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true</span>
-<span class="code-line"></span>
-<span class="code-line"># don&#39;t save .DS_Store files on network volumes</span>
-<span class="code-line">defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true</span>
-<span class="code-line"></span>
-<span class="code-line"># Expand save panel by default</span>
-<span class="code-line">defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true</span>
-<span class="code-line"></span>
-<span class="code-line"># Don’t automatically rearrange Spaces based on most recent use</span>
-<span class="code-line">defaults write com.apple.dock mru-spaces -bool false</span>
+<div class="highlight"><pre># Disks: disable Time Machine prompts
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
+# Disks: disable local Time Machine backups
+hash tmutil &amp;&gt; /dev/null &amp;&amp; sudo tmutil disablelocal
+
+# Disks: disable disk image verification
+# defaults write com.apple.frameworks.diskimages skip-verify -bool true
+# defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
+# defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
+
+# don&#39;t save .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+# Don’t automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
 </pre></div>
 
 
 <h1 id="keyboard">Keyboard<a class="headerlink" href="#keyboard" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span class="code-line"># Set a blazingly fast keyboard repeat rate</span>
-<span class="code-line">defaults write NSGlobalDomain KeyRepeat -int 0</span>
+<div class="highlight"><pre># Set a blazingly fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 0
 </pre></div>
 
 
 <h1 id="finder">Finder<a class="headerlink" href="#finder" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span class="code-line"># Disable automatic termination of inactive apps</span>
-<span class="code-line">defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true</span>
-<span class="code-line"></span>
-<span class="code-line"># Finder: disable window animations and Get Info animations</span>
-<span class="code-line">defaults write com.apple.finder DisableAllAnimations -bool true</span>
-<span class="code-line"></span>
-<span class="code-line"># Finder: show all filename extensions</span>
-<span class="code-line">defaults write NSGlobalDomain AppleShowAllExtensions -bool true</span>
-<span class="code-line"></span>
-<span class="code-line"># Disable the warning when changing a file extension</span>
-<span class="code-line">defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false</span>
-<span class="code-line"></span>
-<span class="code-line"># Save to disk (not to iCloud) by default</span>
-<span class="code-line">defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false</span>
-<span class="code-line"></span>
-<span class="code-line"># Finder: disable window and Get Info animations</span>
-<span class="code-line">defaults write com.apple.finder DisableAllAnimations -bool true</span>
-<span class="code-line"></span>
-<span class="code-line"># Finder: show the ~/Library folder (in OS X Lion)</span>
-<span class="code-line">chflags nohidden ~/Library</span>
-<span class="code-line"></span>
-<span class="code-line"># Finder: empty Trash securely by default</span>
-<span class="code-line">defaults write com.apple.finder EmptyTrashSecurely -bool true</span>
+<div class="highlight"><pre># Disable automatic termination of inactive apps
+defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+
+# Finder: disable window animations and Get Info animations
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+# Finder: show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Disable the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Save to disk (not to iCloud) by default
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
+# Finder: disable window and Get Info animations
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+# Finder: show the ~/Library folder (in OS X Lion)
+chflags nohidden ~/Library
+
+# Finder: empty Trash securely by default
+defaults write com.apple.finder EmptyTrashSecurely -bool true
 </pre></div>
 
 
 <h1 id="dock-hot-corners">Dock &amp; hot corners<a class="headerlink" href="#dock-hot-corners" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span class="code-line"># Autohide the Dock</span>
-<span class="code-line">defaults write com.apple.dock autohide -bool true</span>
-<span class="code-line"></span>
-<span class="code-line"># Magnify Dock icons on hover</span>
-<span class="code-line">defaults write com.apple.dock magnification -bool false</span>
+<div class="highlight"><pre># Autohide the Dock
+defaults write com.apple.dock autohide -bool true
+
+# Magnify Dock icons on hover
+defaults write com.apple.dock magnification -bool false
 </pre></div>
 
 
 <h1 id="panels">Panels<a class="headerlink" href="#panels" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span class="code-line"># Panels: expand save panel by default</span>
-<span class="code-line">defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true</span>
-<span class="code-line"></span>
-<span class="code-line"># Panels: expand print panel by default</span>
-<span class="code-line">defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true</span>
-<span class="code-line"></span>
-<span class="code-line"># Panels: disable the “Are you sure you want to open this application?” dialog</span>
-<span class="code-line">defaults write com.apple.LaunchServices LSQuarantine -bool false</span>
-<span class="code-line"></span>
-<span class="code-line"># Panels: enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)</span>
-<span class="code-line">defaults write NSGlobalDomain AppleKeyboardUIMode -int 3</span>
+<div class="highlight"><pre># Panels: expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+# Panels: expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+
+# Panels: disable the “Are you sure you want to open this application?” dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# Panels: enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 </pre></div>
 
 
 <h1 id="screen">Screen<a class="headerlink" href="#screen" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span class="code-line"><span class="err">#</span><span class="x"> Screen: save screenshots to the desktop</span></span>
-<span class="code-line"><span class="x">defaults write com.apple.screencapture location -string &quot;</span><span class="p">$</span><span class="nv">HOME</span><span class="x">/Desktop&quot;</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="err">#</span><span class="x"> Screen: disable shadow in screenshots</span></span>
-<span class="code-line"><span class="x">defaults write com.apple.screencapture disable-shadow -bool true</span></span>
+<div class="highlight"><pre><span class="err">#</span><span class="x"> Screen: save screenshots to the desktop</span>
+<span class="x">defaults write com.apple.screencapture location -string &quot;</span><span class="p">$</span><span class="nv">HOME</span><span class="x">/Desktop&quot;</span>
+
+<span class="err">#</span><span class="x"> Screen: disable shadow in screenshots</span>
+<span class="x">defaults write com.apple.screencapture disable-shadow -bool true</span>
 </pre></div>
 
 
 <h1 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span class="code-line"># Misc: only use UTF-8 in Terminal.app</span>
-<span class="code-line">defaults write com.apple.terminal StringEncodings -array 4</span>
-<span class="code-line"></span>
-<span class="code-line"># Misc: disable Dictionary results</span>
-<span class="code-line">defaults write com.apple.spotlight DictionaryLookupEnabled -bool false</span>
-<span class="code-line"></span>
-<span class="code-line"># Misc: disable auto-correct</span>
-<span class="code-line">defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false</span>
+<div class="highlight"><pre># Misc: only use UTF-8 in Terminal.app
+defaults write com.apple.terminal StringEncodings -array 4
+
+# Misc: disable Dictionary results
+defaults write com.apple.spotlight DictionaryLookupEnabled -bool false
+
+# Misc: disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 </pre></div>
 
 

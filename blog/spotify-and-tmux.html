@@ -149,45 +149,45 @@ Published on
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
                     <p>Place the following in a directory that in your <code>$PATH</code></p>
-<div class="highlight"><pre><span class="code-line">#!/usr/bin/env osascript</span>
-<span class="code-line"># Returns the current playing song in Spotify for OSX</span>
-<span class="code-line"></span>
-<span class="code-line">tell application &quot;Spotify&quot;</span>
-<span class="code-line">  if it is running then</span>
-<span class="code-line">    if player state is playing then</span>
-<span class="code-line">      set track_name to name of current track</span>
-<span class="code-line">      set artist_name to artist of current track</span>
-<span class="code-line"></span>
-<span class="code-line">      &quot;#[fg=colour39,nobold]#[fg=colour16, bg=colour39, nobold] &quot; &amp; artist_name &amp; &quot; - &quot; &amp; track_name &amp; &quot; #[bg=colour39]&quot;</span>
-<span class="code-line">    end if</span>
-<span class="code-line">  end if</span>
-<span class="code-line">end tell</span>
+<div class="highlight"><pre>#!/usr/bin/env osascript
+# Returns the current playing song in Spotify for OSX
+
+tell application &quot;Spotify&quot;
+  if it is running then
+    if player state is playing then
+      set track_name to name of current track
+      set artist_name to artist of current track
+
+      &quot;#[fg=colour39,nobold]#[fg=colour16, bg=colour39, nobold] &quot; &amp; artist_name &amp; &quot; - &quot; &amp; track_name &amp; &quot; #[bg=colour39]&quot;
+    end if
+  end if
+end tell
 </pre></div>
 
 
 <p>Add this to the end of ~/.tmux.conf</p>
-<div class="highlight"><pre><span class="code-line"># Bad Wolf by Steve Losh</span>
-<span class="code-line"># Modified by Dheepak Krishnamurthy</span>
-<span class="code-line"># =====================</span>
-<span class="code-line">set -g status-fg white</span>
-<span class="code-line">set -g status-bg colour234</span>
-<span class="code-line"># set -g status-bg default #set for transparent background</span>
-<span class="code-line">set -g window-status-activity-attr bold</span>
-<span class="code-line">set -g pane-border-fg colour245</span>
-<span class="code-line">set -g pane-active-border-fg colour39</span>
-<span class="code-line">set -g message-fg colour16</span>
-<span class="code-line">set -g message-bg colour221</span>
-<span class="code-line">set -g message-attr bold</span>
-<span class="code-line"># Custom status bar</span>
-<span class="code-line"># Powerline</span>
-<span class="code-line">set -g status-left-length 32</span>
-<span class="code-line">set -g status-right-length 150</span>
-<span class="code-line">set -g status-interval 5</span>
-<span class="code-line"># Lets add the current weather to our status bar—why? Well Why the french-toast not?</span>
-<span class="code-line">set -g status-left &#39;#[fg=colour16,bg=colour254,bold] #S #[fg=colour254,bg=colour238,nobold]#[fg=colour15,bg=colour238,bold] #(weathermajig boulder --short) #[fg=colour238,bg=colour234,nobold]&#39;</span>
-<span class="code-line">set -g status-right &#39;%R #[fg=colour238,nobold]#[fg=colour254, bg=colour238] %d %b #(tmux-spotify-info)#[fg=colour254,nobold]#[fg=colour16,bg=colour254,bold] #h &#39;</span>
-<span class="code-line">set -g window-status-format &quot;#[fg=white,bg=colour234] #I #W &quot;</span>
-<span class="code-line">set -g window-status-current-format &quot;#[fg=colour234,bg=colour39]#[fg=colour16,bg=colour39,noreverse,bold] #I ❭ #W #[fg=colour39,bg=colour234,nobold]&quot;</span>
+<div class="highlight"><pre># Bad Wolf by Steve Losh
+# Modified by Dheepak Krishnamurthy
+# =====================
+set -g status-fg white
+set -g status-bg colour234
+# set -g status-bg default #set for transparent background
+set -g window-status-activity-attr bold
+set -g pane-border-fg colour245
+set -g pane-active-border-fg colour39
+set -g message-fg colour16
+set -g message-bg colour221
+set -g message-attr bold
+# Custom status bar
+# Powerline
+set -g status-left-length 32
+set -g status-right-length 150
+set -g status-interval 5
+# Lets add the current weather to our status bar—why? Well Why the french-toast not?
+set -g status-left &#39;#[fg=colour16,bg=colour254,bold] #S #[fg=colour254,bg=colour238,nobold]#[fg=colour15,bg=colour238,bold] #(weathermajig boulder --short) #[fg=colour238,bg=colour234,nobold]&#39;
+set -g status-right &#39;%R #[fg=colour238,nobold]#[fg=colour254, bg=colour238] %d %b #(tmux-spotify-info)#[fg=colour254,nobold]#[fg=colour16,bg=colour254,bold] #h &#39;
+set -g window-status-format &quot;#[fg=white,bg=colour234] #I #W &quot;
+set -g window-status-current-format &quot;#[fg=colour234,bg=colour39]#[fg=colour16,bg=colour39,noreverse,bold] #I ❭ #W #[fg=colour39,bg=colour234,nobold]&quot;
 </pre></div>
 
 

@@ -1,316 +1,317 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/all.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-09-20T09:26:15-06:00</updated><entry><title>Spotify and tmux</title><link href="http://kdheepak.com/blog/spotify-and-tmux.html" rel="alternate"></link><updated>2015-09-20T09:26:15-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-09-20:blog/spotify-and-tmux.html</id><summary type="html">&lt;p&gt;Place the following in a directory that in your &lt;code&gt;$PATH&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;#!/usr/bin/env osascript&lt;/span&gt;
-&lt;span class="code-line"&gt;# Returns the current playing song in Spotify for OSX&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;tell application &amp;quot;Spotify&amp;quot;&lt;/span&gt;
-&lt;span class="code-line"&gt;  if it is running then&lt;/span&gt;
-&lt;span class="code-line"&gt;    if player state is playing then&lt;/span&gt;
-&lt;span class="code-line"&gt;      set track_name to name of current track&lt;/span&gt;
-&lt;span class="code-line"&gt;      set artist_name to artist of current track&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;      &amp;quot;#[fg=colour39,nobold]#[fg=colour16, bg=colour39, nobold] &amp;quot; &amp;amp; artist_name &amp;amp; &amp;quot; - &amp;quot; &amp;amp; track_name &amp;amp; &amp;quot; #[bg=colour39]&amp;quot;&lt;/span&gt;
-&lt;span class="code-line"&gt;    end if&lt;/span&gt;
-&lt;span class="code-line"&gt;  end if&lt;/span&gt;
-&lt;span class="code-line"&gt;end tell&lt;/span&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/all.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-09-20T10:01:48-06:00</updated><entry><title>Spotify and tmux</title><link href="http://kdheepak.com/blog/spotify-and-tmux.html" rel="alternate"></link><updated>2015-09-20T09:26:15-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-09-20:blog/spotify-and-tmux.html</id><summary type="html">&lt;p&gt;Place the following in a directory that in your &lt;code&gt;$PATH&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;#!/usr/bin/env osascript
+# Returns the current playing song in Spotify for OSX
+
+tell application &amp;quot;Spotify&amp;quot;
+  if it is running then
+    if player state is playing then
+      set track_name to name of current track
+      set artist_name to artist of current track
+
+      &amp;quot;#[fg=colour39,nobold]#[fg=colour16, bg=colour39, nobold] &amp;quot; &amp;amp; artist_name &amp;amp; &amp;quot; - &amp;quot; &amp;amp; track_name &amp;amp; &amp;quot; #[bg=colour39]&amp;quot;
+    end if
+  end if
+end tell
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Add this to the end of ~/.tmux.conf&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;# Bad Wolf by Steve Losh&lt;/span&gt;
-&lt;span class="code-line"&gt;# Modified by Dheepak Krishnamurthy&lt;/span&gt;
-&lt;span class="code-line"&gt;# =====================&lt;/span&gt;
-&lt;span class="code-line"&gt;set -g status-fg white&lt;/span&gt;
-&lt;span class="code-line"&gt;set -g status-bg colour234&lt;/span&gt;
-&lt;span class="code-line"&gt;# set -g status-bg default #set for transparent background&lt;/span&gt;
-&lt;span class="code-line"&gt;set -g window-status-activity-attr bold&lt;/span&gt;
-&lt;span class="code-line"&gt;set -g pane-border-fg colour245&lt;/span&gt;
-&lt;span class="code-line"&gt;set -g pane-active-border-fg colour39&lt;/span&gt;
-&lt;span class="code-line"&gt;set -g message-fg colour16&lt;/span&gt;
-&lt;span class="code-line"&gt;set -g message-bg colour221&lt;/span&gt;
-&lt;span class="code-line"&gt;set -g message-attr bold&lt;/span&gt;
-&lt;span class="code-line"&gt;# Custom status bar&lt;/span&gt;
-&lt;span class="code-line"&gt;# Powerline&lt;/span&gt;
-&lt;span class="code-line"&gt;set -g status-left-length 32&lt;/span&gt;
-&lt;span class="code-line"&gt;set -g status-right-length 150&lt;/span&gt;
-&lt;span class="code-line"&gt;set -g status-interval 5&lt;/span&gt;
-&lt;span class="code-line"&gt;# Lets add the current weather to our status bar—why? Well Why the french-toast not?&lt;/span&gt;
-&lt;span class="code-line"&gt;set -g status-left &amp;#39;#[fg=colour16,bg=colour254,bold] #S #[fg=colour254,bg=colour238,nobold]#[fg=colour15,bg=colour238,bold] #(weathermajig boulder --short) #[fg=colour238,bg=colour234,nobold]&amp;#39;&lt;/span&gt;
-&lt;span class="code-line"&gt;set -g status-right &amp;#39;%R #[fg=colour238,nobold]#[fg=colour254, bg=colour238] %d %b #(tmux-spotify-info)#[fg=colour254,nobold]#[fg=colour16,bg=colour254,bold] #h &amp;#39;&lt;/span&gt;
-&lt;span class="code-line"&gt;set -g window-status-format &amp;quot;#[fg=white,bg=colour234] #I #W &amp;quot;&lt;/span&gt;
-&lt;span class="code-line"&gt;set -g window-status-current-format &amp;quot;#[fg=colour234,bg=colour39]#[fg=colour16,bg=colour39,noreverse,bold] #I ❭ #W #[fg=colour39,bg=colour234,nobold]&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# Bad Wolf by Steve Losh
+# Modified by Dheepak Krishnamurthy
+# =====================
+set -g status-fg white
+set -g status-bg colour234
+# set -g status-bg default #set for transparent background
+set -g window-status-activity-attr bold
+set -g pane-border-fg colour245
+set -g pane-active-border-fg colour39
+set -g message-fg colour16
+set -g message-bg colour221
+set -g message-attr bold
+# Custom status bar
+# Powerline
+set -g status-left-length 32
+set -g status-right-length 150
+set -g status-interval 5
+# Lets add the current weather to our status bar—why? Well Why the french-toast not?
+set -g status-left &amp;#39;#[fg=colour16,bg=colour254,bold] #S #[fg=colour254,bg=colour238,nobold]#[fg=colour15,bg=colour238,bold] #(weathermajig boulder --short) #[fg=colour238,bg=colour234,nobold]&amp;#39;
+set -g status-right &amp;#39;%R #[fg=colour238,nobold]#[fg=colour254, bg=colour238] %d %b #(tmux-spotify-info)#[fg=colour254,nobold]#[fg=colour16,bg=colour254,bold] #h &amp;#39;
+set -g window-status-format &amp;quot;#[fg=white,bg=colour234] #I #W &amp;quot;
+set -g window-status-current-format &amp;quot;#[fg=colour234,bg=colour39]#[fg=colour16,bg=colour39,noreverse,bold] #I ❭ #W #[fg=colour39,bg=colour234,nobold]&amp;quot;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;And your favourite song is listed in your tmux powerline. You can change the colours by varying the values above. &lt;/p&gt;
 &lt;p&gt;&lt;img alt="tmux-spotify" src="/images/tmux-spotify.png" /&gt;&lt;/p&gt;</summary><category term="tmux"></category></entry><entry><title>Change $PATH inside vim</title><link href="http://kdheepak.com/blog/change-path-inside-vim.html" rel="alternate"></link><updated>2015-09-19T09:05:36-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-09-19:blog/change-path-inside-vim.html</id><summary type="html">&lt;p&gt;Save the following script in &lt;code&gt;/usr/local/bin/cpvim&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="c"&gt;#!/bin/zsh&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="nb"&gt;source&lt;/span&gt; ~/.zshrc &amp;gt;/dev/null 2&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;1&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$VIM_PATH&lt;/span&gt; &lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="nb"&gt;exec &lt;/span&gt;nvim &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/zsh&lt;/span&gt;
+&lt;span class="nb"&gt;source&lt;/span&gt; ~/.zshrc &amp;gt;/dev/null 2&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;1
+&lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$VIM_PATH&lt;/span&gt; 
+&lt;span class="nb"&gt;exec &lt;/span&gt;nvim &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Add the following to your .zshrc&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;alias vim=/usr/local/bin/cpvim&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;alias vim=/usr/local/bin/cpvim
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="neovim"></category><category term="vim"></category><category term="osx"></category></entry><entry><title>Patched fonts madness</title><link href="http://kdheepak.com/blog/patched-fonts-madness.html" rel="alternate"></link><updated>2015-09-12T19:59:22-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-09-12:blog/patched-fonts-madness.html</id><summary type="html">&lt;p&gt;Getting patched fonts for a powerline in the terminal can be quite an adventure. I almost gave up on it, but now that I've figured it out it seems extremely obvious.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;# pip install --user powerline-status&lt;/span&gt;
-&lt;span class="code-line"&gt;# brew install fontforge --with-python&lt;/span&gt;
-&lt;span class="code-line"&gt;git clone https://github.com/powerline/fonts.git&lt;/span&gt;
-&lt;span class="code-line"&gt;cd fonts&lt;/span&gt;
-&lt;span class="code-line"&gt;./install.sh&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# pip install --user powerline-status
+# brew install fontforge --with-python
+git clone https://github.com/powerline/fonts.git
+cd fonts
+./install.sh
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Most importantly, select the font with the word &lt;code&gt;powerline&lt;/code&gt; in the name in the preferences option of your terminal.&lt;/p&gt;</summary><category term="vim"></category><category term="tmux"></category></entry><entry><title>Uninstalling and Re-Installing Homebrew on OSX</title><link href="http://kdheepak.com/blog/uninstalling-and-re-installing-homebrew-on-osx.html" rel="alternate"></link><updated>2015-08-27T22:52:17-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-08-27:blog/uninstalling-and-re-installing-homebrew-on-osx.html</id><summary type="html">&lt;p&gt;&lt;a href="https://gist.github.com/mxcl/1173223"&gt;Gist&lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# Just copy and paste the lines below (all at once, it won&amp;#39;t work line by line!)&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# MAKE SURE YOU ARE HAPPY WITH WHAT IT DOES FIRST! THERE IS NO WARRANTY!&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;brew list &amp;gt; ~/brew_list.txt&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="k"&gt;function&lt;/span&gt; abort &lt;span class="o"&gt;{&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;  &lt;span class="nb"&gt;exit &lt;/span&gt;1&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="nb"&gt;set&lt;/span&gt; -e&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;/usr/bin/which -s git &lt;span class="o"&gt;||&lt;/span&gt; abort &lt;span class="s2"&gt;&amp;quot;brew install git first!&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="nb"&gt;test&lt;/span&gt; -d /usr/local/.git &lt;span class="o"&gt;||&lt;/span&gt; abort &lt;span class="s2"&gt;&amp;quot;brew update first!&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="sb"&gt;`&lt;/span&gt;brew --prefix&lt;span class="sb"&gt;`&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;git checkout master&lt;/span&gt;
-&lt;span class="code-line"&gt;git ls-files -z &lt;span class="p"&gt;|&lt;/span&gt; pbcopy&lt;/span&gt;
-&lt;span class="code-line"&gt;rm -rf Cellar&lt;/span&gt;
-&lt;span class="code-line"&gt;bin/brew prune&lt;/span&gt;
-&lt;span class="code-line"&gt;pbpaste &lt;span class="p"&gt;|&lt;/span&gt; xargs -0 rm&lt;/span&gt;
-&lt;span class="code-line"&gt;rm -r Library/Homebrew Library/Aliases Library/Formula Library/Contributions &lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="nb"&gt;test&lt;/span&gt; -d Library/LinkedKegs &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -r Library/LinkedKegs&lt;/span&gt;
-&lt;span class="code-line"&gt;rmdir -p bin Library share/man/man1 2&amp;gt; /dev/null&lt;/span&gt;
-&lt;span class="code-line"&gt;rm -rf .git&lt;/span&gt;
-&lt;span class="code-line"&gt;rm -rf ~/Library/Caches/Homebrew&lt;/span&gt;
-&lt;span class="code-line"&gt;rm -rf ~/Library/Logs/Homebrew&lt;/span&gt;
-&lt;span class="code-line"&gt;rm -rf /Library/Caches/Homebrew&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class="c"&gt;# Just copy and paste the lines below (all at once, it won&amp;#39;t work line by line!)&lt;/span&gt;
+&lt;span class="c"&gt;# MAKE SURE YOU ARE HAPPY WITH WHAT IT DOES FIRST! THERE IS NO WARRANTY!&lt;/span&gt;
+
+brew list &amp;gt; ~/brew_list.txt
+
+&lt;span class="k"&gt;function&lt;/span&gt; abort &lt;span class="o"&gt;{&lt;/span&gt;
+  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+  &lt;span class="nb"&gt;exit &lt;/span&gt;1
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="nb"&gt;set&lt;/span&gt; -e
+
+/usr/bin/which -s git &lt;span class="o"&gt;||&lt;/span&gt; abort &lt;span class="s2"&gt;&amp;quot;brew install git first!&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;test&lt;/span&gt; -d /usr/local/.git &lt;span class="o"&gt;||&lt;/span&gt; abort &lt;span class="s2"&gt;&amp;quot;brew update first!&amp;quot;&lt;/span&gt;
+
+&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="sb"&gt;`&lt;/span&gt;brew --prefix&lt;span class="sb"&gt;`&lt;/span&gt;
+git checkout master
+git ls-files -z &lt;span class="p"&gt;|&lt;/span&gt; pbcopy
+rm -rf Cellar
+bin/brew prune
+pbpaste &lt;span class="p"&gt;|&lt;/span&gt; xargs -0 rm
+rm -r Library/Homebrew Library/Aliases Library/Formula Library/Contributions 
+&lt;span class="nb"&gt;test&lt;/span&gt; -d Library/LinkedKegs &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -r Library/LinkedKegs
+rmdir -p bin Library share/man/man1 2&amp;gt; /dev/null
+rm -rf .git
+rm -rf ~/Library/Caches/Homebrew
+rm -rf ~/Library/Logs/Homebrew
+rm -rf /Library/Caches/Homebrew
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Set permission on Homebrew folder&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="x"&gt;sudo chown -R &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;USER&lt;/span&gt;&lt;span class="x"&gt; /Library/Caches/Homebrew/&lt;/span&gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="osx"></category></entry><entry><title>How to add line numbers for code blocks in Pelican</title><link href="http://kdheepak.com/blog/how-to-add-line-numbers-for-code-blocks-in-pelican.html" rel="alternate"></link><updated>2015-08-18T02:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-08-18:blog/how-to-add-line-numbers-for-code-blocks-in-pelican.html</id><summary type="html">&lt;p&gt;I've found that line numbering with word wrap could only be achieved in Pelican by a
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="x"&gt;sudo chown -R &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;USER&lt;/span&gt;&lt;span class="x"&gt; /Library/Caches/Homebrew/&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="osx"></category></entry><entry><title>How to add line numbers for code blocks in Pelican</title><link href="http://kdheepak.com/blog/how-to-add-line-numbers-for-code-blocks-in-pelican.html" rel="alternate"></link><updated>2015-09-20T10:01:48-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-08-18:blog/how-to-add-line-numbers-for-code-blocks-in-pelican.html</id><summary type="html">&lt;p&gt;Update : I've removed line numbers because it is selected along with the code if someone wants to copy. I'll post here if I find a better solution.&lt;/p&gt;
+&lt;p&gt;I've found that line numbering with word wrap could only be achieved in Pelican by a
 certain set of steps. I've listed the CSS and the Plugin I've used to get that
 to work.&lt;/p&gt;
 &lt;p&gt;Add the following lines in your theme.css&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="c"&gt;/* For use with the code_line-number_word-wrap_switcher_jquery.js Pelican plugin */&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="nt"&gt;code&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="k"&gt;overflow&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;auto&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="c"&gt;/* This uses `white-space: pre-wrap` to get elements within &amp;lt;pre&amp;gt; tags to wrap. Python, for code chunks within three backticks (```), doesn&amp;#39;t wordwrap code lines by default, because they&amp;#39;re within &amp;lt;pre&amp;gt; tags, which don&amp;#39;t wrap by default. See https://github.com/github/markup/issues/168 , which is specifically about this parsing issue, even though that link&amp;#39;s discussion is talking about GitHub. */&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="k"&gt;white-space&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;pre&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wrap&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;       &lt;span class="c"&gt;/* css-3 */&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="k"&gt;white-space&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;moz&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pre&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wrap&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;  &lt;span class="c"&gt;/* Mozilla, since 1999 */&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="k"&gt;white-space&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pre&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wrap&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;      &lt;span class="c"&gt;/* Opera 4-6 */&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="k"&gt;white-space&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pre&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wrap&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;    &lt;span class="c"&gt;/* Opera 7 */&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="n"&gt;word&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wrap&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;break&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;word&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;       &lt;span class="c"&gt;/* Internet Explorer 5.5+ */&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;/* Following http://bililite.com/blog/2012/08/05/line-numbering-in-pre-elements/, use CSS to add line numbers to all spans that have the class &amp;#39;code-line&amp;#39; */&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="nc"&gt;.highlight&lt;/span&gt; &lt;span class="nt"&gt;pre&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="k"&gt;counter-reset&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;linecounter&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="k"&gt;padding-left&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;2em&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="nc"&gt;.highlight&lt;/span&gt; &lt;span class="nt"&gt;pre&lt;/span&gt; &lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="nc"&gt;.code-line&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="k"&gt;counter-increment&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;linecounter&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="k"&gt;padding-left&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;1em&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="k"&gt;text-indent&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;-1em&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;inline&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;block&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="nc"&gt;.highlight&lt;/span&gt; &lt;span class="nt"&gt;pre&lt;/span&gt; &lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="nc"&gt;.code-line&lt;/span&gt;&lt;span class="nd"&gt;:before&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="k"&gt;content&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;counter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linecounter&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="k"&gt;padding-right&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;1em&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;inline&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;block&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;grey&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="k"&gt;text-align&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;right&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;/* For use with the code_line-number_word-wrap_switcher_jquery.js Pelican plugin */&lt;/span&gt;
+&lt;span class="nt"&gt;code&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;overflow&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;auto&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="c"&gt;/* This uses `white-space: pre-wrap` to get elements within &amp;lt;pre&amp;gt; tags to wrap. Python, for code chunks within three backticks (```), doesn&amp;#39;t wordwrap code lines by default, because they&amp;#39;re within &amp;lt;pre&amp;gt; tags, which don&amp;#39;t wrap by default. See https://github.com/github/markup/issues/168 , which is specifically about this parsing issue, even though that link&amp;#39;s discussion is talking about GitHub. */&lt;/span&gt;
+    &lt;span class="k"&gt;white-space&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;pre&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wrap&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;       &lt;span class="c"&gt;/* css-3 */&lt;/span&gt;
+    &lt;span class="k"&gt;white-space&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;moz&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pre&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wrap&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;  &lt;span class="c"&gt;/* Mozilla, since 1999 */&lt;/span&gt;
+    &lt;span class="k"&gt;white-space&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pre&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wrap&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;      &lt;span class="c"&gt;/* Opera 4-6 */&lt;/span&gt;
+    &lt;span class="k"&gt;white-space&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pre&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wrap&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;    &lt;span class="c"&gt;/* Opera 7 */&lt;/span&gt;
+    &lt;span class="n"&gt;word&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wrap&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;break&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;word&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;       &lt;span class="c"&gt;/* Internet Explorer 5.5+ */&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;/* Following http://bililite.com/blog/2012/08/05/line-numbering-in-pre-elements/, use CSS to add line numbers to all spans that have the class &amp;#39;code-line&amp;#39; */&lt;/span&gt;
+
+&lt;span class="nc"&gt;.highlight&lt;/span&gt; &lt;span class="nt"&gt;pre&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;counter-reset&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;linecounter&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;padding-left&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;2em&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nc"&gt;.highlight&lt;/span&gt; &lt;span class="nt"&gt;pre&lt;/span&gt; &lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="nc"&gt;.code-line&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;counter-increment&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;linecounter&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;padding-left&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;1em&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;text-indent&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;-1em&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;inline&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;block&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nc"&gt;.highlight&lt;/span&gt; &lt;span class="nt"&gt;pre&lt;/span&gt; &lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="nc"&gt;.code-line&lt;/span&gt;&lt;span class="nd"&gt;:before&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;content&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;counter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linecounter&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;padding-right&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;1em&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;inline&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;block&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;grey&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;text-align&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;right&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Then, we turn off the default linenums in codehilite. Also add the following pelican-plugin.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;MD_EXTENSIONS = [&amp;#39;fenced_code&amp;#39;, &amp;#39;codehilite(css_class=highlight, linenums=False)&amp;#39;, ]&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;PLUGINS = [&amp;#39;better_codeblock_line_numbering&amp;#39;]&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;MD_EXTENSIONS = [&amp;#39;fenced_code&amp;#39;, &amp;#39;codehilite(css_class=highlight, linenums=False)&amp;#39;, ]
+
+PLUGINS = [&amp;#39;better_codeblock_line_numbering&amp;#39;]
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="pelican"></category></entry><entry><title>Emacsclient and tmux split navigation</title><link href="http://kdheepak.com/blog/emacsclient-and-tmux-split-navigation.html" rel="alternate"></link><updated>2015-07-26T22:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-07-26:blog/emacsclient-and-tmux-split-navigation.html</id><summary type="html">&lt;p&gt;I've described some of the scripts that I use regularly when using emacs in the terminal. I also using emacs with tmux, even though it seems like emacs itself could be tweaked to replace tmux. Currently, my tmux+zsh setup has been much more powerful that what emacs alone can provide. zsh did not play well, even with multiterm and I've had mixed results with getting ipython to work well inside emacs.&lt;/p&gt;
 &lt;p&gt;I use the following set of lisps my .emacs to get seamless navigation between emacs splits and tmux panes.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;;; Many thanks to the author of and contributors to the following posts:&lt;/span&gt;
-&lt;span class="code-line"&gt;;; https://gist.github.com/mislav/5189704&lt;/span&gt;
-&lt;span class="code-line"&gt;;; http://robots.thoughtbot.com/post/53022241323/seamlessly-navigate-vim-and-tmux-splits&lt;/span&gt;
-&lt;span class="code-line"&gt;;;&lt;/span&gt;
-&lt;span class="code-line"&gt;;; TODO: Make a script that generates tmux and emacs code without duplication&lt;/span&gt;
-&lt;span class="code-line"&gt;;;&lt;/span&gt;
-&lt;span class="code-line"&gt;;; NOTE: My keybindings are not the default emacs ones, using windmove&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;;; Try to move direction, which is supplied as arg&lt;/span&gt;
-&lt;span class="code-line"&gt;;; If cannot move that direction, send a tmux command to do appropriate move&lt;/span&gt;
-&lt;span class="code-line"&gt;(defun windmove-emacs-or-tmux(dir tmux-cmd)&lt;/span&gt;
-&lt;span class="code-line"&gt;(interactive)&lt;/span&gt;
-&lt;span class="code-line"&gt;(if (ignore-errors (funcall (intern (concat &amp;quot;windmove-&amp;quot; dir))))&lt;/span&gt;
-&lt;span class="code-line"&gt;nil                       ;; Moving within emacs&lt;/span&gt;
-&lt;span class="code-line"&gt;(shell-command tmux-cmd)) ;; At edges, send command to tmux&lt;/span&gt;
-&lt;span class="code-line"&gt;)&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;;Move between windows with custom keybindings&lt;/span&gt;
-&lt;span class="code-line"&gt;(global-set-key (kbd &amp;quot;C-k&amp;quot;)&lt;/span&gt;
-&lt;span class="code-line"&gt;   &amp;#39;(lambda () (interactive) (windmove-emacs-or-tmux &amp;quot;up&amp;quot;  &amp;quot;tmux select-pane -U&amp;quot;)))&lt;/span&gt;
-&lt;span class="code-line"&gt;(global-set-key (kbd &amp;quot;C-j&amp;quot;)&lt;/span&gt;
-&lt;span class="code-line"&gt;   &amp;#39;(lambda () (interactive) (windmove-emacs-or-tmux &amp;quot;down&amp;quot;  &amp;quot;tmux select-pane -D&amp;quot;)))&lt;/span&gt;
-&lt;span class="code-line"&gt;(global-set-key (kbd &amp;quot;C-l&amp;quot;)&lt;/span&gt;
-&lt;span class="code-line"&gt;   &amp;#39;(lambda () (interactive) (windmove-emacs-or-tmux &amp;quot;right&amp;quot; &amp;quot;tmux select-pane -R&amp;quot;)))&lt;/span&gt;
-&lt;span class="code-line"&gt;(global-set-key (kbd &amp;quot;C-h&amp;quot;)&lt;/span&gt;
-&lt;span class="code-line"&gt;   &amp;#39;(lambda () (interactive) (windmove-emacs-or-tmux &amp;quot;left&amp;quot;  &amp;quot;tmux select-pane -L&amp;quot;)))&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;;; Many thanks to the author of and contributors to the following posts:
+;; https://gist.github.com/mislav/5189704
+;; http://robots.thoughtbot.com/post/53022241323/seamlessly-navigate-vim-and-tmux-splits
+;;
+;; TODO: Make a script that generates tmux and emacs code without duplication
+;;
+;; NOTE: My keybindings are not the default emacs ones, using windmove
+
+;; Try to move direction, which is supplied as arg
+;; If cannot move that direction, send a tmux command to do appropriate move
+(defun windmove-emacs-or-tmux(dir tmux-cmd)
+(interactive)
+(if (ignore-errors (funcall (intern (concat &amp;quot;windmove-&amp;quot; dir))))
+nil                       ;; Moving within emacs
+(shell-command tmux-cmd)) ;; At edges, send command to tmux
+)
+
+;Move between windows with custom keybindings
+(global-set-key (kbd &amp;quot;C-k&amp;quot;)
+   &amp;#39;(lambda () (interactive) (windmove-emacs-or-tmux &amp;quot;up&amp;quot;  &amp;quot;tmux select-pane -U&amp;quot;)))
+(global-set-key (kbd &amp;quot;C-j&amp;quot;)
+   &amp;#39;(lambda () (interactive) (windmove-emacs-or-tmux &amp;quot;down&amp;quot;  &amp;quot;tmux select-pane -D&amp;quot;)))
+(global-set-key (kbd &amp;quot;C-l&amp;quot;)
+   &amp;#39;(lambda () (interactive) (windmove-emacs-or-tmux &amp;quot;right&amp;quot; &amp;quot;tmux select-pane -R&amp;quot;)))
+(global-set-key (kbd &amp;quot;C-h&amp;quot;)
+   &amp;#39;(lambda () (interactive) (windmove-emacs-or-tmux &amp;quot;left&amp;quot;  &amp;quot;tmux select-pane -L&amp;quot;)))
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The following was added to .tmux.conf&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;## Smart pane switching with awareness of emacs splits.&lt;/span&gt;
-&lt;span class="code-line"&gt;bind -n C-h run &amp;quot;(tmux display-message -p &amp;#39;#{pane_current_command}&amp;#39; | grep -iqE &amp;#39;(^|\/)g?(view|emacs?)(diff)?$&amp;#39; &amp;amp;&amp;amp; tmux send-keys C-h) || tmux select-pane -L&amp;quot;&lt;/span&gt;
-&lt;span class="code-line"&gt;bind -n C-j run &amp;quot;(tmux display-message -p &amp;#39;#{pane_current_command}&amp;#39; | grep -iqE &amp;#39;(^|\/)g?(view|emacs?)(diff)?$&amp;#39; &amp;amp;&amp;amp; tmux send-keys C-j) || tmux select-pane -D&amp;quot;&lt;/span&gt;
-&lt;span class="code-line"&gt;bind -n C-k run &amp;quot;(tmux display-message -p &amp;#39;#{pane_current_command}&amp;#39; | grep -iqE &amp;#39;(^|\/)g?(view|emacs?)(diff)?$&amp;#39; &amp;amp;&amp;amp; tmux send-keys C-k) || tmux select-pane -U&amp;quot;&lt;/span&gt;
-&lt;span class="code-line"&gt;bind -n C-l run &amp;quot;(tmux display-message -p &amp;#39;#{pane_current_command}&amp;#39; | grep -iqE &amp;#39;(^|\/)g?(view|emacs?)(diff)?$&amp;#39; &amp;amp;&amp;amp; tmux send-keys C-l) || tmux select-pane -R&amp;quot;&lt;/span&gt;
-&lt;span class="code-line"&gt;bind -n C-\ run &amp;quot;(tmux display-message -p &amp;#39;#{pane_current_command}&amp;#39; | grep -iqE &amp;#39;(^|\/)g?(view|emacs?)(diff)?$&amp;#39; &amp;amp;&amp;amp; tmux send-keys &amp;#39;C-\\&amp;#39;) || tmux select-pane -l&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;## Smart pane switching with awareness of emacs splits.
+bind -n C-h run &amp;quot;(tmux display-message -p &amp;#39;#{pane_current_command}&amp;#39; | grep -iqE &amp;#39;(^|\/)g?(view|emacs?)(diff)?$&amp;#39; &amp;amp;&amp;amp; tmux send-keys C-h) || tmux select-pane -L&amp;quot;
+bind -n C-j run &amp;quot;(tmux display-message -p &amp;#39;#{pane_current_command}&amp;#39; | grep -iqE &amp;#39;(^|\/)g?(view|emacs?)(diff)?$&amp;#39; &amp;amp;&amp;amp; tmux send-keys C-j) || tmux select-pane -D&amp;quot;
+bind -n C-k run &amp;quot;(tmux display-message -p &amp;#39;#{pane_current_command}&amp;#39; | grep -iqE &amp;#39;(^|\/)g?(view|emacs?)(diff)?$&amp;#39; &amp;amp;&amp;amp; tmux send-keys C-k) || tmux select-pane -U&amp;quot;
+bind -n C-l run &amp;quot;(tmux display-message -p &amp;#39;#{pane_current_command}&amp;#39; | grep -iqE &amp;#39;(^|\/)g?(view|emacs?)(diff)?$&amp;#39; &amp;amp;&amp;amp; tmux send-keys C-l) || tmux select-pane -R&amp;quot;
+bind -n C-\ run &amp;quot;(tmux display-message -p &amp;#39;#{pane_current_command}&amp;#39; | grep -iqE &amp;#39;(^|\/)g?(view|emacs?)(diff)?$&amp;#39; &amp;amp;&amp;amp; tmux send-keys &amp;#39;C-\\&amp;#39;) || tmux select-pane -l&amp;quot;
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="emacs"></category><category term="osx"></category></entry><entry><title>Emacs workflow - Using Emacs in the terminal</title><link href="http://kdheepak.com/blog/emacs-workflow-using-emacs-in-the-terminal.html" rel="alternate"></link><updated>2015-07-25T22:00:50-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-07-25:blog/emacs-workflow-using-emacs-in-the-terminal.html</id><summary type="html">&lt;p&gt;I use the command line a lot, frequently editing files locally or remotely. Up until now, I've been using &lt;a href="vim-tmux-zsh.html"&gt;vim with tmux and zsh&lt;/a&gt;. I've recently been experimenting with emacs and have been trying to get it to work well inplace of vim. I personally think the author of &lt;a href="http://mjwall.com/blog/2013/10/04/how-i-use-emacs/"&gt;this post&lt;/a&gt; nailed it regarding emacs workflow. I've only made minor modifications to get it to suit my requirements.&lt;/p&gt;
 &lt;p&gt;I've created a separate script called ess (emacsserverstart) added a &lt;code&gt;&amp;amp;&lt;/code&gt; at the end of the emacs script to get it to run in the background.&lt;/p&gt;
 &lt;p&gt;/usr/local/bin/ess&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="c"&gt;#!/bin/zsh&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;/Applications/Emacs.app/Contents/MacOS/Emacs &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/zsh&lt;/span&gt;
+/Applications/Emacs.app/Contents/MacOS/Emacs &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;/usr/local/bin/emacs&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="c"&gt;#!/bin/zsh&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;/Applications/Emacs.app/Contents/MacOS/Emacs &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/zsh&lt;/span&gt;
+/Applications/Emacs.app/Contents/MacOS/Emacs &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;I've found that when using emacsclient connecting to &lt;code&gt;emacs --daemon&lt;/code&gt; renders certain things differently, as compared to opening emacs, starting a server and connecting to that instead. I also have &lt;code&gt;(server-start)&lt;/code&gt; in my .emacs file.&lt;/p&gt;
 &lt;p&gt;The following script connects a emacsclient to an already existing emacs server. If a server does not exist, it starts a daemon and then connects to it. This is done using the &lt;code&gt;-a ""&lt;/code&gt; flag, which allows you to set an alternate editor. If no editor it set it defaults to running a daemon. It also shifts focus to the emacsclient after it opens.&lt;/p&gt;
 &lt;p&gt;/usr/local/bin/ec&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="c"&gt;#!/bin/zsh&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# This script starts emacs daemon if it is not running, opens whatever file&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# you pass in and changes the focus to emacs.  Without any arguments, it just&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# opens the current buffer or *scratch* if nothing else is open.  The following&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# example will open ~/.bashrc&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# ec ~/.bashrc&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# You can also pass it multiple files, it will open them all.  Unbury-buffer&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# will cycle through those files in order&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# The compliment to the script is et, which opens emacs in the terminal&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# attached to a daemon&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# If you want to execute elisp, pass in -e whatever.&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# You may also want to stop the output from returning to the terminal, like&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# ec -e &amp;quot;(message \&amp;quot;Hello\&amp;quot;)&amp;quot; &amp;gt; /dev/null&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# emacsclient options for reference&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# -a &amp;quot;&amp;quot; starts emacs daemon and reattaches&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# -c creates a new frame&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# -n returns control back to the terminal&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# -e eval the script&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# Number of current visible frames,&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# Emacs daemon always has a visible frame called F1&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;visible_frames&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;  emacsclient -a &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt; -e &lt;span class="s1"&gt;&amp;#39;(length (visible-frame-list))&amp;#39;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;change_focus&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;  emacsclient -n -e &lt;span class="s2"&gt;&amp;quot;(select-frame-set-input-focus (selected-frame))&amp;quot;&lt;/span&gt; &amp;gt; /dev/null&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# try switching to the frame incase it is just minimized&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# will start a server if not running&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="nb"&gt;test&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;visible_frames&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -eq &lt;span class="s2"&gt;&amp;quot;1&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; change_focus&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;visible_frames&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -lt  &lt;span class="s2"&gt;&amp;quot;2&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt; &lt;span class="c"&gt;# need to create a frame&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;  &lt;span class="c"&gt;# -c $@ with no args just opens the scratch buffer&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;  emacsclient -n -c &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; change_focus&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="c"&gt;# there is already a visible frame besides the daemon, so&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;  change_focus&lt;/span&gt;
-&lt;span class="code-line"&gt;  &lt;span class="c"&gt;# -n $@ errors if there are no args&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;  &lt;span class="nb"&gt;test&lt;/span&gt;  &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt; -ne &amp;quot;&lt;/span&gt;0&lt;span class="s2"&gt;&amp;quot; &amp;amp;&amp;amp; emacsclient -n &amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="s2"&gt;fi&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/zsh&lt;/span&gt;
+
+&lt;span class="c"&gt;# This script starts emacs daemon if it is not running, opens whatever file&lt;/span&gt;
+&lt;span class="c"&gt;# you pass in and changes the focus to emacs.  Without any arguments, it just&lt;/span&gt;
+&lt;span class="c"&gt;# opens the current buffer or *scratch* if nothing else is open.  The following&lt;/span&gt;
+&lt;span class="c"&gt;# example will open ~/.bashrc&lt;/span&gt;
+
+&lt;span class="c"&gt;# ec ~/.bashrc&lt;/span&gt;
+
+&lt;span class="c"&gt;# You can also pass it multiple files, it will open them all.  Unbury-buffer&lt;/span&gt;
+&lt;span class="c"&gt;# will cycle through those files in order&lt;/span&gt;
+
+&lt;span class="c"&gt;# The compliment to the script is et, which opens emacs in the terminal&lt;/span&gt;
+&lt;span class="c"&gt;# attached to a daemon&lt;/span&gt;
+
+&lt;span class="c"&gt;# If you want to execute elisp, pass in -e whatever.&lt;/span&gt;
+&lt;span class="c"&gt;# You may also want to stop the output from returning to the terminal, like&lt;/span&gt;
+&lt;span class="c"&gt;# ec -e &amp;quot;(message \&amp;quot;Hello\&amp;quot;)&amp;quot; &amp;gt; /dev/null&lt;/span&gt;
+
+&lt;span class="c"&gt;# emacsclient options for reference&lt;/span&gt;
+&lt;span class="c"&gt;# -a &amp;quot;&amp;quot; starts emacs daemon and reattaches&lt;/span&gt;
+&lt;span class="c"&gt;# -c creates a new frame&lt;/span&gt;
+&lt;span class="c"&gt;# -n returns control back to the terminal&lt;/span&gt;
+&lt;span class="c"&gt;# -e eval the script&lt;/span&gt;
+
+&lt;span class="c"&gt;# Number of current visible frames,&lt;/span&gt;
+&lt;span class="c"&gt;# Emacs daemon always has a visible frame called F1&lt;/span&gt;
+visible_frames&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+  emacsclient -a &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt; -e &lt;span class="s1"&gt;&amp;#39;(length (visible-frame-list))&amp;#39;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+change_focus&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+  emacsclient -n -e &lt;span class="s2"&gt;&amp;quot;(select-frame-set-input-focus (selected-frame))&amp;quot;&lt;/span&gt; &amp;gt; /dev/null
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+
+&lt;span class="c"&gt;# try switching to the frame incase it is just minimized&lt;/span&gt;
+&lt;span class="c"&gt;# will start a server if not running&lt;/span&gt;
+&lt;span class="nb"&gt;test&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;visible_frames&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -eq &lt;span class="s2"&gt;&amp;quot;1&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; change_focus
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;visible_frames&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -lt  &lt;span class="s2"&gt;&amp;quot;2&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt; &lt;span class="c"&gt;# need to create a frame&lt;/span&gt;
+  &lt;span class="c"&gt;# -c $@ with no args just opens the scratch buffer&lt;/span&gt;
+  emacsclient -n -c &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; change_focus
+&lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="c"&gt;# there is already a visible frame besides the daemon, so&lt;/span&gt;
+  change_focus
+  &lt;span class="c"&gt;# -n $@ errors if there are no args&lt;/span&gt;
+  &lt;span class="nb"&gt;test&lt;/span&gt;  &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt; -ne &amp;quot;&lt;/span&gt;0&lt;span class="s2"&gt;&amp;quot; &amp;amp;&amp;amp; emacsclient -n &amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="s2"&gt;fi&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This script opens an emacsclient in the terminal and connects it to a running server. The &lt;code&gt;-t&lt;/code&gt; flag opens it in the terminal.&lt;/p&gt;
 &lt;p&gt;/usr/local/bin/et&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="c"&gt;#!/bin/zsh&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# Makes sure emacs daemon is running and opens the file in Emacs in&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# the terminal.&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# If you want to execute elisp, use -e whatever, like so&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# et -e &amp;quot;(message \&amp;quot;Word up\&amp;quot;)&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# You may want to redirect that to /dev/null if you don&amp;#39;t want the&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# return to printed on the terminal.  Also, just echoing a message&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# may not be visible if Emacs then gives you a message about what&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# to do when do with the frame&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# The compliment to this script is ec&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# Emacsclient option reference&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# -a &amp;quot;&amp;quot; starts emacs daemon and reattaches&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# -t starts in terminal, since I won&amp;#39;t be using the gui&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# can also pass in -n if you want to have the shell return right away&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="nb"&gt;exec &lt;/span&gt;emacsclient -a &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt; -t &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/zsh&lt;/span&gt;
+
+&lt;span class="c"&gt;# Makes sure emacs daemon is running and opens the file in Emacs in&lt;/span&gt;
+&lt;span class="c"&gt;# the terminal.&lt;/span&gt;
+
+&lt;span class="c"&gt;# If you want to execute elisp, use -e whatever, like so&lt;/span&gt;
+
+&lt;span class="c"&gt;# et -e &amp;quot;(message \&amp;quot;Word up\&amp;quot;)&amp;quot;&lt;/span&gt;
+
+&lt;span class="c"&gt;# You may want to redirect that to /dev/null if you don&amp;#39;t want the&lt;/span&gt;
+&lt;span class="c"&gt;# return to printed on the terminal.  Also, just echoing a message&lt;/span&gt;
+&lt;span class="c"&gt;# may not be visible if Emacs then gives you a message about what&lt;/span&gt;
+&lt;span class="c"&gt;# to do when do with the frame&lt;/span&gt;
+
+&lt;span class="c"&gt;# The compliment to this script is ec&lt;/span&gt;
+
+&lt;span class="c"&gt;# Emacsclient option reference&lt;/span&gt;
+&lt;span class="c"&gt;# -a &amp;quot;&amp;quot; starts emacs daemon and reattaches&lt;/span&gt;
+&lt;span class="c"&gt;# -t starts in terminal, since I won&amp;#39;t be using the gui&lt;/span&gt;
+&lt;span class="c"&gt;# can also pass in -n if you want to have the shell return right away&lt;/span&gt;
+
+&lt;span class="nb"&gt;exec &lt;/span&gt;emacsclient -a &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt; -t &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This following scripts stops the emacs server.&lt;/p&gt;
 &lt;p&gt;/usr/local/bin/es&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="c"&gt;#!/bin/zsh&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# simple script to shutdown the running Emacs daemon&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# emacsclient options for reference&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# -a Alternate editor, runs bin/false in this case&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# -e eval the script&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# If the server-process is bound and the server is in a good state, then kill&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;# the server&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;server_ok&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;  emacsclient -a &lt;span class="s2"&gt;&amp;quot;false&amp;quot;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;quot;(boundp &amp;#39;server-process)&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;t&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;server_ok&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Shutting down Emacs server&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;  &lt;span class="c"&gt;# wasn&amp;#39;t removing emacs from ALT-TAB on mac&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;  &lt;span class="c"&gt;# emacsclient -e &amp;quot;(server-force-delete)&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;  emacsclient -e &lt;span class="s1"&gt;&amp;#39;(spacemacs/kill-emacs)&amp;#39;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="k"&gt;else&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Emacs server not running&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="k"&gt;fi&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/zsh&lt;/span&gt;
+
+&lt;span class="c"&gt;# simple script to shutdown the running Emacs daemon&lt;/span&gt;
+
+&lt;span class="c"&gt;# emacsclient options for reference&lt;/span&gt;
+&lt;span class="c"&gt;# -a Alternate editor, runs bin/false in this case&lt;/span&gt;
+&lt;span class="c"&gt;# -e eval the script&lt;/span&gt;
+
+&lt;span class="c"&gt;# If the server-process is bound and the server is in a good state, then kill&lt;/span&gt;
+&lt;span class="c"&gt;# the server&lt;/span&gt;
+
+server_ok&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+  emacsclient -a &lt;span class="s2"&gt;&amp;quot;false&amp;quot;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;quot;(boundp &amp;#39;server-process)&amp;quot;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;t&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;server_ok&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Shutting down Emacs server&amp;quot;&lt;/span&gt;
+  &lt;span class="c"&gt;# wasn&amp;#39;t removing emacs from ALT-TAB on mac&lt;/span&gt;
+  &lt;span class="c"&gt;# emacsclient -e &amp;quot;(server-force-delete)&amp;quot;&lt;/span&gt;
+  emacsclient -e &lt;span class="s1"&gt;&amp;#39;(spacemacs/kill-emacs)&amp;#39;&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;
+  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Emacs server not running&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;fi&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="emacs"></category><category term="tmux"></category></entry><entry><title>Emacs Tips - Close compilation buffer</title><link href="http://kdheepak.com/blog/emacs-tips-close-compilation-buffer-if-successful.html" rel="alternate"></link><updated>2015-07-19T12:43:56-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-07-19:blog/emacs-tips-close-compilation-buffer-if-successful.html</id><summary type="html">&lt;p&gt;When I work with markdown, &lt;span class="math"&gt;\(\LaTeX\)&lt;/span&gt; or code that requires compiling, I like to
 check often if everything looks okay. Emacs has a good description of everything
 you can do with the &lt;a href="http://emacswiki.org/emacs/CompileCommand"&gt;CompileCommand&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;However, it does not have a description for auto-closing the buffer if the
 compilation was successful. &lt;a href="http://emacs.stackexchange.com/a/336"&gt;StackOverflow&lt;/a&gt; to the rescue!&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="c1"&gt;; from enberg on #emacs&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;setq&lt;/span&gt; &lt;span class="nv"&gt;compilation-finish-function&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;buf&lt;/span&gt; &lt;span class="nv"&gt;str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;null&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;string-match&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;.*exited abnormally.*&amp;quot;&lt;/span&gt; &lt;span class="nv"&gt;str&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;        &lt;span class="c1"&gt;;;no errors, make the compilation window go away in a few seconds&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;        &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;progn&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;            &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;run-at-time&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;            &lt;span class="s"&gt;&amp;quot;1 sec&amp;quot;&lt;/span&gt; &lt;span class="no"&gt;nil&lt;/span&gt; &lt;span class="ss"&gt;&amp;#39;delete-windows-on&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;            &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;get-buffer-create&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;*compilation*&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;        &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;message&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;No Compilation Errors!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)))))&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;; from enberg on #emacs&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;setq&lt;/span&gt; &lt;span class="nv"&gt;compilation-finish-function&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;buf&lt;/span&gt; &lt;span class="nv"&gt;str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;null&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;string-match&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;.*exited abnormally.*&amp;quot;&lt;/span&gt; &lt;span class="nv"&gt;str&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="c1"&gt;;;no errors, make the compilation window go away in a few seconds&lt;/span&gt;
+        &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;progn&lt;/span&gt;
+            &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;run-at-time&lt;/span&gt;
+            &lt;span class="s"&gt;&amp;quot;1 sec&amp;quot;&lt;/span&gt; &lt;span class="no"&gt;nil&lt;/span&gt; &lt;span class="ss"&gt;&amp;#39;delete-windows-on&lt;/span&gt;
+            &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;get-buffer-create&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;*compilation*&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;message&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;No Compilation Errors!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)))))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -382,8 +383,8 @@ the buffer to be available by changing the "1 sec" in the above code&lt;/p&gt;
 quickly open emacsclient from Alfred. &lt;/p&gt;
 &lt;p&gt;Also check out Alfred workflows in the link below&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/franzheidl/alfred-workflows#open-with-emacs"&gt;https://github.com/franzheidl/alfred-workflows#open-with-emacs&lt;/a&gt;&lt;/p&gt;</summary><category term="emacs"></category><category term="applescript"></category><category term="osx"></category></entry><entry><title>Better git log with git ls</title><link href="http://kdheepak.com/blog/better-git-log-with-git-ls.html" rel="alternate"></link><updated>2015-06-01T20:45:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-06-01:blog/better-git-log-with-git-ls.html</id><summary type="html">&lt;p&gt;Add the following command to ~/.gitconfig&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="k"&gt;[alias]&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="na"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;log --graph --abbrev-commit --decorate --color=always --date=relative --format=format:&amp;#39;%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) - %C(dim red)%an%C(reset)%C(bold yellow)%d%C(reset)&amp;#39; --all&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;[alias]&lt;/span&gt;
+    &lt;span class="na"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;log --graph --abbrev-commit --decorate --color=always --date=relative --format=format:&amp;#39;%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) - %C(dim red)%an%C(reset)%C(bold yellow)%d%C(reset)&amp;#39; --all&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -391,137 +392,137 @@ quickly open emacsclient from Alfred. &lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="../../images/gitls.png" /&gt;&lt;/p&gt;</summary><category term="git"></category></entry><entry><title>Vim, tmux and zsh - the productivity trio</title><link href="http://kdheepak.com/blog/vim-tmux-zsh.html" rel="alternate"></link><updated>2015-05-08T22:58:18-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-05-08:blog/vim-tmux-zsh.html</id><summary type="html">&lt;p&gt;I've not found a greater combination of tools than vim, tmux and zsh. I've detailed below some of the configuration to get it working the way I want it to.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="vim-tmux-zsh" src="/images/vim-tmux-zsh.png" /&gt;&lt;/p&gt;
 &lt;h2 id="tmux"&gt;tmux&lt;a class="headerlink" href="#tmux" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; Change prefix key to `&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;unbind C-b&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;set -g prefix `&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind-key ` send-prefix&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind-key C-a set-option -g prefix C-a&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind-key C-b set-option -g prefix `&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; we might need ` at some point, allow switching&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind-key C-a set-option -g prefix C-a&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind-key C-b set-option -g prefix `&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;setw -g monitor-activity on&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;set -g visual-activity on&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;set-window-option -g window-status-current-bg yellow&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;set -g mouse-resize-pane on&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;set-option -g mouse-select-pane on&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;set-option -g mouse-select-window on&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;set-window-option -g mode-mouse on&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;setw -g mode-mouse on&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;set -g terminal-overrides &amp;#39;xterm*:smcup@:rmcup@&amp;#39;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; set-option -g default-command &amp;quot;reattach-to-user-namespace -l zsh&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; Use vim keybindings in copy mode&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;setw -g mode-keys vi&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind-key -t vi-copy v begin-selection&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind-key -t vi-copy y copy-pipe &amp;quot;reattach-to-user-namespace pbcopy&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;unbind -t vi-copy Enter&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind-key -t vi-copy Enter copy-pipe &amp;quot;reattach-to-user-namespace pbcopy&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; Keep your finger on ctrl, or don&amp;#39;t&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind-key ^D detach-client&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; Pane resize in all four directions using vi bindings.&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; Can use these raw but I map them to shift-ctrl-&amp;lt;h,j,k,l&amp;gt; in iTerm.&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind -r H resize-pane -L 5&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind -r J resize-pane -D 5&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind -r K resize-pane -U 5&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind -r L resize-pane -R 5&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; Smart pane switching with awareness of vim splits.&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; Source: https://github.com/christoomey/vim-tmux-navigator&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind -n C-h run &amp;quot;(tmux display-message -p &amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;#{&lt;/span&gt;&lt;span class="nf"&gt;pane_current_command&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&lt;span class="x"&gt;&amp;#39; | grep -iqE &amp;#39;(^|\/)g?(view|vim?)(diff)?&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="x"&gt;&amp;#39; &amp;amp;&amp;amp; tmux send-keys C-h) || tmux select-pane -L&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind -n C-j run &amp;quot;(tmux display-message -p &amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;#{&lt;/span&gt;&lt;span class="nf"&gt;pane_current_command&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&lt;span class="x"&gt;&amp;#39; | grep -iqE &amp;#39;(^|\/)g?(view|vim?)(diff)?&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="x"&gt;&amp;#39; &amp;amp;&amp;amp; tmux send-keys C-j) || tmux select-pane -D&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind -n C-k run &amp;quot;(tmux display-message -p &amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;#{&lt;/span&gt;&lt;span class="nf"&gt;pane_current_command&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&lt;span class="x"&gt;&amp;#39; | grep -iqE &amp;#39;(^|\/)g?(view|vim?)(diff)?&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="x"&gt;&amp;#39; &amp;amp;&amp;amp; tmux send-keys C-k) || tmux select-pane -U&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind -n C-l run &amp;quot;(tmux display-message -p &amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;#{&lt;/span&gt;&lt;span class="nf"&gt;pane_current_command&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&lt;span class="x"&gt;&amp;#39; | grep -iqE &amp;#39;(^|\/)g?(view|vim?)(diff)?&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="x"&gt;&amp;#39; &amp;amp;&amp;amp; tmux send-keys C-l) || tmux select-pane -R&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind -n C-\ run &amp;quot;(tmux display-message -p &amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;#{&lt;/span&gt;&lt;span class="nf"&gt;pane_current_command&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&lt;span class="x"&gt;&amp;#39; | grep -iqE &amp;#39;(^|\/)g?(view|vim?)(diff)?&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="x"&gt;&amp;#39; &amp;amp;&amp;amp; tmux send-keys &amp;#39;C-\\&amp;#39;) || tmux select-pane -l&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;set -g default-terminal &amp;quot;xterm&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; No escape time for vi mode&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;set -sg escape-time 0&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; Screen like binding for last window&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;unbind l&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind C-a last-window&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; Bigger history&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;set -g history-limit 10000&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; New windows/pane in $PWD&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind c new-window -c &amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;#{&lt;/span&gt;&lt;span class="nf"&gt;pane_current_path&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&lt;span class="x"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; force a reload of the config file&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;unbind r&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind r source-file ~/.tmux.conf \; display &amp;quot;Reloaded!&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; Easy bindings for split&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;unbind %&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind | split-window -h  -c &amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;#{&lt;/span&gt;&lt;span class="nf"&gt;pane_current_path&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&lt;span class="x"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind - split-window -v  -c &amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;#{&lt;/span&gt;&lt;span class="nf"&gt;pane_current_path&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&lt;span class="x"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="cp"&gt;#&lt;/span&gt;&lt;span class="nf"&gt;bind&lt;/span&gt;&lt;span class="x"&gt; y run &amp;#39;tmux save-buffer - | reattach-to-user-namespace pbcopy &amp;#39;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="cp"&gt;#&lt;/span&gt;&lt;span class="nf"&gt;bind&lt;/span&gt;&lt;span class="x"&gt; C-y run &amp;#39;tmux save-buffer - | reattach-to-user-namespace pbcopy &amp;#39;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; start window numbering at 1&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;set -g base-index 1&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; start pane numbering at 1&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;set -g pane-base-index 1&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind-key -n C-S-Left swap-window -t -1&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind-key -n C-S-Right swap-window -t +1&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; Here is a jewel of a bind which does the task of flipping the orientation of the current pane with the pane before it (in the ordering) -- I had a SO question on this and nobody answered.&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind -n M-f move-pane -t &amp;#39;.-&amp;#39;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind M-f move-pane -t &amp;#39;.-&amp;#39;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind -n M-r move-pane -h -t &amp;#39;.-&amp;#39;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind M-r move-pane -h -t &amp;#39;.-&amp;#39;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt;# Join windows: &amp;lt;prefix&amp;gt; s, &amp;lt;prefix&amp;gt; j&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind-key j command-prompt -p &amp;quot;join pane from:&amp;quot;  &amp;quot;join-pane -s &amp;#39;%%&amp;#39;&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;bind-key s command-prompt -p &amp;quot;send pane to:&amp;quot;  &amp;quot;join-pane -t &amp;#39;%%&amp;#39;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; Change prefix key to `&lt;/span&gt;
+&lt;span class="x"&gt;unbind C-b&lt;/span&gt;
+&lt;span class="x"&gt;set -g prefix `&lt;/span&gt;
+&lt;span class="x"&gt;bind-key ` send-prefix&lt;/span&gt;
+&lt;span class="x"&gt;bind-key C-a set-option -g prefix C-a&lt;/span&gt;
+&lt;span class="x"&gt;bind-key C-b set-option -g prefix `&lt;/span&gt;
+
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; we might need ` at some point, allow switching&lt;/span&gt;
+&lt;span class="x"&gt;bind-key C-a set-option -g prefix C-a&lt;/span&gt;
+&lt;span class="x"&gt;bind-key C-b set-option -g prefix `&lt;/span&gt;
+
+&lt;span class="x"&gt;setw -g monitor-activity on&lt;/span&gt;
+&lt;span class="x"&gt;set -g visual-activity on&lt;/span&gt;
+
+&lt;span class="x"&gt;set-window-option -g window-status-current-bg yellow&lt;/span&gt;
+
+&lt;span class="x"&gt;set -g mouse-resize-pane on&lt;/span&gt;
+&lt;span class="x"&gt;set-option -g mouse-select-pane on&lt;/span&gt;
+&lt;span class="x"&gt;set-option -g mouse-select-window on&lt;/span&gt;
+&lt;span class="x"&gt;set-window-option -g mode-mouse on&lt;/span&gt;
+
+&lt;span class="x"&gt;setw -g mode-mouse on&lt;/span&gt;
+&lt;span class="x"&gt;set -g terminal-overrides &amp;#39;xterm*:smcup@:rmcup@&amp;#39;&lt;/span&gt;
+
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; set-option -g default-command &amp;quot;reattach-to-user-namespace -l zsh&amp;quot;&lt;/span&gt;
+
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; Use vim keybindings in copy mode&lt;/span&gt;
+&lt;span class="x"&gt;setw -g mode-keys vi&lt;/span&gt;
+
+&lt;span class="x"&gt;bind-key -t vi-copy v begin-selection&lt;/span&gt;
+&lt;span class="x"&gt;bind-key -t vi-copy y copy-pipe &amp;quot;reattach-to-user-namespace pbcopy&amp;quot;&lt;/span&gt;
+
+&lt;span class="x"&gt;unbind -t vi-copy Enter&lt;/span&gt;
+&lt;span class="x"&gt;bind-key -t vi-copy Enter copy-pipe &amp;quot;reattach-to-user-namespace pbcopy&amp;quot;&lt;/span&gt;
+
+&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; Keep your finger on ctrl, or don&amp;#39;t&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;bind-key ^D detach-client&lt;/span&gt;
+
+&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; Pane resize in all four directions using vi bindings.&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; Can use these raw but I map them to shift-ctrl-&amp;lt;h,j,k,l&amp;gt; in iTerm.&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;bind -r H resize-pane -L 5&lt;/span&gt;
+&lt;span class="x"&gt;bind -r J resize-pane -D 5&lt;/span&gt;
+&lt;span class="x"&gt;bind -r K resize-pane -U 5&lt;/span&gt;
+&lt;span class="x"&gt;bind -r L resize-pane -R 5&lt;/span&gt;
+
+&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; Smart pane switching with awareness of vim splits.&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; Source: https://github.com/christoomey/vim-tmux-navigator&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;bind -n C-h run &amp;quot;(tmux display-message -p &amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;#{&lt;/span&gt;&lt;span class="nf"&gt;pane_current_command&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&lt;span class="x"&gt;&amp;#39; | grep -iqE &amp;#39;(^|\/)g?(view|vim?)(diff)?&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="x"&gt;&amp;#39; &amp;amp;&amp;amp; tmux send-keys C-h) || tmux select-pane -L&amp;quot;&lt;/span&gt;
+&lt;span class="x"&gt;bind -n C-j run &amp;quot;(tmux display-message -p &amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;#{&lt;/span&gt;&lt;span class="nf"&gt;pane_current_command&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&lt;span class="x"&gt;&amp;#39; | grep -iqE &amp;#39;(^|\/)g?(view|vim?)(diff)?&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="x"&gt;&amp;#39; &amp;amp;&amp;amp; tmux send-keys C-j) || tmux select-pane -D&amp;quot;&lt;/span&gt;
+&lt;span class="x"&gt;bind -n C-k run &amp;quot;(tmux display-message -p &amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;#{&lt;/span&gt;&lt;span class="nf"&gt;pane_current_command&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&lt;span class="x"&gt;&amp;#39; | grep -iqE &amp;#39;(^|\/)g?(view|vim?)(diff)?&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="x"&gt;&amp;#39; &amp;amp;&amp;amp; tmux send-keys C-k) || tmux select-pane -U&amp;quot;&lt;/span&gt;
+&lt;span class="x"&gt;bind -n C-l run &amp;quot;(tmux display-message -p &amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;#{&lt;/span&gt;&lt;span class="nf"&gt;pane_current_command&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&lt;span class="x"&gt;&amp;#39; | grep -iqE &amp;#39;(^|\/)g?(view|vim?)(diff)?&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="x"&gt;&amp;#39; &amp;amp;&amp;amp; tmux send-keys C-l) || tmux select-pane -R&amp;quot;&lt;/span&gt;
+&lt;span class="x"&gt;bind -n C-\ run &amp;quot;(tmux display-message -p &amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;#{&lt;/span&gt;&lt;span class="nf"&gt;pane_current_command&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&lt;span class="x"&gt;&amp;#39; | grep -iqE &amp;#39;(^|\/)g?(view|vim?)(diff)?&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="x"&gt;&amp;#39; &amp;amp;&amp;amp; tmux send-keys &amp;#39;C-\\&amp;#39;) || tmux select-pane -l&amp;quot;&lt;/span&gt;
+
+&lt;span class="x"&gt;set -g default-terminal &amp;quot;xterm&amp;quot;&lt;/span&gt;
+
+&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; No escape time for vi mode&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;set -sg escape-time 0&lt;/span&gt;
+
+&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; Screen like binding for last window&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;unbind l&lt;/span&gt;
+&lt;span class="x"&gt;bind C-a last-window&lt;/span&gt;
+
+&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; Bigger history&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;set -g history-limit 10000&lt;/span&gt;
+
+&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; New windows/pane in $PWD&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;bind c new-window -c &amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;#{&lt;/span&gt;&lt;span class="nf"&gt;pane_current_path&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&lt;span class="x"&gt;&amp;quot;&lt;/span&gt;
+
+&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; force a reload of the config file&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;unbind r&lt;/span&gt;
+&lt;span class="x"&gt;bind r source-file ~/.tmux.conf \; display &amp;quot;Reloaded!&amp;quot;&lt;/span&gt;
+
+&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; Easy bindings for split&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;unbind %&lt;/span&gt;
+&lt;span class="x"&gt;bind | split-window -h  -c &amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;#{&lt;/span&gt;&lt;span class="nf"&gt;pane_current_path&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&lt;span class="x"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="x"&gt;bind - split-window -v  -c &amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;#{&lt;/span&gt;&lt;span class="nf"&gt;pane_current_path&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&lt;span class="x"&gt;&amp;quot;&lt;/span&gt;
+
+&lt;span class="cp"&gt;#&lt;/span&gt;&lt;span class="nf"&gt;bind&lt;/span&gt;&lt;span class="x"&gt; y run &amp;#39;tmux save-buffer - | reattach-to-user-namespace pbcopy &amp;#39;&lt;/span&gt;
+&lt;span class="cp"&gt;#&lt;/span&gt;&lt;span class="nf"&gt;bind&lt;/span&gt;&lt;span class="x"&gt; C-y run &amp;#39;tmux save-buffer - | reattach-to-user-namespace pbcopy &amp;#39;&lt;/span&gt;
+
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; start window numbering at 1&lt;/span&gt;
+&lt;span class="x"&gt;set -g base-index 1&lt;/span&gt;
+
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; start pane numbering at 1&lt;/span&gt;
+&lt;span class="x"&gt;set -g pane-base-index 1&lt;/span&gt;
+
+&lt;span class="x"&gt;bind-key -n C-S-Left swap-window -t -1&lt;/span&gt;
+&lt;span class="x"&gt;bind-key -n C-S-Right swap-window -t +1&lt;/span&gt;
+
+&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt; Here is a jewel of a bind which does the task of flipping the orientation of the current pane with the pane before it (in the ordering) -- I had a SO question on this and nobody answered.&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;bind -n M-f move-pane -t &amp;#39;.-&amp;#39;&lt;/span&gt;
+&lt;span class="x"&gt;bind M-f move-pane -t &amp;#39;.-&amp;#39;&lt;/span&gt;
+&lt;span class="x"&gt;bind -n M-r move-pane -h -t &amp;#39;.-&amp;#39;&lt;/span&gt;
+&lt;span class="x"&gt;bind M-r move-pane -h -t &amp;#39;.-&amp;#39;&lt;/span&gt;
+
+&lt;span class="cp"&gt;##&lt;/span&gt;&lt;span class="c"&gt;# Join windows: &amp;lt;prefix&amp;gt; s, &amp;lt;prefix&amp;gt; j&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;bind-key j command-prompt -p &amp;quot;join pane from:&amp;quot;  &amp;quot;join-pane -s &amp;#39;%%&amp;#39;&amp;quot;&lt;/span&gt;
+&lt;span class="x"&gt;bind-key s command-prompt -p &amp;quot;send pane to:&amp;quot;  &amp;quot;join-pane -t &amp;#39;%%&amp;#39;&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2 id="zsh"&gt;zsh&lt;a class="headerlink" href="#zsh" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; Path to your oh-my-zsh installation.&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;export ZSH=/Users/dheepakkrishnamurthy/.oh-my-zsh&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;ZSH_THEME=&amp;quot;rawsyntax&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;alias vim=&amp;#39;mvim -v&amp;#39;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;export TERM=xterm-256color&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;source &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;ZSH&lt;/span&gt;&lt;span class="x"&gt;/oh-my-zsh.sh&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; Path to your oh-my-zsh installation.&lt;/span&gt;
+&lt;span class="x"&gt;export ZSH=/Users/dheepakkrishnamurthy/.oh-my-zsh&lt;/span&gt;
+
+&lt;span class="x"&gt;ZSH_THEME=&amp;quot;rawsyntax&amp;quot;&lt;/span&gt;
+
+&lt;span class="x"&gt;alias vim=&amp;#39;mvim -v&amp;#39;&lt;/span&gt;
+
+&lt;span class="x"&gt;export TERM=xterm-256color&lt;/span&gt;
+
+&lt;span class="x"&gt;source &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;ZSH&lt;/span&gt;&lt;span class="x"&gt;/oh-my-zsh.sh&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2 id="vim"&gt;vim&lt;a class="headerlink" href="#vim" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;Plugin &amp;#39;altercation/vim-colors-solarized&amp;#39;&lt;/span&gt;
-&lt;span class="code-line"&gt;Plugin &amp;#39;bling/vim-airline&amp;#39;&lt;/span&gt;
-&lt;span class="code-line"&gt;Plugin &amp;#39;christoomey/vim-tmux-navigator&amp;#39;&lt;/span&gt;
-&lt;span class="code-line"&gt;Plugin &amp;#39;fholgado/minibufexpl.vim&amp;#39;&lt;/span&gt;
-&lt;span class="code-line"&gt;Plugin &amp;#39;honza/vim-snippets&amp;#39;&lt;/span&gt;
-&lt;span class="code-line"&gt;Plugin &amp;#39;jeffkreeftmeijer/vim-numbertoggle&amp;#39;&lt;/span&gt;
-&lt;span class="code-line"&gt;Plugin &amp;#39;morhetz/gruvbox&amp;#39;&lt;/span&gt;
-&lt;span class="code-line"&gt;Plugin &amp;#39;plasticboy/vim-markdown&amp;#39;&lt;/span&gt;
-&lt;span class="code-line"&gt;Plugin &amp;#39;scrooloose/nerdcommenter&amp;#39;&lt;/span&gt;
-&lt;span class="code-line"&gt;Plugin &amp;#39;scrooloose/nerdtree&amp;#39;&lt;/span&gt;
-&lt;span class="code-line"&gt;Plugin &amp;#39;searchcomplete&amp;#39;&lt;/span&gt;
-&lt;span class="code-line"&gt;Plugin &amp;#39;sjl/gundo.vim&amp;#39;&lt;/span&gt;
-&lt;span class="code-line"&gt;Plugin &amp;#39;tomasr/molokai&amp;#39;&lt;/span&gt;
-&lt;span class="code-line"&gt;Plugin &amp;#39;tpope/vim-repeat&amp;#39;&lt;/span&gt;
-&lt;span class="code-line"&gt;Plugin &amp;#39;tpope/vim-surround&amp;#39;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Plugin &amp;#39;altercation/vim-colors-solarized&amp;#39;
+Plugin &amp;#39;bling/vim-airline&amp;#39;
+Plugin &amp;#39;christoomey/vim-tmux-navigator&amp;#39;
+Plugin &amp;#39;fholgado/minibufexpl.vim&amp;#39;
+Plugin &amp;#39;honza/vim-snippets&amp;#39;
+Plugin &amp;#39;jeffkreeftmeijer/vim-numbertoggle&amp;#39;
+Plugin &amp;#39;morhetz/gruvbox&amp;#39;
+Plugin &amp;#39;plasticboy/vim-markdown&amp;#39;
+Plugin &amp;#39;scrooloose/nerdcommenter&amp;#39;
+Plugin &amp;#39;scrooloose/nerdtree&amp;#39;
+Plugin &amp;#39;searchcomplete&amp;#39;
+Plugin &amp;#39;sjl/gundo.vim&amp;#39;
+Plugin &amp;#39;tomasr/molokai&amp;#39;
+Plugin &amp;#39;tpope/vim-repeat&amp;#39;
+Plugin &amp;#39;tpope/vim-surround&amp;#39;
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="vim"></category><category term="tmux"></category><category term="zsh"></category></entry><entry><title>Beginners guide to getting started with Vim</title><link href="http://kdheepak.com/blog/beginners-guide-to-getting-started-with-vim.html" rel="alternate"></link><updated>2015-05-01T22:59:49-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-05-01:blog/beginners-guide-to-getting-started-with-vim.html</id><summary type="html">&lt;p&gt;When I first started using vim, I found it frustrating and difficult to get anything done. I now realize that there were a list of things I had to do to understand how to use vim. Learning vim can be an extremely gratifying experience, but it is probably unlike anything you have seen before. So having a guide to getting started may be useful.&lt;/p&gt;
 &lt;p&gt;I haven't been using vim for very long, so I'm by no means an expert. But since I'm starting out, I figured it would be useful for beginners if I put down what I think is the order in which you should approach vim.&lt;/p&gt;
 &lt;ul&gt;
@@ -5406,13 +5407,13 @@ Version control was a big plus for me.
 And static site generators like Jekyll and Pelican make it extremely easy to create web content without any actual web development.
 I choose Pelican because it was Python based, and it seemed to have a good selection of themes.&lt;/p&gt;
 &lt;h1 id="install-required-packages"&gt;Install required packages&lt;a class="headerlink" href="#install-required-packages" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;pip install pelican&lt;/span&gt;
-&lt;span class="code-line"&gt;pip install markdown&lt;/span&gt;
-&lt;span class="code-line"&gt;pip install ghp-import&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pip install pelican
+pip install markdown
+pip install ghp-import
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;ghp-import is a cli that allows you to easily push your changes to your github repository&lt;/p&gt;
 &lt;p&gt;These are optional packages to install that may come in handy later&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;pip install Pillow beautifulsoup4 cssmin cssprefixer cssutils pretty six smartypants typogrify webassets&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pip install Pillow beautifulsoup4 cssmin cssprefixer cssutils pretty six smartypants typogrify webassets
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h1 id="create-a-github-account-and-a-user-or-project-page"&gt;Create a Github account and a User or Project page&lt;a class="headerlink" href="#create-a-github-account-and-a-user-or-project-page" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;a href="http://pages.github.com/"&gt;Github pages&lt;/a&gt; has instructions on how to create a User or Project page, and will in fact walk you through the process. 
@@ -5420,66 +5421,66 @@ If you create a User page, your website will be live at &lt;code&gt;$GHUSERNAME&
 The rest of this blog assumes you want to create a User page.&lt;/p&gt;
 &lt;h1 id="create-a-directory-for-your-website"&gt;Create a directory for your website&lt;a class="headerlink" href="#create-a-directory-for-your-website" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Assuming &lt;code&gt;$GHUSERNAME&lt;/code&gt; is your github username, run the following commands. You can rename the 'website' folder to anything you want. &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="x"&gt;git clone https://github.com/&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;GHUSERNAME&lt;/span&gt;&lt;span class="x"&gt;/&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;GHUSERNAME&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nv"&gt;github&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nv"&gt;io&lt;/span&gt;&lt;span class="x"&gt;/ website&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;cd website&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="x"&gt;git clone https://github.com/&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;GHUSERNAME&lt;/span&gt;&lt;span class="x"&gt;/&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;GHUSERNAME&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nv"&gt;github&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nv"&gt;io&lt;/span&gt;&lt;span class="x"&gt;/ website&lt;/span&gt;
+&lt;span class="x"&gt;cd website&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h1 id="run-pelican-quickstart"&gt;Run Pelican quickstart&lt;a class="headerlink" href="#run-pelican-quickstart" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;pelican-quickstart&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pelican-quickstart
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This is what you might get. Answer all the questions&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;➜  website  pelican-quickstart&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;Welcome to pelican-quickstart v3.5.0.&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;This script will help you create a new Pelican-based website.&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;Please answer the following questions so this script can generate the files&lt;/span&gt;
-&lt;span class="code-line"&gt;needed by Pelican.&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&amp;gt; Where do you want to create your new web site? [.] &lt;/span&gt;
-&lt;span class="code-line"&gt;&amp;gt; What will be the title of this web site? Dheepak Krishnamurthy&lt;/span&gt;
-&lt;span class="code-line"&gt;&amp;gt; Who will be the author of this web site? Dheepak Krishnamurthy&lt;/span&gt;
-&lt;span class="code-line"&gt;&amp;gt; What will be the default language of this web site? [en] &lt;/span&gt;
-&lt;span class="code-line"&gt;&amp;gt; Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) Y&lt;/span&gt;
-&lt;span class="code-line"&gt;&amp;gt; What is your URL prefix? (see above example; no trailing slash) http://kdheepak.com&lt;/span&gt;
-&lt;span class="code-line"&gt;&amp;gt; Do you want to enable article pagination? (Y/n) Y&lt;/span&gt;
-&lt;span class="code-line"&gt;&amp;gt; How many articles per page do you want? [10] &lt;/span&gt;
-&lt;span class="code-line"&gt;&amp;gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) Y&lt;/span&gt;
-&lt;span class="code-line"&gt;&amp;gt; Do you want an auto-reload &amp;amp; simpleHTTP script to assist with theme and site development? (Y/n) Y&lt;/span&gt;
-&lt;span class="code-line"&gt;&amp;gt; Do you want to upload your website using FTP? (y/N) N&lt;/span&gt;
-&lt;span class="code-line"&gt;&amp;gt; Do you want to upload your website using SSH? (y/N) N&lt;/span&gt;
-&lt;span class="code-line"&gt;&amp;gt; Do you want to upload your website using Dropbox? (y/N) N&lt;/span&gt;
-&lt;span class="code-line"&gt;&amp;gt; Do you want to upload your website using S3? (y/N) N&lt;/span&gt;
-&lt;span class="code-line"&gt;&amp;gt; Do you want to upload your website using Rackspace Cloud Files? (y/N) N&lt;/span&gt;
-&lt;span class="code-line"&gt;&amp;gt; Do you want to upload your website using GitHub Pages? (y/N) Y&lt;/span&gt;
-&lt;span class="code-line"&gt;&amp;gt; Is this your personal page (username.github.io)? (y/N) Y&lt;/span&gt;
-&lt;span class="code-line"&gt;Done. Your new project is available at /path/to/website&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;➜  website&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;➜  website  pelican-quickstart
+
+Welcome to pelican-quickstart v3.5.0.
+
+This script will help you create a new Pelican-based website.
+
+Please answer the following questions so this script can generate the files
+needed by Pelican.
+
+
+&amp;gt; Where do you want to create your new web site? [.] 
+&amp;gt; What will be the title of this web site? Dheepak Krishnamurthy
+&amp;gt; Who will be the author of this web site? Dheepak Krishnamurthy
+&amp;gt; What will be the default language of this web site? [en] 
+&amp;gt; Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) Y
+&amp;gt; What is your URL prefix? (see above example; no trailing slash) http://kdheepak.com
+&amp;gt; Do you want to enable article pagination? (Y/n) Y
+&amp;gt; How many articles per page do you want? [10] 
+&amp;gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) Y
+&amp;gt; Do you want an auto-reload &amp;amp; simpleHTTP script to assist with theme and site development? (Y/n) Y
+&amp;gt; Do you want to upload your website using FTP? (y/N) N
+&amp;gt; Do you want to upload your website using SSH? (y/N) N
+&amp;gt; Do you want to upload your website using Dropbox? (y/N) N
+&amp;gt; Do you want to upload your website using S3? (y/N) N
+&amp;gt; Do you want to upload your website using Rackspace Cloud Files? (y/N) N
+&amp;gt; Do you want to upload your website using GitHub Pages? (y/N) Y
+&amp;gt; Is this your personal page (username.github.io)? (y/N) Y
+Done. Your new project is available at /path/to/website
+
+➜  website
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h1 id="content-of-your-blog"&gt;Content of your blog&lt;a class="headerlink" href="#content-of-your-blog" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Create an sample post.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;vim content/example.md&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;vim content/example.md
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Type in the following and save it.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;Title&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;My&lt;/span&gt; &lt;span class="n"&gt;First&lt;/span&gt; &lt;span class="n"&gt;Post&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Date&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2015&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;23&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Category&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Example&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Hello&lt;/span&gt; &lt;span class="n"&gt;world&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Title&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;My&lt;/span&gt; &lt;span class="n"&gt;First&lt;/span&gt; &lt;span class="n"&gt;Post&lt;/span&gt;
+&lt;span class="n"&gt;Date&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2015&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;23&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;
+&lt;span class="n"&gt;Category&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Example&lt;/span&gt;
+
+&lt;span class="n"&gt;Hello&lt;/span&gt; &lt;span class="n"&gt;world&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Type the following to convert all your markdown or ReST posts to HTML. &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;make html&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;make html
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You can also type the following to serve a local version of your site to view the output of your hardwork&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;make serve&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;make serve
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This will be visible at localhost:8000 by default.&lt;/p&gt;
 &lt;h1 id="push-your-content-to-github"&gt;Push your content to Github&lt;a class="headerlink" href="#push-your-content-to-github" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;If you installed everything correctly, you can type the following to push your website to your Github repository.
 You need to have ghp-import installed for this to work.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;make github&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;make github
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You are done! If you have any questions regarding any of this, you can shoot me questions in the comments below.&lt;/p&gt;</summary><category term="Pelican"></category></entry><entry><title>Mac OSX Productivity Apps</title><link href="http://kdheepak.com/blog/mac-osx-productivity-apps.html" rel="alternate"></link><updated>2015-04-01T19:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-01:blog/mac-osx-productivity-apps.html</id><summary type="html">&lt;h2 id="1-alfred"&gt;1. Alfred&lt;a class="headerlink" href="#1-alfred" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img alt="" src="http://www.alfredapp.com/images/features/main/open_applications_files@2x.jpg" /&gt;&lt;/p&gt;
@@ -5521,127 +5522,127 @@ You need to have ghp-import installed for this to work.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="http://www.derlien.com/assets/main.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.derlien.com/"&gt;http://www.derlien.com/&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="13-homebrew"&gt;13. Homebrew&lt;a class="headerlink" href="#13-homebrew" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class="k"&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class="k"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="OSX"></category></entry><entry><title>Mac OSX Tweaks</title><link href="http://kdheepak.com/blog/mac-osx-tweaks.html" rel="alternate"></link><updated>2015-03-21T19:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-03-21:blog/mac-osx-tweaks.html</id><summary type="html">&lt;h1 id="update"&gt;Update&lt;a class="headerlink" href="#update" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;I've decided to maintain a repo &lt;a href="https://github.com/kdheepak89/dotfiles/blob/master/.osx"&gt;here&lt;/a&gt; instead. &lt;/p&gt;
 &lt;hr /&gt;
 &lt;h1 id="general-ui"&gt;General UI&lt;a class="headerlink" href="#general-ui" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;# Disable Dashboard&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write com.apple.dashboard mcx-disabled -bool true&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# Don’t show Dashboard as a Space&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write com.apple.dock dashboard-in-overlay -bool true&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# disable automatic spell checking&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write -g NSAllowContinuousSpellChecking -bool false&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# don&amp;#39;t treat period or colon as part of words&lt;/span&gt;
-&lt;span class="code-line"&gt;# en_US_POSIX corresponds to the &amp;quot;United States (Computer)&amp;quot; setting that was shown in System Preferences in 10.8 and earlier&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write -g AppleTextBreakLocale en_US_POSIX&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# Disable the sound effects on boot&lt;/span&gt;
-&lt;span class="code-line"&gt;sudo nvram SystemAudioVolume=&amp;quot; &amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# Disable Dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
+
+# Don’t show Dashboard as a Space
+defaults write com.apple.dock dashboard-in-overlay -bool true
+
+# disable automatic spell checking
+defaults write -g NSAllowContinuousSpellChecking -bool false
+
+# don&amp;#39;t treat period or colon as part of words
+# en_US_POSIX corresponds to the &amp;quot;United States (Computer)&amp;quot; setting that was shown in System Preferences in 10.8 and earlier
+defaults write -g AppleTextBreakLocale en_US_POSIX
+
+# Disable the sound effects on boot
+sudo nvram SystemAudioVolume=&amp;quot; &amp;quot;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h1 id="disks"&gt;Disks&lt;a class="headerlink" href="#disks" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;# Disks: disable Time Machine prompts&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# Disks: disable local Time Machine backups&lt;/span&gt;
-&lt;span class="code-line"&gt;hash tmutil &amp;amp;&amp;gt; /dev/null &amp;amp;&amp;amp; sudo tmutil disablelocal&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# Disks: disable disk image verification&lt;/span&gt;
-&lt;span class="code-line"&gt;# defaults write com.apple.frameworks.diskimages skip-verify -bool true&lt;/span&gt;
-&lt;span class="code-line"&gt;# defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true&lt;/span&gt;
-&lt;span class="code-line"&gt;# defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# don&amp;#39;t save .DS_Store files on network volumes&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# Expand save panel by default&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# Don’t automatically rearrange Spaces based on most recent use&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write com.apple.dock mru-spaces -bool false&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# Disks: disable Time Machine prompts
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
+# Disks: disable local Time Machine backups
+hash tmutil &amp;amp;&amp;gt; /dev/null &amp;amp;&amp;amp; sudo tmutil disablelocal
+
+# Disks: disable disk image verification
+# defaults write com.apple.frameworks.diskimages skip-verify -bool true
+# defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
+# defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
+
+# don&amp;#39;t save .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+# Don’t automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h1 id="keyboard"&gt;Keyboard&lt;a class="headerlink" href="#keyboard" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;# Set a blazingly fast keyboard repeat rate&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write NSGlobalDomain KeyRepeat -int 0&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# Set a blazingly fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 0
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h1 id="finder"&gt;Finder&lt;a class="headerlink" href="#finder" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;# Disable automatic termination of inactive apps&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# Finder: disable window animations and Get Info animations&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write com.apple.finder DisableAllAnimations -bool true&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# Finder: show all filename extensions&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write NSGlobalDomain AppleShowAllExtensions -bool true&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# Disable the warning when changing a file extension&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# Save to disk (not to iCloud) by default&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# Finder: disable window and Get Info animations&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write com.apple.finder DisableAllAnimations -bool true&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# Finder: show the ~/Library folder (in OS X Lion)&lt;/span&gt;
-&lt;span class="code-line"&gt;chflags nohidden ~/Library&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# Finder: empty Trash securely by default&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write com.apple.finder EmptyTrashSecurely -bool true&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# Disable automatic termination of inactive apps
+defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+
+# Finder: disable window animations and Get Info animations
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+# Finder: show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Disable the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Save to disk (not to iCloud) by default
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
+# Finder: disable window and Get Info animations
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+# Finder: show the ~/Library folder (in OS X Lion)
+chflags nohidden ~/Library
+
+# Finder: empty Trash securely by default
+defaults write com.apple.finder EmptyTrashSecurely -bool true
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h1 id="dock-hot-corners"&gt;Dock &amp;amp; hot corners&lt;a class="headerlink" href="#dock-hot-corners" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;# Autohide the Dock&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write com.apple.dock autohide -bool true&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# Magnify Dock icons on hover&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write com.apple.dock magnification -bool false&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# Autohide the Dock
+defaults write com.apple.dock autohide -bool true
+
+# Magnify Dock icons on hover
+defaults write com.apple.dock magnification -bool false
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h1 id="panels"&gt;Panels&lt;a class="headerlink" href="#panels" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;# Panels: expand save panel by default&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# Panels: expand print panel by default&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# Panels: disable the “Are you sure you want to open this application?” dialog&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write com.apple.LaunchServices LSQuarantine -bool false&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# Panels: enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write NSGlobalDomain AppleKeyboardUIMode -int 3&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# Panels: expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+# Panels: expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+
+# Panels: disable the “Are you sure you want to open this application?” dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# Panels: enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h1 id="screen"&gt;Screen&lt;a class="headerlink" href="#screen" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; Screen: save screenshots to the desktop&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;defaults write com.apple.screencapture location -string &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;HOME&lt;/span&gt;&lt;span class="x"&gt;/Desktop&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; Screen: disable shadow in screenshots&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="x"&gt;defaults write com.apple.screencapture disable-shadow -bool true&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; Screen: save screenshots to the desktop&lt;/span&gt;
+&lt;span class="x"&gt;defaults write com.apple.screencapture location -string &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;HOME&lt;/span&gt;&lt;span class="x"&gt;/Desktop&amp;quot;&lt;/span&gt;
+
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; Screen: disable shadow in screenshots&lt;/span&gt;
+&lt;span class="x"&gt;defaults write com.apple.screencapture disable-shadow -bool true&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h1 id="misc"&gt;Misc&lt;a class="headerlink" href="#misc" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;# Misc: only use UTF-8 in Terminal.app&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write com.apple.terminal StringEncodings -array 4&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# Misc: disable Dictionary results&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write com.apple.spotlight DictionaryLookupEnabled -bool false&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;# Misc: disable auto-correct&lt;/span&gt;
-&lt;span class="code-line"&gt;defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# Misc: only use UTF-8 in Terminal.app
+defaults write com.apple.terminal StringEncodings -array 4
+
+# Misc: disable Dictionary results
+defaults write com.apple.spotlight DictionaryLookupEnabled -bool false
+
+# Misc: disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -5802,7 +5803,7 @@ data: [75.76,75.99,75.76,75.54,75.54,75.65,75.88,76.33,76.10,75.99,76.21,75.65,7
 });
 &lt;/script&gt;
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 

@@ -151,137 +151,137 @@ Published on
                     <p>I've not found a greater combination of tools than vim, tmux and zsh. I've detailed below some of the configuration to get it working the way I want it to.</p>
 <p><img alt="vim-tmux-zsh" src="/images/vim-tmux-zsh.png" /></p>
 <h2 id="tmux">tmux<a class="headerlink" href="#tmux" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span class="code-line"><span class="err">#</span><span class="x"> Change prefix key to `</span></span>
-<span class="code-line"><span class="x">unbind C-b</span></span>
-<span class="code-line"><span class="x">set -g prefix `</span></span>
-<span class="code-line"><span class="x">bind-key ` send-prefix</span></span>
-<span class="code-line"><span class="x">bind-key C-a set-option -g prefix C-a</span></span>
-<span class="code-line"><span class="x">bind-key C-b set-option -g prefix `</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="err">#</span><span class="x"> we might need ` at some point, allow switching</span></span>
-<span class="code-line"><span class="x">bind-key C-a set-option -g prefix C-a</span></span>
-<span class="code-line"><span class="x">bind-key C-b set-option -g prefix `</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="x">setw -g monitor-activity on</span></span>
-<span class="code-line"><span class="x">set -g visual-activity on</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="x">set-window-option -g window-status-current-bg yellow</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="x">set -g mouse-resize-pane on</span></span>
-<span class="code-line"><span class="x">set-option -g mouse-select-pane on</span></span>
-<span class="code-line"><span class="x">set-option -g mouse-select-window on</span></span>
-<span class="code-line"><span class="x">set-window-option -g mode-mouse on</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="x">setw -g mode-mouse on</span></span>
-<span class="code-line"><span class="x">set -g terminal-overrides &#39;xterm*:smcup@:rmcup@&#39;</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="err">#</span><span class="x"> set-option -g default-command &quot;reattach-to-user-namespace -l zsh&quot;</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="err">#</span><span class="x"> Use vim keybindings in copy mode</span></span>
-<span class="code-line"><span class="x">setw -g mode-keys vi</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="x">bind-key -t vi-copy v begin-selection</span></span>
-<span class="code-line"><span class="x">bind-key -t vi-copy y copy-pipe &quot;reattach-to-user-namespace pbcopy&quot;</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="x">unbind -t vi-copy Enter</span></span>
-<span class="code-line"><span class="x">bind-key -t vi-copy Enter copy-pipe &quot;reattach-to-user-namespace pbcopy&quot;</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="cp">##</span><span class="c"> Keep your finger on ctrl, or don&#39;t</span><span class="x"></span></span>
-<span class="code-line"><span class="x">bind-key ^D detach-client</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="cp">##</span><span class="c"> Pane resize in all four directions using vi bindings.</span><span class="x"></span></span>
-<span class="code-line"><span class="cp">##</span><span class="c"> Can use these raw but I map them to shift-ctrl-&lt;h,j,k,l&gt; in iTerm.</span><span class="x"></span></span>
-<span class="code-line"><span class="x">bind -r H resize-pane -L 5</span></span>
-<span class="code-line"><span class="x">bind -r J resize-pane -D 5</span></span>
-<span class="code-line"><span class="x">bind -r K resize-pane -U 5</span></span>
-<span class="code-line"><span class="x">bind -r L resize-pane -R 5</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="cp">##</span><span class="c"> Smart pane switching with awareness of vim splits.</span><span class="x"></span></span>
-<span class="code-line"><span class="cp">##</span><span class="c"> Source: https://github.com/christoomey/vim-tmux-navigator</span><span class="x"></span></span>
-<span class="code-line"><span class="x">bind -n C-h run &quot;(tmux display-message -p &#39;</span><span class="cp">#{</span><span class="nf">pane_current_command</span><span class="cp">}</span><span class="x">&#39; | grep -iqE &#39;(^|\/)g?(view|vim?)(diff)?</span><span class="p">$</span><span class="x">&#39; &amp;&amp; tmux send-keys C-h) || tmux select-pane -L&quot;</span></span>
-<span class="code-line"><span class="x">bind -n C-j run &quot;(tmux display-message -p &#39;</span><span class="cp">#{</span><span class="nf">pane_current_command</span><span class="cp">}</span><span class="x">&#39; | grep -iqE &#39;(^|\/)g?(view|vim?)(diff)?</span><span class="p">$</span><span class="x">&#39; &amp;&amp; tmux send-keys C-j) || tmux select-pane -D&quot;</span></span>
-<span class="code-line"><span class="x">bind -n C-k run &quot;(tmux display-message -p &#39;</span><span class="cp">#{</span><span class="nf">pane_current_command</span><span class="cp">}</span><span class="x">&#39; | grep -iqE &#39;(^|\/)g?(view|vim?)(diff)?</span><span class="p">$</span><span class="x">&#39; &amp;&amp; tmux send-keys C-k) || tmux select-pane -U&quot;</span></span>
-<span class="code-line"><span class="x">bind -n C-l run &quot;(tmux display-message -p &#39;</span><span class="cp">#{</span><span class="nf">pane_current_command</span><span class="cp">}</span><span class="x">&#39; | grep -iqE &#39;(^|\/)g?(view|vim?)(diff)?</span><span class="p">$</span><span class="x">&#39; &amp;&amp; tmux send-keys C-l) || tmux select-pane -R&quot;</span></span>
-<span class="code-line"><span class="x">bind -n C-\ run &quot;(tmux display-message -p &#39;</span><span class="cp">#{</span><span class="nf">pane_current_command</span><span class="cp">}</span><span class="x">&#39; | grep -iqE &#39;(^|\/)g?(view|vim?)(diff)?</span><span class="p">$</span><span class="x">&#39; &amp;&amp; tmux send-keys &#39;C-\\&#39;) || tmux select-pane -l&quot;</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="x">set -g default-terminal &quot;xterm&quot;</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="cp">##</span><span class="c"> No escape time for vi mode</span><span class="x"></span></span>
-<span class="code-line"><span class="x">set -sg escape-time 0</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="cp">##</span><span class="c"> Screen like binding for last window</span><span class="x"></span></span>
-<span class="code-line"><span class="x">unbind l</span></span>
-<span class="code-line"><span class="x">bind C-a last-window</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="cp">##</span><span class="c"> Bigger history</span><span class="x"></span></span>
-<span class="code-line"><span class="x">set -g history-limit 10000</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="cp">##</span><span class="c"> New windows/pane in $PWD</span><span class="x"></span></span>
-<span class="code-line"><span class="x">bind c new-window -c &quot;</span><span class="cp">#{</span><span class="nf">pane_current_path</span><span class="cp">}</span><span class="x">&quot;</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="cp">##</span><span class="c"> force a reload of the config file</span><span class="x"></span></span>
-<span class="code-line"><span class="x">unbind r</span></span>
-<span class="code-line"><span class="x">bind r source-file ~/.tmux.conf \; display &quot;Reloaded!&quot;</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="cp">##</span><span class="c"> Easy bindings for split</span><span class="x"></span></span>
-<span class="code-line"><span class="x">unbind %</span></span>
-<span class="code-line"><span class="x">bind | split-window -h  -c &quot;</span><span class="cp">#{</span><span class="nf">pane_current_path</span><span class="cp">}</span><span class="x">&quot;</span></span>
-<span class="code-line"><span class="x">bind - split-window -v  -c &quot;</span><span class="cp">#{</span><span class="nf">pane_current_path</span><span class="cp">}</span><span class="x">&quot;</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="cp">#</span><span class="nf">bind</span><span class="x"> y run &#39;tmux save-buffer - | reattach-to-user-namespace pbcopy &#39;</span></span>
-<span class="code-line"><span class="cp">#</span><span class="nf">bind</span><span class="x"> C-y run &#39;tmux save-buffer - | reattach-to-user-namespace pbcopy &#39;</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="err">#</span><span class="x"> start window numbering at 1</span></span>
-<span class="code-line"><span class="x">set -g base-index 1</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="err">#</span><span class="x"> start pane numbering at 1</span></span>
-<span class="code-line"><span class="x">set -g pane-base-index 1</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="x">bind-key -n C-S-Left swap-window -t -1</span></span>
-<span class="code-line"><span class="x">bind-key -n C-S-Right swap-window -t +1</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="cp">##</span><span class="c"> Here is a jewel of a bind which does the task of flipping the orientation of the current pane with the pane before it (in the ordering) -- I had a SO question on this and nobody answered.</span><span class="x"></span></span>
-<span class="code-line"><span class="x">bind -n M-f move-pane -t &#39;.-&#39;</span></span>
-<span class="code-line"><span class="x">bind M-f move-pane -t &#39;.-&#39;</span></span>
-<span class="code-line"><span class="x">bind -n M-r move-pane -h -t &#39;.-&#39;</span></span>
-<span class="code-line"><span class="x">bind M-r move-pane -h -t &#39;.-&#39;</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="cp">##</span><span class="c"># Join windows: &lt;prefix&gt; s, &lt;prefix&gt; j</span><span class="x"></span></span>
-<span class="code-line"><span class="x">bind-key j command-prompt -p &quot;join pane from:&quot;  &quot;join-pane -s &#39;%%&#39;&quot;</span></span>
-<span class="code-line"><span class="x">bind-key s command-prompt -p &quot;send pane to:&quot;  &quot;join-pane -t &#39;%%&#39;&quot;</span></span>
+<div class="highlight"><pre><span class="err">#</span><span class="x"> Change prefix key to `</span>
+<span class="x">unbind C-b</span>
+<span class="x">set -g prefix `</span>
+<span class="x">bind-key ` send-prefix</span>
+<span class="x">bind-key C-a set-option -g prefix C-a</span>
+<span class="x">bind-key C-b set-option -g prefix `</span>
+
+<span class="err">#</span><span class="x"> we might need ` at some point, allow switching</span>
+<span class="x">bind-key C-a set-option -g prefix C-a</span>
+<span class="x">bind-key C-b set-option -g prefix `</span>
+
+<span class="x">setw -g monitor-activity on</span>
+<span class="x">set -g visual-activity on</span>
+
+<span class="x">set-window-option -g window-status-current-bg yellow</span>
+
+<span class="x">set -g mouse-resize-pane on</span>
+<span class="x">set-option -g mouse-select-pane on</span>
+<span class="x">set-option -g mouse-select-window on</span>
+<span class="x">set-window-option -g mode-mouse on</span>
+
+<span class="x">setw -g mode-mouse on</span>
+<span class="x">set -g terminal-overrides &#39;xterm*:smcup@:rmcup@&#39;</span>
+
+<span class="err">#</span><span class="x"> set-option -g default-command &quot;reattach-to-user-namespace -l zsh&quot;</span>
+
+<span class="err">#</span><span class="x"> Use vim keybindings in copy mode</span>
+<span class="x">setw -g mode-keys vi</span>
+
+<span class="x">bind-key -t vi-copy v begin-selection</span>
+<span class="x">bind-key -t vi-copy y copy-pipe &quot;reattach-to-user-namespace pbcopy&quot;</span>
+
+<span class="x">unbind -t vi-copy Enter</span>
+<span class="x">bind-key -t vi-copy Enter copy-pipe &quot;reattach-to-user-namespace pbcopy&quot;</span>
+
+<span class="cp">##</span><span class="c"> Keep your finger on ctrl, or don&#39;t</span><span class="x"></span>
+<span class="x">bind-key ^D detach-client</span>
+
+<span class="cp">##</span><span class="c"> Pane resize in all four directions using vi bindings.</span><span class="x"></span>
+<span class="cp">##</span><span class="c"> Can use these raw but I map them to shift-ctrl-&lt;h,j,k,l&gt; in iTerm.</span><span class="x"></span>
+<span class="x">bind -r H resize-pane -L 5</span>
+<span class="x">bind -r J resize-pane -D 5</span>
+<span class="x">bind -r K resize-pane -U 5</span>
+<span class="x">bind -r L resize-pane -R 5</span>
+
+<span class="cp">##</span><span class="c"> Smart pane switching with awareness of vim splits.</span><span class="x"></span>
+<span class="cp">##</span><span class="c"> Source: https://github.com/christoomey/vim-tmux-navigator</span><span class="x"></span>
+<span class="x">bind -n C-h run &quot;(tmux display-message -p &#39;</span><span class="cp">#{</span><span class="nf">pane_current_command</span><span class="cp">}</span><span class="x">&#39; | grep -iqE &#39;(^|\/)g?(view|vim?)(diff)?</span><span class="p">$</span><span class="x">&#39; &amp;&amp; tmux send-keys C-h) || tmux select-pane -L&quot;</span>
+<span class="x">bind -n C-j run &quot;(tmux display-message -p &#39;</span><span class="cp">#{</span><span class="nf">pane_current_command</span><span class="cp">}</span><span class="x">&#39; | grep -iqE &#39;(^|\/)g?(view|vim?)(diff)?</span><span class="p">$</span><span class="x">&#39; &amp;&amp; tmux send-keys C-j) || tmux select-pane -D&quot;</span>
+<span class="x">bind -n C-k run &quot;(tmux display-message -p &#39;</span><span class="cp">#{</span><span class="nf">pane_current_command</span><span class="cp">}</span><span class="x">&#39; | grep -iqE &#39;(^|\/)g?(view|vim?)(diff)?</span><span class="p">$</span><span class="x">&#39; &amp;&amp; tmux send-keys C-k) || tmux select-pane -U&quot;</span>
+<span class="x">bind -n C-l run &quot;(tmux display-message -p &#39;</span><span class="cp">#{</span><span class="nf">pane_current_command</span><span class="cp">}</span><span class="x">&#39; | grep -iqE &#39;(^|\/)g?(view|vim?)(diff)?</span><span class="p">$</span><span class="x">&#39; &amp;&amp; tmux send-keys C-l) || tmux select-pane -R&quot;</span>
+<span class="x">bind -n C-\ run &quot;(tmux display-message -p &#39;</span><span class="cp">#{</span><span class="nf">pane_current_command</span><span class="cp">}</span><span class="x">&#39; | grep -iqE &#39;(^|\/)g?(view|vim?)(diff)?</span><span class="p">$</span><span class="x">&#39; &amp;&amp; tmux send-keys &#39;C-\\&#39;) || tmux select-pane -l&quot;</span>
+
+<span class="x">set -g default-terminal &quot;xterm&quot;</span>
+
+<span class="cp">##</span><span class="c"> No escape time for vi mode</span><span class="x"></span>
+<span class="x">set -sg escape-time 0</span>
+
+<span class="cp">##</span><span class="c"> Screen like binding for last window</span><span class="x"></span>
+<span class="x">unbind l</span>
+<span class="x">bind C-a last-window</span>
+
+<span class="cp">##</span><span class="c"> Bigger history</span><span class="x"></span>
+<span class="x">set -g history-limit 10000</span>
+
+<span class="cp">##</span><span class="c"> New windows/pane in $PWD</span><span class="x"></span>
+<span class="x">bind c new-window -c &quot;</span><span class="cp">#{</span><span class="nf">pane_current_path</span><span class="cp">}</span><span class="x">&quot;</span>
+
+<span class="cp">##</span><span class="c"> force a reload of the config file</span><span class="x"></span>
+<span class="x">unbind r</span>
+<span class="x">bind r source-file ~/.tmux.conf \; display &quot;Reloaded!&quot;</span>
+
+<span class="cp">##</span><span class="c"> Easy bindings for split</span><span class="x"></span>
+<span class="x">unbind %</span>
+<span class="x">bind | split-window -h  -c &quot;</span><span class="cp">#{</span><span class="nf">pane_current_path</span><span class="cp">}</span><span class="x">&quot;</span>
+<span class="x">bind - split-window -v  -c &quot;</span><span class="cp">#{</span><span class="nf">pane_current_path</span><span class="cp">}</span><span class="x">&quot;</span>
+
+<span class="cp">#</span><span class="nf">bind</span><span class="x"> y run &#39;tmux save-buffer - | reattach-to-user-namespace pbcopy &#39;</span>
+<span class="cp">#</span><span class="nf">bind</span><span class="x"> C-y run &#39;tmux save-buffer - | reattach-to-user-namespace pbcopy &#39;</span>
+
+<span class="err">#</span><span class="x"> start window numbering at 1</span>
+<span class="x">set -g base-index 1</span>
+
+<span class="err">#</span><span class="x"> start pane numbering at 1</span>
+<span class="x">set -g pane-base-index 1</span>
+
+<span class="x">bind-key -n C-S-Left swap-window -t -1</span>
+<span class="x">bind-key -n C-S-Right swap-window -t +1</span>
+
+<span class="cp">##</span><span class="c"> Here is a jewel of a bind which does the task of flipping the orientation of the current pane with the pane before it (in the ordering) -- I had a SO question on this and nobody answered.</span><span class="x"></span>
+<span class="x">bind -n M-f move-pane -t &#39;.-&#39;</span>
+<span class="x">bind M-f move-pane -t &#39;.-&#39;</span>
+<span class="x">bind -n M-r move-pane -h -t &#39;.-&#39;</span>
+<span class="x">bind M-r move-pane -h -t &#39;.-&#39;</span>
+
+<span class="cp">##</span><span class="c"># Join windows: &lt;prefix&gt; s, &lt;prefix&gt; j</span><span class="x"></span>
+<span class="x">bind-key j command-prompt -p &quot;join pane from:&quot;  &quot;join-pane -s &#39;%%&#39;&quot;</span>
+<span class="x">bind-key s command-prompt -p &quot;send pane to:&quot;  &quot;join-pane -t &#39;%%&#39;&quot;</span>
 </pre></div>
 
 
 <h2 id="zsh">zsh<a class="headerlink" href="#zsh" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span class="code-line"><span class="err">#</span><span class="x"> Path to your oh-my-zsh installation.</span></span>
-<span class="code-line"><span class="x">export ZSH=/Users/dheepakkrishnamurthy/.oh-my-zsh</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="x">ZSH_THEME=&quot;rawsyntax&quot;</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="x">alias vim=&#39;mvim -v&#39;</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="x">export TERM=xterm-256color</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="x">source </span><span class="p">$</span><span class="nv">ZSH</span><span class="x">/oh-my-zsh.sh</span></span>
+<div class="highlight"><pre><span class="err">#</span><span class="x"> Path to your oh-my-zsh installation.</span>
+<span class="x">export ZSH=/Users/dheepakkrishnamurthy/.oh-my-zsh</span>
+
+<span class="x">ZSH_THEME=&quot;rawsyntax&quot;</span>
+
+<span class="x">alias vim=&#39;mvim -v&#39;</span>
+
+<span class="x">export TERM=xterm-256color</span>
+
+<span class="x">source </span><span class="p">$</span><span class="nv">ZSH</span><span class="x">/oh-my-zsh.sh</span>
 </pre></div>
 
 
 <h2 id="vim">vim<a class="headerlink" href="#vim" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span class="code-line">Plugin &#39;altercation/vim-colors-solarized&#39;</span>
-<span class="code-line">Plugin &#39;bling/vim-airline&#39;</span>
-<span class="code-line">Plugin &#39;christoomey/vim-tmux-navigator&#39;</span>
-<span class="code-line">Plugin &#39;fholgado/minibufexpl.vim&#39;</span>
-<span class="code-line">Plugin &#39;honza/vim-snippets&#39;</span>
-<span class="code-line">Plugin &#39;jeffkreeftmeijer/vim-numbertoggle&#39;</span>
-<span class="code-line">Plugin &#39;morhetz/gruvbox&#39;</span>
-<span class="code-line">Plugin &#39;plasticboy/vim-markdown&#39;</span>
-<span class="code-line">Plugin &#39;scrooloose/nerdcommenter&#39;</span>
-<span class="code-line">Plugin &#39;scrooloose/nerdtree&#39;</span>
-<span class="code-line">Plugin &#39;searchcomplete&#39;</span>
-<span class="code-line">Plugin &#39;sjl/gundo.vim&#39;</span>
-<span class="code-line">Plugin &#39;tomasr/molokai&#39;</span>
-<span class="code-line">Plugin &#39;tpope/vim-repeat&#39;</span>
-<span class="code-line">Plugin &#39;tpope/vim-surround&#39;</span>
+<div class="highlight"><pre>Plugin &#39;altercation/vim-colors-solarized&#39;
+Plugin &#39;bling/vim-airline&#39;
+Plugin &#39;christoomey/vim-tmux-navigator&#39;
+Plugin &#39;fholgado/minibufexpl.vim&#39;
+Plugin &#39;honza/vim-snippets&#39;
+Plugin &#39;jeffkreeftmeijer/vim-numbertoggle&#39;
+Plugin &#39;morhetz/gruvbox&#39;
+Plugin &#39;plasticboy/vim-markdown&#39;
+Plugin &#39;scrooloose/nerdcommenter&#39;
+Plugin &#39;scrooloose/nerdtree&#39;
+Plugin &#39;searchcomplete&#39;
+Plugin &#39;sjl/gundo.vim&#39;
+Plugin &#39;tomasr/molokai&#39;
+Plugin &#39;tpope/vim-repeat&#39;
+Plugin &#39;tpope/vim-surround&#39;
 </pre></div>
                     </div>
     <hr />
