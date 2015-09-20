@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="My name is Dheepak Krishnamurthy. This is my personal blog." />
+        <meta name="description" content="Place the following in a ..." />
 
     <meta name="author" content="Dheepak Krishnamurthy" />
     <meta name="copyright" content="Dheepak Krishnamurthy" />
@@ -15,7 +15,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-    <title>Dheepak Krishnamurthy</title>
+<title>Spotify and tmux - Dheepak Krishnamurthy</title>
 
     <!-- iPython Notebook script -->
     <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
@@ -103,7 +103,7 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
     <!-- end Mixpanel -->
 
 <script>
-mixpanel.track("Page", {"Name": "Dheepak Krishnamurthy", "page": "Archives", "url": "archives.html" });
+    mixpanel.track("Page", {"Name": "Spotify and tmux", "url": "blog/spotify-and-tmux.html"  }) ;
 </script>
 </head>
 
@@ -118,101 +118,109 @@ mixpanel.track("Page", {"Name": "Dheepak Krishnamurthy", "page": "Archives", "ur
 
 
     <div class="content-block">
+
+    <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header-article">
+    <header class="intro-header-article" style="background-image: url('');">
         <div class="intro-body">
             <div class="container">
                 <div class="row">
-                      <div class="col-sm-2 fixed-action-btn">
-                        <a href='http://kdheepak.com/blog' class="btn-floating btn-large white page-scroll">
-                          <i class="md-dark material-icons">keyboard_arrow_left</i>
-                        </a>
-                      </div>
-                    <div class="col-sm-10 col-sm-offset-2">
-                    <h1 class="article-heading">All Posts</h1>
+                    <div class="col-sm-2 fixed-action-btn">
+                    <a href='http://kdheepak.com/blog' class="btn-floating btn-large white page-scroll">
+                      <i class="md-dark material-icons">keyboard_arrow_left</i>
+                    </a>
                     </div>
+                    <div class="col-sm-10 col-sm-offset-1">
+                    <h1 class="article-heading">Spotify and tmux</h1>
+                        <h2 class="article-subheading"> </h2>
+<span class="meta last-updated">
+Published on 
+<time pubdate="pubdate" datetime="2015-09-20T09:26:15-06:00">Sep 20, 2015</time>
+</span>                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-<div class="container">
-    <div class="row">
-            <div class="col-md-10 col-md-offset-2">
-            <h2>2015</h2>
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="entry-content">
+                    <p>Place the following in a directory that in your <code>$PATH</code></p>
+<div class="highlight"><pre><span class="code-line">#!/usr/bin/env osascript</span>
+<span class="code-line"># Returns the current playing song in Spotify for OSX</span>
+<span class="code-line"></span>
+<span class="code-line">tell application &quot;Spotify&quot;</span>
+<span class="code-line">  if it is running then</span>
+<span class="code-line">    if player state is playing then</span>
+<span class="code-line">      set track_name to name of current track</span>
+<span class="code-line">      set artist_name to artist of current track</span>
+<span class="code-line"></span>
+<span class="code-line">      &quot;#[fg=colour39,nobold]#[fg=colour16, bg=colour39, nobold] &quot; &amp; artist_name &amp; &quot; - &quot; &amp; track_name &amp; &quot; #[bg=colour39]&quot;</span>
+<span class="code-line">    end if</span>
+<span class="code-line">  end if</span>
+<span class="code-line">end tell</span>
+</pre></div>
+
+
+<p>Add this to the end of ~/.tmux.conf</p>
+<div class="highlight"><pre><span class="code-line"># Bad Wolf by Steve Losh</span>
+<span class="code-line"># Modified by Dheepak Krishnamurthy</span>
+<span class="code-line"># =====================</span>
+<span class="code-line">set -g status-fg white</span>
+<span class="code-line">set -g status-bg colour234</span>
+<span class="code-line"># set -g status-bg default #set for transparent background</span>
+<span class="code-line">set -g window-status-activity-attr bold</span>
+<span class="code-line">set -g pane-border-fg colour245</span>
+<span class="code-line">set -g pane-active-border-fg colour39</span>
+<span class="code-line">set -g message-fg colour16</span>
+<span class="code-line">set -g message-bg colour221</span>
+<span class="code-line">set -g message-attr bold</span>
+<span class="code-line"># Custom status bar</span>
+<span class="code-line"># Powerline</span>
+<span class="code-line">set -g status-left-length 32</span>
+<span class="code-line">set -g status-right-length 150</span>
+<span class="code-line">set -g status-interval 5</span>
+<span class="code-line"># Lets add the current weather to our status bar—why? Well Why the french-toast not?</span>
+<span class="code-line">set -g status-left &#39;#[fg=colour16,bg=colour254,bold] #S #[fg=colour254,bg=colour238,nobold]#[fg=colour15,bg=colour238,bold] #(weathermajig boulder --short) #[fg=colour238,bg=colour234,nobold]&#39;</span>
+<span class="code-line">set -g status-right &#39;%R #[fg=colour238,nobold]#[fg=colour254, bg=colour238] %d %b #(tmux-spotify-info)#[fg=colour254,nobold]#[fg=colour16,bg=colour254,bold] #h &#39;</span>
+<span class="code-line">set -g window-status-format &quot;#[fg=white,bg=colour234] #I #W &quot;</span>
+<span class="code-line">set -g window-status-current-format &quot;#[fg=colour234,bg=colour39]#[fg=colour16,bg=colour39,noreverse,bold] #I ❭ #W #[fg=colour39,bg=colour234,nobold]&quot;</span>
+</pre></div>
+
+
+<p>And your favourite song is listed in your tmux powerline. You can change the colours by varying the values above. </p>
+<p><img alt="tmux-spotify" src="/images/tmux-spotify.png" /></p>
+                    </div>
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'kdheepak89'; // required: replace example with your forum shortname
+            var disqus_identifier = 'spotify-and-tmux';
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+    </section>
+                </div>
             </div>
-            <ul>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/spotify-and-tmux.html">Spotify and tmux</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/change-path-inside-vim.html">Change $PATH inside vim</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/patched-fonts-madness.html">Patched fonts madness</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/uninstalling-and-re-installing-homebrew-on-osx.html">Uninstalling and Re-Installing Homebrew on OSX</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/how-to-add-line-numbers-for-code-blocks-in-pelican.html">How to add line numbers for code blocks in Pelican</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/emacsclient-and-tmux-split-navigation.html">Emacsclient and tmux split navigation</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/emacs-workflow-using-emacs-in-the-terminal.html">Emacs workflow - Using Emacs in the terminal</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/emacs-tips-close-compilation-buffer-if-successful.html">Emacs Tips - Close compilation buffer</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/create-emacsclientapp-using-applescript.html">Create Emacsclient.app using AppleScript</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/better-git-log-with-git-ls.html">Better git log with git ls</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/vim-tmux-zsh.html">Vim, tmux and zsh - the productivity trio</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/beginners-guide-to-getting-started-with-vim.html">Beginners guide to getting started with Vim</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/active-reactive-and-apparent-power.html">Active, Reactive and Apparent Power</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/how-to-set-up-a-pelican-blog-with-github-pages.html">How to set up a Pelican blog with Github pages</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/mac-osx-productivity-apps.html">Mac OSX Productivity Apps</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/mac-osx-tweaks.html">Mac OSX Tweaks</a></li>
-            </div>
-            </ul>
-            <div class="col-md-10 col-md-offset-2">
-            <h2>2014</h2>
-            </div>
-            <ul>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/geektool-and-desktop-widgets-in-osx.html">Geektool and Desktop Widgets in OSX</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/robotics.html">Robotics</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/tasker-and-google-maps.html">Tasker and Google Maps</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/tasker-projects.html">Tasker Projects</a></li>
-            </div>
-            <div class="col-md-10 col-md-offset-2">
-            <li><a href="blog/home-monitoring-system.html">Home monitoring system</a></li>
-            </div>
-            </ul>
-    </div>
-</div>
+        </div>
+    </article>
+
+    <hr>
+
     </div>
 
     <!-- Footer -->
@@ -267,7 +275,6 @@ mixpanel.track("Page", {"Name": "Dheepak Krishnamurthy", "page": "Archives", "ur
         }
     });
     </script>
-
 
 </body>
 </html>
