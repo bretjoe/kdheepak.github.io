@@ -327,12 +327,12 @@ the buffer to be available by changing the "1 sec" in the above code&lt;/p&gt;
         indent = (screen.width &lt; 768) ? "0em" : indent;
         linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
     }
-    
+
     var mathjaxscript = document.createElement('script');
     var location_protocol = (false) ? 'https' : document.location.protocol;
     if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript'; 
+    mathjaxscript.type = 'text/javascript';
     mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
@@ -343,6 +343,7 @@ the buffer to be available by changing the "1 sec" in the above code&lt;/p&gt;
         "    displayAlign: '"+ align +"'," +
         "    displayIndent: '"+ indent +"'," +
         "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
         "    tex2jax: { " +
         "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
         "        displayMath: [ ['$$','$$'] ]," +
@@ -555,10 +556,10 @@ Plugin &amp;#39;tpope/vim-surround&amp;#39;
 
 &lt;div class="collapseheader inner_cell"&gt;&lt;span style="font-weight: bold;"&gt;Collapse Code&lt;/span&gt;
 &lt;div class="input_area"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;from __future__ import division
-% matplotlib inline
-import matplotlib.pyplot as plt
-import numpy as np
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;__future__&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;division&lt;/span&gt;
+&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;matplotlib&lt;/span&gt; &lt;span class="n"&gt;inline&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -596,24 +597,24 @@ import numpy as np
 
 &lt;div class="collapseheader inner_cell"&gt;&lt;span style="font-weight: bold;"&gt;Expand Code&lt;/span&gt;
 &lt;div class="input_area" style="display:none"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;f0 = 60 # Hz (frequency)
-phi = -np.pi/2 # phase shift
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt; &lt;span class="c"&gt;# Hz (frequency)&lt;/span&gt;
+&lt;span class="n"&gt;phi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="c"&gt;# phase shift&lt;/span&gt;
 
-Av = 155.563491861 # voltage peak
-Ai = 7.07106781187 # current peak
+&lt;span class="n"&gt;Av&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;155.563491861&lt;/span&gt; &lt;span class="c"&gt;# voltage peak&lt;/span&gt;
+&lt;span class="n"&gt;Ai&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;7.07106781187&lt;/span&gt; &lt;span class="c"&gt;# current peak&lt;/span&gt;
 
-fs = 4000 # steps
-t = np.arange(0.000, 6/f0, 1.0/fs) # plot from 0 to .02 secs
+&lt;span class="n"&gt;fs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;4000&lt;/span&gt; &lt;span class="c"&gt;# steps&lt;/span&gt;
+&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;f0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1.0&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# plot from 0 to .02 secs&lt;/span&gt;
 
-v = Av * np.cos(2 * np.pi * f0 * t + phi)
-i = Ai * np.cos(2 * np.pi * f0 * t )
+&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Av&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;phi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Ai&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
 
-fig, ax = plt.subplots(1,1,figsize = (16,10))
-ax.plot(t, v, label = &amp;#39;Voltage&amp;#39;)
-ax.plot(t, i, label = &amp;#39;Current&amp;#39;)
-ax.axis([0, 2/f0, -200, 200])
+&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Voltage&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Current&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;f0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
 
-ax.legend();
+&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -1140,8 +1141,8 @@ kiRJjWCBKkmSJElqBAtUSZIkSVIj/H+y9KUkbQIgBwAAAABJRU5ErkJggg==
 
 &lt;div class="collapseheader inner_cell"&gt;&lt;span style="font-weight: bold;"&gt;Expand Code&lt;/span&gt;
 &lt;div class="input_area" style="display:none"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;def rms(x):
-    return np.sqrt(np.mean(x**2))
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;rms&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sqrt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -1166,18 +1167,18 @@ kiRJjWCBKkmSJElqBAtUSZIkSVIj/H+y9KUkbQIgBwAAAABJRU5ErkJggg==
 
 &lt;div class="collapseheader inner_cell"&gt;&lt;span style="font-weight: bold;"&gt;Expand Code&lt;/span&gt;
 &lt;div class="input_area" style="display:none"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;print &amp;#39;Maximum&amp;#39;, max(v)
-print &amp;#39;Minimum&amp;#39;, min(v)
-print &amp;#39;RMS&amp;#39;, rms(v)
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Maximum&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Minimum&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;RMS&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rms&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-print &amp;#39;Ratio max/rms&amp;#39;, max(v)/rms(v)
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Ratio max/rms&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rms&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-try: 
-    np.testing.assert_approx_equal(np.sqrt(2), max(v)/rms(v))
-except:
-    print &amp;#39;Numbers not equal&amp;#39;
-else:
-    print &amp;#39;Maximum value = √2 x RMS value&amp;#39;
+&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; 
+    &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;testing&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assert_approx_equal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sqrt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rms&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="k"&gt;except&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Numbers not equal&amp;#39;&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Maximum value = √2 x RMS value&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -1253,44 +1254,44 @@ Maximum value = √2 x RMS value
 
 &lt;div class="collapseheader inner_cell"&gt;&lt;span style="font-weight: bold;"&gt;Expand Code&lt;/span&gt;
 &lt;div class="input_area" style="display:none"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;f0 = 60 # Hz (frequency)
-phi = -np.pi/6 # phase shift
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt; &lt;span class="c"&gt;# Hz (frequency)&lt;/span&gt;
+&lt;span class="n"&gt;phi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="c"&gt;# phase shift&lt;/span&gt;
 
-Av = 10*np.sqrt(2) # voltage peak
-Ai = 5*np.sqrt(2) # current peak
+&lt;span class="n"&gt;Av&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sqrt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# voltage peak&lt;/span&gt;
+&lt;span class="n"&gt;Ai&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sqrt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# current peak&lt;/span&gt;
 
-fs = 4000 # steps
-t = np.arange(0.000, 1/f0, 1.0/fs) # plot from 0 to .02 secs
+&lt;span class="n"&gt;fs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;4000&lt;/span&gt; &lt;span class="c"&gt;# steps&lt;/span&gt;
+&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;f0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1.0&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# plot from 0 to .02 secs&lt;/span&gt;
 
-v = Av * np.cos(2 * np.pi * f0 * t + phi)
-i = Ai * np.cos(2 * np.pi * f0 * t )
-fig, axs = plt.subplots(2,1,figsize = (16,10))
+&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Av&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;phi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Ai&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;axs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 
-ax1 = axs[0]
+&lt;span class="n"&gt;ax1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;axs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 
-ax1.axhline(linewidth=0.25, color=&amp;#39;black&amp;#39;)
-ax1.axvline(linewidth=0.25, color=&amp;#39;black&amp;#39;)
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axhline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axvline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-ax1.plot(t, v, label = &amp;#39;Voltage in phase A&amp;#39;)
-ax1.plot(t, i, label = &amp;#39;Current in phase A&amp;#39;)
-ax1.set_ylabel(&amp;#39;Voltage and Current&amp;#39;)
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Voltage in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Current in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Voltage and Current&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-ax1.axis([0, 1/f0, -20, 20]);
-ax1.legend()
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;f0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 
 
-ax2 = axs[1]
+&lt;span class="n"&gt;ax2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;axs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 
-ax2.axhline(linewidth=0.25, color=&amp;#39;black&amp;#39;)
-ax2.axvline(linewidth=0.25, color=&amp;#39;black&amp;#39;)
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axhline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axvline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-ax2.plot(t, v*i, label = &amp;#39;Power in phase A&amp;#39;, color=&amp;#39;g&amp;#39;)
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Power in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;g&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-ax2.set_ylabel(&amp;#39;Power&amp;#39;)
-# for tl in ax2.get_yticklabels():
-#     tl.set_color(&amp;#39;g&amp;#39;)
-ax2.legend()
-ax2.axis([0, 1/f0, -120, 120]);
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Power&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c"&gt;# for tl in ax2.get_yticklabels():&lt;/span&gt;
+&lt;span class="c"&gt;#     tl.set_color(&amp;#39;g&amp;#39;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;f0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;120&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;120&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -1974,52 +1975,52 @@ gg==
 
 &lt;div class="collapseheader inner_cell"&gt;&lt;span style="font-weight: bold;"&gt;Expand Code&lt;/span&gt;
 &lt;div class="input_area" style="display:none"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;f0 = 60 # Hz (frequency)
-phi = -np.pi/3 # phase shift
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt; &lt;span class="c"&gt;# Hz (frequency)&lt;/span&gt;
+&lt;span class="n"&gt;phi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="c"&gt;# phase shift&lt;/span&gt;
 
-Av = 110*np.sqrt(2) # voltage peak
-Ai = 5*np.sqrt(2) # current peak
+&lt;span class="n"&gt;Av&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;110&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sqrt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# voltage peak&lt;/span&gt;
+&lt;span class="n"&gt;Ai&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sqrt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# current peak&lt;/span&gt;
 
-fs = 4000 # steps
-t = np.arange(0.000, 1/f0, 1.0/fs) # plot from 0 to .02 secs
+&lt;span class="n"&gt;fs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;4000&lt;/span&gt; &lt;span class="c"&gt;# steps&lt;/span&gt;
+&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;f0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1.0&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# plot from 0 to .02 secs&lt;/span&gt;
 
-v = Av * np.cos(2 * np.pi * f0 * t + phi)
-i = Ai * np.cos(2 * np.pi * f0 * t )
-fig, axs = plt.subplots(1,1,figsize = (16,5))
+&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Av&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;phi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Ai&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;axs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 
-# ax1 = axs[0]
+&lt;span class="c"&gt;# ax1 = axs[0]&lt;/span&gt;
 
-# ax1.axhline(linewidth=0.25, color=&amp;#39;black&amp;#39;)
-# ax1.axvline(linewidth=0.25, color=&amp;#39;black&amp;#39;)
+&lt;span class="c"&gt;# ax1.axhline(linewidth=0.25, color=&amp;#39;black&amp;#39;)&lt;/span&gt;
+&lt;span class="c"&gt;# ax1.axvline(linewidth=0.25, color=&amp;#39;black&amp;#39;)&lt;/span&gt;
 
-# ax1.plot(t, v, label = &amp;#39;Voltage in phase A&amp;#39;)
-# ax1.plot(t, i, label = &amp;#39;Current in phase A&amp;#39;)
-# ax1.set_ylabel(&amp;#39;Voltage and Current&amp;#39;)
+&lt;span class="c"&gt;# ax1.plot(t, v, label = &amp;#39;Voltage in phase A&amp;#39;)&lt;/span&gt;
+&lt;span class="c"&gt;# ax1.plot(t, i, label = &amp;#39;Current in phase A&amp;#39;)&lt;/span&gt;
+&lt;span class="c"&gt;# ax1.set_ylabel(&amp;#39;Voltage and Current&amp;#39;)&lt;/span&gt;
 
-# ax1.axis([0, 1/f0, -200, 200]);
-# ax1.legend(loc=&amp;#39;lower left&amp;#39;)
+&lt;span class="c"&gt;# ax1.axis([0, 1/f0, -200, 200]);&lt;/span&gt;
+&lt;span class="c"&gt;# ax1.legend(loc=&amp;#39;lower left&amp;#39;)&lt;/span&gt;
 
-ax2 = axs
+&lt;span class="n"&gt;ax2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;axs&lt;/span&gt;
 
-ax2.axhline(linewidth=0.25, color=&amp;#39;black&amp;#39;)
-ax2.axvline(linewidth=0.25, color=&amp;#39;black&amp;#39;)
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axhline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axvline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-#$p = \frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t) 
-#                         + \frac{V_{max}I_{max}}{2} \sin 2\omega t \sin \theta $
+&lt;span class="c"&gt;#$p = \frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t) &lt;/span&gt;
+&lt;span class="c"&gt;#                         + \frac{V_{max}I_{max}}{2} \sin 2\omega t \sin \theta $&lt;/span&gt;
 
-p_R = Av*Ai/2*(np.cos(phi) * (1 + np.cos(2 * 2 * np.pi * f0 * t)))
-p_X = Av*Ai/2*(np.sin(phi) * (np.sin(2 * 2 * np.pi * f0 * t)))
+&lt;span class="n"&gt;p_R&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Av&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;Ai&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;phi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+&lt;span class="n"&gt;p_X&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Av&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;Ai&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;phi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
 
-ax2.plot(t, p_R, label = &amp;#39;Instantaneous Active Power in phase A&amp;#39;, linestyle=&amp;#39;--&amp;#39;, color = &amp;#39;b&amp;#39;)
-ax2.plot(t, p_X, label = &amp;#39;Instantaneous Reactive Power in phase A&amp;#39;, linestyle=&amp;#39;-.&amp;#39;, color = &amp;#39;r&amp;#39;)
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p_R&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Instantaneous Active Power in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linestyle&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;--&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p_X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Instantaneous Reactive Power in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linestyle&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;-.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-#ax2.plot(t, v*i, label = &amp;#39;Power in phase A&amp;#39;, color=&amp;#39;g&amp;#39;)
-ax2.plot(t, p_R+p_X, label = &amp;#39;Instantaneous Power in phase A&amp;#39;, color=&amp;#39;g&amp;#39;)
+&lt;span class="c"&gt;#ax2.plot(t, v*i, label = &amp;#39;Power in phase A&amp;#39;, color=&amp;#39;g&amp;#39;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p_R&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;p_X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Instantaneous Power in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;g&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 
-ax2.set_ylabel(&amp;#39;Power&amp;#39;)
-ax2.legend(loc=&amp;#39;lower left&amp;#39;)
-ax2.axis([0, 1/f0, -1500, 1500]);
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Power&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;lower left&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;f0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1500&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1500&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -2556,21 +2557,21 @@ TkSuQmCC
 
 &lt;div class="collapseheader inner_cell"&gt;&lt;span style="font-weight: bold;"&gt;Expand Code&lt;/span&gt;
 &lt;div class="input_area" style="display:none"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;import SchemDraw as schem
-import SchemDraw.elements as e
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;SchemDraw&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;schem&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;SchemDraw.elements&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;e&lt;/span&gt;
 
-d = schem.Drawing()
+&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;schem&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Drawing&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 
-V1 = d.add( e.SOURCE_SIN, label=&amp;#39;$V_{a}$&amp;#39; )
-L1 = d.add( e.LINE, d=&amp;#39;right&amp;#39;, label=&amp;#39;$I_{a}$&amp;#39;)
-d.push()
-R = d.add( e.RES, d=&amp;#39;down&amp;#39;, botlabel=&amp;#39;$R$&amp;#39; )
-d.pop()
-d.add( e.LINE, d=&amp;#39;right&amp;#39; )
-d.add( e.INDUCTOR2, d=&amp;#39;down&amp;#39;, botlabel=&amp;#39;$L$&amp;#39; )
-d.add( e.LINE, to=V1.start )
-d.add( e.GND )
-d.draw()
+&lt;span class="n"&gt;V1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SOURCE_SIN&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;$V_{a}$&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;L1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LINE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;right&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;$I_{a}$&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;R&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;RES&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;down&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;botlabel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;$R$&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pop&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LINE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;right&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;INDUCTOR2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;down&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;botlabel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;$L$&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LINE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;V1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;start&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GND&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;draw&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -2671,22 +2672,22 @@ B4eZFXNwmFkxB4eZFXNwmFkxB4eZFft/HXoQ7V2BIQ4AAAAASUVORK5CYII=
 
 &lt;div class="collapseheader inner_cell"&gt;&lt;span style="font-weight: bold;"&gt;Expand Code&lt;/span&gt;
 &lt;div class="input_area" style="display:none"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;fig, ax = plt.subplots(1,1,figsize = (4,4))
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 
-soa =np.array([[0,0,0,5],[0,0,0,10],[0,0,5,0],[0,0,5,5]]) 
-X,Y,U,V = zip(*soa)
-ax = plt.gca()
-ax.quiver(X,Y,U,V,angles=&amp;#39;xy&amp;#39;,scale_units=&amp;#39;xy&amp;#39;,scale=1)
-ax.set_xlim([-1,10])
-ax.set_ylim([-1,10])
+&lt;span class="n"&gt;soa&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;],[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;],[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt; 
+&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;V&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;zip&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;soa&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gca&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;quiver&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;V&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;angles&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;xy&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;scale_units&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;xy&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;scale&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_xlim&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylim&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
 
-ax.text(5, 0, r&amp;#39;$I_{X}$&amp;#39;)
-ax.text(0, 5, r&amp;#39;$I_{R}$&amp;#39;)
-ax.text(5, 5, r&amp;#39;$I_{an}$&amp;#39;)
-ax.text(0, 10, r&amp;#39;$V_{an}$&amp;#39;)
-ax.text(0.25, 1, r&amp;#39;$\theta$&amp;#39;)
+&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;r&amp;#39;$I_{X}$&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;r&amp;#39;$I_{R}$&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;r&amp;#39;$I_{an}$&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;r&amp;#39;$V_{an}$&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;r&amp;#39;$\theta$&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-ax.axis(&amp;#39;off&amp;#39;);
+&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;off&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -2844,53 +2845,53 @@ And $\theta$ is determined by the nature of the impedance.&lt;/p&gt;
 
 &lt;div class="collapseheader inner_cell"&gt;&lt;span style="font-weight: bold;"&gt;Expand Code&lt;/span&gt;
 &lt;div class="input_area" style="display:none"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;f0 = 60 # Hz (frequency)
-phi = 0 # phase shift
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt; &lt;span class="c"&gt;# Hz (frequency)&lt;/span&gt;
+&lt;span class="n"&gt;phi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="c"&gt;# phase shift&lt;/span&gt;
 
-Av = 110*np.sqrt(2) # voltage peak
-Ai = 5*np.sqrt(2) # current peak
+&lt;span class="n"&gt;Av&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;110&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sqrt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# voltage peak&lt;/span&gt;
+&lt;span class="n"&gt;Ai&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sqrt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# current peak&lt;/span&gt;
 
-fs = 4000 # steps
-t = np.arange(0.000, 1/f0, 1.0/fs) # plot from 0 to .02 secs
+&lt;span class="n"&gt;fs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;4000&lt;/span&gt; &lt;span class="c"&gt;# steps&lt;/span&gt;
+&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;f0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1.0&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# plot from 0 to .02 secs&lt;/span&gt;
 
-v = Av * np.cos(2 * np.pi * f0 * t + phi)
-i = Ai * np.cos(2 * np.pi * f0 * t )
-fig, axs = plt.subplots(2,1,figsize = (16,10))
-
-
-ax1 = axs[0]
-
-ax1.axhline(linewidth=0.25, color=&amp;#39;black&amp;#39;)
-ax1.axvline(linewidth=0.25, color=&amp;#39;black&amp;#39;)
-
-ax1.plot(t, v, label = &amp;#39;Voltage in phase A&amp;#39;)
-ax1.plot(t, i, label = &amp;#39;Current in phase A&amp;#39;)
-ax1.set_ylabel(&amp;#39;Voltage and Current&amp;#39;)
-
-ax1.axis([0, 1/f0, -200, 200]);
-ax1.legend(loc=&amp;#39;lower left&amp;#39;)
-
-ax2 = axs[1]
-
-ax2.axhline(linewidth=0.25, color=&amp;#39;black&amp;#39;)
-ax2.axvline(linewidth=0.25, color=&amp;#39;black&amp;#39;)
-
-#$p = \frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t) 
-#                         + \frac{V_{max}I_{max}}{2} \sin 2\omega t \sin \theta $
-
-p_R = Av*Ai/2*(np.cos(phi) * (1 + np.cos(2 * 2 * np.pi * f0 * t)))
-p_X = Av*Ai/2*(np.sin(phi) * (np.sin(2 * 2 * np.pi * f0 * t)))
-
-ax2.plot(t, p_R, label = &amp;#39;Instantaneous Active Power in phase A&amp;#39;, linestyle=&amp;#39;--&amp;#39;, color = &amp;#39;b&amp;#39;)
-ax2.plot(t, p_X, label = &amp;#39;Instantaneous Reactive Power in phase A&amp;#39;, linestyle=&amp;#39;-.&amp;#39;, color = &amp;#39;r&amp;#39;)
-
-#ax2.plot(t, v*i, label = &amp;#39;Power in phase A&amp;#39;, color=&amp;#39;g&amp;#39;)
-ax2.plot(t, p_R+p_X, label = &amp;#39;Instantaneous Power in phase A&amp;#39;, color=&amp;#39;g&amp;#39;)
+&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Av&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;phi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Ai&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;axs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 
 
-ax2.set_ylabel(&amp;#39;Power&amp;#39;)
-ax2.legend(loc=&amp;#39;lower left&amp;#39;)
-ax2.axis([0, 1/f0, -1500, 1500]);
+&lt;span class="n"&gt;ax1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;axs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axhline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axvline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Voltage in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Current in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Voltage and Current&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;f0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;lower left&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;ax2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;axs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axhline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axvline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c"&gt;#$p = \frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t) &lt;/span&gt;
+&lt;span class="c"&gt;#                         + \frac{V_{max}I_{max}}{2} \sin 2\omega t \sin \theta $&lt;/span&gt;
+
+&lt;span class="n"&gt;p_R&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Av&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;Ai&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;phi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+&lt;span class="n"&gt;p_X&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Av&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;Ai&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;phi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p_R&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Instantaneous Active Power in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linestyle&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;--&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p_X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Instantaneous Reactive Power in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linestyle&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;-.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c"&gt;#ax2.plot(t, v*i, label = &amp;#39;Power in phase A&amp;#39;, color=&amp;#39;g&amp;#39;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p_R&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;p_X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Instantaneous Power in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;g&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Power&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;lower left&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;f0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1500&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1500&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -3692,52 +3693,52 @@ Vfv/LHPJ6k9XvboAAAAASUVORK5CYII=
 
 &lt;div class="collapseheader inner_cell"&gt;&lt;span style="font-weight: bold;"&gt;Expand Code&lt;/span&gt;
 &lt;div class="input_area" style="display:none"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;f0 = 60 # Hz (frequency)
-phi = -np.pi/2 # phase shift
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt; &lt;span class="c"&gt;# Hz (frequency)&lt;/span&gt;
+&lt;span class="n"&gt;phi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="c"&gt;# phase shift&lt;/span&gt;
 
-Av = 110*np.sqrt(2) # voltage peak
-Ai = 5*np.sqrt(2) # current peak
+&lt;span class="n"&gt;Av&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;110&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sqrt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# voltage peak&lt;/span&gt;
+&lt;span class="n"&gt;Ai&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sqrt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# current peak&lt;/span&gt;
 
-fs = 4000 # steps
-t = np.arange(0.000, 1/f0, 1.0/fs) # plot from 0 to .02 secs
+&lt;span class="n"&gt;fs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;4000&lt;/span&gt; &lt;span class="c"&gt;# steps&lt;/span&gt;
+&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;f0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1.0&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# plot from 0 to .02 secs&lt;/span&gt;
 
-v = Av * np.cos(2 * np.pi * f0 * t + phi)
-i = Ai * np.cos(2 * np.pi * f0 * t )
-fig, axs = plt.subplots(2,1,figsize = (16,10))
+&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Av&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;phi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Ai&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;axs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 
-ax1 = axs[0]
+&lt;span class="n"&gt;ax1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;axs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 
-ax1.axhline(linewidth=0.25, color=&amp;#39;black&amp;#39;)
-ax1.axvline(linewidth=0.25, color=&amp;#39;black&amp;#39;)
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axhline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axvline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-ax1.plot(t, v, label = &amp;#39;Voltage in phase A&amp;#39;)
-ax1.plot(t, i, label = &amp;#39;Current in phase A&amp;#39;)
-ax1.set_ylabel(&amp;#39;Voltage and Current&amp;#39;)
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Voltage in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Current in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Voltage and Current&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-ax1.axis([0, 1/f0, -200, 200]);
-ax1.legend(loc=&amp;#39;upper left&amp;#39;)
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;f0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;upper left&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-ax2 = axs[1]
+&lt;span class="n"&gt;ax2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;axs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 
-ax2.axhline(linewidth=0.25, color=&amp;#39;black&amp;#39;)
-ax2.axvline(linewidth=0.25, color=&amp;#39;black&amp;#39;)
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axhline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axvline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-#$p = \frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t) 
-#                         + \frac{V_{max}I_{max}}{2} \sin 2\omega t \sin \theta $
+&lt;span class="c"&gt;#$p = \frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t) &lt;/span&gt;
+&lt;span class="c"&gt;#                         + \frac{V_{max}I_{max}}{2} \sin 2\omega t \sin \theta $&lt;/span&gt;
 
-p_R = Av*Ai/2*(np.cos(phi) * (1 + np.cos(2 * 2 * np.pi * f0 * t)))
-p_X = Av*Ai/2*(np.sin(phi) * (np.sin(2 * 2 * np.pi * f0 * t)))
+&lt;span class="n"&gt;p_R&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Av&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;Ai&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;phi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+&lt;span class="n"&gt;p_X&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Av&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;Ai&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;phi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
 
-ax2.plot(t, p_R, label = &amp;#39;Instantaneous Active Power in phase A&amp;#39;, linestyle=&amp;#39;--&amp;#39;, color = &amp;#39;b&amp;#39;)
-ax2.plot(t, p_X, label = &amp;#39;Instantaneous Reactive Power in phase A&amp;#39;, linestyle=&amp;#39;-.&amp;#39;, color = &amp;#39;r&amp;#39;)
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p_R&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Instantaneous Active Power in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linestyle&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;--&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p_X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Instantaneous Reactive Power in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linestyle&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;-.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-#ax2.plot(t, v*i, label = &amp;#39;Power in phase A&amp;#39;, color=&amp;#39;g&amp;#39;)
-ax2.plot(t, p_R+p_X, label = &amp;#39;Instantaneous Power in phase A&amp;#39;, color=&amp;#39;g&amp;#39;)
+&lt;span class="c"&gt;#ax2.plot(t, v*i, label = &amp;#39;Power in phase A&amp;#39;, color=&amp;#39;g&amp;#39;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p_R&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;p_X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Instantaneous Power in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;g&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 
-ax2.set_ylabel(&amp;#39;Power&amp;#39;)
-ax2.legend(loc=&amp;#39;upper left&amp;#39;)
-ax2.axis([0, 1/f0, -1500, 1500]);
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Power&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;upper left&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;f0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1500&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1500&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -4521,52 +4522,52 @@ ImlNwVdERERERETS2v8BxKRZEitj2LAAAAAASUVORK5CYII=
 
 &lt;div class="collapseheader inner_cell"&gt;&lt;span style="font-weight: bold;"&gt;Expand Code&lt;/span&gt;
 &lt;div class="input_area" style="display:none"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;f0 = 60 # Hz (frequency)
-phi = -np.pi/2 # phase shift
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt; &lt;span class="c"&gt;# Hz (frequency)&lt;/span&gt;
+&lt;span class="n"&gt;phi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="c"&gt;# phase shift&lt;/span&gt;
 
-Av = 110*np.sqrt(2) # voltage peak
-Ai = 5*np.sqrt(2) # current peak
+&lt;span class="n"&gt;Av&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;110&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sqrt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# voltage peak&lt;/span&gt;
+&lt;span class="n"&gt;Ai&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sqrt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# current peak&lt;/span&gt;
 
-fs = 4000 # steps
-t = np.arange(0.000, 1/f0, 1.0/fs) # plot from 0 to .02 secs
+&lt;span class="n"&gt;fs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;4000&lt;/span&gt; &lt;span class="c"&gt;# steps&lt;/span&gt;
+&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;f0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1.0&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# plot from 0 to .02 secs&lt;/span&gt;
 
-v = Av * np.cos(2 * np.pi * f0 * t + phi)
-i = Ai * np.cos(2 * np.pi * f0 * t )
-fig, axs = plt.subplots(2,1,figsize = (16,10))
+&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Av&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;phi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Ai&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;axs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 
-ax1 = axs[0]
+&lt;span class="n"&gt;ax1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;axs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 
-ax1.axhline(linewidth=0.25, color=&amp;#39;black&amp;#39;)
-ax1.axvline(linewidth=0.25, color=&amp;#39;black&amp;#39;)
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axhline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axvline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-ax1.plot(t, v, label = &amp;#39;Voltage in phase A&amp;#39;)
-ax1.plot(t, i, label = &amp;#39;Current in phase A&amp;#39;)
-ax1.set_ylabel(&amp;#39;Voltage and Current&amp;#39;)
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Voltage in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Current in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Voltage and Current&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-ax1.axis([0, 1/f0, -200, 200]);
-ax1.legend(loc=&amp;#39;upper left&amp;#39;)
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;f0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;upper left&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-ax2 = axs[1]
+&lt;span class="n"&gt;ax2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;axs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 
-ax2.axhline(linewidth=0.25, color=&amp;#39;black&amp;#39;)
-ax2.axvline(linewidth=0.25, color=&amp;#39;black&amp;#39;)
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axhline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axvline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-#$p = \frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t) 
-#                         + \frac{V_{max}I_{max}}{2} \sin 2\omega t \sin \theta $
+&lt;span class="c"&gt;#$p = \frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t) &lt;/span&gt;
+&lt;span class="c"&gt;#                         + \frac{V_{max}I_{max}}{2} \sin 2\omega t \sin \theta $&lt;/span&gt;
 
-p_R = Av*Ai/2*(np.cos(phi) * (1 + np.cos(2 * 2 * np.pi * f0 * t)))
-p_X = Av*Ai/2*(np.sin(phi) * (np.sin(2 * 2 * np.pi * f0 * t)))
+&lt;span class="n"&gt;p_R&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Av&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;Ai&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;phi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+&lt;span class="n"&gt;p_X&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Av&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;Ai&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;phi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;f0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
 
-ax2.plot(t, p_R, label = &amp;#39;Instantaneous Active Power in phase A&amp;#39;, linestyle=&amp;#39;--&amp;#39;, color = &amp;#39;b&amp;#39;)
-ax2.plot(t, p_X, label = &amp;#39;Instantaneous Reactive Power in phase A&amp;#39;, linestyle=&amp;#39;-.&amp;#39;, color = &amp;#39;r&amp;#39;)
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p_R&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Instantaneous Active Power in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linestyle&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;--&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p_X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Instantaneous Reactive Power in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linestyle&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;-.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-#ax2.plot(t, v*i, label = &amp;#39;Power in phase A&amp;#39;, color=&amp;#39;g&amp;#39;)
-ax2.plot(t, p_R+p_X, label = &amp;#39;Instantaneous Power in phase A&amp;#39;, color=&amp;#39;g&amp;#39;)
+&lt;span class="c"&gt;#ax2.plot(t, v*i, label = &amp;#39;Power in phase A&amp;#39;, color=&amp;#39;g&amp;#39;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p_R&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;p_X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Instantaneous Power in phase A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;g&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 
-ax2.set_ylabel(&amp;#39;Power&amp;#39;)
-ax2.legend(loc=&amp;#39;upper left&amp;#39;)
-ax2.axis([0, 1/f0, -1500, 1500]);
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Power&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;upper left&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;f0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1500&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1500&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -5364,11 +5365,23 @@ ImlNwVdERERERETS2v8BxKRZEitj2LAAAAAASUVORK5CYII=
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</summary><category term="Power Systems"></category></entry><entry><title>How to set up a Pelican blog with Github pages</title><link href="http://kdheepak.com/blog/how-to-set-up-a-pelican-blog-with-github-pages.html" rel="alternate"></link><updated>2015-08-02T17:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-24:blog/how-to-set-up-a-pelican-blog-with-github-pages.html</id><summary type="html">
+&lt;/div&gt;&lt;/p&gt;</summary><category term="Power Systems"></category></entry><entry><title>How to set up a Pelican blog with Github pages</title><link href="http://kdheepak.com/blog/how-to-set-up-a-pelican-blog-with-github-pages.html" rel="alternate"></link><updated>2015-08-02T17:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-24:blog/how-to-set-up-a-pelican-blog-with-github-pages.html</id><summary type="html">&lt;div class="toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#markdown"&gt;Markdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#static-pages"&gt;Static pages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#enter-github-pages-and-pelican"&gt;Enter Github pages and Pelican&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#install-required-packages"&gt;Install required packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#create-a-github-account-and-a-user-or-project-page"&gt;Create a Github account and a User or Project page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#create-a-directory-for-your-website"&gt;Create a directory for your website&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#run-pelican-quickstart"&gt;Run Pelican quickstart&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#content-of-your-blog"&gt;Content of your blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#push-your-content-to-github"&gt;Push your content to Github&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 &lt;p&gt;I've been quite vocal about the benefits of blogging using Markdown, and using a static page generator instead of the conventional CMS. 
 But a lot of people I've spoken to have expressed their doubts about the simplicity of the process. 
 I figured if I could fit it in one blog post I could claim it were simple, right?&lt;/p&gt;
-&lt;h1 id="markdown"&gt;Markdown&lt;a class="headerlink" href="#markdown" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="markdown"&gt;Markdown&lt;a class="headerlink" href="#markdown" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Advantages&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Easy to learn - It has almost no syntax. You can learn how to format like a pro in half an hour.&lt;/li&gt;
@@ -5387,9 +5400,9 @@ You can even use your favourite text editor. (which is obviously VIM, right?)&lt
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This is what this post looks like in Markdown. &lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="../../images/markdown-example.png"/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="../../images/markdown-example.png" /&gt;&lt;/p&gt;
 &lt;p&gt;It really is that simple.&lt;/p&gt;
-&lt;h1 id="static-pages"&gt;Static pages&lt;a class="headerlink" href="#static-pages" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="static-pages"&gt;Static pages&lt;a class="headerlink" href="#static-pages" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Advantages &lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Fast - It loads extremely quickly.&lt;/li&gt;
@@ -5401,32 +5414,40 @@ You can even use your favourite text editor. (which is obviously VIM, right?)&lt
 &lt;li&gt;Typically required web development experience to make changes to website.&lt;/li&gt;
 &lt;li&gt;Complicated and a lot of work when you have a lot of pages e.g. a personal blog.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id="enter-github-pages-and-pelican"&gt;Enter Github pages and Pelican&lt;a class="headerlink" href="#enter-github-pages-and-pelican" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="enter-github-pages-and-pelican"&gt;Enter Github pages and Pelican&lt;a class="headerlink" href="#enter-github-pages-and-pelican" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Github pages takes away from all the disadvantages of static pages, and adds a few pros as well. 
 Version control was a big plus for me. 
 And static site generators like Jekyll and Pelican make it extremely easy to create web content without any actual web development.
 I choose Pelican because it was Python based, and it seemed to have a good selection of themes.&lt;/p&gt;
-&lt;h1 id="install-required-packages"&gt;Install required packages&lt;a class="headerlink" href="#install-required-packages" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="install-required-packages"&gt;Install required packages&lt;a class="headerlink" href="#install-required-packages" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;pip install pelican
 pip install markdown
 pip install ghp-import
 &lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;ghp-import is a cli that allows you to easily push your changes to your github repository&lt;/p&gt;
 &lt;p&gt;These are optional packages to install that may come in handy later&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;pip install Pillow beautifulsoup4 cssmin cssprefixer cssutils pretty six smartypants typogrify webassets
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h1 id="create-a-github-account-and-a-user-or-project-page"&gt;Create a Github account and a User or Project page&lt;a class="headerlink" href="#create-a-github-account-and-a-user-or-project-page" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+
+
+&lt;h1 id="create-a-github-account-and-a-user-or-project-page"&gt;Create a Github account and a User or Project page&lt;a class="headerlink" href="#create-a-github-account-and-a-user-or-project-page" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;a href="http://pages.github.com/"&gt;Github pages&lt;/a&gt; has instructions on how to create a User or Project page, and will in fact walk you through the process. 
 If you create a User page, your website will be live at &lt;code&gt;$GHUSERNAME&lt;/code&gt;.github.io and a Project page will go up at &lt;code&gt;$GHUSERNAME&lt;/code&gt;.github.io/&lt;code&gt;$PROJECTNAME&lt;/code&gt;. 
 The rest of this blog assumes you want to create a User page.&lt;/p&gt;
-&lt;h1 id="create-a-directory-for-your-website"&gt;Create a directory for your website&lt;a class="headerlink" href="#create-a-directory-for-your-website" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="create-a-directory-for-your-website"&gt;Create a directory for your website&lt;a class="headerlink" href="#create-a-directory-for-your-website" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Assuming &lt;code&gt;$GHUSERNAME&lt;/code&gt; is your github username, run the following commands. You can rename the 'website' folder to anything you want. &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="x"&gt;git clone https://github.com/&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;GHUSERNAME&lt;/span&gt;&lt;span class="x"&gt;/&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;GHUSERNAME&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nv"&gt;github&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nv"&gt;io&lt;/span&gt;&lt;span class="x"&gt;/ website&lt;/span&gt;
 &lt;span class="x"&gt;cd website&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h1 id="run-pelican-quickstart"&gt;Run Pelican quickstart&lt;a class="headerlink" href="#run-pelican-quickstart" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+
+
+&lt;h1 id="run-pelican-quickstart"&gt;Run Pelican quickstart&lt;a class="headerlink" href="#run-pelican-quickstart" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;pelican-quickstart
 &lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;This is what you might get. Answer all the questions&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;➜  website  pelican-quickstart
 
@@ -5459,10 +5480,14 @@ Done. Your new project is available at /path/to/website
 
 ➜  website
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h1 id="content-of-your-blog"&gt;Content of your blog&lt;a class="headerlink" href="#content-of-your-blog" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+
+
+&lt;h1 id="content-of-your-blog"&gt;Content of your blog&lt;a class="headerlink" href="#content-of-your-blog" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Create an sample post.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;vim content/example.md
 &lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Type in the following and save it.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Title&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;My&lt;/span&gt; &lt;span class="n"&gt;First&lt;/span&gt; &lt;span class="n"&gt;Post&lt;/span&gt;
 &lt;span class="n"&gt;Date&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2015&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;23&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;
@@ -5470,18 +5495,26 @@ Done. Your new project is available at /path/to/website
 
 &lt;span class="n"&gt;Hello&lt;/span&gt; &lt;span class="n"&gt;world&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Type the following to convert all your markdown or ReST posts to HTML. &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;make html
 &lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;You can also type the following to serve a local version of your site to view the output of your hardwork&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;make serve
 &lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;This will be visible at localhost:8000 by default.&lt;/p&gt;
-&lt;h1 id="push-your-content-to-github"&gt;Push your content to Github&lt;a class="headerlink" href="#push-your-content-to-github" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="push-your-content-to-github"&gt;Push your content to Github&lt;a class="headerlink" href="#push-your-content-to-github" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;If you installed everything correctly, you can type the following to push your website to your Github repository.
 You need to have ghp-import installed for this to work.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;make github
 &lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;You are done! If you have any questions regarding any of this, you can shoot me questions in the comments below.&lt;/p&gt;</summary><category term="Pelican"></category></entry><entry><title>Mac OSX Productivity Apps</title><link href="http://kdheepak.com/blog/mac-osx-productivity-apps.html" rel="alternate"></link><updated>2015-04-01T19:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-01:blog/mac-osx-productivity-apps.html</id><summary type="html">&lt;h2 id="1-alfred"&gt;1. Alfred&lt;a class="headerlink" href="#1-alfred" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img alt="" src="http://www.alfredapp.com/images/features/main/open_applications_files@2x.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="http://www.alfredapp.com/images/features/sub/calculator_dictionary@2x.jpg" /&gt;&lt;/p&gt;
