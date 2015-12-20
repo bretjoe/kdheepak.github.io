@@ -5,14 +5,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://kdheepak.com/</loc>
-<lastmod>2015-12-02T03:56:23-00:00</lastmod>
+<lastmod>2015-12-20T03:05:36-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://kdheepak.com/archives.html</loc>
-<lastmod>2015-12-02T03:56:23-00:00</lastmod>
+<lastmod>2015-12-20T03:05:36-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -20,6 +20,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://kdheepak.com/projects/ames-market-test-bed.html</loc>
 <lastmod>2014-12-13T10:00:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://kdheepak.com/blog/jupyter-notebook-revealjs-and-github-pages.html</loc>
+<lastmod>2015-12-05T13:03:54-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>

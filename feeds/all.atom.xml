@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/all.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-09-20T10:01:48-06:00</updated><entry><title>Spotify and tmux</title><link href="http://kdheepak.com/blog/spotify-and-tmux.html" rel="alternate"></link><updated>2015-09-20T09:26:15-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-09-20:blog/spotify-and-tmux.html</id><summary type="html">&lt;p&gt;Create a file named tmux-spotify-info and place it in a directory that in your &lt;code&gt;$PATH&lt;/code&gt;. Add the following snippet of code into the file and make sure it is executable.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/all.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-12-05T13:03:54-07:00</updated><entry><title>Jupyter Notebook, Reveal.js and Github Pages</title><link href="http://kdheepak.com/blog/jupyter-notebook-revealjs-and-github-pages.html" rel="alternate"></link><updated>2015-12-05T13:03:54-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-12-05:blog/jupyter-notebook-revealjs-and-github-pages.html</id><summary type="html">&lt;p&gt;Jupyter Notebook has the ability to convert an notebook &lt;code&gt;ipynb&lt;/code&gt; to markdown, rst, html and interestingly slides.
+And these Reveal.js powered slides can be hosted on GitHub pages, like any other html page.
+The following steps works well for me to generate a static set of slides from a notebook that can be used as a presentation&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Save the ipython notebook as index.ipynb.&lt;/li&gt;
+&lt;li&gt;Fork reveal.js to your GitHub account. &lt;/li&gt;
+&lt;li&gt;Push the &lt;code&gt;master&lt;/code&gt; branch into the &lt;code&gt;gh-pages&lt;/code&gt; branch. This is necessary because we want to use a single reveal.js repository to link to from the GitHub pages slideshow. Alternatively, you can clone reveal.js into your repository where the slideshow / presentation exists.&lt;/li&gt;
+&lt;li&gt;Use the following script to convert the notebook to &lt;code&gt;index.slides.html&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ipython nbconvert index.ipynb --to slides --reveal-prefix ../reveal.js
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you did not Fork reveal.js and force update master to origin/gh-pages, and instead cloned &lt;code&gt;reveal.js&lt;/code&gt; to this folder, you can add it as a submodule and use the following instead&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ipython nbconvert index.ipynb --to slides --reveal-prefix reveal.js
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Rename &lt;code&gt;index.slides.html&lt;/code&gt; to &lt;code&gt;index.html&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Push your changes to a repository &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can find an example &lt;a href="kdheepak.com/jupyter-notebook"&gt;here&lt;/a&gt; and the original notebook &lt;a href="https://github.com/kdheepak89/jupyter-notebook"&gt;here&lt;/a&gt;.&lt;/p&gt;</summary><category term="reveal.js"></category><category term="github pages"></category></entry><entry><title>Spotify and tmux</title><link href="http://kdheepak.com/blog/spotify-and-tmux.html" rel="alternate"></link><updated>2015-09-20T09:26:15-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-09-20:blog/spotify-and-tmux.html</id><summary type="html">&lt;p&gt;Create a file named tmux-spotify-info and place it in a directory that in your &lt;code&gt;$PATH&lt;/code&gt;. Add the following snippet of code into the file and make sure it is executable.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;#!/usr/bin/env osascript
 # Returns the current playing song in Spotify for OSX
 
