@@ -553,7 +553,7 @@ Plugin &amp;#39;tpope/vim-surround&amp;#39;&lt;/code&gt;&lt;/pre&gt;
 &lt;div class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="vim"></category></entry><entry><title>Active, Reactive and Apparent Power</title><link href="http://kdheepak.com/blog/active-reactive-and-apparent-power.html" rel="alternate"></link><updated>2015-12-20T18:39:09-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-29:blog/active-reactive-and-apparent-power.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Edit&lt;/strong&gt; - I haven’t figured out how to get ipynb working with a Pandoc reader yet, this post will be updated soon.&lt;/p&gt;
+</summary><category term="vim"></category></entry><entry><title>Active, Reactive and Apparent Power</title><link href="http://kdheepak.com/blog/active-reactive-and-apparent-power.html" rel="alternate"></link><updated>2015-12-20T18:39:09-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-29:blog/active-reactive-and-apparent-power.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Edit&lt;/strong&gt; - I’m no longer using the liquidtags.notebook plugin, since I moved to pandoc. The blog post will now closely resemble a jupyter notebook.&lt;/p&gt;
 &lt;p&gt;This post covers the basics of the types of Power in power systems. This post was generated from an iPython Notebook&lt;/p&gt;
 &lt;div id="notebook" class="border-box-sizing" tabindex="-1"&gt;
 &lt;div id="notebook-container" class="container"&gt;
