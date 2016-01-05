@@ -347,11 +347,11 @@ Published on
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
-                    <h1 id="update">Update<a class="headerlink" href="#update" title="Permanent link">&para;</a></h1>
-<p>I've decided to maintain a repo <a href="https://github.com/kdheepak89/dotfiles/blob/master/.osx">here</a> instead. </p>
+                    <h1 id="update">Update</h1>
+<p>I’ve decided to maintain a repo <a href="https://github.com/kdheepak89/dotfiles/blob/master/.osx">here</a> instead.</p>
 <hr />
-<h1 id="general-ui">General UI<a class="headerlink" href="#general-ui" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre># Disable Dashboard
+<h1 id="general-ui">General UI</h1>
+<pre><code># Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
 
 # Don’t show Dashboard as a Space
@@ -365,12 +365,9 @@ defaults write -g NSAllowContinuousSpellChecking -bool false
 defaults write -g AppleTextBreakLocale en_US_POSIX
 
 # Disable the sound effects on boot
-sudo nvram SystemAudioVolume=&quot; &quot;
-</pre></div>
-
-
-<h1 id="disks">Disks<a class="headerlink" href="#disks" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre># Disks: disable Time Machine prompts
+sudo nvram SystemAudioVolume=&quot; &quot;</code></pre>
+<h1 id="disks">Disks</h1>
+<pre><code># Disks: disable Time Machine prompts
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Disks: disable local Time Machine backups
@@ -388,18 +385,12 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
 # Don’t automatically rearrange Spaces based on most recent use
-defaults write com.apple.dock mru-spaces -bool false
-</pre></div>
-
-
-<h1 id="keyboard">Keyboard<a class="headerlink" href="#keyboard" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre># Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 0
-</pre></div>
-
-
-<h1 id="finder">Finder<a class="headerlink" href="#finder" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre># Disable automatic termination of inactive apps
+defaults write com.apple.dock mru-spaces -bool false</code></pre>
+<h1 id="keyboard">Keyboard</h1>
+<pre><code># Set a blazingly fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 0</code></pre>
+<h1 id="finder">Finder</h1>
+<pre><code># Disable automatic termination of inactive apps
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 
 # Finder: disable window animations and Get Info animations
@@ -421,21 +412,15 @@ defaults write com.apple.finder DisableAllAnimations -bool true
 chflags nohidden ~/Library
 
 # Finder: empty Trash securely by default
-defaults write com.apple.finder EmptyTrashSecurely -bool true
-</pre></div>
-
-
-<h1 id="dock-hot-corners">Dock &amp; hot corners<a class="headerlink" href="#dock-hot-corners" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre># Autohide the Dock
+defaults write com.apple.finder EmptyTrashSecurely -bool true</code></pre>
+<h1 id="dock-hot-corners">Dock &amp; hot corners</h1>
+<pre><code># Autohide the Dock
 defaults write com.apple.dock autohide -bool true
 
 # Magnify Dock icons on hover
-defaults write com.apple.dock magnification -bool false
-</pre></div>
-
-
-<h1 id="panels">Panels<a class="headerlink" href="#panels" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre># Panels: expand save panel by default
+defaults write com.apple.dock magnification -bool false</code></pre>
+<h1 id="panels">Panels</h1>
+<pre><code># Panels: expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
 # Panels: expand print panel by default
@@ -445,31 +430,22 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # Panels: enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
-defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
-</pre></div>
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3</code></pre>
+<h1 id="screen">Screen</h1>
+<pre><code># Screen: save screenshots to the desktop
+defaults write com.apple.screencapture location -string &quot;$HOME/Desktop&quot;
 
-
-<h1 id="screen">Screen<a class="headerlink" href="#screen" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span class="err">#</span><span class="x"> Screen: save screenshots to the desktop</span>
-<span class="x">defaults write com.apple.screencapture location -string &quot;</span><span class="p">$</span><span class="nv">HOME</span><span class="x">/Desktop&quot;</span>
-
-<span class="err">#</span><span class="x"> Screen: disable shadow in screenshots</span>
-<span class="x">defaults write com.apple.screencapture disable-shadow -bool true</span>
-</pre></div>
-
-
-<h1 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre># Misc: only use UTF-8 in Terminal.app
+# Screen: disable shadow in screenshots
+defaults write com.apple.screencapture disable-shadow -bool true</code></pre>
+<h1 id="misc">Misc</h1>
+<pre><code># Misc: only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
 
 # Misc: disable Dictionary results
 defaults write com.apple.spotlight DictionaryLookupEnabled -bool false
 
 # Misc: disable auto-correct
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
-</pre></div>
-
-
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false</code></pre>
 <!---
 {% comment %} 
 for app in "Dashboard" "Dock" "Finder" "SystemUIServer" "Terminal" "iTunes"; do
@@ -477,6 +453,10 @@ for app in "Dashboard" "Dock" "Finder" "SystemUIServer" "Terminal" "iTunes"; do
 done
 {% uncomment %} 
 -->
+<div class="references">
+
+</div>
+
                     </div>
     <hr />
     <section class="comments" id="comments">

@@ -347,127 +347,118 @@ Published on
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
-                    <p>I use the command line a lot, frequently editing files locally or remotely. Up until now, I've been using <a href="vim-tmux-zsh.html">vim with tmux and zsh</a>. I've recently been experimenting with emacs and have been trying to get it to work well inplace of vim. I personally think the author of <a href="http://mjwall.com/blog/2013/10/04/how-i-use-emacs/">this post</a> nailed it regarding emacs workflow. I've only made minor modifications to get it to suit my requirements.</p>
-<p>I've created a separate script called ess (emacsserverstart) added a <code>&amp;</code> at the end of the emacs script to get it to run in the background.</p>
+                    <p>I use the command line a lot, frequently editing files locally or remotely. Up until now, I’ve been using <a href="vim-tmux-zsh.html">vim with tmux and zsh</a>. I’ve recently been experimenting with emacs and have been trying to get it to work well inplace of vim. I personally think the author of <a href="http://mjwall.com/blog/2013/10/04/how-i-use-emacs/">this post</a> nailed it regarding emacs workflow. I’ve only made minor modifications to get it to suit my requirements.</p>
+<p>I’ve created a separate script called ess (emacsserverstart) added a <code>&amp;</code> at the end of the emacs script to get it to run in the background.</p>
 <p>/usr/local/bin/ess</p>
-<div class="highlight"><pre><span class="c">#!/bin/zsh</span>
-/Applications/Emacs.app/Contents/MacOS/Emacs <span class="p">&amp;</span>
-</pre></div>
-
-
+<pre><code>#!/bin/zsh
+/Applications/Emacs.app/Contents/MacOS/Emacs &amp;</code></pre>
 <p>/usr/local/bin/emacs</p>
-<div class="highlight"><pre><span class="c">#!/bin/zsh</span>
-/Applications/Emacs.app/Contents/MacOS/Emacs <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
-</pre></div>
-
-
-<p>I've found that when using emacsclient connecting to <code>emacs --daemon</code> renders certain things differently, as compared to opening emacs, starting a server and connecting to that instead. I also have <code>(server-start)</code> in my .emacs file.</p>
-<p>The following script connects a emacsclient to an already existing emacs server. If a server does not exist, it starts a daemon and then connects to it. This is done using the <code>-a ""</code> flag, which allows you to set an alternate editor. If no editor it set it defaults to running a daemon. It also shifts focus to the emacsclient after it opens.</p>
+<pre><code>#!/bin/zsh
+/Applications/Emacs.app/Contents/MacOS/Emacs &quot;$@&quot;</code></pre>
+<p>I’ve found that when using emacsclient connecting to <code>emacs --daemon</code> renders certain things differently, as compared to opening emacs, starting a server and connecting to that instead. I also have <code>(server-start)</code> in my .emacs file.</p>
+<p>The following script connects a emacsclient to an already existing emacs server. If a server does not exist, it starts a daemon and then connects to it. This is done using the <code>-a &quot;&quot;</code> flag, which allows you to set an alternate editor. If no editor it set it defaults to running a daemon. It also shifts focus to the emacsclient after it opens.</p>
 <p>/usr/local/bin/ec</p>
-<div class="highlight"><pre><span class="c">#!/bin/zsh</span>
+<pre><code>#!/bin/zsh
 
-<span class="c"># This script starts emacs daemon if it is not running, opens whatever file</span>
-<span class="c"># you pass in and changes the focus to emacs.  Without any arguments, it just</span>
-<span class="c"># opens the current buffer or *scratch* if nothing else is open.  The following</span>
-<span class="c"># example will open ~/.bashrc</span>
+# This script starts emacs daemon if it is not running, opens whatever file
+# you pass in and changes the focus to emacs.  Without any arguments, it just
+# opens the current buffer or *scratch* if nothing else is open.  The following
+# example will open ~/.bashrc
 
-<span class="c"># ec ~/.bashrc</span>
+# ec ~/.bashrc
 
-<span class="c"># You can also pass it multiple files, it will open them all.  Unbury-buffer</span>
-<span class="c"># will cycle through those files in order</span>
+# You can also pass it multiple files, it will open them all.  Unbury-buffer
+# will cycle through those files in order
 
-<span class="c"># The compliment to the script is et, which opens emacs in the terminal</span>
-<span class="c"># attached to a daemon</span>
+# The compliment to the script is et, which opens emacs in the terminal
+# attached to a daemon
 
-<span class="c"># If you want to execute elisp, pass in -e whatever.</span>
-<span class="c"># You may also want to stop the output from returning to the terminal, like</span>
-<span class="c"># ec -e &quot;(message \&quot;Hello\&quot;)&quot; &gt; /dev/null</span>
+# If you want to execute elisp, pass in -e whatever.
+# You may also want to stop the output from returning to the terminal, like
+# ec -e &quot;(message \&quot;Hello\&quot;)&quot; &gt; /dev/null
 
-<span class="c"># emacsclient options for reference</span>
-<span class="c"># -a &quot;&quot; starts emacs daemon and reattaches</span>
-<span class="c"># -c creates a new frame</span>
-<span class="c"># -n returns control back to the terminal</span>
-<span class="c"># -e eval the script</span>
+# emacsclient options for reference
+# -a &quot;&quot; starts emacs daemon and reattaches
+# -c creates a new frame
+# -n returns control back to the terminal
+# -e eval the script
 
-<span class="c"># Number of current visible frames,</span>
-<span class="c"># Emacs daemon always has a visible frame called F1</span>
-visible_frames<span class="o">()</span> <span class="o">{</span>
-  emacsclient -a <span class="s2">&quot;&quot;</span> -e <span class="s1">&#39;(length (visible-frame-list))&#39;</span>
-<span class="o">}</span>
+# Number of current visible frames,
+# Emacs daemon always has a visible frame called F1
+visible_frames() {
+  emacsclient -a &quot;&quot; -e &#39;(length (visible-frame-list))&#39;
+}
 
-change_focus<span class="o">()</span> <span class="o">{</span>
-  emacsclient -n -e <span class="s2">&quot;(select-frame-set-input-focus (selected-frame))&quot;</span> &gt; /dev/null
-<span class="o">}</span>
+change_focus() {
+  emacsclient -n -e &quot;(select-frame-set-input-focus (selected-frame))&quot; &gt; /dev/null
+}
 
 
-<span class="c"># try switching to the frame incase it is just minimized</span>
-<span class="c"># will start a server if not running</span>
-<span class="nb">test</span> <span class="s2">&quot;</span><span class="k">$(</span>visible_frames<span class="k">)</span><span class="s2">&quot;</span> -eq <span class="s2">&quot;1&quot;</span> <span class="o">&amp;&amp;</span> change_focus
+# try switching to the frame incase it is just minimized
+# will start a server if not running
+test &quot;$(visible_frames)&quot; -eq &quot;1&quot; &amp;&amp; change_focus
 
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="k">$(</span>visible_frames<span class="k">)</span><span class="s2">&quot;</span> -lt  <span class="s2">&quot;2&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="c"># need to create a frame</span>
-  <span class="c"># -c $@ with no args just opens the scratch buffer</span>
-  emacsclient -n -c <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> change_focus
-<span class="k">else</span> <span class="c"># there is already a visible frame besides the daemon, so</span>
+if [ &quot;$(visible_frames)&quot; -lt  &quot;2&quot; ]; then # need to create a frame
+  # -c $@ with no args just opens the scratch buffer
+  emacsclient -n -c &quot;$@&quot; &amp;&amp; change_focus
+else # there is already a visible frame besides the daemon, so
   change_focus
-  <span class="c"># -n $@ errors if there are no args</span>
-  <span class="nb">test</span>  <span class="s2">&quot;</span><span class="nv">$#&quot;</span><span class="s2"> -ne &quot;</span>0<span class="s2">&quot; &amp;&amp; emacsclient -n &quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
-<span class="s2">fi</span>
-</pre></div>
-
-
+  # -n $@ errors if there are no args
+  test  &quot;$#&quot; -ne &quot;0&quot; &amp;&amp; emacsclient -n &quot;$@&quot;
+fi</code></pre>
 <p>This script opens an emacsclient in the terminal and connects it to a running server. The <code>-t</code> flag opens it in the terminal.</p>
 <p>/usr/local/bin/et</p>
-<div class="highlight"><pre><span class="c">#!/bin/zsh</span>
+<pre><code>#!/bin/zsh
 
-<span class="c"># Makes sure emacs daemon is running and opens the file in Emacs in</span>
-<span class="c"># the terminal.</span>
+# Makes sure emacs daemon is running and opens the file in Emacs in
+# the terminal.
 
-<span class="c"># If you want to execute elisp, use -e whatever, like so</span>
+# If you want to execute elisp, use -e whatever, like so
 
-<span class="c"># et -e &quot;(message \&quot;Word up\&quot;)&quot;</span>
+# et -e &quot;(message \&quot;Word up\&quot;)&quot;
 
-<span class="c"># You may want to redirect that to /dev/null if you don&#39;t want the</span>
-<span class="c"># return to printed on the terminal.  Also, just echoing a message</span>
-<span class="c"># may not be visible if Emacs then gives you a message about what</span>
-<span class="c"># to do when do with the frame</span>
+# You may want to redirect that to /dev/null if you don&#39;t want the
+# return to printed on the terminal.  Also, just echoing a message
+# may not be visible if Emacs then gives you a message about what
+# to do when do with the frame
 
-<span class="c"># The compliment to this script is ec</span>
+# The compliment to this script is ec
 
-<span class="c"># Emacsclient option reference</span>
-<span class="c"># -a &quot;&quot; starts emacs daemon and reattaches</span>
-<span class="c"># -t starts in terminal, since I won&#39;t be using the gui</span>
-<span class="c"># can also pass in -n if you want to have the shell return right away</span>
+# Emacsclient option reference
+# -a &quot;&quot; starts emacs daemon and reattaches
+# -t starts in terminal, since I won&#39;t be using the gui
+# can also pass in -n if you want to have the shell return right away
 
-<span class="nb">exec </span>emacsclient -a <span class="s2">&quot;&quot;</span> -t <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
-</pre></div>
-
-
+exec emacsclient -a &quot;&quot; -t &quot;$@&quot;</code></pre>
 <p>This following scripts stops the emacs server.</p>
 <p>/usr/local/bin/es</p>
-<div class="highlight"><pre><span class="c">#!/bin/zsh</span>
+<pre><code>#!/bin/zsh
 
-<span class="c"># simple script to shutdown the running Emacs daemon</span>
+# simple script to shutdown the running Emacs daemon
 
-<span class="c"># emacsclient options for reference</span>
-<span class="c"># -a Alternate editor, runs bin/false in this case</span>
-<span class="c"># -e eval the script</span>
+# emacsclient options for reference
+# -a Alternate editor, runs bin/false in this case
+# -e eval the script
 
-<span class="c"># If the server-process is bound and the server is in a good state, then kill</span>
-<span class="c"># the server</span>
+# If the server-process is bound and the server is in a good state, then kill
+# the server
 
-server_ok<span class="o">()</span> <span class="o">{</span>
-  emacsclient -a <span class="s2">&quot;false&quot;</span> -e <span class="s2">&quot;(boundp &#39;server-process)&quot;</span>
-<span class="o">}</span>
+server_ok() {
+  emacsclient -a &quot;false&quot; -e &quot;(boundp &#39;server-process)&quot;
+}
 
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;t&quot;</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="k">$(</span>server_ok<span class="k">)</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-  <span class="nb">echo</span> <span class="s2">&quot;Shutting down Emacs server&quot;</span>
-  <span class="c"># wasn&#39;t removing emacs from ALT-TAB on mac</span>
-  <span class="c"># emacsclient -e &quot;(server-force-delete)&quot;</span>
-  emacsclient -e <span class="s1">&#39;(spacemacs/kill-emacs)&#39;</span>
-<span class="k">else</span>
-  <span class="nb">echo</span> <span class="s2">&quot;Emacs server not running&quot;</span>
-<span class="k">fi</span>
-</pre></div>
+if [ &quot;t&quot; == &quot;$(server_ok)&quot; ]; then
+  echo &quot;Shutting down Emacs server&quot;
+  # wasn&#39;t removing emacs from ALT-TAB on mac
+  # emacsclient -e &quot;(server-force-delete)&quot;
+  emacsclient -e &#39;(spacemacs/kill-emacs)&#39;
+else
+  echo &quot;Emacs server not running&quot;
+fi</code></pre>
+<div class="references">
+
+</div>
+
                     </div>
     <hr />
     <section class="comments" id="comments">

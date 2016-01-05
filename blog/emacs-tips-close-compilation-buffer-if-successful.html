@@ -347,83 +347,24 @@ Published on
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
-                    <p>When I work with markdown, <span class="math">\(\LaTeX\)</span> or code that requires compiling, I like to
-check often if everything looks okay. Emacs has a good description of everything
-you can do with the <a href="http://emacswiki.org/emacs/CompileCommand">CompileCommand</a>.</p>
-<p>However, it does not have a description for auto-closing the buffer if the
-compilation was successful. <a href="http://emacs.stackexchange.com/a/336">StackOverflow</a> to the rescue!</p>
-<div class="highlight"><pre><span class="c1">; from enberg on #emacs</span>
-<span class="p">(</span><span class="k">setq</span> <span class="nv">compilation-finish-function</span>
-<span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nv">buf</span> <span class="nv">str</span><span class="p">)</span>
-    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null</span> <span class="p">(</span><span class="nv">string-match</span> <span class="s">&quot;.*exited abnormally.*&quot;</span> <span class="nv">str</span><span class="p">))</span>
-        <span class="c1">;;no errors, make the compilation window go away in a few seconds</span>
-        <span class="p">(</span><span class="k">progn</span>
-            <span class="p">(</span><span class="nv">run-at-time</span>
-            <span class="s">&quot;1 sec&quot;</span> <span class="no">nil</span> <span class="ss">&#39;delete-windows-on</span>
-            <span class="p">(</span><span class="nv">get-buffer-create</span> <span class="s">&quot;*compilation*&quot;</span><span class="p">))</span>
-        <span class="p">(</span><span class="nv">message</span> <span class="s">&quot;No Compilation Errors!&quot;</span><span class="p">)))))</span>
-</pre></div>
+                    <p>When I work with markdown, <span class="math inline">\(\LaTeX\)</span> or code that requires compiling, I like to check often if everything looks okay. Emacs has a good description of everything you can do with the <a href="http://emacswiki.org/emacs/CompileCommand">CompileCommand</a>.</p>
+<p>However, it does not have a description for auto-closing the buffer if the compilation was successful. <a href="http://emacs.stackexchange.com/a/336">StackOverflow</a> to the rescue!</p>
+<pre><code>#!lisp
+; from enberg on #emacs
+(setq compilation-finish-function
+(lambda (buf str)
+    (if (null (string-match &quot;.*exited abnormally.*&quot; str))
+        ;;no errors, make the compilation window go away in a few seconds
+        (progn
+            (run-at-time
+            &quot;1 sec&quot; nil &#39;delete-windows-on
+            (get-buffer-create &quot;*compilation*&quot;))
+        (message &quot;No Compilation Errors!&quot;)))))</code></pre>
+<p>Insert the above code into your .emacs file. You can change the time you wish the buffer to be available by changing the “1 sec” in the above code</p>
+<div class="references">
 
+</div>
 
-<p>Insert the above code into your .emacs file. You can change the time you wish
-the buffer to be available by changing the "1 sec" in the above code</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
                     </div>
     <hr />
     <section class="comments" id="comments">

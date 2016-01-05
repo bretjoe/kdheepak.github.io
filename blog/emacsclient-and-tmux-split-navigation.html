@@ -347,9 +347,9 @@ Published on
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
-                    <p>I've described some of the scripts that I use regularly when using emacs in the terminal. I also using emacs with tmux, even though it seems like emacs itself could be tweaked to replace tmux. Currently, my tmux+zsh setup has been much more powerful that what emacs alone can provide. zsh did not play well, even with multiterm and I've had mixed results with getting ipython to work well inside emacs.</p>
+                    <p>I’ve described some of the scripts that I use regularly when using emacs in the terminal. I also using emacs with tmux, even though it seems like emacs itself could be tweaked to replace tmux. Currently, my tmux+zsh setup has been much more powerful that what emacs alone can provide. zsh did not play well, even with multiterm and I’ve had mixed results with getting ipython to work well inside emacs.</p>
 <p>I use the following set of lisps my .emacs to get seamless navigation between emacs splits and tmux panes.</p>
-<div class="highlight"><pre>;; Many thanks to the author of and contributors to the following posts:
+<pre><code>;; Many thanks to the author of and contributors to the following posts:
 ;; https://gist.github.com/mislav/5189704
 ;; http://robots.thoughtbot.com/post/53022241323/seamlessly-navigate-vim-and-tmux-splits
 ;;
@@ -374,18 +374,18 @@ nil                       ;; Moving within emacs
 (global-set-key (kbd &quot;C-l&quot;)
    &#39;(lambda () (interactive) (windmove-emacs-or-tmux &quot;right&quot; &quot;tmux select-pane -R&quot;)))
 (global-set-key (kbd &quot;C-h&quot;)
-   &#39;(lambda () (interactive) (windmove-emacs-or-tmux &quot;left&quot;  &quot;tmux select-pane -L&quot;)))
-</pre></div>
-
-
+   &#39;(lambda () (interactive) (windmove-emacs-or-tmux &quot;left&quot;  &quot;tmux select-pane -L&quot;)))</code></pre>
 <p>The following was added to .tmux.conf</p>
-<div class="highlight"><pre>## Smart pane switching with awareness of emacs splits.
+<pre><code>## Smart pane switching with awareness of emacs splits.
 bind -n C-h run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys C-h) || tmux select-pane -L&quot;
 bind -n C-j run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys C-j) || tmux select-pane -D&quot;
 bind -n C-k run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys C-k) || tmux select-pane -U&quot;
 bind -n C-l run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys C-l) || tmux select-pane -R&quot;
-bind -n C-\ run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys &#39;C-\\&#39;) || tmux select-pane -l&quot;
-</pre></div>
+bind -n C-\ run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys &#39;C-\\&#39;) || tmux select-pane -l&quot;</code></pre>
+<div class="references">
+
+</div>
+
                     </div>
     <hr />
     <section class="comments" id="comments">

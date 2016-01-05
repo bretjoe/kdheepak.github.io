@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Use conda env to manage packages" />
 
     <meta name="author" content="Dheepak Krishnamurthy" />
     <meta name="copyright" content="Dheepak Krishnamurthy" />
@@ -213,7 +214,7 @@ jQuery(document).ready(function($) {
 
 
 
-<title>Writing technical papers using markdown - Dheepak Krishnamurthy</title>
+<title>Using conda to manage packages - Dheepak Krishnamurthy</title>
 
     <!-- iPython Notebook script -->
     <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
@@ -301,7 +302,7 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
     <!-- end Mixpanel -->
 
 <script>
-    mixpanel.track("Page", {"Name": "Writing technical papers using markdown", "url": "drafts/writing-technical-papers-using-markdown.html"  }) ;
+    mixpanel.track("Page", {"Name": "Using conda to manage packages", "url": "blog/using-conda-to-manage-packages.html"  }) ;
 </script>
 </head>
 
@@ -329,11 +330,11 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
                     </a>
                     </div>
                     <div class="col-sm-10 col-sm-offset-1">
-                    <h1 class="article-heading">Writing technical papers using markdown</h1>
+                    <h1 class="article-heading">Using conda to manage packages</h1>
                         <h2 class="article-subheading"> </h2>
 <span class="meta last-updated">
 Published on 
-<time pubdate="pubdate" datetime="2015-12-20T00:00:00-07:00">Dec 20, 2015</time>
+<time pubdate="pubdate" datetime="2015-12-25T04:32:51-07:00">Dec 25, 2015</time>
 </span>                    </div>
                 </div>
             </div>
@@ -346,10 +347,53 @@ Published on
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
-                    <div class="highlight"><pre>pip install pandoc-fignos
-pip install pandoc-eqnos
-pip install pandoc-tablenos
-</pre></div>
+                    <h1 id="why-use-conda">Why use conda</h1>
+<p>The following quote is from Conda’s github page <span class="citation" data-cites="_condaconda">[1]</span></p>
+<blockquote>
+<p>Conda is a cross-platform, Python-agnostic binary package manager. It is the package manager used by Anaconda installations, but it may be used for other systems as well. Conda makes environments first-class citizens, making it easy to create independent environments even for C libraries. Conda is written entirely in Python, and is BSD licensed open source.</p>
+</blockquote>
+<p>The main advantage of using conda to manage your packages and environment is that it will work across platforms</p>
+<figure>
+<img src="/images/condacrossplatform.jpg" alt="[2]" /><figcaption><span class="citation" data-cites="_conda">[2]</span></figcaption>
+</figure>
+<p>conda also uses hard linking, so it is inexpensive to create multiple copies of the same package</p>
+<h1 id="how-to">How to</h1>
+<p>One simple way to start is to first specify a <code>environment.yml</code> file</p>
+<pre><code># environment.yml
+name: psst-env
+dependencies:
+- python
+- nose
+- numpy
+- pandas
+- pip:
+    - pyomo</code></pre>
+<p>The name of the environment can be changed. Activate the environment by using the following.</p>
+<pre><code>source activate psst-env </code></pre>
+<p>Then you can create the environment by</p>
+<pre><code>conda env create</code></pre>
+<p>You can update the environment after adding a package to <code>environment.yml</code> by using the following</p>
+<pre><code>conda env update</code></pre>
+<p>Alternatively, you can create a new empty environment by using either one of the following</p>
+<pre><code>conda create -n pelican-env python=2 
+conda create --name pelican-env python=2</code></pre>
+<p>In this case, <code>pelican-env</code> is the name of the environment. You can follow the name of the environment with all the packages you want separated by spaces. You must have atleast one package to create a environment.</p>
+<p>After the environment is created, you can source the environment :</p>
+<pre><code>source activate pelican-env</code></pre>
+<p>You can install packages here using one of the following :</p>
+<pre><code>conda install &lt;PACKAGE-NAME&gt;</code></pre>
+<p>When you have set up the environment and would like to share it, you can run the following to generate a .yml file</p>
+<pre><code>conda env export</code></pre>
+<p>I like to update by <code>environment.yml</code> by running the following</p>
+<pre><code>conda env export &gt; environment.yml</code></pre>
+<h1 id="references" class="references unnumbered">References</h1>
+<div id="ref-_condaconda">
+<p>[1] “Conda/conda. GitHub.” [Online]. Available: <a href="https://github.com/conda/conda" class="uri">https://github.com/conda/conda</a>.</p>
+</div>
+<div id="ref-_conda">
+<p>[2] “Conda: A Cross-Platform Package Manager for Any Binary Distribution.” [Online]. Available: <a href="http://www.slideshare.net/AaronMeurer/conda-a-binary-scipy2014" class="uri">http://www.slideshare.net/AaronMeurer/conda-a-binary-scipy2014</a>.</p>
+</div>
+
                     </div>
     <hr />
     <section class="comments" id="comments">
@@ -358,7 +402,7 @@ pip install pandoc-tablenos
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'kdheepak89'; // required: replace example with your forum shortname
-            var disqus_identifier = 'writing-technical-papers-using-markdown';
+            var disqus_identifier = 'using-conda-to-manage-packages';
             /* * * DON'T EDIT BELOW THIS LINE * * */
             (function () {
                 var dsq = document.createElement('script');

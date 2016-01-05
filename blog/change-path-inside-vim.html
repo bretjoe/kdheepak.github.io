@@ -348,16 +348,16 @@ Published on
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
                     <p>Save the following script in <code>/usr/local/bin/cpvim</code></p>
-<div class="highlight"><pre><span class="c">#!/bin/zsh</span>
-<span class="nb">source</span> ~/.zshrc &gt;/dev/null 2&gt;<span class="p">&amp;</span>1
-<span class="nv">PATH</span><span class="o">=</span><span class="nv">$VIM_PATH</span> 
-<span class="nb">exec </span>nvim <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
-</pre></div>
-
-
+<pre><code>#!/bin/zsh
+source ~/.zshrc &gt;/dev/null 2&gt;&amp;1
+PATH=$VIM_PATH 
+exec nvim &quot;$@&quot;</code></pre>
 <p>Add the following to your .zshrc</p>
-<div class="highlight"><pre>alias vim=/usr/local/bin/cpvim
-</pre></div>
+<pre><code>alias vim=/usr/local/bin/cpvim</code></pre>
+<div class="references">
+
+</div>
+
                     </div>
     <hr />
     <section class="comments" id="comments">

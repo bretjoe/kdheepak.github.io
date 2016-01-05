@@ -347,49 +347,47 @@ Updated on
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
-                    <p>Update : I've removed line numbers because it is selected along with the code if someone wants to copy. I'll post here if I find a better solution.</p>
-<p>I've found that line numbering with word wrap could only be achieved in Pelican by a
-certain set of steps. I've listed the CSS and the Plugin I've used to get that
-to work.</p>
+                    <p>Update : I’ve removed line numbers because it is selected along with the code if someone wants to copy. I’ll post here if I find a better solution.</p>
+<p>I’ve found that line numbering with word wrap could only be achieved in Pelican by a certain set of steps. I’ve listed the CSS and the Plugin I’ve used to get that to work.</p>
 <p>Add the following lines in your theme.css</p>
-<div class="highlight"><pre><span class="c">/* For use with the code_line-number_word-wrap_switcher_jquery.js Pelican plugin */</span>
-<span class="nt">code</span> <span class="p">{</span>
-    <span class="k">overflow</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
-    <span class="c">/* This uses `white-space: pre-wrap` to get elements within &lt;pre&gt; tags to wrap. Python, for code chunks within three backticks (```), doesn&#39;t wordwrap code lines by default, because they&#39;re within &lt;pre&gt; tags, which don&#39;t wrap by default. See https://github.com/github/markup/issues/168 , which is specifically about this parsing issue, even though that link&#39;s discussion is talking about GitHub. */</span>
-    <span class="k">white-space</span><span class="o">:</span> <span class="n">pre</span><span class="o">-</span><span class="n">wrap</span><span class="p">;</span>       <span class="c">/* css-3 */</span>
-    <span class="k">white-space</span><span class="o">:</span> <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">pre</span><span class="o">-</span><span class="n">wrap</span><span class="p">;</span>  <span class="c">/* Mozilla, since 1999 */</span>
-    <span class="k">white-space</span><span class="o">:</span> <span class="o">-</span><span class="n">pre</span><span class="o">-</span><span class="n">wrap</span><span class="p">;</span>      <span class="c">/* Opera 4-6 */</span>
-    <span class="k">white-space</span><span class="o">:</span> <span class="o">-</span><span class="n">o</span><span class="o">-</span><span class="n">pre</span><span class="o">-</span><span class="n">wrap</span><span class="p">;</span>    <span class="c">/* Opera 7 */</span>
-    <span class="n">word</span><span class="o">-</span><span class="n">wrap</span><span class="o">:</span> <span class="n">break</span><span class="o">-</span><span class="n">word</span><span class="p">;</span>       <span class="c">/* Internet Explorer 5.5+ */</span>
-<span class="p">}</span>
+<pre><code>/* For use with the code_line-number_word-wrap_switcher_jquery.js Pelican plugin */
+code {
+    overflow: auto;
+    /* This uses `white-space: pre-wrap` to get elements within &lt;pre&gt; tags to wrap. Python, for code chunks within three backticks (```), doesn&#39;t wordwrap code lines by default, because they&#39;re within &lt;pre&gt; tags, which don&#39;t wrap by default. See https://github.com/github/markup/issues/168 , which is specifically about this parsing issue, even though that link&#39;s discussion is talking about GitHub. */
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
 
-<span class="c">/* Following http://bililite.com/blog/2012/08/05/line-numbering-in-pre-elements/, use CSS to add line numbers to all spans that have the class &#39;code-line&#39; */</span>
+/* Following http://bililite.com/blog/2012/08/05/line-numbering-in-pre-elements/, use CSS to add line numbers to all spans that have the class &#39;code-line&#39; */
 
-<span class="nc">.highlight</span> <span class="nt">pre</span> <span class="p">{</span>
-    <span class="k">counter-reset</span><span class="o">:</span> <span class="n">linecounter</span><span class="p">;</span>
-    <span class="k">padding-left</span><span class="o">:</span> <span class="m">2em</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nc">.highlight</span> <span class="nt">pre</span> <span class="nt">span</span><span class="nc">.code-line</span> <span class="p">{</span>
-    <span class="k">counter-increment</span><span class="o">:</span> <span class="n">linecounter</span><span class="p">;</span>
-    <span class="k">padding-left</span><span class="o">:</span> <span class="m">1em</span><span class="p">;</span>
-    <span class="k">text-indent</span><span class="o">:</span> <span class="m">-1em</span><span class="p">;</span>
-    <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nc">.highlight</span> <span class="nt">pre</span> <span class="nt">span</span><span class="nc">.code-line</span><span class="nd">:before</span> <span class="p">{</span>
-    <span class="k">content</span><span class="o">:</span> <span class="n">counter</span><span class="p">(</span><span class="n">linecounter</span><span class="p">);</span>
-    <span class="k">padding-right</span><span class="o">:</span> <span class="m">1em</span><span class="p">;</span>
-    <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
-    <span class="k">color</span><span class="o">:</span> <span class="n">grey</span><span class="p">;</span>
-    <span class="k">text-align</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-
-
+.highlight pre {
+    counter-reset: linecounter;
+    padding-left: 2em;
+}
+.highlight pre span.code-line {
+    counter-increment: linecounter;
+    padding-left: 1em;
+    text-indent: -1em;
+    display: inline-block;
+}
+.highlight pre span.code-line:before {
+    content: counter(linecounter);
+    padding-right: 1em;
+    display: inline-block;
+    color: grey;
+    text-align: right;
+}</code></pre>
 <p>Then, we turn off the default linenums in codehilite. Also add the following pelican-plugin.</p>
-<div class="highlight"><pre>MD_EXTENSIONS = [&#39;fenced_code&#39;, &#39;codehilite(css_class=highlight, linenums=False)&#39;, ]
+<pre><code>MD_EXTENSIONS = [&#39;fenced_code&#39;, &#39;codehilite(css_class=highlight, linenums=False)&#39;, ]
 
-PLUGINS = [&#39;better_codeblock_line_numbering&#39;]
-</pre></div>
+PLUGINS = [&#39;better_codeblock_line_numbering&#39;]</code></pre>
+<div class="references">
+
+</div>
+
                     </div>
     <hr />
     <section class="comments" id="comments">

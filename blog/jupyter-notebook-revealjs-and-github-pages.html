@@ -347,29 +347,23 @@ Published on
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
-                    <p>Jupyter Notebook has the ability to convert an notebook <code>ipynb</code> to markdown, rst, html and interestingly slides.
-And these Reveal.js powered slides can be hosted on GitHub pages, like any other html page.
-The following steps works well for me to generate a static set of slides from a notebook that can be used as a presentation</p>
+                    <p>Jupyter Notebook has the ability to convert an notebook <code>ipynb</code> to markdown, rst, html and interestingly slides. And these Reveal.js powered slides can be hosted on GitHub pages, like any other html page. The following steps works well for me to generate a static set of slides from a notebook that can be used as a presentation</p>
 <ul>
 <li>Save the ipython notebook as index.ipynb.</li>
-<li>Fork reveal.js to your GitHub account. </li>
+<li>Fork reveal.js to your GitHub account.</li>
 <li>Push the <code>master</code> branch into the <code>gh-pages</code> branch. This is necessary because we want to use a single reveal.js repository to link to from the GitHub pages slideshow. Alternatively, you can clone reveal.js into your repository where the slideshow / presentation exists.</li>
-<li>Use the following script to convert the notebook to <code>index.slides.html</code></li>
-</ul>
-<div class="highlight"><pre>ipython nbconvert index.ipynb --to slides --reveal-prefix ../reveal.js
-</pre></div>
-
-
+<li><p>Use the following script to convert the notebook to <code>index.slides.html</code></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ipython</span> nbconvert index.ipynb --to slides --reveal-prefix ../reveal.js</code></pre></div>
 <p>If you did not Fork reveal.js and force update master to origin/gh-pages, and instead cloned <code>reveal.js</code> to this folder, you can add it as a submodule and use the following instead</p>
-<div class="highlight"><pre>ipython nbconvert index.ipynb --to slides --reveal-prefix reveal.js
-</pre></div>
-
-
-<ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ipython</span> nbconvert index.ipynb --to slides --reveal-prefix reveal.js</code></pre></div></li>
 <li>Rename <code>index.slides.html</code> to <code>index.html</code></li>
-<li>Push your changes to a repository </li>
+<li><p>Push your changes to a repository</p></li>
 </ul>
 <p>You can find an example <a href="http://kdheepak.com/jupyter-notebook">here</a> and the original notebook <a href="https://github.com/kdheepak89/jupyter-notebook">here</a>.</p>
+<div class="references">
+
+</div>
+
                     </div>
     <hr />
     <section class="comments" id="comments">
