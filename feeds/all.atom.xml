@@ -6,7 +6,7 @@
 &lt;/blockquote&gt;
 &lt;p&gt;The main advantage of using conda to manage your packages and environment is that it will work across platforms&lt;/p&gt;
 &lt;figure&gt;
-&lt;img src="/images/condacrossplatform.jpg" alt="[2]" /&gt;&lt;figcaption&gt;&lt;span class="citation" data-cites="_conda"&gt;[2]&lt;/span&gt;&lt;/figcaption&gt;
+&lt;img src="/images/condacrossplatform.jpg" alt="Slide deck [2] comparing package managers in different platforms" /&gt;&lt;figcaption&gt;Slide deck &lt;span class="citation" data-cites="_conda"&gt;[2]&lt;/span&gt; comparing package managers in different platforms&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;conda also uses hard linking, so it is inexpensive to create multiple copies of the same package&lt;/p&gt;
 &lt;h1 id="how-to"&gt;How to&lt;/h1&gt;
