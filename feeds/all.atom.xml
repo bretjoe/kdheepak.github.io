@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/all.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-12-25T04:32:51-07:00</updated><entry><title>Using conda to manage packages</title><link href="http://kdheepak.com/blog/using-conda-to-manage-packages.html" rel="alternate"></link><updated>2015-12-25T04:32:51-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-12-25:blog/using-conda-to-manage-packages.html</id><summary type="html">&lt;h1 id="why-use-conda"&gt;Why use conda&lt;/h1&gt;
-&lt;p&gt;The following quote is from Conda’s github page &lt;span class="citation" data-cites="_condaconda"&gt;[1]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The following quote is from Conda’s github page &lt;span class="citation" data-cites="_condaconda"&gt;[&lt;a href="#ref-_condaconda"&gt;1&lt;/a&gt;]&lt;/span&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Conda is a cross-platform, Python-agnostic binary package manager. It is the package manager used by Anaconda installations, but it may be used for other systems as well. Conda makes environments first-class citizens, making it easy to create independent environments even for C libraries. Conda is written entirely in Python, and is BSD licensed open source.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;The main advantage of using conda to manage your packages and environment is that it will work across platforms&lt;/p&gt;
 &lt;figure&gt;
-&lt;img src="/images/condacrossplatform.jpg" alt="Slide deck [2] comparing package managers in different platforms" /&gt;&lt;figcaption&gt;Slide deck &lt;span class="citation" data-cites="_conda"&gt;[2]&lt;/span&gt; comparing package managers in different platforms&lt;/figcaption&gt;
+&lt;img src="/images/condacrossplatform.jpg" alt="Slide deck [2] comparing package managers in different platforms" /&gt;&lt;figcaption&gt;Slide deck &lt;span class="citation" data-cites="_conda"&gt;[&lt;a href="#ref-_conda"&gt;2&lt;/a&gt;]&lt;/span&gt; comparing package managers in different platforms&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;conda also uses hard linking, so it is inexpensive to create multiple copies of the same package&lt;/p&gt;
 &lt;h1 id="how-to"&gt;How to&lt;/h1&gt;
