@@ -347,12 +347,41 @@ Published on
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
-                    <p>Recently, I’ve had several people ask me about the Markdown workflow I use to write papers. There’s an excellent write up about this at <span class="citation" data-cites="_plain">[<a href="#ref-_plain">1</a>]</span>.</p>
+                    <p>Recently, I’ve had several people ask me about the Markdown workflow I use to write papers. There’s an excellent write up about this Kieren Healy’s blog <span class="citation" data-cites="healy_plain">[<a href="#ref-healy_plain">1</a>]</span> where he also provides all his resources.</p>
 <h1 id="why-markdown">Why Markdown</h1>
-<p>Academic writing involves writing down ideas as they come along (notetaking), experimenting with these ideas (data analysis), and finally presenting these ideas (scientific paper). There’s a lot to manage over the length of time spanning this entire process.</p>
+<p>Academic writing involves writing down ideas as they come along (notetaking), experimenting with these ideas (data analysis), and finally presenting these ideas (scientific paper). There’s a lot to manage over the length of time spanning this entire process. Academics require a set of tools that aid in making this process seamless and as little in the way as possible. Currently, there are two options for academics seeking to write technical papers - Microsoft Word or <span class="math inline">\(\LaTeX\)</span>.</p>
 <h2 id="a-word-about-word">A word about Word</h2>
+<p>Microsoft Word is ubiquitous when it comes to writing reports. The great thing about Word is that there is almost no barrier to <em>begin</em> writing. You can incrementally build your skill set in Word. This is great since it makes it immediately accessible, thereby decreasing the time spent on what tool were involved for writing and allowing you to concentrate on the writing itself.</p>
+<p>However, I’ve found a few fundamental problems with Word.</p>
+<p>Having a WYSIWYG (What You See Is What You Get) editor is great, even Richard Stallman seems to think so <span class="citation" data-cites="stallman_emacs">[<a href="#ref-stallman_emacs">2</a>]</span>. However, products like Word fail miserably at separating content from formatting. These products impose on the writer their own concept of how a document should be formatted, which I’ve often found hinders the writing process. The sudden jump in spacing, the mismatched formatting after a paste function, the battle between indent and bullet points are all typesetting processes that distract from the task at hand.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> Formatting should be applied <strong>after</strong> the text is completed.</p>
+<p>Microsoft’s ecosystem comes at a price, literally. Word is proprietary, and Word’s format is a proprietary data format. When you use Word, you make the implicit assumption that everyone you work with has the same software on their computer. Word does not play well with its counterparts on OSX. As far as I know there isn’t even a version on Linux. Heck, Microsoft Word does not even play well with previous versions of Microsoft Word. I understand that backward incompatible software changes were probably inevitable, but as an user this adds one more thing to what I have to be concerned about. I don’t want to think about what software my reviewers are using when I’m sending them a document. Moreover, by storing your work in this proprietary software’s proprietary format, you are essentially tying yourself down to their licensed software in the future. And don’t even get me started on viruses, some of which as of this writing do not have patches <span class="citation" data-cites="beaumont_bypass_2015">[<a href="#ref-beaumont_bypass_2015">3</a>]</span>. People have already talked about this at length <span class="citation" data-cites="steingold_proprietary">[<a href="#ref-steingold_proprietary">4</a>]</span>, and have probably done more justice to this topic that I possibly could.</p>
+<p>I hear what you are saying, you have already invested in Microsoft Word and have prescient knowledge around the mysterious formatting randomness. You use a Windows machine, and everyone around you uses one as well. You don’t really care if the software you use is proprietary, as long as you can get the job done and you are pretty careful about what links you click. I still think there is a case to be made about why you may not consider Word for your next paper.</p>
+<ul>
+<li>Word is slow, and consumes sometimes up to a gig of virtual memory. For what is basically a word processor, that is unnecessary.</li>
+<li>There is no good way to permanently save comments or notes in Word, that persist in the final version without affecting the final document.</li>
+<li>Collaborating with other people when using Word requires foresight and planning.</li>
+<li>The equation editor painful to use.</li>
+<li>Technical papers or reports that involve data analysis contain figures that are generated or tables that are populated using scripts.</li>
+</ul>
+<h2 id="latex---lah-tekh-lah-tek-or-lay-tek"><span class="math inline">\(\LaTeX\)</span> - lah-tekh, lah-tek or lay-tek</h2>
+<p><span class="math inline">\(\LaTeX\)</span> is a typesetting system that uses the TeX program and is frequently used in scientific, technical and mathematical papers. It is infamous for displaying equations in a manner that looks great.</p>
+<p><span class="math display">\[
+\begin{align}
+&amp; \hskip5em &amp; ∇ × \mathcal H &amp; = \frac{\partial{\mathcal D}}{\partial{t}} &amp; \hskip5em \\
+&amp; &amp; -∇ × \mathcal E &amp; = \frac{\partial{\mathcal B}}{\partial{t}} &amp; \\
+&amp; &amp; ∇ · \mathcal B &amp; =0 &amp; &amp; \\
+&amp; &amp; ∇ · \mathcal D &amp; =0 &amp; &amp;
+\end{align}
+\]</span></p>
+<p>Math is beautiful and deserves to be presented beautifully.</p>
+<p><span class="math inline">\(\LaTeX\)</span> solves all the gripes I had with Word. I can work with any editor I want - Vim, Emacs, TeXShop, Lyx. <span class="math inline">\(\LaTeX\)</span> has an great community who are helpful to beginners. There are hundreds of packages that improve upon the functionality that <span class="math inline">\(\LaTeX\)</span> provides. Packages like TikZ allow you to create high resolution detailed flowcharts. And equations look great. And since the source document that contains the content is a text file, I can use <code>git</code> to version control my paper. This allows me to track changes and collaborate with others without any additional effort. But most importantly, I have the confidence that my code and documents can survive possibly for ever.</p>
+<p>However, <span class="math inline">\(\LaTeX\)</span> does come with a penalty. There is a barrier to entry which one must overcome in order to begin using <span class="math inline">\(\LaTeX\)</span>.</p>
+<h2 id="markdown">Markdown</h2>
+<figure>
+<img src="/images/learningcurve.png" alt="My very scientific learning curve plot" /><figcaption>My very scientific learning curve plot</figcaption>
+</figure>
 <h1 id="tools-required">Tools required</h1>
-<p>First off, you will need pandoc. You can get the latest version on their GitHub page <span class="citation" data-cites="_jgmpandoc">[<a href="#ref-_jgmpandoc">2</a>]</span>. You will also need <span class="math inline">\(\LaTeX\)</span>.</p>
+<p>First off, you will need pandoc. You can get the latest version on their GitHub page <span class="citation" data-cites="_github">[<a href="#ref-_github">6</a>]</span>. You will also need <span class="math inline">\(\LaTeX\)</span>.</p>
 <p>The following python packages are useful.</p>
 <ul>
 <li>pandoc-attributes</li>
@@ -361,22 +390,40 @@ Published on
 <li>pandoc-tablenos</li>
 <li>pandocfilters</li>
 </ul>
-<p>You can run <code>pip install &lt;package-name&gt;</code>. Alternatively you can create a virtual environment using <code>conda</code> with a suitable environment file <span class="citation" data-cites="_kdheepak89pandocpaper">[<a href="#ref-_kdheepak89pandocpaper">3</a>]</span>, which is the approach I recommend <span class="citation" data-cites="_using">[<a href="#ref-_using">4</a>]</span>.</p>
+<p>You can run <code>pip install &lt;package-name&gt;</code>. Alternatively you can create a virtual environment using <code>conda</code> with a suitable environment file <span class="citation" data-cites="krishnamurthy_github">[<a href="#ref-krishnamurthy_github">7</a>]</span>, which is the approach I recommend <span class="citation" data-cites="krishnamurthy_using">[<a href="#ref-krishnamurthy_using">8</a>]</span>.</p>
 <h1 id="references" class="unnumbered">References</h1>
 <div id="refs" class="references">
-<div id="ref-_plain">
-<p>[1] “Plain Text, Papers, Pandoc.” [Online]. Available: <a href="http://kieranhealy.org/blog/archives/2014/01/23/plain-text/" class="uri">http://kieranhealy.org/blog/archives/2014/01/23/plain-text/</a>.</p>
+<div id="ref-healy_plain">
+<p>[1] K. Healy, “Plain Text, Papers, Pandoc.” [Online]. Available: <a href="http://kieranhealy.org/blog/archives/2014/01/23/plain-text/" class="uri">http://kieranhealy.org/blog/archives/2014/01/23/plain-text/</a>.</p>
 </div>
-<div id="ref-_jgmpandoc">
-<p>[2] “Jgm/pandoc. GitHub.” [Online]. Available: <a href="https://github.com/jgm/pandoc/releases" class="uri">https://github.com/jgm/pandoc/releases</a>.</p>
+<div id="ref-stallman_emacs">
+<p>[2] R. Stallman, “Emacs as word processor.” [Online]. Available: <a href="http://lists.gnu.org/archive/html/emacs-devel/2013-11/msg00515.html" class="uri">http://lists.gnu.org/archive/html/emacs-devel/2013-11/msg00515.html</a>.</p>
 </div>
-<div id="ref-_kdheepak89pandocpaper">
-<p>[3] “kdheepak89/pandoc-paper. GitHub.” [Online]. Available: <a href="https://github.com/kdheepak89/pandoc-paper" class="uri">https://github.com/kdheepak89/pandoc-paper</a>.</p>
+<div id="ref-beaumont_bypass_2015">
+<p>[3] K. Beaumont, “Bypass almost every Corporate security control with a point’n’click GUI. Medium,” 23-Dec-2015. [Online]. Available: <a href="https://medium.com/@networksecurity/oleoutlook-bypass-almost-every-corporate-security-control-with-a-point-n-click-gui-37f4cbc107d0" class="uri">https://medium.com/@networksecurity/oleoutlook-bypass-almost-every-corporate-security-control-with-a-point-n-click-gui-37f4cbc107d0</a>.</p>
 </div>
-<div id="ref-_using">
-<p>[4] “Using conda to manage packages - Dheepak Krishnamurthy.” [Online]. Available: <a href="http://kdheepak.com/blog/using-conda-to-manage-packages.html" class="uri">http://kdheepak.com/blog/using-conda-to-manage-packages.html</a>.</p>
+<div id="ref-steingold_proprietary">
+<p>[4] S. Steingold, “Proprietary Binary Data Formats: Just Say No!” [Online]. Available: <a href="http://www.podval.org/~sds/data.html" class="uri">http://www.podval.org/~sds/data.html</a>.</p>
+</div>
+<div id="ref-cottrell_word">
+<p>[5] A. Cottrell, “Word Processors: Stupid and Inefficient.” [Online]. Available: <a href="http://ricardo.ecn.wfu.edu/~cottrell/wp.html" class="uri">http://ricardo.ecn.wfu.edu/~cottrell/wp.html</a>.</p>
+</div>
+<div id="ref-_github">
+<p>[6] “Github repository to Pandoc.” [Online]. Available: <a href="https://github.com/jgm/pandoc/releases" class="uri">https://github.com/jgm/pandoc/releases</a>.</p>
+</div>
+<div id="ref-krishnamurthy_github">
+<p>[7] D. Krishnamurthy, “Github repository to Pandoc Paper Template. GitHub.” [Online]. Available: <a href="https://github.com/kdheepak89/pandoc-paper" class="uri">https://github.com/kdheepak89/pandoc-paper</a>.</p>
+</div>
+<div id="ref-krishnamurthy_using">
+<p>[8] D. Krishnamurthy, “Using conda to manage packages.” [Online]. Available: <a href="http://kdheepak.com/blog/using-conda-to-manage-packages.html" class="uri">http://kdheepak.com/blog/using-conda-to-manage-packages.html</a>.</p>
 </div>
 </div>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>I understand that there are <em>correct</em> ways to go about this, but I don’t want to be thinking about that while I’m writing.<a href="#fnref1">↩</a></p></li>
+</ol>
+</section>
 
                     </div>
     <hr />
