@@ -155,9 +155,10 @@ Right &amp;amp; Left &amp;amp; Center &amp;amp; Default\tabularnewline
 &lt;figure&gt;
 &lt;img src="../images/table.png" alt="Tabular LaTeX example [6]" /&gt;&lt;figcaption&gt;Tabular LaTeX example &lt;span class="citation" data-cites="_wikibooks"&gt;[&lt;a href="#ref-_wikibooks"&gt;6&lt;/a&gt;]&lt;/span&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt;Markdown by itself may not be as powerful as &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;. But its easy to write easy to read syntax, open standard format and a strong backing from the community make it a ideal candidate for writing. You can write in Markdown once, and have documents generated in a multitude of formats later - PDF, DOCX, slides, HTML etc. Let us look at how to convert a Markdown file to other formats.&lt;/p&gt;
+&lt;p&gt;Markdown by itself may not be as powerful as &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;. But its easy to write easy to read syntax, open standard format and a strong backing from the community make it a ideal candidate for writing. It has the advantages of Word (ease of use) and &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; (excellent typesetting). Also there is the added advantage of only having to write in Markdown once, and have documents generated in a multitude of formats later - PDF, DOCX, slides, HTML etc. Hopefully, I’ve convinced you that Markdown is suitable for academic writing.&lt;/p&gt;
+&lt;p&gt;Let us look at how to convert a Markdown file to other formats.&lt;/p&gt;
 &lt;h1 id="pandoc---a-swiss-army-knife"&gt;Pandoc - A “swiss army knife”&lt;/h1&gt;
-&lt;p&gt;Pandoc is a software tool written in Haskell that can convert a document from just about any format to just about any other format, and works really well.&lt;/p&gt;
+&lt;p&gt;Pandoc is a software tool written in Haskell that can convert a document from just about any format to just about any other format. And works really well.&lt;/p&gt;
 &lt;p&gt;Input formats :&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;native (native Haskell)&lt;/li&gt;
