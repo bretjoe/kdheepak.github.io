@@ -347,11 +347,13 @@ Published on
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
-                    <!-- BEGIN ABSTRACTCOMMENT -->
+                    <!-- BEGIN SLIDESNOHEADER -->
+<!-- END SLIDES -->
+<!-- BEGIN ABSTRACTCOMMENT -->
 <p>I’ve had several people ask me about Markdown for academic writing recently. I figured I’d use this post to write about my workflow and my resources on this topic.</p>
 <!-- END ABSTRACTCOMMENT -->
 <h1 id="why-markdown">Why Markdown</h1>
-<!-- BEGIN SLIDES -->
+<!-- BEGIN SLIDESNOHEADER -->
 <p>Academic writing involves :</p>
 <ul>
 <li>writing down ideas as they come along and documenting results (notetaking),</li>
@@ -360,27 +362,29 @@ Published on
 </ul>
 <!-- END SLIDES -->
 <p>There’s a lot to manage over the length of time this entire process spans. Academics require a set of tools that aid in making this process, i.e. the effective communication of ideas, as seamless as possible. There are currently two popular options for academics seeking to write technical papers - Microsoft Word or <span class="math inline">\(\LaTeX\)</span>.</p>
-<!-- BEGIN SLIDES -->
 <h2 id="a-word-about-word">A word about Word</h2>
-<!-- END SLIDES -->
 <p>Microsoft Word is ubiquitous when it comes to writing reports. The great thing about Word is that there is almost no barrier to <em>begin</em> writing. You can incrementally build your skill in using this tool as and when you are using it. This is useful since it makes it immediately accessible, thereby decreasing the time and effort spent on learning how to use a software for writing and allowing you to concentrate on the writing itself.</p>
 <p>However, I’ve found a few fundamental problems with Microsoft Word. Having a WYSIWYG (What You See Is What You Get) editor is great (even Richard Stallman seems to think so <span class="citation" data-cites="stallman_emacs">[<a href="#ref-stallman_emacs">1</a>]</span>). However, products like Word fail miserably at separating content from formatting. These products impose on the writer their own concept of how a document should be formatted, which I’ve found greatly hinders the writing process. Have you ever experienced a sudden jump in spacing? Or mismatched formatting after a copy and paste from one part of the document to another? Or have indents and bullet points misbehave haphazardly? Word applies these formatting changes seemingly at random! These are all typesetting and formatting processes and these should be applied <strong><em>after</em></strong> the text is completed. These processes should not distract from the task at hand<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> - writing!</p>
 <p>There are other issues as well. Microsoft’s ecosystem comes at a price, literally. Word is proprietary, and Word’s format is a proprietary data format. When you use Word, by storing your work in this proprietary software’s proprietary data format, you tie yourself down to this particular licensed software for the forseeable future. You also make the implicit assumption that everyone you work with has the same software on their computer. Word also does not play well with its counterparts on OSX. With the same content, the document is presented differently depending on which machine you open it on. As far as I know there isn’t even a version for Linux machines. Heck, Microsoft Word does not even play well with previous versions of Microsoft Word. I understand why this issue occurs, considering the complexity in operating systems and software. Backward incompatible software or cross incompatibility are probably inevitable, but as an user, I shouldn’t have to be concerned about this. I shouldn’t have to think about what software or what version of a software my reviewers are using when I’m sending them a document. And speaking of sharing documents, did you know you can end up transferring malware through a Word document? Just think about that for a second. Opening what should be essentially a text file is a security risk for your machine. And some of these viruses (as of the time of this writing) do not even have patches yet <span class="citation" data-cites="beaumont_bypass_2015">[<a href="#ref-beaumont_bypass_2015">2</a>]</span>. Loads of people have already talked about this and similar issues at some length <span class="citation" data-cites="steingold_proprietary cottrell_word">[<a href="#ref-steingold_proprietary">3</a>], [<a href="#ref-cottrell_word">4</a>]</span>, and have probably done more justice to this topic that I possibly could. With all these issues, it is hard to believe Word is so widely accepted as a standard.</p>
 <p>I think there is a strong case to be made about why you should consider dropping Word for your next paper. In addition to what has been discussed above :</p>
+<!-- BEGIN SLIDES -->
 <ul>
 <li>it is slow, and consumes sometimes up to a gig of virtual memory. For what is basically a word processor, that is unnecessary.</li>
 <li>there is no clean way to permanently save comments or notes, that persist in the final version without affecting how final document looks.</li>
 <li>collaborating with other people requires foresight and planning.</li>
-<li>the equation editor painful to use. <!-- BEGIN SLIDES --></li>
+<li>the equation editor painful to use.</li>
 <li>Word does not work in the workflow for <strong>scientific research papers or reports</strong>.</li>
 </ul>
 <!-- END SLIDES -->
-<p>Let us assume that scientific research papers consists of only 3 steps (if only!) - notetaking, analysis and presentation. Word fails at delivering at all these tasks. Word doesn’t quite work for notetaking. Org mode, Evernote or Onenote are most people’s preferred solution. Word doesn’t fit data analysis requirements as well, with Python, R or Excel being the go-to tools. I personally use Emacs / Vim for notetaking and store them in a git repository and all of my data analysis is done in Jupyter Notebooks. After collecting the required data from an experiment and post-processing it, I can save plots into an image or the data into a table in a particular format programmatically using scripts. Word however, does not allow me to import these images or tables programmatically. If I did somehow manage to contort my workflow and store my data and information in this software, I have absolutely no way of retrieving it. The final presentation/report/paper, information and data will exist confined in this closed source proprietary software. Word just does not fit into an analysis or research workflow. <!-- BEGIN SLIDES --> To quote Raymond Hettinger :</p>
+<p>Let us assume that scientific research papers consists of only 3 steps (if only!) - notetaking, analysis and presentation. Word fails at delivering at all these tasks. Word doesn’t quite work for notetaking. Org mode, Evernote or Onenote are most people’s preferred solution. Word doesn’t fit data analysis requirements as well, with Python, R or Excel being the go-to tools. I personally use Emacs / Vim for notetaking and store them in a git repository and all of my data analysis is done in Jupyter Notebooks. After collecting the required data from an experiment and post-processing it, I can save plots into an image or the data into a table in a particular format programmatically using scripts. Word however, does not allow me to import these images or tables programmatically. If I did somehow manage to contort my workflow and store my data and information in this software, I have absolutely no way of retrieving it. The final presentation/report/paper, information and data will exist confined in this closed source proprietary software. Word just does not fit into an analysis or research workflow. To quote Raymond Hettinger :</p>
+<!-- BEGIN SLIDES -->
 <figure>
-<img src="../images/raymondhettinger.jpg" />
+<img src="../images/raymondhettinger.jpg" alt="Raymond Hettinger" /><figcaption>Raymond Hettinger</figcaption>
 </figure>
+<!-- END SLIDES -->
 <h2 id="lah-tekh-lah-tek-or-lay-tek"><span class="math inline">\(\LaTeX\)</span> - lah-tekh, lah-tek or lay-tek</h2>
-<p>There is. Enter <span class="math inline">\(\LaTeX\)</span>.</p>
+<!-- BEGIN SLIDES -->
+<p>Enter <span class="math inline">\(\LaTeX\)</span>.</p>
 <blockquote>
 <p><span class="math inline">\(\LaTeX\)</span> is to a book what a set of blueprints is to a building. <span class="citation" data-cites="_stackoverflow">[<a href="#ref-_stackoverflow">5</a>]</span></p>
 </blockquote>
@@ -393,16 +397,21 @@ Published on
   \nabla \cdot \vec{\mathbf{B}} &amp; = 0
 \end{align}
 <!-- BEGIN SLIDES -->
-<p>Essentially, <span class="math inline">\(\LaTeX\)</span> is a markup language. Content is written in plain text and can be annotated with commands that describe how certain elements should be displayed. For example, take a look at the following commands.</p>
+<p>Essentially, <span class="math inline">\(\LaTeX\)</span> is a markup language. Content is written in plain text and can be annotated with commands that describe how certain elements should be displayed.</p>
+<!-- END SLIDES -->
+<!-- BEGIN SLIDES -->
+<p>For example, take a look at the following commands.</p>
 <pre><code>\textbf{bold}
 \textit{italic}</code></pre>
-<p>This markup will format the words passed into these “functions” as <strong>bold</strong> and <em>italic</em> respectively. <!-- END SLIDES --> There are numerous similar functions for different aspects of formatting. This allows you to concentrate on writing, without worrying about the typesetting until later.</p>
+<p>This markup will format the words passed into these “functions” as <strong>bold</strong> and <em>italic</em> respectively.</p>
+<!-- END SLIDES -->
+<p>There are numerous similar functions for different aspects of formatting. This allows you to concentrate on writing, without worrying about the typesetting until later.</p>
 <p>The source document that contains the content is a plain text file. This means you can use <code>git</code> to version control the paper. This allows one to track changes and collaborate with others without any additional effort. This also lets you work with your favourite text editor - Vim, Emacs, Atom. There are even TeX specific ones, such as TeXShop and Lyx.</p>
 <p><span class="math inline">\(\LaTeX\)</span> is free. Free as in beer and free as in freedom. You can have the confidence that your code and documents can survive possibly forever in its current format. The <span class="math inline">\(\LaTeX\)</span> community is great and are very helpful towards beginners. There are hundreds of packages that improve upon the functionality that <span class="math inline">\(\LaTeX\)</span> provides. There are packages like <em>TikZ</em> that let you to create high resolution print quality detailed diagrams, which I’ve seen used even outside a environment.</p>
 <p>However, there is a barrier to entry which one must overcome in order to begin using <span class="math inline">\(\LaTeX\)</span>. Unlike Word, you have to know which commands are used for what markup functionality, not only to know when to use them, but also when not to use them. The biggest problem with <span class="math inline">\(\LaTeX\)</span> is probably the error messages. Most of the time they are near useless, and sometimes they are even borderline cryptic.</p>
 <p>Personally, I found learning how to work with <span class="math inline">\(\LaTeX\)</span> extremely useful. It challenged me to think about the structure of a document, and how I could convey information effectively not just through the final document, but also in the source material<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>. I also didn’t think it was difficult. Solutions to my initial problems were only a quick Google search away. Tables were frustrating at first, but you get the hang of them over time. Equations are a joy to type in <span class="math inline">\(\LaTeX\)</span>. And the final product looks great!</p>
-<!-- BEGIN SLIDES -->
 <p>That said, the markup language is a bit too heavy for notetaking, and not particularly readable. For example, take a look at the syntax for a creating a section, a subsection and list of items with some bold and italic elements.</p>
+<!-- BEGIN SLIDES -->
 <pre><code>\section{Section Name}
 This is text in the section
 \subsection{Sub Section Name}
@@ -418,8 +427,8 @@ The following is a list in this subsection
 \end{enumerate}</code></pre>
 <!-- END SLIDES -->
 <p>With good IDEs for <span class="math inline">\(\LaTeX\)</span> this isn’t as bad as it looks, although they still hinder the writer’s flow. Over time and with experience, one can become proficient in <span class="math inline">\(\LaTeX\)</span>. And once you invest the time to learn <span class="math inline">\(\LaTeX\)</span> I can’t think of any reason why you would go back to Word. But it is likely that beginners will have a hard time getting started. So, if you cannot afford to experiment with <span class="math inline">\(\LaTeX\)</span>, are you resigned to Word? I don’t think so. Markdown to the rescue!</p>
-<!-- BEGIN SLIDES -->
 <h2 id="markdown">Markdown</h2>
+<!-- BEGIN SLIDES -->
 <p>Markdown is a very lightweight easy-to-read easy-to-write plain text markup language. The same example as before looks like this in Markdown.</p>
 <pre><code># Section Name
 
@@ -437,13 +446,16 @@ The following is a list in this subsection
 <!-- END SLIDES -->
 <p>Much better! It’s a lot easier to read and a lot easier to write than <span class="math inline">\(\LaTeX\)</span>. Markdown, developed by John Gruber, was principally written for the web, to avoid the heavy markup of HTML. Tools have been developed to convert Markdown to HTML, PDF and even DOCX.</p>
 <p>The main advantages of Markdown:</p>
+<!-- BEGIN SLIDES -->
 <ul>
 <li>Easy: the syntax is simple</li>
 <li>Fast: the simple formatting saves time and speeds up workflows of writers</li>
 <li>Portable: documents are cross-platform by nature</li>
 <li>Flexible: HTML, PDF, DOCX, TEX are all supported output formats</li>
 </ul>
-<p>Markdown is awesome at a set of things, and a much better alternative than Word or <span class="math inline">\(\LaTeX\)</span> for those specific set of things. Take for example this table <a href="#tbl:table">1</a>. <!-- BEGIN SLIDES --> This is the syntax for the table in Markdown.</p>
+<!-- END SLIDES -->
+<p>Markdown is awesome at a set of things, and a much better alternative than Word or <span class="math inline">\(\LaTeX\)</span> for those specific set of things. Take for example this table <a href="#tbl:table">1</a>.</p>
+<!-- BEGIN SLIDES -->
 <pre><code>  Right     Left     Center     Default
 -------     ------ ----------   -------
      12     12        12            12
@@ -455,7 +467,8 @@ Table:  Demonstration of simple table syntax.</code></pre>
 <!-- BEGIN SLIDES -->
 <p>This is what the same table looks like in <span class="math inline">\(\LaTeX\)</span>.</p>
 <pre><code>\begin{longtable}[c]{@{}rlcl@{}}
-\caption{Demonstration of simple table syntax.}\tabularnewline
+\caption{Demonstration of simple table syntax.}
+\tabularnewline
 \toprule
 Right &amp; Left &amp; Center &amp; Default\tabularnewline
 \midrule
@@ -476,11 +489,14 @@ Right &amp; Left &amp; Center &amp; Default\tabularnewline
 <img src="../images/table.png" alt="Tabular LaTeX example [6]" /><figcaption>Tabular LaTeX example <span class="citation" data-cites="_wikibooks">[<a href="#ref-_wikibooks">6</a>]</span></figcaption>
 </figure>
 <!-- END SLIDES -->
-<p>Markdown may not be as powerful as <span class="math inline">\(\LaTeX\)</span>, but its easy to write easy to read syntax, open standard format and a strong backing from the community make it a ideal candidate for writing. It has the advantages of Word (ease of use) and <span class="math inline">\(\LaTeX\)</span> (excellent typesetting) for output formats. Also there is the added advantage of only having to write in Markdown once, and have documents generated in a multitude of formats later - PDF, DOCX, slides, HTML etc.</p>
-<p>I hope that by now you are convinced that Markdown is a great tool for writing. In the following sections we will look at how to convert a Markdown file to other formats, and what are some potential limitations and how you might overcome them.</p>
 <!-- BEGIN SLIDES -->
+<p>Markdown may not be as powerful as <span class="math inline">\(\LaTeX\)</span>, but its easy to write easy to read syntax, open standard format and a strong backing from the community make it a ideal candidate for writing. It has the advantages of Word (ease of use) and <span class="math inline">\(\LaTeX\)</span> (excellent typesetting) for output formats. Also there is the added advantage of only having to write in Markdown once, and have documents generated in a multitude of formats later - PDF, DOCX, slides, HTML etc.</p>
+<!-- END SLIDES -->
+<p>I hope that by now you are convinced that Markdown is a great tool for writing. In the following sections we will look at how to convert a Markdown file to other formats, and what are some potential limitations and how you might overcome them.</p>
+<!-- BEGIN SLIDESNOHEADER -->
 <h1 id="pandoc---a-swiss-army-knife">Pandoc - A “swiss army knife”</h1>
-<p>Pandoc is a software tool written in Haskell that can convert a document from just about any format to just about any other format. <!-- END SLIDES --> And works really well.</p>
+<p>Pandoc is a software tool written in Haskell that can convert a document from just about any format to just about any other format. And works really well.</p>
+<!-- END SLIDES -->
 <p>Input formats :</p>
 <ul>
 <li>native (native Haskell)</li>
@@ -630,7 +646,8 @@ for code block</code></pre>
     123     123       123          123
       1     1          1             1
 
-Table:  Demonstration of simple table syntax. {#tbl:table}</code></pre>
+Table:  Demonstration of simple table syntax.
+{#tbl:table}</code></pre>
 <p><strong>Example</strong></p>
 <a name="tbl:table"></a>
 <table>
@@ -690,14 +707,14 @@ $$ {#eq:pi}</code></pre>
 <p><a name="eq:pi"></a><span class="math display">\[
 \pi
 \qquad (1)\]</span></p>
-<!-- BEGIN SLIDES -->
 <h2 id="pandoc-conversion">Pandoc conversion</h2>
-<!-- END SLIDES -->
-<p>Once you have typed all the content, you can use the <code>pandoc</code> command to convert the document into the format you want. Pandoc uses the output filename extension to figure out what the output file format should be. Btw, Pandoc is a command line tool only. You will have to use the command line for any conversion. <!-- BEGIN SLIDES --> To generate a PDF file :</p>
+<p>Once you have typed all the content, you can use the <code>pandoc</code> command to convert the document into the format you want. Pandoc uses the output filename extension to figure out what the output file format should be. Btw, Pandoc is a command line tool only. You will have to use the command line for any conversion.</p>
+<!-- BEGIN SLIDES -->
+<p>To generate a PDF file :</p>
 <pre><code>pandoc document.md -o document.pdf</code></pre>
-<!-- END SLIDES -->
 <p>It is as simple as that! To generate a HTML file :</p>
 <pre><code>pandoc document.md -o document.html</code></pre>
+<!-- END SLIDES -->
 <p>Check out pandoc’s README <span class="citation" data-cites="_pandoc">[<a href="#ref-_pandoc">15</a>]</span>. It has loads of examples and you might be able to find what you are looking for by straight up picking an example or by making a minor tweak to it.</p>
 <!-- BEGIN SLIDES -->
 <p>With PDF files, you can specify the following additional arguments :</p>
@@ -706,7 +723,9 @@ $$ {#eq:pi}</code></pre>
 <li><code>--latex-template=latex.template</code> : latex template file</li>
 </ul>
 <!-- END SLIDES -->
-<p>This allows you to define a <span class="math inline">\(\LaTeX\)</span> template to use. By default, <code>pandoc</code> uses a built in template. <!-- BEGIN SLIDES --> With html files, you can specify the following arguments:</p>
+<p>This allows you to define a <span class="math inline">\(\LaTeX\)</span> template to use. By default, <code>pandoc</code> uses a built in template.</p>
+<!-- BEGIN SLIDES -->
+<p>With html files, you can specify the following arguments:</p>
 <ul>
 <li><code>--template=html.template</code> : html template file</li>
 <li><code>--css=cssfile.css</code> : css file</li>
@@ -747,29 +766,46 @@ $$ {#eq:pi}</code></pre>
 --bibliography=./bib/research.bib \
 -o ieee-paper.pdf paper.md</code></pre>
 <p>As you can see, there are a lot of arguments that can be passed to Pandoc. I’ve found using Makefiles for recording your past commands and documenting these instructions extremely useful. I’ve barely scratched the surface with what you can do with Pandoc. I’ll update this post with those features if I think they are relevant to writing a paper using Markdown.</p>
-<!-- BEGIN SLIDES -->
+<!-- BEGIN SLIDESNOHEADER -->
 <h1 id="downside-to-using-markdown">Downside to using Markdown?</h1>
 <!-- END SLIDES -->
 <p>Pandoc allows you to define <span class="math inline">\(\LaTeX\)</span> blocks in a markdown file, which are passed straight through to <span class="math inline">\(\LaTeX\)</span> without any change. <span class="math inline">\(\LaTeX\)</span> then processes it and renders it correctly. Which means if you want to generate a PDF, you are in luck! You have the entire arsenal of <span class="math inline">\(\LaTeX\)</span> commands at your disposal.</p>
 <p>However, when converting to html or docx files, pandoc will choose to remove <span class="math inline">\(\LaTeX\)</span> blocks. There is a workaround for equations. You can specify <code>--mathjax</code> and force Pandoc to attempt to render <span class="math inline">\(\LaTeX\)</span> as mathjax, which works most of the time. This page for example was generated entirely from a markdown file, rendered to html using pandoc. I have found a few cases where mathjax did not work correctly for me, so there may be some experimenting involved. With DOCX, you can pass in the <code>--mathjax</code> flag, and Pandoc will convert it to Word’s equation editor format, but this seems to work only with the certain set of the markdown equation syntax that pandoc supports. In the case of tables, it is Markdown or bust. You have to format it in the Markdown table format that pandoc supports if you want a HTML or DOCX output.</p>
-<!-- BEGIN SLIDES -->
-<p>The good news is that anything you do in <span class="math inline">\(\LaTeX\)</span>, you can do in Markdown and render as a PDF. This includes equations, tables, citations, references, images, lists, tikz diagrams etc. The bad news is that if you do decide to use <span class="math inline">\(\LaTeX\)</span> syntax, you are still writing <span class="math inline">\(\LaTeX\)</span> (although a lot less of it), and you have lost complete HTML and DOCX conversion capability. <!-- END SLIDES --> Also, Markdown / Pandoc does not support splitting the source document across multiple files. This was not as much a deal breaker for me, since the markup is pretty light and having it all in a single file is fine for a technical paper. However, for large reports extending hundreds of pages this may be a issue. There are workarounds for this (see next section), however they may be a bit of a hassle.</p>
-<!-- BEGIN SLIDES -->
+<!-- BEGIN SLIDESNOHEADER -->
+<p>The good news is that anything you do in <span class="math inline">\(\LaTeX\)</span>, you can do in Markdown and render as a PDF. This includes equations, tables, citations, references, images, lists, tikz diagrams etc. The bad news is that if you do decide to use <span class="math inline">\(\LaTeX\)</span> syntax, you are still writing <span class="math inline">\(\LaTeX\)</span> (although a lot less of it), and you have lost complete HTML and DOCX conversion capability.</p>
+<!-- END SLIDES -->
+<p>Also, Markdown / Pandoc does not support splitting the source document across multiple files. This was not as much a deal breaker for me, since the markup is pretty light and having it all in a single file is fine for a technical paper. However, for large reports extending hundreds of pages this may be a issue. There are workarounds for this (see next section), however they may be a bit of a hassle.</p>
+<!-- BEGIN SLIDESNOHEADER -->
 <h1 id="bending-markdown-to-your-will">Bending Markdown to your will</h1>
-<p>Fortunately, some of the problems I mentioned in the previous section can be solved using an excellent feature of Pandoc - filters! <!-- END SLIDES --> You can write your own custom filter, and you can use it to parse certain blocks in a custom fashion. For most people this will not be necessary since Pandoc is feature complete, and when a specific need arises<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> the community has often provided a custom filter that does the job. But if you come across a case where pandoc does not do what you want it to do, you can write a filter for it. <!-- BEGIN SLIDES --> There is even a python package called <code>pandocfilters</code> that allows you to walk the AST and parse specific formats or keys. It is very powerful, and can offer unique ways to expand on pandoc’s functionality. I wrote a pandocfilter <span class="citation" data-cites="krishnamurthy_github-1">[<a href="#ref-krishnamurthy_github-1">19</a>]</span> to embed a jupyter notebook using a liquid tag style syntax, which I currently use for this <a href="http://kdheepak.com/blog/active-reactive-and-apparent-power.html">post</a>.</p>
+<p>Fortunately, some of the problems I mentioned in the previous section can be solved using an excellent feature of Pandoc - filters!</p>
+<!-- END SLIDES -->
+<p>You can write your own custom filter, and you can use it to parse certain blocks in a custom fashion. For most people this will not be necessary since Pandoc is feature complete, and when a specific need arises<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> the community has often provided a custom filter that does the job. But if you come across a case where pandoc does not do what you want it to do, you can write a filter for it.</p>
+<!-- BEGIN SLIDES -->
+<p>There is a python package called <code>pandocfilters</code> that allows you to walk the AST and parse specific formats or keys. It is very powerful, and can offer unique ways to expand on pandoc’s functionality. I wrote a pandocfilter <span class="citation" data-cites="krishnamurthy_github-1">[<a href="#ref-krishnamurthy_github-1">19</a>]</span> to embed a jupyter notebook using a liquid tag style syntax, which I currently use for this <a href="http://kdheepak.com/blog/active-reactive-and-apparent-power.html">post</a>.</p>
 <!-- END SLIDES -->
 <p>In theory, you can write a filter that finds a <span class="math inline">\(\LaTeX\)</span> table block in Markdown, converts it to an image and renders that in Word. Or you can write a filter that inputs other files during run time, allowing you to split your source document.</p>
 <p>My understanding is that the Python <code>pandocfilters</code> package is limited in scope. Alternatively, if you choose to, you can yield Pandoc’s complete power by writing a Haskell filter instead of using Python, but then you will be writing Haskell ;)</p>
 <p>I would tag the custom filters functionality I’ve described in this section as an advanced feature. I’ve not had to write my own filter for writing a technical paper (so far). Know that they are there when you need them.</p>
-<!-- BEGIN SLIDES -->
+<!-- BEGIN SLIDESNOHEADER -->
 <h1 id="tldr">TLDR</h1>
+<!-- END SLIDES -->
 <p>You can write a complete paper in Markdown and render it in PDF without any issues. I recommend using Markdown and Pandoc for writing over <span class="math inline">\(\LaTeX\)</span> and Word because of its ease of use and its flexibility and versatility. And if you think Markdown is not cutting it for you, you can always convert it to a Word document or a TEX file and continue using your usual workflow. Check out my attempt at describing the space of complexity of document vs difficulty in implementation when using Word, <span class="math inline">\(\LaTeX\)</span> and Markdown in Fig. <a href="#fig:learningcurve">1</a>.</p>
+<!-- BEGIN SLIDESNOHEADER -->
 <a name="fig:learningcurve"></a>
 <figure>
 <img src="../images/learningcurve.png" alt="Figure 1. My very scientific comparison of Word, \LaTeX and Markdown" id="fig:learningcurve" /><figcaption>Figure 1. My very scientific comparison of Word, <span class="math inline">\(\LaTeX\)</span> and Markdown</figcaption>
 </figure>
 <!-- END SLIDES -->
-<p>If you have gotten this far in the post, congratulations! This was a lot to take in, and I hope I shed some light on the potential for Markdown as an academic and technical writing tool. Let me know if you have any questions in the comments below.</p>
+<p>If you have gotten this far in the post, congratulations! This was a lot to take in, and I hope I shed some light on the potential for Markdown as an academic and technical writing tool. Let me know if you have any questions in the comments below. You can view this post in the following forms, thanks to Pandoc!</p>
+<p><a href="/resources/ieee-output.pdf">IEEE-PDF</a></p>
+<p><a href="/resources/ieee-output.docx">IEEE-DOCX</a></p>
+<p><a href="/resources/ieee-output.html">IEEE-HTML</a></p>
+<p><a href="/resources/output.pdf">PDF</a></p>
+<p><a href="/resources/output.docx">DOCX</a></p>
+<p><a href="/resources/output.html">HTML</a></p>
+<p><a href="/resources/slide-output.pdf">SLIDES-PDF</a></p>
+<section class="footnotes">
+</section>
 <h1 id="references">References</h1>
 <div id="refs" class="references">
 <div id="ref-stallman_emacs">
