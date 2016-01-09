@@ -427,7 +427,7 @@ The following is a list in this subsection
 <li>Portable: documents are cross-platform by nature</li>
 <li>Flexible: HTML, PDF, DOCX, TEX are all supported output formats</li>
 </ul>
-<p>Markdown is awesome at a set of things, and a much better alternative than Word or <span class="math inline">\(\LaTeX\)</span> for those specific set of things.</p>
+<p>Markdown is awesome at a set of things, and a much better alternative than Word or <span class="math inline">\(\LaTeX\)</span> for those specific set of things. Take for example this table <a href="#tbl:table">1</a>. This is the syntax for the table in Markdown.</p>
 <pre><code>  Right     Left     Center     Default
 -------     ------ ----------   -------
      12     12        12            12
@@ -451,12 +451,12 @@ Right &amp; Left &amp; Center &amp; Default\tabularnewline
 1 &amp; 1 &amp; 1 &amp; 1\tabularnewline
 \bottomrule
 \end{longtable}</code></pre>
-<p>However, Markdown does not allow for the level of detailed customization that you can achieve using <span class="math inline">\(\LaTeX\)</span>. Even a moderately complex table such as the one below currently is not supported by any Markdown.</p>
+<p>However, Markdown does not allow for the level of detailed customization that you can achieve using <span class="math inline">\(\LaTeX\)</span>. Even a moderately complex table such as the one below is currently not supported by any Markdown.</p>
 <figure>
 <img src="../images/table.png" alt="Tabular LaTeX example [6]" /><figcaption>Tabular LaTeX example <span class="citation" data-cites="_wikibooks">[<a href="#ref-_wikibooks">6</a>]</span></figcaption>
 </figure>
-<p>Markdown by itself may not be as powerful as <span class="math inline">\(\LaTeX\)</span>. But its easy to write easy to read syntax, open standard format and a strong backing from the community make it a ideal candidate for writing. It has the advantages of Word (ease of use) and <span class="math inline">\(\LaTeX\)</span> (excellent typesetting). Also there is the added advantage of only having to write in Markdown once, and have documents generated in a multitude of formats later - PDF, DOCX, slides, HTML etc. Hopefully, I’ve convinced you that Markdown is suitable for academic writing.</p>
-<p>Let us look at how to convert a Markdown file to other formats.</p>
+<p>Markdown by itself may not be as powerful as <span class="math inline">\(\LaTeX\)</span>. But its easy to write easy to read syntax, open standard format and a strong backing from the community make it a ideal candidate for writing. It has the advantages of Word (ease of use) and <span class="math inline">\(\LaTeX\)</span> (excellent typesetting) for output formats. Also there is the added advantage of only having to write in Markdown once, and have documents generated in a multitude of formats later - PDF, DOCX, slides, HTML etc.</p>
+<p>I hope that by now you are convinced that Markdown is a great tool for writing. Let us now look at how to convert a Markdown file to other formats. If you were still hesitant, you won’t be after you take a look at how easy it is to convert Markdown to any format you like.</p>
 <h1 id="pandoc---a-swiss-army-knife">Pandoc - A “swiss army knife”</h1>
 <p>Pandoc is a software tool written in Haskell that can convert a document from just about any format to just about any other format. And works really well.</p>
 <p>Input formats :</p>
@@ -525,7 +525,7 @@ Right &amp; Left &amp; Center &amp; Default\tabularnewline
 </ul>
 <p>With 21 input formats and 37 output formats, it doesn’t take long to guess that there’s no way they implemented a converter for each input to output format. Pandoc employs a Abstract Syntax Tree (AST) structure as an intermediate stage to convert from one format to another. (This will be important when we talk about filters.) The point here is that because of this pandoc is great at converting from and to a wide variety of formats. Pandoc is also constantly under development which is a great thing.</p>
 <p>We can use Pandoc to convert a markdown file with content, to a PDF, HTML or DOCX file for a technical paper. (The docx converter doesn’t work great though, blame Microsoft’s lack of documentation <span class="citation" data-cites="_googlegroups">[<a href="#ref-_googlegroups">7</a>]</span>)</p>
-<p>First off, you will need <code>pandoc</code>. You can get the latest version on their GitHub page <span class="citation" data-cites="_github">[<a href="#ref-_github">8</a>]</span>. You may need <code>pandoc-citeproc</code> as well.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> You will also need <span class="math inline">\(\LaTeX\)</span>.</p>
+<p>First off, you will need <code>pandoc</code>. You can get the latest version from their GitHub page <span class="citation" data-cites="_github">[<a href="#ref-_github">8</a>]</span>. You may need <code>pandoc-citeproc</code> as well.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> You will also need <span class="math inline">\(\LaTeX\)</span>.</p>
 <p>I’ve found that the following python packages are useful.</p>
 <ul>
 <li><code>pandoc-attributes</code></li>
@@ -544,8 +544,8 @@ Right &amp; Left &amp; Center &amp; Default\tabularnewline
 <p><strong>Example</strong></p>
 <p>I’ve not provided an example here to avoid messing with this document’s headings.</p>
 <h3 id="text"><strong><em>Text</em></strong></h3>
-<pre><code>This text is in *italic*. 
-This text is in **bold**. 
+<pre><code>This text is in *italic*.
+This text is in **bold**.
 And this text is in ***bold-italic***</code></pre>
 <p><strong>Example</strong></p>
 <p>This text is in <em>italic</em>. This text is in <strong>bold</strong>. And this text is in <strong><em>bold-italic</em></strong>.</p>
@@ -587,7 +587,7 @@ And this text is in ***bold-italic***</code></pre>
 <li>item</li>
 </ol>
 <h3 id="quotes"><strong><em>Quotes</em></strong></h3>
-<pre><code>&gt; Research is what I&#39;m doing 
+<pre><code>&gt; Research is what I&#39;m doing
 when I don&#39;t know what I&#39;m doing.
 - Wernher von Braun</code></pre>
 <p><strong>Example</strong></p>
@@ -597,11 +597,11 @@ when I don&#39;t know what I&#39;m doing.
 <h3 id="code"><strong><em>Code</em></strong></h3>
 <pre><code>`inline code`
 
-    Tab space 
+    Tab space
     for code block</code></pre>
 <p><strong>Example</strong></p>
 <p><code>inline code</code></p>
-<pre><code>Tab space 
+<pre><code>Tab space
 for code block</code></pre>
 <h3 id="tables"><strong><em>Tables</em></strong></h3>
 <pre><code>  Right     Left     Center     Default
@@ -610,10 +610,11 @@ for code block</code></pre>
     123     123       123          123
       1     1          1             1
 
-Table:  Demonstration of simple table syntax.</code></pre>
+Table:  Demonstration of simple table syntax. {#tbl:table}</code></pre>
 <p><strong>Example</strong></p>
+<a name="tbl:table"></a>
 <table>
-<caption>Demonstration of simple table syntax.</caption>
+<caption>Table 1. Demonstration of simple table syntax.</caption>
 <thead>
 <tr class="header">
 <th style="text-align: right;">Right</th>
@@ -658,17 +659,17 @@ Table:  Demonstration of simple table syntax.</code></pre>
 <h3 id="equations"><strong><em>Equations</em></strong></h3>
 <pre><code>Inline equations $\pi$
 
-Block equations 
+Block equations
 
 $$
 \pi
-$$</code></pre>
+$$ {#eq:pi}</code></pre>
 <p><strong>Example</strong></p>
 <p>Inline equations <span class="math inline">\(\pi\)</span></p>
 <p>Block equations</p>
-<p><span class="math display">\[
+<p><a name="eq:pi"></a><span class="math display">\[
 \pi
-\]</span></p>
+\qquad (1)\]</span></p>
 <h2 id="pandoc-conversion">Pandoc conversion</h2>
 <p>Once you have typed all the content, you can use the <code>pandoc</code> command to convert the document into the format you want. Pandoc uses the output filename extension to figure out what the output file format should be. Btw, Pandoc is a command line tool only. So you will have to use the command line for any conversion.</p>
 <pre><code>pandoc document.md -o document.pdf</code></pre>
@@ -700,6 +701,7 @@ $$</code></pre>
 <li><code>--filter pandoc-fignos</code> : figure numbers</li>
 <li><code>--filter pandoc-tablenos</code> : table numbers</li>
 </ul>
+<p>They allow you reference a figure, equation or table. For example Equation <a href="#eq:pi">1</a> is an example of a block equation in Markdown.</p>
 <p>As you can see, there are a lot of arguments that can be passed to Pandoc. I’ve found using Makefiles for recording your past commands and documenting these instructions extremely useful.</p>
 <h1 id="downside-to-using-markdown">Downside to using Markdown?</h1>
 <p>Pandoc allows you to define <span class="math inline">\(\LaTeX\)</span> blocks in a markdown file, which are passed straight through to <span class="math inline">\(\LaTeX\)</span> without any change. <span class="math inline">\(\LaTeX\)</span> then processes it and renders it correctly. Which means if you want to generate a PDF, you are in luck! You have the entire arsenal of <span class="math inline">\(\LaTeX\)</span> commands at your disposal.</p>
@@ -711,11 +713,12 @@ $$</code></pre>
 <p>My understanding is that the Python <code>pandocfilters</code> package is limited in scope. Alternatively, if you choose to, you can yield Pandoc’s complete power by writing a Haskell filter instead of using Python, but then you will be writing Haskell ;)</p>
 <p>I would tag the custom filters functionality I’ve described in this section as an advanced feature. Know that they are there when you need them.</p>
 <h1 id="tldr">TLDR</h1>
-<p>You can write a complete paper in Markdown and render it in PDF without any issues. I recommend it over <span class="math inline">\(\LaTeX\)</span> and Word.</p>
+<p>You can write a complete paper in Markdown and render it in PDF without any issues. I recommend using Markdown and Pandoc for writing over <span class="math inline">\(\LaTeX\)</span> and Word because of its ease of use and its flexibility and versatility <a href="#fig:learningcurve">1</a>.</p>
+<a name="fig:learningcurve"></a>
 <figure>
-<img src="../images/learningcurve.png" alt="My very scientific comparison of Word, \LaTeX and Markdown" /><figcaption>My very scientific comparison of Word, <span class="math inline">\(\LaTeX\)</span> and Markdown</figcaption>
+<img src="../images/learningcurve.png" alt="Figure 1. My very scientific comparison of Word, \LaTeX and Markdown" id="fig:learningcurve" /><figcaption>Figure 1. My very scientific comparison of Word, <span class="math inline">\(\LaTeX\)</span> and Markdown</figcaption>
 </figure>
-<p>If you have gotten this far in the post, congratulations and good luck! Let me know if you have any questions in the comments below.</p>
+<p>If you have gotten this far in the post, congratulations! This was a lot to take in, and I hope I shed some light on the potential for Markdown as an academic and technical writing tool. and good luck! Let me know if you have any questions in the comments below.</p>
 <h1 id="references">References</h1>
 <div id="refs" class="references">
 <div id="ref-stallman_emacs">

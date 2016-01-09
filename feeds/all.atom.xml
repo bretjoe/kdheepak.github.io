@@ -127,7 +127,7 @@ The following is a list in this subsection
 &lt;li&gt;Portable: documents are cross-platform by nature&lt;/li&gt;
 &lt;li&gt;Flexible: HTML, PDF, DOCX, TEX are all supported output formats&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Markdown is awesome at a set of things, and a much better alternative than Word or &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; for those specific set of things.&lt;/p&gt;
+&lt;p&gt;Markdown is awesome at a set of things, and a much better alternative than Word or &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; for those specific set of things. Take for example this table &lt;a href="#tbl:table"&gt;1&lt;/a&gt;. This is the syntax for the table in Markdown.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;  Right     Left     Center     Default
 -------     ------ ----------   -------
      12     12        12            12
@@ -151,12 +151,12 @@ Right &amp;amp; Left &amp;amp; Center &amp;amp; Default\tabularnewline
 1 &amp;amp; 1 &amp;amp; 1 &amp;amp; 1\tabularnewline
 \bottomrule
 \end{longtable}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;However, Markdown does not allow for the level of detailed customization that you can achieve using &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;. Even a moderately complex table such as the one below currently is not supported by any Markdown.&lt;/p&gt;
+&lt;p&gt;However, Markdown does not allow for the level of detailed customization that you can achieve using &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;. Even a moderately complex table such as the one below is currently not supported by any Markdown.&lt;/p&gt;
 &lt;figure&gt;
 &lt;img src="../images/table.png" alt="Tabular LaTeX example [6]" /&gt;&lt;figcaption&gt;Tabular LaTeX example &lt;span class="citation" data-cites="_wikibooks"&gt;[&lt;a href="#ref-_wikibooks"&gt;6&lt;/a&gt;]&lt;/span&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt;Markdown by itself may not be as powerful as &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;. But its easy to write easy to read syntax, open standard format and a strong backing from the community make it a ideal candidate for writing. It has the advantages of Word (ease of use) and &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; (excellent typesetting). Also there is the added advantage of only having to write in Markdown once, and have documents generated in a multitude of formats later - PDF, DOCX, slides, HTML etc. Hopefully, I’ve convinced you that Markdown is suitable for academic writing.&lt;/p&gt;
-&lt;p&gt;Let us look at how to convert a Markdown file to other formats.&lt;/p&gt;
+&lt;p&gt;Markdown by itself may not be as powerful as &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;. But its easy to write easy to read syntax, open standard format and a strong backing from the community make it a ideal candidate for writing. It has the advantages of Word (ease of use) and &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; (excellent typesetting) for output formats. Also there is the added advantage of only having to write in Markdown once, and have documents generated in a multitude of formats later - PDF, DOCX, slides, HTML etc.&lt;/p&gt;
+&lt;p&gt;I hope that by now you are convinced that Markdown is a great tool for writing. Let us now look at how to convert a Markdown file to other formats. If you were still hesitant, you won’t be after you take a look at how easy it is to convert Markdown to any format you like.&lt;/p&gt;
 &lt;h1 id="pandoc---a-swiss-army-knife"&gt;Pandoc - A “swiss army knife”&lt;/h1&gt;
 &lt;p&gt;Pandoc is a software tool written in Haskell that can convert a document from just about any format to just about any other format. And works really well.&lt;/p&gt;
 &lt;p&gt;Input formats :&lt;/p&gt;
@@ -225,7 +225,7 @@ Right &amp;amp; Left &amp;amp; Center &amp;amp; Default\tabularnewline
 &lt;/ul&gt;
 &lt;p&gt;With 21 input formats and 37 output formats, it doesn’t take long to guess that there’s no way they implemented a converter for each input to output format. Pandoc employs a Abstract Syntax Tree (AST) structure as an intermediate stage to convert from one format to another. (This will be important when we talk about filters.) The point here is that because of this pandoc is great at converting from and to a wide variety of formats. Pandoc is also constantly under development which is a great thing.&lt;/p&gt;
 &lt;p&gt;We can use Pandoc to convert a markdown file with content, to a PDF, HTML or DOCX file for a technical paper. (The docx converter doesn’t work great though, blame Microsoft’s lack of documentation &lt;span class="citation" data-cites="_googlegroups"&gt;[&lt;a href="#ref-_googlegroups"&gt;7&lt;/a&gt;]&lt;/span&gt;)&lt;/p&gt;
-&lt;p&gt;First off, you will need &lt;code&gt;pandoc&lt;/code&gt;. You can get the latest version on their GitHub page &lt;span class="citation" data-cites="_github"&gt;[&lt;a href="#ref-_github"&gt;8&lt;/a&gt;]&lt;/span&gt;. You may need &lt;code&gt;pandoc-citeproc&lt;/code&gt; as well.&lt;a href="#fn2" class="footnoteRef" id="fnref2"&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; You will also need &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;First off, you will need &lt;code&gt;pandoc&lt;/code&gt;. You can get the latest version from their GitHub page &lt;span class="citation" data-cites="_github"&gt;[&lt;a href="#ref-_github"&gt;8&lt;/a&gt;]&lt;/span&gt;. You may need &lt;code&gt;pandoc-citeproc&lt;/code&gt; as well.&lt;a href="#fn2" class="footnoteRef" id="fnref2"&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; You will also need &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;I’ve found that the following python packages are useful.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;pandoc-attributes&lt;/code&gt;&lt;/li&gt;
@@ -244,8 +244,8 @@ Right &amp;amp; Left &amp;amp; Center &amp;amp; Default\tabularnewline
 &lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;I’ve not provided an example here to avoid messing with this document’s headings.&lt;/p&gt;
 &lt;h3 id="text"&gt;&lt;strong&gt;&lt;em&gt;Text&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;This text is in *italic*. 
-This text is in **bold**. 
+&lt;pre&gt;&lt;code&gt;This text is in *italic*.
+This text is in **bold**.
 And this text is in ***bold-italic***&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;This text is in &lt;em&gt;italic&lt;/em&gt;. This text is in &lt;strong&gt;bold&lt;/strong&gt;. And this text is in &lt;strong&gt;&lt;em&gt;bold-italic&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
@@ -287,7 +287,7 @@ And this text is in ***bold-italic***&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;item&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id="quotes"&gt;&lt;strong&gt;&lt;em&gt;Quotes&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;&amp;gt; Research is what I&amp;#39;m doing 
+&lt;pre&gt;&lt;code&gt;&amp;gt; Research is what I&amp;#39;m doing
 when I don&amp;#39;t know what I&amp;#39;m doing.
 - Wernher von Braun&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
@@ -297,11 +297,11 @@ when I don&amp;#39;t know what I&amp;#39;m doing.
 &lt;h3 id="code"&gt;&lt;strong&gt;&lt;em&gt;Code&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;`inline code`
 
-    Tab space 
+    Tab space
     for code block&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;inline code&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Tab space 
+&lt;pre&gt;&lt;code&gt;Tab space
 for code block&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id="tables"&gt;&lt;strong&gt;&lt;em&gt;Tables&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;  Right     Left     Center     Default
@@ -310,10 +310,11 @@ for code block&lt;/code&gt;&lt;/pre&gt;
     123     123       123          123
       1     1          1             1
 
-Table:  Demonstration of simple table syntax.&lt;/code&gt;&lt;/pre&gt;
+Table:  Demonstration of simple table syntax. {#tbl:table}&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+&lt;a name="tbl:table"&gt;&lt;/a&gt;
 &lt;table&gt;
-&lt;caption&gt;Demonstration of simple table syntax.&lt;/caption&gt;
+&lt;caption&gt;Table 1. Demonstration of simple table syntax.&lt;/caption&gt;
 &lt;thead&gt;
 &lt;tr class="header"&gt;
 &lt;th style="text-align: right;"&gt;Right&lt;/th&gt;
@@ -358,17 +359,17 @@ Table:  Demonstration of simple table syntax.&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id="equations"&gt;&lt;strong&gt;&lt;em&gt;Equations&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;Inline equations $\pi$
 
-Block equations 
+Block equations
 
 $$
 \pi
-$$&lt;/code&gt;&lt;/pre&gt;
+$$ {#eq:pi}&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Inline equations &lt;span class="math inline"&gt;\(\pi\)&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Block equations&lt;/p&gt;
-&lt;p&gt;&lt;span class="math display"&gt;\[
+&lt;p&gt;&lt;a name="eq:pi"&gt;&lt;/a&gt;&lt;span class="math display"&gt;\[
 \pi
-\]&lt;/span&gt;&lt;/p&gt;
+\qquad (1)\]&lt;/span&gt;&lt;/p&gt;
 &lt;h2 id="pandoc-conversion"&gt;Pandoc conversion&lt;/h2&gt;
 &lt;p&gt;Once you have typed all the content, you can use the &lt;code&gt;pandoc&lt;/code&gt; command to convert the document into the format you want. Pandoc uses the output filename extension to figure out what the output file format should be. Btw, Pandoc is a command line tool only. So you will have to use the command line for any conversion.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;pandoc document.md -o document.pdf&lt;/code&gt;&lt;/pre&gt;
@@ -400,6 +401,7 @@ $$&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;code&gt;--filter pandoc-fignos&lt;/code&gt; : figure numbers&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;--filter pandoc-tablenos&lt;/code&gt; : table numbers&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;They allow you reference a figure, equation or table. For example Equation &lt;a href="#eq:pi"&gt;1&lt;/a&gt; is an example of a block equation in Markdown.&lt;/p&gt;
 &lt;p&gt;As you can see, there are a lot of arguments that can be passed to Pandoc. I’ve found using Makefiles for recording your past commands and documenting these instructions extremely useful.&lt;/p&gt;
 &lt;h1 id="downside-to-using-markdown"&gt;Downside to using Markdown?&lt;/h1&gt;
 &lt;p&gt;Pandoc allows you to define &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; blocks in a markdown file, which are passed straight through to &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; without any change. &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; then processes it and renders it correctly. Which means if you want to generate a PDF, you are in luck! You have the entire arsenal of &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; commands at your disposal.&lt;/p&gt;
@@ -411,11 +413,12 @@ $$&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;My understanding is that the Python &lt;code&gt;pandocfilters&lt;/code&gt; package is limited in scope. Alternatively, if you choose to, you can yield Pandoc’s complete power by writing a Haskell filter instead of using Python, but then you will be writing Haskell ;)&lt;/p&gt;
 &lt;p&gt;I would tag the custom filters functionality I’ve described in this section as an advanced feature. Know that they are there when you need them.&lt;/p&gt;
 &lt;h1 id="tldr"&gt;TLDR&lt;/h1&gt;
-&lt;p&gt;You can write a complete paper in Markdown and render it in PDF without any issues. I recommend it over &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; and Word.&lt;/p&gt;
+&lt;p&gt;You can write a complete paper in Markdown and render it in PDF without any issues. I recommend using Markdown and Pandoc for writing over &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; and Word because of its ease of use and its flexibility and versatility &lt;a href="#fig:learningcurve"&gt;1&lt;/a&gt;.&lt;/p&gt;
+&lt;a name="fig:learningcurve"&gt;&lt;/a&gt;
 &lt;figure&gt;
-&lt;img src="../images/learningcurve.png" alt="My very scientific comparison of Word, \LaTeX and Markdown" /&gt;&lt;figcaption&gt;My very scientific comparison of Word, &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; and Markdown&lt;/figcaption&gt;
+&lt;img src="../images/learningcurve.png" alt="Figure 1. My very scientific comparison of Word, \LaTeX and Markdown" id="fig:learningcurve" /&gt;&lt;figcaption&gt;Figure 1. My very scientific comparison of Word, &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; and Markdown&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt;If you have gotten this far in the post, congratulations and good luck! Let me know if you have any questions in the comments below.&lt;/p&gt;
+&lt;p&gt;If you have gotten this far in the post, congratulations! This was a lot to take in, and I hope I shed some light on the potential for Markdown as an academic and technical writing tool. and good luck! Let me know if you have any questions in the comments below.&lt;/p&gt;
 &lt;h1 id="references"&gt;References&lt;/h1&gt;
 &lt;div id="refs" class="references"&gt;
 &lt;div id="ref-stallman_emacs"&gt;
