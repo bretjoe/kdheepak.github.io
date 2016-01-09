@@ -1,5 +1,435 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/blog.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-12-25T04:32:51-07:00</updated><entry><title>Using conda to manage packages</title><link href="http://kdheepak.com/blog/using-conda-to-manage-packages.html" rel="alternate"></link><updated>2015-12-25T04:32:51-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-12-25:blog/using-conda-to-manage-packages.html</id><summary type="html">&lt;h1 id="why-use-conda"&gt;Why use conda&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/blog.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2016-12-20T00:00:00-07:00</updated><entry><title>Writing Technical Papers with Markdown</title><link href="http://kdheepak.com/blog/writing-papers-with-markdown.html" rel="alternate"></link><updated>2016-12-20T00:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2016-12-20:blog/writing-papers-with-markdown.html</id><summary type="html">&lt;!-- BEGIN COMMENT --&gt;
+&lt;p&gt;I’ve had several people ask me about Markdown for academic writing recently. I figured I’d use this post to write about my workflow and my resources on this topic.&lt;/p&gt;
+&lt;!-- END COMMENT --&gt;
+&lt;h1 id="why-markdown"&gt;Why Markdown&lt;/h1&gt;
+&lt;p&gt;Academic writing involves writing down ideas as they come along (notetaking), experimenting with these ideas (data analysis), and finally presenting them effectively (scientific paper), and there’s a lot to manage over the length of time this entire process spans.&lt;/p&gt;
+&lt;p&gt;Academics require a set of tools that aid in making this process, i.e. the effective communication of ideas, as seamless as possible. There are currently two popular options for academics seeking to write technical papers - Microsoft Word or &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;.&lt;/p&gt;
+&lt;h2 id="a-word-about-word"&gt;A word about Word&lt;/h2&gt;
+&lt;p&gt;Microsoft Word is ubiquitous when it comes to writing reports. The great thing about Word is that there is almost no barrier to &lt;em&gt;begin&lt;/em&gt; writing. You can incrementally build your skill in using this tool as and when you are using it. This is useful since it makes it immediately accessible, thereby decreasing the time and effort spent on learning how to use a software for writing and allowing you to concentrate on the writing itself.&lt;/p&gt;
+&lt;p&gt;However, I’ve found a few fundamental problems with Microsoft Word. Having a WYSIWYG (What You See Is What You Get) editor is great (even Richard Stallman seems to think so &lt;span class="citation" data-cites="stallman_emacs"&gt;[&lt;a href="#ref-stallman_emacs"&gt;1&lt;/a&gt;]&lt;/span&gt;). However, products like Word fail miserably at separating content from formatting. These products impose on the writer their own concept of how a document should be formatted, which I’ve found greatly hinders the writing process. Have you ever experienced a sudden jump in spacing? Or mismatched formatting after a copy and paste from one part of the document to another? Or have indents and bullet points misbehave haphazardly? Word applies these formatting changes seemingly at random! These are all typesetting and formatting processes and these should be applied &lt;strong&gt;after&lt;/strong&gt; the text is completed. These processes should not distract from the task at hand&lt;a href="#fn1" class="footnoteRef" id="fnref1"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; - writing!&lt;/p&gt;
+&lt;p&gt;There are other issues as well. Microsoft’s ecosystem comes at a price, literally. Word is proprietary, and Word’s format is a proprietary data format. When you use Word, by storing your work in this proprietary software’s proprietary data format, you tie yourself down to this particular licensed software for the forseeable future. You also make the implicit assumption that everyone you work with has the same software on their computer. Word also does not play well with its counterparts on OSX. With the same content, the document is presented differently depending on which machine you open it on. As far as I know there isn’t even a version for Linux machines. Heck, Microsoft Word does not even play well with previous versions of Microsoft Word. I understand why this issue occurs, considering the complexity in operating systems and software. Backward incompatible software or cross incompatibility are probably inevitable, but as an user, I shouldn’t have to be concerned about this. I shouldn’t have to think about what software or what version of a software my reviewers are using when I’m sending them a document. And speaking of sharing documents, did you know you can end up transferring malware through a Word document? Just think about that for a second. Opening what should be essentially a text file is a security risk for your machine. And some of these viruses (as of the time of this writing) do not even have patches yet &lt;span class="citation" data-cites="beaumont_bypass_2015"&gt;[&lt;a href="#ref-beaumont_bypass_2015"&gt;2&lt;/a&gt;]&lt;/span&gt;. Loads of people have already talked about this and similar issues at some length &lt;span class="citation" data-cites="steingold_proprietary cottrell_word"&gt;[&lt;a href="#ref-steingold_proprietary"&gt;3&lt;/a&gt;], [&lt;a href="#ref-cottrell_word"&gt;4&lt;/a&gt;]&lt;/span&gt;, and have probably done more justice to this topic that I possibly could. With all these issues, it is hard to believe Word is so widely accepted as a standard.&lt;/p&gt;
+&lt;p&gt;I think there is a strong case to be made about why you should consider dropping Word for your next paper. In addition to what has been discussed above :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;it is slow, and consumes sometimes up to a gig of virtual memory. For what is basically a word processor, that is unnecessary.&lt;/li&gt;
+&lt;li&gt;there is no clean way to permanently save comments or notes, that persist in the final version without affecting how final document looks.&lt;/li&gt;
+&lt;li&gt;collaborating with other people requires foresight and planning.&lt;/li&gt;
+&lt;li&gt;the equation editor painful to use.&lt;/li&gt;
+&lt;li&gt;Word does not work in the workflow for &lt;strong&gt;scientific research papers or reports&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let us assume that scientific research papers consists of only 3 steps (if only!) - notetaking, analysis and presentation. Word fails at delivering at all these tasks. Word doesn’t quite work for notetaking. Org mode, Evernote or Onenote are most people’s preferred solution. Word doesn’t fit data analysis requirements as well, with Python, R or Excel being the go-to tools. I personally use Emacs / Vim for notetaking and store them in a git repository and all of my data analysis is done in Jupyter Notebooks. After collecting the required data from an experiment and post-processing it, I can save plots into an image or the data into a table in a particular format programmatically using scripts. Word however, does not allow me to import these images or tables programmatically. If I did somehow manage to contort my workflow, data and information to using this tool, I have absolutely no way of retrieving it. Your final presentation/report/paper, information and data will exist confined in this closed source proprietary software. Word just does not fit into an analysis or research workflow. To quote Raymond Hettinger :&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="../images/raymondhettinger.jpg" /&gt;
+&lt;/figure&gt;
+&lt;h2 id="lah-tekh-lah-tek-or-lay-tek"&gt;&lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; - lah-tekh, lah-tek or lay-tek&lt;/h2&gt;
+&lt;p&gt;There is. Enter &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; is to a book what a set of blueprints is to a building. &lt;span class="citation" data-cites="_stackoverflow"&gt;[&lt;a href="#ref-_stackoverflow"&gt;5&lt;/a&gt;]&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; is a typesetting system and is frequently used in scientific, technical and mathematical papers. It is infamous for displaying equations in a manner that looks great. Math is beautiful, and it deserves to be presented beautifully.&lt;/p&gt;
+\begin{align}
+  \hskip6em \nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &amp;amp; = \frac{4\pi}{c}\vec{\mathbf{j}} \hskip6em \\
+  \nabla \cdot \vec{\mathbf{E}} &amp;amp; = 4 \pi \rho \\
+  \nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} &amp;amp; = \vec{\mathbf{0}} \\
+  \nabla \cdot \vec{\mathbf{B}} &amp;amp; = 0
+\end{align}
+&lt;p&gt;Essentially, &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; is a markup language. Content is written in plain text and can be annotated with commands that describe how certain elements should be displayed. For example, take a look at the following commands.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;\textbf{bold}
+\textit{italic}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;These markup will format the words passed into these “functions” as &lt;strong&gt;bold&lt;/strong&gt; and &lt;em&gt;italic&lt;/em&gt; respectively. There are numerous similar functions for different aspects of formatting. A writer can concentrate on writing, without worrying about the typesetting until later.&lt;/p&gt;
+&lt;p&gt;The source document that contains the content is a plain text file. This means you can use &lt;code&gt;git&lt;/code&gt; to version control the paper. This allows one to track changes and collaborate with others without any additional effort. This also lets you work with your favourite text editor - Vim, Emacs, Atom. There are even TeX specific ones, such as TeXShop and Lyx.&lt;/p&gt;
+&lt;p&gt;&lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; is free. Free as in beer and free as in freedom. This allows me to have the confidence that my code and documents can survive possibly forever in its current format. The &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; community is great and are very helpful towards beginners. There are hundreds of packages that improve upon the functionality that &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; provides. There are packages like &lt;em&gt;TikZ&lt;/em&gt; that lets you to create high resolution print quality detailed diagrams.&lt;/p&gt;
+&lt;p&gt;However, &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; does come with a penalty. There is a barrier to entry which one must overcome in order to begin using &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;. Unlike Word, you have to know which commands are used for what markup functionality, not only to know when to use them, but also when not to use them. Personally, I found learning how to use &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; extremely useful, and I didn’t think it was difficult. Solutions to my initial problems were only a quick Google search away. Tables were frustrating at first, but you get the hang of them over time. Equations are a joy to type in &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;. And the final product looks great!&lt;/p&gt;
+&lt;p&gt;That said, the markup language is a bit too heavy for notetaking, and not particularly readable. Take for example the syntax for a creating a section, a subsection and list of items with some bold and italic elements.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;\section{Section Name}
+This is text in the section
+\subsection{Sub Section Name}
+The following is a list in this subsection
+\begin{enumerate}
+  \item The first \textbf{bold} item
+  \begin{enumerate}
+    \item Nested item 1
+    \item Nested item 2
+  \end{enumerate}
+  \item The second \textit{italicized} item
+  \item The third etc \ldots
+\end{enumerate}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;With good IDE’s for &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; this could be made acceptable, although they still hinder a writer’s flow. The biggest problem with &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; however are probably the error messages. Most of the time they are near useless, and sometimes they are even borderline cryptic. With practice and experience one can figure out ways to work with &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; but beginners will still have a hard time.&lt;/p&gt;
+&lt;p&gt;Once you invest the time to learn &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; I can’t think of any reason why you would go back to Word. However, if you cannot afford to experiment with &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;, are you resigned to Word? I don’t think so. Markdown to the rescue!&lt;/p&gt;
+&lt;h2 id="markdown"&gt;Markdown&lt;/h2&gt;
+&lt;p&gt;Markdown is a very lightweight easy-to-read easy-to-write plain text markup language. The same example as before looks like this in Markdown.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Section Name
+
+This is text in the section
+
+## Sub Section Name
+
+The following is a list in this subsection
+
+* The first **bold** item
+    - Nested item 1
+    - Nested item 2
+* The second *italicized* item
+* The third etc ...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Much better! It’s a lot easier to read and a lot easier to write than &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;. Markdown, developed by John Gruber, was principally written for the web, to avoid the heavy markup of HTML. Tools have been developed to convert Markdown to HTML, PDF and even DOCX.&lt;/p&gt;
+&lt;p&gt;The main advantages of Markdown:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Easy: the syntax is simple&lt;/li&gt;
+&lt;li&gt;Fast: the simple formatting saves time and speeds up workflows of writers&lt;/li&gt;
+&lt;li&gt;Portable: documents are cross-platform by nature&lt;/li&gt;
+&lt;li&gt;Flexible: html, pdf, docx, tex are all supported output formats&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Markdown is awesome at a set of things, and a much better alternative than Word or &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; for those specific set of things.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  Right     Left     Center     Default
+-------     ------ ----------   -------
+     12     12        12            12
+    123     123       123          123
+      1     1          1             1
+
+Table:  Demonstration of simple table syntax.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is what the same table looks like in &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;\begin{longtable}[c]{@{}rlcl@{}}
+\caption{Demonstration of simple table syntax.}\tabularnewline
+\toprule
+Right &amp;amp; Left &amp;amp; Center &amp;amp; Default\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Right &amp;amp; Left &amp;amp; Center &amp;amp; Default\tabularnewline
+\midrule
+\endhead
+12 &amp;amp; 12 &amp;amp; 12 &amp;amp; 12\tabularnewline
+123 &amp;amp; 123 &amp;amp; 123 &amp;amp; 123\tabularnewline
+1 &amp;amp; 1 &amp;amp; 1 &amp;amp; 1\tabularnewline
+\bottomrule
+\end{longtable}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;However, Markdown does not allow for the level of detailed customization that you can achieve using &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;. Even a moderately complex table such as the one below currently is not supported by any Markdown.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="../images/table.png" alt="Tabular LaTeX example [6]" /&gt;&lt;figcaption&gt;Tabular LaTeX example &lt;span class="citation" data-cites="_wikibooks"&gt;[&lt;a href="#ref-_wikibooks"&gt;6&lt;/a&gt;]&lt;/span&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Markdown by itself may not be as powerful as &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;. But its easy to write easy to read syntax, open standard format and a strong backing from the community make it a ideal candidate for writing. You can write in Markdown once, and have documents generated in a multitude of formats later - pdf, docx, slides, html etc. Let us look at how to convert a Markdown file to other formats.&lt;/p&gt;
+&lt;h1 id="pandoc---a-swiss-army-knife"&gt;Pandoc - A “swiss army knife”&lt;/h1&gt;
+&lt;p&gt;Pandoc is a software tool written in Haskell that can convert a document from just about any format to just about any other format, and works really well.&lt;/p&gt;
+&lt;p&gt;Input formats :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;native (native Haskell)&lt;/li&gt;
+&lt;li&gt;json (JSON version of native AST)&lt;/li&gt;
+&lt;li&gt;markdown (pandoc’s extended Markdown)&lt;/li&gt;
+&lt;li&gt;markdown_strict (original unextended Markdown)&lt;/li&gt;
+&lt;li&gt;markdown_phpextra (PHP Markdown Extra)&lt;/li&gt;
+&lt;li&gt;markdown_github (GitHub-Flavored Markdown)&lt;/li&gt;
+&lt;li&gt;commonmark (CommonMark Markdown)&lt;/li&gt;
+&lt;li&gt;textile (Textile)&lt;/li&gt;
+&lt;li&gt;rst (reStructuredText)&lt;/li&gt;
+&lt;li&gt;html (HTML)&lt;/li&gt;
+&lt;li&gt;docbook (DocBook)&lt;/li&gt;
+&lt;li&gt;t2t (txt2tags)&lt;/li&gt;
+&lt;li&gt;docx (docx)&lt;/li&gt;
+&lt;li&gt;odt (ODT)&lt;/li&gt;
+&lt;li&gt;epub (EPUB)&lt;/li&gt;
+&lt;li&gt;opml (OPML)&lt;/li&gt;
+&lt;li&gt;org (Emacs Org mode)&lt;/li&gt;
+&lt;li&gt;mediawiki (MediaWiki markup)&lt;/li&gt;
+&lt;li&gt;twiki (TWiki markup)&lt;/li&gt;
+&lt;li&gt;haddock (Haddock markup)&lt;/li&gt;
+&lt;li&gt;or latex (LaTeX)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Output formats :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;native (native Haskell)&lt;/li&gt;
+&lt;li&gt;json (JSON version of native AST)&lt;/li&gt;
+&lt;li&gt;plain (plain text)&lt;/li&gt;
+&lt;li&gt;markdown (pandoc’s extended Markdown)&lt;/li&gt;
+&lt;li&gt;markdown_strict (original unextended Markdown)&lt;/li&gt;
+&lt;li&gt;markdown_phpextra (PHP Markdown Extra)&lt;/li&gt;
+&lt;li&gt;markdown_github (GitHub-Flavored Markdown)&lt;/li&gt;
+&lt;li&gt;commonmark (CommonMark Markdown)&lt;/li&gt;
+&lt;li&gt;rst (reStructuredText)&lt;/li&gt;
+&lt;li&gt;html (XHTML)&lt;/li&gt;
+&lt;li&gt;html5 (HTML5)&lt;/li&gt;
+&lt;li&gt;latex (LaTeX)&lt;/li&gt;
+&lt;li&gt;beamer (LaTeX beamer slide show)&lt;/li&gt;
+&lt;li&gt;context (ConTeXt)&lt;/li&gt;
+&lt;li&gt;man (groff man)&lt;/li&gt;
+&lt;li&gt;mediawiki (MediaWiki markup)&lt;/li&gt;
+&lt;li&gt;dokuwiki (DokuWiki markup)&lt;/li&gt;
+&lt;li&gt;textile (Textile)&lt;/li&gt;
+&lt;li&gt;org (Emacs Org mode)&lt;/li&gt;
+&lt;li&gt;texinfo (GNU Texinfo)&lt;/li&gt;
+&lt;li&gt;opml (OPML)&lt;/li&gt;
+&lt;li&gt;docbook (DocBook)&lt;/li&gt;
+&lt;li&gt;opendocument (OpenDocument)&lt;/li&gt;
+&lt;li&gt;odt (OpenOffice text document)&lt;/li&gt;
+&lt;li&gt;docx (Word docx)&lt;/li&gt;
+&lt;li&gt;haddock (Haddock markup)&lt;/li&gt;
+&lt;li&gt;rtf (rich text format)&lt;/li&gt;
+&lt;li&gt;epub (EPUB v2 book)&lt;/li&gt;
+&lt;li&gt;epub3 (EPUB v3)&lt;/li&gt;
+&lt;li&gt;fb2 (FictionBook2 e-book)&lt;/li&gt;
+&lt;li&gt;asciidoc (AsciiDoc)&lt;/li&gt;
+&lt;li&gt;icml (InDesign ICML)&lt;/li&gt;
+&lt;li&gt;slidy (Slidy HTML and javascript slide show)&lt;/li&gt;
+&lt;li&gt;slideous (Slideous HTML and javascript slide show)&lt;/li&gt;
+&lt;li&gt;dzslides (DZSlides HTML5 + javascript slide show)&lt;/li&gt;
+&lt;li&gt;revealjs (reveal.js HTML5 + javascript slide show)&lt;/li&gt;
+&lt;li&gt;s5 (S5 HTML and javascript slide show)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With 21 input formats and 37 output formats, it doesn’t take long to guess that there’s no way they implemented a converter for each input to output format. Pandoc employs a Abstract Syntax Tree (AST) structure as an intermediate stage to convert from one format to another. (This will be important when we talk about filters.) The point here is that because of this pandoc is great at converting from and to a wide variety of formats. Pandoc is also constantly under development which is a great thing.&lt;/p&gt;
+&lt;p&gt;We can use Pandoc to convert a markdown file with content, to a pdf, html or docx file for a technical paper. (The docx converter doesn’t work great though, blame Microsoft’s lack of documentation &lt;span class="citation" data-cites="_googlegroups"&gt;[&lt;a href="#ref-_googlegroups"&gt;7&lt;/a&gt;]&lt;/span&gt;)&lt;/p&gt;
+&lt;p&gt;First off, you will need &lt;code&gt;pandoc&lt;/code&gt;. You can get the latest version on their GitHub page &lt;span class="citation" data-cites="_github"&gt;[&lt;a href="#ref-_github"&gt;8&lt;/a&gt;]&lt;/span&gt;. You may need &lt;code&gt;pandoc-citeproc&lt;/code&gt; as well.&lt;a href="#fn2" class="footnoteRef" id="fnref2"&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; You will also need &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;I’ve found that the following python packages are useful.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pandoc-attributes&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pandoc-eqnos&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pandoc-fignos&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pandoc-tablenos&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pandocfilters&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can run &lt;code&gt;pip install &amp;lt;package-name&amp;gt;&lt;/code&gt;. Alternatively you can create a virtual environment using &lt;code&gt;conda&lt;/code&gt; with a suitable environment file &lt;span class="citation" data-cites="krishnamurthy_github"&gt;[&lt;a href="#ref-krishnamurthy_github"&gt;9&lt;/a&gt;]&lt;/span&gt;, which is the approach I recommend &lt;span class="citation" data-cites="krishnamurthy_using"&gt;[&lt;a href="#ref-krishnamurthy_using"&gt;10&lt;/a&gt;]&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;There are several people that have shared their complete workflow along with all their resources &lt;span class="citation" data-cites="healy_plain _writing _writing-1 _academic"&gt;[&lt;a href="#ref-healy_plain"&gt;11&lt;/a&gt;]–[&lt;a href="#ref-_academic"&gt;14&lt;/a&gt;]&lt;/span&gt;. Mine is available on GitHub &lt;span class="citation" data-cites="krishnamurthy_github"&gt;[&lt;a href="#ref-krishnamurthy_github"&gt;9&lt;/a&gt;]&lt;/span&gt; as well. While someone else’s workflow will work for you, I highly recommend starting from scratch and crafting your own Makefile. That way you will figure out why each item has been added into a workflow, and if that works for you. You will also know what to do if (when?) it breaks, and how to fix it. I also highly recommend going through other people’s Makefiles to see what they have done. That way you might be able to see an implementation that works better than your own.&lt;/p&gt;
+&lt;h2 id="syntax"&gt;Syntax&lt;/h2&gt;
+&lt;h3 id="headings"&gt;&lt;strong&gt;&lt;em&gt;Headings&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# Section
+## Sub Section
+### Sub Sub Section&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I’ve not provided an example here to avoid messing with this document’s headings.&lt;/p&gt;
+&lt;h3 id="text"&gt;&lt;strong&gt;&lt;em&gt;Text&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;This text is in *italic*. 
+This text is in **bold**. 
+And this text is in ***bold-italic***&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This text is in &lt;em&gt;italic&lt;/em&gt;. This text is in &lt;strong&gt;bold&lt;/strong&gt;. And this text is in &lt;strong&gt;&lt;em&gt;bold-italic&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id="link"&gt;&lt;strong&gt;&lt;em&gt;Link&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;[Text](http://google.com)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://google.com"&gt;Text&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="images"&gt;&lt;strong&gt;&lt;em&gt;Images&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;[Caption](../images/markdown.png)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="../images/markdown.png" alt="Caption" /&gt;&lt;figcaption&gt;Caption&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h3 id="lists"&gt;&lt;strong&gt;&lt;em&gt;Lists&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;* item
+* item
+    * item
+* item
+
+1. item
+1. item
+    1. item
+1. item&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;item&lt;/li&gt;
+&lt;li&gt;item
+&lt;ul&gt;
+&lt;li&gt;item&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;item&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol type="1"&gt;
+&lt;li&gt;item&lt;/li&gt;
+&lt;li&gt;item
+&lt;ol type="1"&gt;
+&lt;li&gt;item&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;item&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="quotes"&gt;&lt;strong&gt;&lt;em&gt;Quotes&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; Research is what I&amp;#39;m doing 
+when I don&amp;#39;t know what I&amp;#39;m doing.
+- Wernher von Braun&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Research is what I’m doing when I don’t know what I’m doing. - Wernher von Braun&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="code"&gt;&lt;strong&gt;&lt;em&gt;Code&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;`inline code`
+
+    Tab space 
+    for code block&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;inline code&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Tab space 
+for code block&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="tables"&gt;&lt;strong&gt;&lt;em&gt;Tables&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;  Right     Left     Center     Default
+-------     ------ ----------   -------
+     12     12        12            12
+    123     123       123          123
+      1     1          1             1
+
+Table:  Demonstration of simple table syntax.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;caption&gt;Demonstration of simple table syntax.&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class="header"&gt;
+&lt;th style="text-align: right;"&gt;Right&lt;/th&gt;
+&lt;th style="text-align: left;"&gt;Left&lt;/th&gt;
+&lt;th style="text-align: center;"&gt;Center&lt;/th&gt;
+&lt;th style="text-align: left;"&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class="odd"&gt;
+&lt;td style="text-align: right;"&gt;12&lt;/td&gt;
+&lt;td style="text-align: left;"&gt;12&lt;/td&gt;
+&lt;td style="text-align: center;"&gt;12&lt;/td&gt;
+&lt;td style="text-align: left;"&gt;12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="even"&gt;
+&lt;td style="text-align: right;"&gt;123&lt;/td&gt;
+&lt;td style="text-align: left;"&gt;123&lt;/td&gt;
+&lt;td style="text-align: center;"&gt;123&lt;/td&gt;
+&lt;td style="text-align: left;"&gt;123&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="odd"&gt;
+&lt;td style="text-align: right;"&gt;1&lt;/td&gt;
+&lt;td style="text-align: left;"&gt;1&lt;/td&gt;
+&lt;td style="text-align: center;"&gt;1&lt;/td&gt;
+&lt;td style="text-align: left;"&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="footnotes"&gt;&lt;strong&gt;&lt;em&gt;Footnotes&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;Example of a footnote [^3]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Example of a footnote&lt;a href="#fn3" class="footnoteRef" id="fnref3"&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="citations"&gt;&lt;strong&gt;&lt;em&gt;Citations&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;This is a very important fact [@citation_example]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This is a very important fact &lt;span class="citation" data-cites="citation_example"&gt;[&lt;a href="#ref-citation_example"&gt;15&lt;/a&gt;]&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id="strikethrough"&gt;&lt;strong&gt;&lt;em&gt;Strikethrough&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;~~Strikethrough text~~&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;Strikethrough text&lt;/del&gt;&lt;/p&gt;
+&lt;h3 id="equations"&gt;&lt;strong&gt;&lt;em&gt;Equations&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;Inline equations $\pi$
+
+Block equations 
+
+$$
+\pi
+$$&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Inline equations &lt;span class="math inline"&gt;\(\pi\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Block equations&lt;/p&gt;
+&lt;p&gt;&lt;span class="math display"&gt;\[
+\pi
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id="pandoc-conversion"&gt;Pandoc conversion&lt;/h2&gt;
+&lt;p&gt;Once you have typed all the content, you can use the &lt;code&gt;pandoc&lt;/code&gt; command to convert the document into the format you want. Pandoc uses the output filename extension to figure out what the output file format should be. Btw, Pandoc is a command line tool only. So you will have to use the command line for any conversion.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pandoc document.md -o document.pdf&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I highly recommend reading pandoc’s README &lt;span class="citation" data-cites="_pandoc"&gt;[&lt;a href="#ref-_pandoc"&gt;16&lt;/a&gt;]&lt;/span&gt;. It has loads of examples and you might be able to find what you are looking for by straight up picking an example or by making a minor tweak to it.&lt;/p&gt;
+&lt;p&gt;With pdf files, you can specify the following&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--latex-engine=pdflatex&lt;/code&gt; : latex engine&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--latex-template=latex.template&lt;/code&gt; : latex template file&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With html files, you can specify the following&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--template=html.template&lt;/code&gt; : html template file&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--css=cssfile.css&lt;/code&gt; : css file&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With docx files unfortunately, you cannot specify a template (at the time of writing this post). You can however, specify a reference-docx, which might do the job&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--reference-docx=reference.docx&lt;/code&gt; : docx for reference styles&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These are additional arguments that allow you to use citations when writing academic papers.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--filter pandoc-citeproc&lt;/code&gt; : filter to parse citations&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--csl=CSLFILE&lt;/code&gt; : define a citation style sheet e.g. ieee.csl&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--bibliography=BIBFILE&lt;/code&gt; : look for citations from a bibliography&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pandoc will find the appropriate citation from a .bib file and add it to your Bibliography according to the style sheet you specify. It works great and I’ve had no issues with it so far.&lt;/p&gt;
+&lt;p&gt;Also, I’ve found the following filters useful.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--filter pandoc-eqnos&lt;/code&gt; : equation numbers&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--filter pandoc-fignos&lt;/code&gt; : figure numbers&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--filter pandoc-tablenos&lt;/code&gt; : table numbers&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As you can see, there are a lot of arguments that can be passed to Pandoc. I’ve found using Makefiles for recording your past commands and documenting these instructions extremely useful.&lt;/p&gt;
+&lt;h1 id="downside-to-using-markdown"&gt;Downside to using Markdown?&lt;/h1&gt;
+&lt;p&gt;Pandoc allows you to define &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; blocks in a markdown file, which are passed straight through to &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; without any change. &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; then processes it and renders it correctly. Which means if you want to generate a pdf, you are in luck! You have the entire arsenal of &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; commands at your disposal.&lt;/p&gt;
+&lt;p&gt;However, when converting to html or docx files, pandoc will just choose to remove &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; blocks. There is a workaround for equations. You can specify &lt;code&gt;--mathjax&lt;/code&gt; which will attempt to render &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; as mathjax, which works most of the time. This page for example was generated entirely from a markdown file, rendered to html using pandoc. I have found a few cases where mathjax did not work correctly for me. So there may be some experimenting involved. With DOCX, pandoc will (currently) convert to mathjax and then to Word’s equation editor format, but this seems to work only with the certain set of the markdown equation syntax that pandoc supports. In the case of tables, it is Markdown or bust. You have to format it in the Markdown table format that pandoc supports if you want a HTML or DOCX output.&lt;/p&gt;
+&lt;p&gt;The good news is that anything you do in &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;, you can do in Markdown and render as a pdf. This includes equations, tables, citations, references, images, lists, tikz diagrams etc. The bad news is that if you do decide to use &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; syntax, you are still writing &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; (although a lot less of it), and you have lost complete html and docx conversion capability. Also, Markdown / Pandoc (currently) does not support splitting the source document across multiple files. This was not as much a deal breaker for me, since the markup is pretty light and having it all in a single file is fine for a technical paper. However, for large reports extending hundreds of pages this may be a issue. There are workarounds for this, however they are not perfectly clean.&lt;/p&gt;
+&lt;h1 id="bending-markdown-to-your-will"&gt;Bending Markdown to your will&lt;/h1&gt;
+&lt;p&gt;Fortunately, some of the problems I mentioned in the previous section can be solved using an excellent feature of pandoc. Remember the filter argument for pandoc? You can write your own custom filter, and you can use it to parse certain blocks in a custom fashion. For most people this will not be necessary since Pandoc is feature compelete and constantly being developed But if you come across a case where pandoc does not do what you want it to do, you can write a filter for it. There is even a python package called &lt;code&gt;pandocfilters&lt;/code&gt; that allows you to walk the AST and parse specific formats or keys. It is very powerful, and can offer unique ways to expand on pandoc’s functionality. I wrote a pandocfilter &lt;span class="citation" data-cites="krishnamurthy_github-1"&gt;[&lt;a href="#ref-krishnamurthy_github-1"&gt;17&lt;/a&gt;]&lt;/span&gt; to embed a jupyter notebook using a liquid tag style syntax, which I currently use for this blog.&lt;/p&gt;
+&lt;p&gt;In theory, you can write a filter that finds a &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; table block in Markdown, converts it to an image and renders that in Word. Or you can write a filter that inputs other files during run time, allowing you to split your source document.&lt;/p&gt;
+&lt;p&gt;My understanding is that the Python &lt;code&gt;pandocfilters&lt;/code&gt; package is limited in scope. Alternatively, if you choose to, you can yield Pandoc’s complete power by writing a Haskell filter instead of using Python, but then you will be writing Haskell ;)&lt;/p&gt;
+&lt;p&gt;I would tag the custom filters functionality I’ve described in this section as an advanced feature. Know that they are there when you need them.&lt;/p&gt;
+&lt;h1 id="tldr"&gt;TLDR&lt;/h1&gt;
+&lt;p&gt;You can write a complete paper in Markdown and render it in pdf without any issues. I recommend it over &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; and Word.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="../images/learningcurve.png" alt="My very scientific comparison of Word, \LaTeX and Markdown" /&gt;&lt;figcaption&gt;My very scientific comparison of Word, &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; and Markdown&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;If you have gotten this far in the post, congratulations and good luck! Let me know if you have any questions in the comments below.&lt;/p&gt;
+&lt;h1 id="references"&gt;References&lt;/h1&gt;
+&lt;div id="refs" class="references"&gt;
+&lt;div id="ref-stallman_emacs"&gt;
+&lt;p&gt;[1] R. Stallman, “Emacs as word processor.” [Online]. Available: &lt;a href="http://lists.gnu.org/archive/html/emacs-devel/2013-11/msg00515.html" class="uri"&gt;http://lists.gnu.org/archive/html/emacs-devel/2013-11/msg00515.html&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="ref-beaumont_bypass_2015"&gt;
+&lt;p&gt;[2] K. Beaumont, “Bypass almost every Corporate security control with a point’n’click GUI. Medium,” 23-Dec-2015. [Online]. Available: &lt;a href="https://medium.com/@networksecurity/oleoutlook-bypass-almost-every-corporate-security-control-with-a-point-n-click-gui-37f4cbc107d0" class="uri"&gt;https://medium.com/@networksecurity/oleoutlook-bypass-almost-every-corporate-security-control-with-a-point-n-click-gui-37f4cbc107d0&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="ref-steingold_proprietary"&gt;
+&lt;p&gt;[3] S. Steingold, “Proprietary Binary Data Formats: Just Say No!” [Online]. Available: &lt;a href="http://www.podval.org/~sds/data.html" class="uri"&gt;http://www.podval.org/~sds/data.html&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="ref-cottrell_word"&gt;
+&lt;p&gt;[4] A. Cottrell, “Word Processors: Stupid and Inefficient.” [Online]. Available: &lt;a href="http://ricardo.ecn.wfu.edu/~cottrell/wp.html" class="uri"&gt;http://ricardo.ecn.wfu.edu/~cottrell/wp.html&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="ref-_stackoverflow"&gt;
+&lt;p&gt;[5] “StackOverflow Quote.” [Online]. Available: &lt;a href="http://tex.stackexchange.com/a/95078" class="uri"&gt;http://tex.stackexchange.com/a/95078&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="ref-_wikibooks"&gt;
+&lt;p&gt;[6] “Wikibooks LaTeX Tables.” [Online]. Available: &lt;a href="https://en.wikibooks.org/wiki/LaTeX/Tables" class="uri"&gt;https://en.wikibooks.org/wiki/LaTeX/Tables&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="ref-_googlegroups"&gt;
+&lt;p&gt;[7] “GoogleGroups.” [Online]. Available: &lt;a href="https://groups.google.com/d/msg/pandoc-discuss/_KyoGN1Zf5g/rzq367675ecJ" class="uri"&gt;https://groups.google.com/d/msg/pandoc-discuss/_KyoGN1Zf5g/rzq367675ecJ&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="ref-_github"&gt;
+&lt;p&gt;[8] “Github repository to Pandoc.” [Online]. Available: &lt;a href="https://github.com/jgm/pandoc/releases" class="uri"&gt;https://github.com/jgm/pandoc/releases&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="ref-krishnamurthy_github"&gt;
+&lt;p&gt;[9] D. Krishnamurthy, “Github repository to Pandoc Paper Template. GitHub.” [Online]. Available: &lt;a href="https://github.com/kdheepak89/pandoc-paper" class="uri"&gt;https://github.com/kdheepak89/pandoc-paper&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="ref-krishnamurthy_using"&gt;
+&lt;p&gt;[10] D. Krishnamurthy, “Using conda to manage packages.” [Online]. Available: &lt;a href="http://kdheepak.com/blog/using-conda-to-manage-packages.html" class="uri"&gt;http://kdheepak.com/blog/using-conda-to-manage-packages.html&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="ref-healy_plain"&gt;
+&lt;p&gt;[11] K. Healy, “Plain Text, Papers, Pandoc.” [Online]. Available: &lt;a href="http://kieranhealy.org/blog/archives/2014/01/23/plain-text/" class="uri"&gt;http://kieranhealy.org/blog/archives/2014/01/23/plain-text/&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="ref-_writing"&gt;
+&lt;p&gt;[12] “Writing academic papers in plain text with Markdown and Jupyter notebook. Sylvain deville.” [Online]. Available: &lt;a href="http://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/" class="uri"&gt;http://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="ref-_writing-1"&gt;
+&lt;p&gt;[13] “Writing academic papers in Markdown using Pandoc.” [Online]. Available: &lt;a href="http://blog.cigrainger.com/2014/07/pandoc-markdown.html" class="uri"&gt;http://blog.cigrainger.com/2014/07/pandoc-markdown.html&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="ref-_academic"&gt;
+&lt;p&gt;[14] “Academic Markdown and Citations.” [Online]. Available: &lt;a href="http://www.chriskrycho.com/2015/academic-markdown-and-citations.html" class="uri"&gt;http://www.chriskrycho.com/2015/academic-markdown-and-citations.html&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="ref-citation_example"&gt;
+&lt;p&gt;[15] citation, “Example of a citation.”.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="ref-_pandoc"&gt;
+&lt;p&gt;[16] “Pandoc README.” [Online]. Available: &lt;a href="http://pandoc.org/README.html" class="uri"&gt;http://pandoc.org/README.html&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="ref-krishnamurthy_github-1"&gt;
+&lt;p&gt;[17] D. Krishnamurthy, “Github repository for jupyter notebook pandocfilter. GitHub.” [Online]. Available: &lt;a href="https://github.com/kdheepak89/pandoc-ipynb" class="uri"&gt;https://github.com/kdheepak89/pandoc-ipynb&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;section class="footnotes"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn1"&gt;&lt;p&gt;I understand that there are &lt;em&gt;correct&lt;/em&gt; ways to go about this, but I don’t want to be thinking about that while I’m writing.&lt;a href="#fnref1"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id="fn2"&gt;&lt;p&gt;If you install Pandoc from a package, pandoc-citeproc should come preinstalled. However, if you use a package manager such as &lt;code&gt;brew&lt;/code&gt; (&lt;code&gt;brew install pandoc&lt;/code&gt;), you may need to install &lt;code&gt;pandoc-citeproc&lt;/code&gt; as well. Just run &lt;code&gt;brew install pandoc-citeproc&lt;/code&gt;.&lt;a href="#fnref2"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id="fn3"&gt;&lt;p&gt;Footnote! If you are viewing the web version, you can continue reading by clicking here -&amp;gt;&lt;a href="#fnref3"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</summary><category term="m"></category><category term="a"></category><category term="r"></category><category term="k"></category><category term="d"></category><category term="o"></category><category term="w"></category><category term="n"></category><category term=","></category><category term="w"></category><category term="r"></category><category term="i"></category><category term="t"></category><category term="i"></category><category term="n"></category><category term="g"></category></entry><entry><title>Using conda to manage packages</title><link href="http://kdheepak.com/blog/using-conda-to-manage-packages.html" rel="alternate"></link><updated>2015-12-25T04:32:51-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-12-25:blog/using-conda-to-manage-packages.html</id><summary type="html">&lt;h1 id="why-use-conda"&gt;Why use conda&lt;/h1&gt;
 &lt;p&gt;The following quote is from Conda’s github page &lt;span class="citation" data-cites="_condaconda"&gt;[&lt;a href="#ref-_condaconda"&gt;1&lt;/a&gt;]&lt;/span&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Conda is a cross-platform, Python-agnostic binary package manager. It is the package manager used by Anaconda installations, but it may be used for other systems as well. Conda makes environments first-class citizens, making it easy to create independent environments even for C libraries. Conda is written entirely in Python, and is BSD licensed open source.&lt;/p&gt;
@@ -47,355 +477,7 @@ conda create --name pelican-env python=2&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;[2] “Conda: A Cross-Platform Package Manager for Any Binary Distribution.” [Online]. Available: &lt;a href="http://www.slideshare.net/AaronMeurer/conda-a-binary-scipy2014" class="uri"&gt;http://www.slideshare.net/AaronMeurer/conda-a-binary-scipy2014&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="python"></category></entry><entry><title>Writing Technical Papers with Markdown</title><link href="http://kdheepak.com/blog/writing-papers-with-markdown.html" rel="alternate"></link><updated>2015-12-20T17:37:56-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-12-20:blog/writing-papers-with-markdown.html</id><summary type="html">&lt;p&gt;Recently, I’ve had several people ask me about the Markdown workflow I use to write papers. I figured I’d use this post to write about my workflow and my resources on this topic.&lt;/p&gt;
-&lt;h1 id="why-markdown"&gt;Why Markdown&lt;/h1&gt;
-&lt;p&gt;Academic writing involves writing down ideas as they come along (notetaking), experimenting with these ideas (data analysis), and finally presenting them effectively (scientific paper). There’s a lot to manage over the length of time this entire process spans. Academics require a set of tools that aid in making this process i.e. the effective communication of ideas, as seamless as possible. There are currently two popular options for academics seeking to write technical papers - Microsoft Word or &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;.&lt;/p&gt;
-&lt;h2 id="a-word-about-word"&gt;A word about Word&lt;/h2&gt;
-&lt;p&gt;Microsoft Word is ubiquitous when it comes to writing reports. The great thing about Word is that there is almost no barrier to &lt;em&gt;begin&lt;/em&gt; writing. You can incrementally build your skill set after you start using Word. This is useful since it makes it immediately accessible, thereby decreasing the time spent on what tool you are using for writing and allowing you to concentrate on the writing itself.&lt;/p&gt;
-&lt;p&gt;However, I’ve found a few fundamental problems with Microsoft Word.&lt;/p&gt;
-&lt;p&gt;Having a WYSIWYG (What You See Is What You Get) editor is great (even Richard Stallman seems to think so &lt;span class="citation" data-cites="stallman_emacs"&gt;[&lt;a href="#ref-stallman_emacs"&gt;1&lt;/a&gt;]&lt;/span&gt;). However, products like Word fail miserably at separating content from formatting. These products impose on the writer their own concept of how a document should be formatted, which I’ve found greatly hinders the writing process. Have you ever experienced a sudden jump in spacing? Or mismatched formatting after a copy and paste from one part of the document to another? Or have indents and bullet points misbehave haphazardly? Word applies formatting changes seemingly at random! These are all typesetting and formatting processes and these should be applied &lt;strong&gt;after&lt;/strong&gt; the text is completed. These processes should not distract from the task at hand&lt;a href="#fn1" class="footnoteRef" id="fnref1"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; - writing!&lt;/p&gt;
-&lt;p&gt;There are other issues as well. Microsoft’s ecosystem comes at a price, literally. Word is proprietary, and Word’s format is a proprietary data format. When you use Word, by storing your work in this proprietary software’s proprietary data format, you tie yourself down to this particular licensed software for the forseeable future. When you use Word, you make the implicit assumption that everyone you work with has the same software on their computer. Word also does not play well with its counterparts on OSX. With the same content, the document is presented differently depending on which machine you open it on. As far as I know there isn’t even a version for Linux machines. Heck, Microsoft Word does not even play well with previous versions of Microsoft Word. I understand why this issue occurs, considering complexity in operating systems and software, but why is this so widely accepted? Backward incompatible software or cross incompatibility are probably inevitable. But as an user, I shouldn’t have to be concerned about this. I shouldn’t have to think about what software or what version my reviewers are using when I’m sending them a document. And speaking of sharing documents, did you know you can end up transferring malware through a Word document? Just think about that for a second. Opening what is essentially a text file could be a security threat for your machine. And some of these viruses (as of the time of this writing) do not even have patches yet &lt;span class="citation" data-cites="beaumont_bypass_2015"&gt;[&lt;a href="#ref-beaumont_bypass_2015"&gt;2&lt;/a&gt;]&lt;/span&gt;. Loads of people have already talked about this and similar issues at some length &lt;span class="citation" data-cites="steingold_proprietary"&gt;[&lt;a href="#ref-steingold_proprietary"&gt;3&lt;/a&gt;]&lt;/span&gt;, and have probably done more justice to this topic that I possibly could.&lt;/p&gt;
-&lt;p&gt;But I hear what you are saying. You have already invested in Microsoft Word and have prescient knowledge to work around this tool’s mysterious formatting randomness. You use a Windows machine, and everyone around you who you wish to share this document with uses a Windows machine as well. You don’t really care if the software you use is proprietary, as long as you can get the job done. And you are pretty careful about what links you click. Even if you agree with all those things, I still feel there is a case to be made about why you should consider dropping Word for your next paper.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Word is slow, and consumes sometimes up to a gig of virtual memory. For what is basically a word processor, that is unnecessary.&lt;/li&gt;
-&lt;li&gt;There is no good clean way to permanently save comments or notes in Word, that persist in the final version without affecting how final document looks.&lt;/li&gt;
-&lt;li&gt;Collaborating with other people when using Word requires foresight and planning.&lt;/li&gt;
-&lt;li&gt;The equation editor painful to use.&lt;/li&gt;
-&lt;li&gt;Word does not work in the workflow for &lt;strong&gt;&lt;em&gt;scientific research papers or reports&lt;/em&gt;&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The last point is the reason I dropped using Word entirely. Assuming scientific research papers consist of only 3 steps (if only!) - notetaking, analysis and presentation - Word fails at performing well in any of these steps.&lt;/p&gt;
-&lt;p&gt;Word doesn’t quite work for notetaking, with Org mode, Evernote or Onenote being most people’s preferred solution. I personally don’t know anyone that decides to keep their notes in Word. Word doesn’t fit data analysis requirements as well, with Python, R or Excel being the go-to tools. I use Emacs / Vim for notetaking and store them in a git repository and all of my data analysis is done in a Jupyter Notebook. After collecting the required data from an experiment and post processing it, I can save plots into an image or the data into a table in a particular format programmatically using scripts. Word however, does not allow me to import these images or tables programmatically. Word just does not fit into typical analysis or research workflows. To quote Raymond Hettinger :&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="../images/raymondhettinger.jpg" /&gt;
-&lt;/figure&gt;
-&lt;h2 id="latex---lah-tekh-lah-tek-or-lay-tek"&gt;&lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; - lah-tekh, lah-tek or lay-tek?&lt;/h2&gt;
-&lt;p&gt;Enter &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;LaTeX is to a book what a set of blueprints is to a building. &lt;span class="citation" data-cites="_stackoverflow"&gt;[&lt;a href="#ref-_stackoverflow"&gt;5&lt;/a&gt;]&lt;/span&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; is a typesetting system that uses the TeX program and is frequently used in scientific, technical and mathematical papers. It is infamous for displaying equations in a manner that looks great.&lt;/p&gt;
-&lt;p&gt;&lt;span class="math display"&gt;\[
-\begin{align}
-  \hskip6em \nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &amp;amp; = \frac{4\pi}{c}\vec{\mathbf{j}} \hskip6em \\
-  \nabla \cdot \vec{\mathbf{E}} &amp;amp; = 4 \pi \rho \\
-  \nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} &amp;amp; = \vec{\mathbf{0}} \\
-  \nabla \cdot \vec{\mathbf{B}} &amp;amp; = 0
-\end{align}
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Math is beautiful, and it deserves to be presented beautifully.&lt;/p&gt;
-&lt;p&gt;&lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; is essentially a markup language. Content is written in plain text and can be annotated with commands that describe how certain elements should be displayed. And since the source document that contains the content is a plain text file, I can use &lt;code&gt;git&lt;/code&gt; to version control the paper. This allows me to track changes and collaborate with others without any additional effort. This also lets me work with any editor I want - Vim, Emacs, TeXShop, Lyx. But most importantly, I have the confidence that my code and documents can survive possibly forever in its current format. &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; is free. Free as in beer and free as in freedom.&lt;/p&gt;
-&lt;p&gt;The &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; community is great and are very helpful towards beginners. There are hundreds of packages that improve upon the functionality that &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; provides. There are packages like &lt;em&gt;TikZ&lt;/em&gt; that allow you to create high resolution print quality detailed diagrams.&lt;/p&gt;
-&lt;p&gt;However, &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; does come with a penalty. There is a barrier to entry which one must overcome in order to begin using &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;. Unlike Word, you have to know which commands are used for what markup functionality, not only to know when to use them, but also when not to use them.&lt;/p&gt;
-&lt;p&gt;Personally, I found learning how to use &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; extremely useful, and I didn’t think it was difficult. Solutions to my initial problems were only a quick Google search away. Tables were frustrating at first, but you get the hang of them. Equations are a joy to type in &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;. And the final product looks great!&lt;/p&gt;
-&lt;p&gt;That said, the markup language is a bit too heavy for notetaking, and not particularly readable. Take for example the syntax for a list of items.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;\section{Section Name}
-This is text in the section
-\subsection{Sub Section Name}
-The following is a list in this subsection
-\begin{enumerate}
-  \item The first \textbf{bold} item
-  \begin{enumerate}
-    \item Nested item 1
-    \item Nested item 2
-  \end{enumerate}
-  \item The second \textit{italicized} item
-  \item The third etc \ldots
-\end{enumerate}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;With good IDE’s for &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;, this could be made acceptable since they may not hinder the writing process. The biggest problem with &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; are probably the error messages. Most of the time they are near useless, and sometimes they are even borderline cryptic. Since it has a heavy markup, I like to compile while writing and read from the compiled version to get a sense of context. With practice and experience one can figure out ways to work with &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;, but beginners will still have a hard time.&lt;/p&gt;
-&lt;p&gt;Once you invest the time to learn &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;, I can’t think of any reason why one would go back to Word. However, if you cannot afford to experiment with &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;, are you resigned to Word?&lt;/p&gt;
-&lt;h2 id="markdown"&gt;Markdown&lt;/h2&gt;
-&lt;p&gt;Markdown is a very lightweight easy-to-read easy-to-write plain text markup language. The same example as before looks like this in Markdown.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# Section Name
-
-This is text in the section
-
-## Sub Section Name
-
-The following is a list in this subsection
-
-* The first **bold** item
-    - Nested item 1
-    - Nested item 2
-* The second *italicized* item
-* The third etc ...&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Much better! It’s a lot easier to read and a lot easier to write. Markdown, developed by John Gruber, was principally written for the web, to avoid the heavy markup of HTML. Tools have been developed to convert Markdown to HTML, PDF and even docx.&lt;/p&gt;
-&lt;p&gt;The main advantages of Markdown:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Easy: the syntax is simple&lt;/li&gt;
-&lt;li&gt;Fast: the simple formatting saves time and speeds up workflows of writers&lt;/li&gt;
-&lt;li&gt;Portable: documents are cross-platform by nature&lt;/li&gt;
-&lt;li&gt;Flexible: html, pdf, docx, tex are all supported output formats&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Markdown is awesome at a set of things, and a much better alternative than Word or &lt;span class="math inline"&gt;\(LaTeX\)&lt;/span&gt; for those specific set of things.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;  Right     Left     Center     Default
--------     ------ ----------   -------
-     12     12        12            12
-    123     123       123          123
-      1     1          1             1
-
-Table:  Demonstration of simple table syntax.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is what the same table looks like in &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;\begin{longtable}[c]{@{}rlcl@{}}
-\caption{Demonstration of simple table syntax.}\tabularnewline
-\toprule
-Right &amp;amp; Left &amp;amp; Center &amp;amp; Default\tabularnewline
-\midrule
-\endfirsthead
-\toprule
-Right &amp;amp; Left &amp;amp; Center &amp;amp; Default\tabularnewline
-\midrule
-\endhead
-12 &amp;amp; 12 &amp;amp; 12 &amp;amp; 12\tabularnewline
-123 &amp;amp; 123 &amp;amp; 123 &amp;amp; 123\tabularnewline
-1 &amp;amp; 1 &amp;amp; 1 &amp;amp; 1\tabularnewline
-\bottomrule
-\end{longtable}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;However, Markdown does not allow for the level of detailed customization that you can achieve using &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;. Even a moderately complex table such as the one below currently is not supported by any converter for Markdown.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Latex_example_tabular_cline.svg" alt="Tabular LaTeX example [6]" /&gt;&lt;figcaption&gt;Tabular LaTeX example &lt;span class="citation" data-cites="_wikibooks"&gt;[&lt;a href="#ref-_wikibooks"&gt;6&lt;/a&gt;]&lt;/span&gt;&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;Fortunately there is a solution for this, but before that we need to take a look at how to convert Markdown to the various document formats.&lt;/p&gt;
-&lt;h1 id="pandoc---a-swiss-army-knife"&gt;Pandoc - A swiss army knife&lt;/h1&gt;
-&lt;p&gt;Pandoc is a software tool written in Haskell that can convert a document from just about any format to just about any other format, and works really well.&lt;/p&gt;
-&lt;p&gt;Input formats :&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;native (native Haskell),&lt;/li&gt;
-&lt;li&gt;json (JSON version of native AST),&lt;/li&gt;
-&lt;li&gt;markdown (pandoc’s extended Markdown),&lt;/li&gt;
-&lt;li&gt;markdown_strict (original unextended Markdown),&lt;/li&gt;
-&lt;li&gt;markdown_phpextra (PHP Markdown Extra),&lt;/li&gt;
-&lt;li&gt;markdown_github (GitHub-Flavored Markdown),&lt;/li&gt;
-&lt;li&gt;commonmark (CommonMark Markdown),&lt;/li&gt;
-&lt;li&gt;textile (Textile),&lt;/li&gt;
-&lt;li&gt;rst (reStructuredText),&lt;/li&gt;
-&lt;li&gt;html (HTML),&lt;/li&gt;
-&lt;li&gt;docbook (DocBook),&lt;/li&gt;
-&lt;li&gt;t2t (txt2tags),&lt;/li&gt;
-&lt;li&gt;docx (docx),&lt;/li&gt;
-&lt;li&gt;odt (ODT),&lt;/li&gt;
-&lt;li&gt;epub (EPUB),&lt;/li&gt;
-&lt;li&gt;opml (OPML),&lt;/li&gt;
-&lt;li&gt;org (Emacs Org mode),&lt;/li&gt;
-&lt;li&gt;mediawiki (MediaWiki markup),&lt;/li&gt;
-&lt;li&gt;twiki (TWiki markup),&lt;/li&gt;
-&lt;li&gt;haddock (Haddock markup),&lt;/li&gt;
-&lt;li&gt;or latex (LaTeX).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Output formats :&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;native (native Haskell),&lt;/li&gt;
-&lt;li&gt;json (JSON version of native AST),&lt;/li&gt;
-&lt;li&gt;plain (plain text),&lt;/li&gt;
-&lt;li&gt;markdown (pandoc’s extended Markdown),&lt;/li&gt;
-&lt;li&gt;markdown_strict (original unextended Markdown),&lt;/li&gt;
-&lt;li&gt;markdown_phpextra (PHP Markdown Extra),&lt;/li&gt;
-&lt;li&gt;markdown_github (GitHub-Flavored Markdown),&lt;/li&gt;
-&lt;li&gt;commonmark (CommonMark Markdown),&lt;/li&gt;
-&lt;li&gt;rst (reStructuredText),&lt;/li&gt;
-&lt;li&gt;html (XHTML),&lt;/li&gt;
-&lt;li&gt;html5 (HTML5),&lt;/li&gt;
-&lt;li&gt;latex (LaTeX),&lt;/li&gt;
-&lt;li&gt;beamer (LaTeX beamer slide show),&lt;/li&gt;
-&lt;li&gt;context (ConTeXt),&lt;/li&gt;
-&lt;li&gt;man (groff man),&lt;/li&gt;
-&lt;li&gt;mediawiki (MediaWiki markup),&lt;/li&gt;
-&lt;li&gt;dokuwiki (DokuWiki markup),&lt;/li&gt;
-&lt;li&gt;textile (Textile),&lt;/li&gt;
-&lt;li&gt;org (Emacs Org mode),&lt;/li&gt;
-&lt;li&gt;texinfo (GNU Texinfo),&lt;/li&gt;
-&lt;li&gt;opml (OPML),&lt;/li&gt;
-&lt;li&gt;docbook (DocBook),&lt;/li&gt;
-&lt;li&gt;opendocument (OpenDocument),&lt;/li&gt;
-&lt;li&gt;odt (OpenOffice text document),&lt;/li&gt;
-&lt;li&gt;docx (Word docx),&lt;/li&gt;
-&lt;li&gt;haddock (Haddock markup),&lt;/li&gt;
-&lt;li&gt;rtf (rich text format),&lt;/li&gt;
-&lt;li&gt;epub (EPUB v2 book),&lt;/li&gt;
-&lt;li&gt;epub3 (EPUB v3),&lt;/li&gt;
-&lt;li&gt;fb2 (FictionBook2 e-book),&lt;/li&gt;
-&lt;li&gt;asciidoc (AsciiDoc),&lt;/li&gt;
-&lt;li&gt;icml (InDesign ICML),&lt;/li&gt;
-&lt;li&gt;slidy (Slidy HTML and javascript slide show),&lt;/li&gt;
-&lt;li&gt;slideous (Slideous HTML and javascript slide show),&lt;/li&gt;
-&lt;li&gt;dzslides (DZSlides HTML5 + javascript slide show),&lt;/li&gt;
-&lt;li&gt;revealjs (reveal.js HTML5 + javascript slide show),&lt;/li&gt;
-&lt;li&gt;s5 (S5 HTML and javascript slide show),&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;With 21 input formats and 37 output formats, it doesn’t take long to guess that there’s no way they implemented a converter for each input to output format. Pandoc employs a Abstract Syntax Tree (AST) structure as an intermediate stage to convert from one format to another. (This will be important when we talk about filters.) The point here is that because of this pandoc is great at converting from and to a wide variety of formats. Pandoc is also constantly under development which is a great thing.&lt;/p&gt;
-&lt;p&gt;We can use Pandoc to convert a markdown file with content, to a pdf, html or docx file for a technical paper. (The docx converter doesn’t work great though, blame Microsoft’s lack of documentation &lt;span class="citation" data-cites="_googlegroups"&gt;[&lt;a href="#ref-_googlegroups"&gt;7&lt;/a&gt;]&lt;/span&gt;)&lt;/p&gt;
-&lt;p&gt;First off, you will need &lt;code&gt;pandoc&lt;/code&gt;. You can get the latest version on their GitHub page &lt;span class="citation" data-cites="_github"&gt;[&lt;a href="#ref-_github"&gt;8&lt;/a&gt;]&lt;/span&gt;. You may need &lt;code&gt;pandoc-citeproc&lt;/code&gt; as well.&lt;a href="#fn2" class="footnoteRef" id="fnref2"&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; You will also need &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;.&lt;/p&gt;
-&lt;p&gt;I’ve found that the following python packages are useful.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;pandoc-attributes&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;pandoc-eqnos&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;pandoc-fignos&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;pandoc-tablenos&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;pandocfilters&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;You can run &lt;code&gt;pip install &amp;lt;package-name&amp;gt;&lt;/code&gt;. Alternatively you can create a virtual environment using &lt;code&gt;conda&lt;/code&gt; with a suitable environment file &lt;span class="citation" data-cites="krishnamurthy_github"&gt;[&lt;a href="#ref-krishnamurthy_github"&gt;9&lt;/a&gt;]&lt;/span&gt;, which is the approach I recommend &lt;span class="citation" data-cites="krishnamurthy_using"&gt;[&lt;a href="#ref-krishnamurthy_using"&gt;10&lt;/a&gt;]&lt;/span&gt;.&lt;/p&gt;
-&lt;p&gt;There are several people that have shared their complete workflow along with all their resources &lt;span class="citation" data-cites="healy_plain"&gt;[&lt;a href="#ref-healy_plain"&gt;11&lt;/a&gt;]&lt;/span&gt;. Mine is available on GitHub &lt;span class="citation" data-cites="krishnamurthy_github"&gt;[&lt;a href="#ref-krishnamurthy_github"&gt;9&lt;/a&gt;]&lt;/span&gt; as well. While someone else’s workflow will work for you, I highly recommend doing it from scratch and crafting your own Makefile. That way you will figure out why each item has been added into that workflow, and if (when?) it breaks you will be able to figure out why. I also highly recommend going through other people’s Makefiles to see what they have done. That way you might be able to see an implementation that works better than your own.&lt;/p&gt;
-&lt;h2 id="syntax"&gt;Syntax&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Headings&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# Section
-## Sub Section
-### Sub Sub Section&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="section"&gt;Section&lt;/h1&gt;
-&lt;h2 id="sub-section"&gt;Sub Section&lt;/h2&gt;
-&lt;h3 id="sub-sub-section"&gt;Sub Sub Section&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Text&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;*italic*
-**bold**
-***bold-italic***&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;em&gt;italic&lt;/em&gt; &lt;strong&gt;bold&lt;/strong&gt; &lt;strong&gt;&lt;em&gt;bold-italic&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Link&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[Text](http://google.com)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;a href="http://google.com"&gt;Text&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Images&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[Caption](../images/markdown.png)&lt;/code&gt;&lt;/pre&gt;
-&lt;figure&gt;
-&lt;img src="../images/markdown.png" alt="Caption" /&gt;&lt;figcaption&gt;Caption&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Lists&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;* item
-* item
-    * item
-* item
-
-1. item
-1. item
-    1. item
-1. item&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;item&lt;/li&gt;
-&lt;li&gt;item
-&lt;ul&gt;
-&lt;li&gt;item&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;item&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol type="1"&gt;
-&lt;li&gt;item&lt;/li&gt;
-&lt;li&gt;item
-&lt;ol type="1"&gt;
-&lt;li&gt;item&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;li&gt;item&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Quotes&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;gt; Research is what I&amp;#39;m doing when I don&amp;#39;t know what I&amp;#39;m doing. - Wernher von Braun&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Research is what I’m doing when I don’t know what I’m doing. - Wernher von Braun&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Code&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;`inline code`
-
-    Tab space 
-    for code block&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;inline code&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Tab space 
-for code block&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Footnotes&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Example of a footnote [^3]&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Example of a footnote&lt;a href="#fn3" class="footnoteRef" id="fnref3"&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Citations&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;This is a very important fact [@citation_example]&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is a very important fact &lt;span class="citation" data-cites="citation_example"&gt;[&lt;a href="#ref-citation_example"&gt;12&lt;/a&gt;]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Strikethrough&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;~~Strikethrough text~~&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;del&gt;Strikethrough text&lt;/del&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Equations&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Inline equations $\pi$
-
-Block equations 
-
-$$
-\pi
-$$&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Inline equations &lt;span class="math inline"&gt;\(\pi\)&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Block equations&lt;/p&gt;
-&lt;p&gt;&lt;span class="math display"&gt;\[
-\pi
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Once you have typed all the content, you can use &lt;code&gt;pandoc&lt;/code&gt; to convert the document into the format you want. Pandoc uses the output filename extension to figure out what the output file format should be. You can also manually specify the output format.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;pandoc document.md -o document.pdf&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;I highly recommend reading pandoc’s README &lt;span class="citation" data-cites="_pandoc"&gt;[&lt;a href="#ref-_pandoc"&gt;13&lt;/a&gt;]&lt;/span&gt;. It has loads of examples and you might be able to find what you are looking for by straight up picking an example or by making a minor tweak to it.&lt;/p&gt;
-&lt;p&gt;With pdf files, you can specify the following&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;--latex-engine=pdflatex&lt;/code&gt; : latex engine&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;--latex-template=latex.template&lt;/code&gt; : latex template file&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;--csl=CSLFILE&lt;/code&gt; : citation style sheet&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;--bibliography=BIBFILE&lt;/code&gt; : bibliography&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Also, I’ve found the following filters useful.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;--filter pandoc-eqnos&lt;/code&gt; : equation numbers&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;--filter pandoc-fignos&lt;/code&gt; : figure numbers&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;--filter pandoc-tablenos&lt;/code&gt; : table numbers&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;--filter pandoc-citeproc&lt;/code&gt; : citations&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;With html and docx files, equations are a bit tricky. pandoc allows you to define &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; blocks in the markdown file, which are passed straight through to &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; without any change. LaTeX then processes it to render it correctly. However, to HTML and docx, pandoc will remove LaTeX blocks. With HTML, you can specify &lt;code&gt;--mathjax&lt;/code&gt; which will attempt to render LaTeX as mathjax, which works most of the time. This webpage for example was generated entirely from a markdown file, rendered to html using pandoc. I have found a few cases where mathjax did not work correctly for me though. So there may be some experimenting involved. With docx, pandoc will (currently) convert to mathjax for only a certain set of the markdown equation syntax.&lt;/p&gt;
-&lt;p&gt;The good news is that anything you do in LaTeX, you can do in Markdown and render as a pdf. The bad news is you are still writing LaTeX (although less of it), and you have lost complete html and docx conversion capability. Also, Markdown / Pandoc currently does not support spliting the source document across multiple files. I’ve not found this a concern since the markup is pretty light. However, for large reports this may be a issue and the workarounds for this that I found were not clean.&lt;/p&gt;
-&lt;p&gt;There are some ways to solve these problems. Remember the filter argument for pandoc? You can use it to parse certain blocks in a custom fashion. For most people this is not necessary, but if you come across a case where pandoc does not do what you want it to do, you can write a filter for it. There is even a python package called pandocfilters that allows you to walk the AST and parse specific formats or keys. It is very powerful, and can offer unique ways to expand on pandoc’s functionality. I wrote a pandocfilter &lt;span class="citation" data-cites="krishnamurthy_github-1"&gt;[&lt;a href="#ref-krishnamurthy_github-1"&gt;14&lt;/a&gt;]&lt;/span&gt; to embed a jupyter notebook using a liquid tag style syntax, which I currently use for this blog. You can even write a Haskell filter instead of using Python, but then you will be writing Haskell ;) I would tag custom filters that as an advanced feature. And as far as I can tell, you can write a complete paper in Markdown and render it in pdf without any custom filters&lt;/p&gt;
-&lt;h1 id="tldr"&gt;TLDR&lt;/h1&gt;
-&lt;figure&gt;
-&lt;img src="../images/learningcurve.png" alt="My very scientific comparison of Word, \LaTeX and Markdown" /&gt;&lt;figcaption&gt;My very scientific comparison of Word, &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; and Markdown&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;If you have gotten this far, congratulations and good luck! Let me know in the comments below if you have any questions.&lt;/p&gt;
-&lt;h1 id="references"&gt;References&lt;/h1&gt;
-&lt;div id="refs" class="references"&gt;
-&lt;div id="ref-stallman_emacs"&gt;
-&lt;p&gt;[1] R. Stallman, “Emacs as word processor.” [Online]. Available: &lt;a href="http://lists.gnu.org/archive/html/emacs-devel/2013-11/msg00515.html" class="uri"&gt;http://lists.gnu.org/archive/html/emacs-devel/2013-11/msg00515.html&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="ref-beaumont_bypass_2015"&gt;
-&lt;p&gt;[2] K. Beaumont, “Bypass almost every Corporate security control with a point’n’click GUI. Medium,” 23-Dec-2015. [Online]. Available: &lt;a href="https://medium.com/@networksecurity/oleoutlook-bypass-almost-every-corporate-security-control-with-a-point-n-click-gui-37f4cbc107d0" class="uri"&gt;https://medium.com/@networksecurity/oleoutlook-bypass-almost-every-corporate-security-control-with-a-point-n-click-gui-37f4cbc107d0&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="ref-steingold_proprietary"&gt;
-&lt;p&gt;[3] S. Steingold, “Proprietary Binary Data Formats: Just Say No!” [Online]. Available: &lt;a href="http://www.podval.org/~sds/data.html" class="uri"&gt;http://www.podval.org/~sds/data.html&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="ref-cottrell_word"&gt;
-&lt;p&gt;[4] A. Cottrell, “Word Processors: Stupid and Inefficient.” [Online]. Available: &lt;a href="http://ricardo.ecn.wfu.edu/~cottrell/wp.html" class="uri"&gt;http://ricardo.ecn.wfu.edu/~cottrell/wp.html&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="ref-_stackoverflow"&gt;
-&lt;p&gt;[5] “StackOverflow Quote.” [Online]. Available: &lt;a href="http://tex.stackexchange.com/a/95078" class="uri"&gt;http://tex.stackexchange.com/a/95078&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="ref-_wikibooks"&gt;
-&lt;p&gt;[6] “Wikibooks LaTeX Tables.” [Online]. Available: &lt;a href="https://en.wikibooks.org/wiki/LaTeX/Tables" class="uri"&gt;https://en.wikibooks.org/wiki/LaTeX/Tables&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="ref-_googlegroups"&gt;
-&lt;p&gt;[7] “GoogleGroups.” [Online]. Available: &lt;a href="https://groups.google.com/d/msg/pandoc-discuss/_KyoGN1Zf5g/rzq367675ecJ" class="uri"&gt;https://groups.google.com/d/msg/pandoc-discuss/_KyoGN1Zf5g/rzq367675ecJ&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="ref-_github"&gt;
-&lt;p&gt;[8] “Github repository to Pandoc.” [Online]. Available: &lt;a href="https://github.com/jgm/pandoc/releases" class="uri"&gt;https://github.com/jgm/pandoc/releases&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="ref-krishnamurthy_github"&gt;
-&lt;p&gt;[9] D. Krishnamurthy, “Github repository to Pandoc Paper Template. GitHub.” [Online]. Available: &lt;a href="https://github.com/kdheepak89/pandoc-paper" class="uri"&gt;https://github.com/kdheepak89/pandoc-paper&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="ref-krishnamurthy_using"&gt;
-&lt;p&gt;[10] D. Krishnamurthy, “Using conda to manage packages.” [Online]. Available: &lt;a href="http://kdheepak.com/blog/using-conda-to-manage-packages.html" class="uri"&gt;http://kdheepak.com/blog/using-conda-to-manage-packages.html&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="ref-healy_plain"&gt;
-&lt;p&gt;[11] K. Healy, “Plain Text, Papers, Pandoc.” [Online]. Available: &lt;a href="http://kieranhealy.org/blog/archives/2014/01/23/plain-text/" class="uri"&gt;http://kieranhealy.org/blog/archives/2014/01/23/plain-text/&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="ref-citation_example"&gt;
-&lt;p&gt;[12] citation, “Example of a citation.”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="ref-_pandoc"&gt;
-&lt;p&gt;[13] “Pandoc README.” [Online]. Available: &lt;a href="http://pandoc.org/README.html" class="uri"&gt;http://pandoc.org/README.html&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="ref-krishnamurthy_github-1"&gt;
-&lt;p&gt;[14] D. Krishnamurthy, “Github repository for jupyter notebook pandocfilter. GitHub.” [Online]. Available: &lt;a href="https://github.com/kdheepak89/pandoc-ipynb" class="uri"&gt;https://github.com/kdheepak89/pandoc-ipynb&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;h1 id="footnotes"&gt;Footnotes&lt;/h1&gt;
-&lt;section class="footnotes"&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id="fn1"&gt;&lt;p&gt;I understand that there are &lt;em&gt;correct&lt;/em&gt; ways to go about this, but I don’t want to be thinking about that while I’m writing.&lt;a href="#fnref1"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id="fn2"&gt;&lt;p&gt;If you install Pandoc from a package, pandoc-citeproc should come preinstalled. However, if you use a package manager such as &lt;code&gt;brew&lt;/code&gt; (&lt;code&gt;brew install pandoc&lt;/code&gt;), you may need to install &lt;code&gt;pandoc-citeproc&lt;/code&gt; as well. Just run &lt;code&gt;brew install pandoc-citeproc&lt;/code&gt;.&lt;a href="#fnref2"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id="fn3"&gt;&lt;p&gt;Now you have to scroll back up. If only there way a way to hyperlink back!&lt;a href="#fnref3"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/section&gt;
-</summary><category term="markdown"></category><category term="writing"></category></entry><entry><title>Jupyter Notebook, Reveal.js and Github Pages</title><link href="http://kdheepak.com/blog/jupyter-notebook-revealjs-and-github-pages.html" rel="alternate"></link><updated>2015-12-05T13:03:54-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-12-05:blog/jupyter-notebook-revealjs-and-github-pages.html</id><summary type="html">&lt;p&gt;Jupyter Notebook has the ability to convert an notebook &lt;code&gt;ipynb&lt;/code&gt; to markdown, rst, html and interestingly slides. And these Reveal.js powered slides can be hosted on GitHub pages, like any other html page. The following steps works well for me to generate a static set of slides from a notebook that can be used as a presentation&lt;/p&gt;
+</summary><category term="python"></category></entry><entry><title>Jupyter Notebook, Reveal.js and Github Pages</title><link href="http://kdheepak.com/blog/jupyter-notebook-revealjs-and-github-pages.html" rel="alternate"></link><updated>2015-12-05T13:03:54-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-12-05:blog/jupyter-notebook-revealjs-and-github-pages.html</id><summary type="html">&lt;p&gt;Jupyter Notebook has the ability to convert an notebook &lt;code&gt;ipynb&lt;/code&gt; to markdown, rst, html and interestingly slides. And these Reveal.js powered slides can be hosted on GitHub pages, like any other html page. The following steps works well for me to generate a static set of slides from a notebook that can be used as a presentation&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Save the ipython notebook as index.ipynb.&lt;/li&gt;
 &lt;li&gt;Fork reveal.js to your GitHub account.&lt;/li&gt;
