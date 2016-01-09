@@ -245,8 +245,8 @@ Right &amp;amp; Left &amp;amp; Center &amp;amp; Default\tabularnewline
 &lt;li&gt;revealjs (reveal.js HTML5 + javascript slide show)&lt;/li&gt;
 &lt;li&gt;s5 (S5 HTML and javascript slide show)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;With 21 input formats and 37 output formats, it doesn’t take long to guess that there’s no way they implemented a converter for each input to output format. Pandoc employs a Abstract Syntax Tree (AST) structure as an intermediate stage to convert one format to another&lt;a href="#fn3" class="footnoteRef" id="fnref3"&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;. This is the reason Pandoc is great at converting from and to a wide variety of formats, and why it is potentially easy to support new formats as well. Pandoc is also constantly under development. We can use Pandoc to convert a markdown file, to a PDF, HTML or DOCX file for a technical paper. (The docx converter doesn’t work great though, blame Microsoft’s lack of documentation &lt;span class="citation" data-cites="_googlegroups"&gt;[&lt;a href="#ref-_googlegroups"&gt;7&lt;/a&gt;]&lt;/span&gt;)&lt;/p&gt;
-&lt;p&gt;First off, you will need &lt;code&gt;pandoc&lt;/code&gt;. You can get the latest version from their GitHub page &lt;span class="citation" data-cites="_github"&gt;[&lt;a href="#ref-_github"&gt;8&lt;/a&gt;]&lt;/span&gt;. You may want &lt;code&gt;pandoc-citeproc&lt;/code&gt; as well.&lt;a href="#fn4" class="footnoteRef" id="fnref4"&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt; You will also need &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;. I’ve found that the following python packages are useful too.&lt;/p&gt;
+&lt;p&gt;With 21 input formats and 37 output formats, it doesn’t take long to guess that there’s no way they implemented a converter for each input to output format. Pandoc employs a Abstract Syntax Tree (AST) structure as an intermediate stage to convert one format to another&lt;a href="#fn3" class="footnoteRef" id="fnref3"&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;. This is the reason Pandoc is great at converting from and to a wide variety of formats, and why it is potentially easy to support new formats as well. Pandoc is also constantly under development. We can use Pandoc to convert a markdown file, to a PDF, HTML or DOCX file for a technical paper.&lt;/p&gt;
+&lt;p&gt;First off, you will need &lt;code&gt;pandoc&lt;/code&gt;. You can get the latest version from their GitHub page &lt;span class="citation" data-cites="_github"&gt;[&lt;a href="#ref-_github"&gt;7&lt;/a&gt;]&lt;/span&gt;. You may want &lt;code&gt;pandoc-citeproc&lt;/code&gt; as well.&lt;a href="#fn4" class="footnoteRef" id="fnref4"&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt; You will also need &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;. I’ve found that the following python packages are useful too.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;pandoc-attributes&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;pandoc-eqnos&lt;/code&gt;&lt;/li&gt;
@@ -254,8 +254,8 @@ Right &amp;amp; Left &amp;amp; Center &amp;amp; Default\tabularnewline
 &lt;li&gt;&lt;code&gt;pandoc-tablenos&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;pandocfilters&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;You can run &lt;code&gt;pip install &amp;lt;package-name&amp;gt;&lt;/code&gt;. Alternatively you can create a virtual environment using &lt;code&gt;conda&lt;/code&gt; with a suitable environment file &lt;span class="citation" data-cites="krishnamurthy_github"&gt;[&lt;a href="#ref-krishnamurthy_github"&gt;9&lt;/a&gt;]&lt;/span&gt;, which is the approach I recommend &lt;span class="citation" data-cites="krishnamurthy_using"&gt;[&lt;a href="#ref-krishnamurthy_using"&gt;10&lt;/a&gt;]&lt;/span&gt;.&lt;/p&gt;
-&lt;p&gt;There are several people that have shared their complete workflow along with all their resources &lt;span class="citation" data-cites="healy_plain _writing _writing-1 _academic"&gt;[&lt;a href="#ref-healy_plain"&gt;11&lt;/a&gt;]–[&lt;a href="#ref-_academic"&gt;14&lt;/a&gt;]&lt;/span&gt;. Mine is available on GitHub &lt;span class="citation" data-cites="krishnamurthy_github"&gt;[&lt;a href="#ref-krishnamurthy_github"&gt;9&lt;/a&gt;]&lt;/span&gt; as well. While someone else’s workflow will work for you, I encourage you to start from scratch and crafting your own Makefile. That way you will figure out why each item has been added into a workflow, and if that works for you. You will also know what to do if (when?) it breaks, and how to fix it. Feel free to go through other people’s Makefiles to see what they have done, and how you can improve your own.&lt;/p&gt;
+&lt;p&gt;You can run &lt;code&gt;pip install &amp;lt;package-name&amp;gt;&lt;/code&gt;. Alternatively you can create a virtual environment using &lt;code&gt;conda&lt;/code&gt; with a suitable environment file &lt;span class="citation" data-cites="krishnamurthy_github"&gt;[&lt;a href="#ref-krishnamurthy_github"&gt;8&lt;/a&gt;]&lt;/span&gt;, which is the approach I recommend &lt;span class="citation" data-cites="krishnamurthy_using"&gt;[&lt;a href="#ref-krishnamurthy_using"&gt;9&lt;/a&gt;]&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;There are several people that have shared their complete workflow along with all their resources &lt;span class="citation" data-cites="healy_plain _writing _writing-1 _academic"&gt;[&lt;a href="#ref-healy_plain"&gt;10&lt;/a&gt;]–[&lt;a href="#ref-_academic"&gt;13&lt;/a&gt;]&lt;/span&gt;. Mine is available on GitHub &lt;span class="citation" data-cites="krishnamurthy_github"&gt;[&lt;a href="#ref-krishnamurthy_github"&gt;8&lt;/a&gt;]&lt;/span&gt; as well. While someone else’s workflow will work for you, I encourage you to start from scratch and craft your own Makefile. That way you will figure out why each item has been added into a workflow, and if that works for you. You will also know what to do if (when?) it breaks, and how to fix it. Feel free to go through other people’s Makefiles to see what they have done, and how you can improve your own.&lt;/p&gt;
 &lt;h2 id="syntax"&gt;Syntax&lt;/h2&gt;
 &lt;h3 id="headings"&gt;&lt;strong&gt;&lt;em&gt;Headings&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;# Section
@@ -371,7 +371,7 @@ Table:  Demonstration of simple table syntax. {#tbl:table}&lt;/code&gt;&lt;/pre&
 &lt;h3 id="citations"&gt;&lt;strong&gt;&lt;em&gt;Citations&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;This is a very important fact [@citation_example]&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;This is a very important fact &lt;span class="citation" data-cites="citation_example"&gt;[&lt;a href="#ref-citation_example"&gt;15&lt;/a&gt;]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;This is a very important fact &lt;span class="citation" data-cites="citation_example"&gt;[&lt;a href="#ref-citation_example"&gt;14&lt;/a&gt;]&lt;/span&gt;&lt;/p&gt;
 &lt;h3 id="strikethrough"&gt;&lt;strong&gt;&lt;em&gt;Strikethrough&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;~~Strikethrough text~~&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
@@ -398,7 +398,7 @@ $$ {#eq:pi}&lt;/code&gt;&lt;/pre&gt;
 &lt;!-- END SLIDES --&gt;
 &lt;p&gt;It is as simple as that! To generate a HTML file :&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;pandoc document.md -o document.html&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Check out pandoc’s README &lt;span class="citation" data-cites="_pandoc"&gt;[&lt;a href="#ref-_pandoc"&gt;16&lt;/a&gt;]&lt;/span&gt;. It has loads of examples and you might be able to find what you are looking for by straight up picking an example or by making a minor tweak to it.&lt;/p&gt;
+&lt;p&gt;Check out pandoc’s README &lt;span class="citation" data-cites="_pandoc"&gt;[&lt;a href="#ref-_pandoc"&gt;15&lt;/a&gt;]&lt;/span&gt;. It has loads of examples and you might be able to find what you are looking for by straight up picking an example or by making a minor tweak to it.&lt;/p&gt;
 &lt;!-- BEGIN SLIDES --&gt;
 &lt;p&gt;With PDF files, you can specify the following additional arguments :&lt;/p&gt;
 &lt;ul&gt;
@@ -413,7 +413,7 @@ $$ {#eq:pi}&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 &lt;!-- END SLIDES --&gt;
 &lt;!-- BEGIN SLIDES --&gt;
-&lt;p&gt;With docx files unfortunately, you cannot specify a template (at least not at the time of writing this post). You can however, specify a reference-docx :&lt;/p&gt;
+&lt;p&gt;With docx files unfortunately, you cannot specify a template (at least not at the time of writing this post) &lt;span class="citation" data-cites="_googlegroups"&gt;[&lt;a href="#ref-_googlegroups"&gt;16&lt;/a&gt;]&lt;/span&gt;. You can however, specify a reference-docx :&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;--reference-docx=reference.docx&lt;/code&gt; : docx for reference styles&lt;/li&gt;
 &lt;/ul&gt;
@@ -436,7 +436,17 @@ $$ {#eq:pi}&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 &lt;p&gt;They allow you reference a figure, equation or table. For example, Equation &lt;a href="#eq:pi"&gt;1&lt;/a&gt; is an example of a block equation in Markdown.&lt;/p&gt;
 &lt;!-- END SLIDES --&gt;
-&lt;p&gt;As you can see, there are a lot of arguments that can be passed to Pandoc. I’ve found using Makefiles for recording your past commands and documenting these instructions extremely useful.&lt;/p&gt;
+&lt;p&gt;A paper may be generated using a command as shown below :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pandoc -s -S --latex-engine=pdflatex \
+--template=./templates/ieee-latex.template \
+--filter pandoc-fignos \ 
+--filter pandoc-eqnos \
+--filter pandoc-tablenos \
+--filter pandoc-citeproc \
+--csl=./styles/ieee.csl \
+--bibliography=./bib/research.bib \
+-o ieee-paper.pdf paper.md&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As you can see, there are a lot of arguments that can be passed to Pandoc. I’ve found using Makefiles for recording your past commands and documenting these instructions extremely useful. I’ve barely scratched the surface with what you can do with Pandoc. I’ll update this post with those features if I think they are relevant to writing a paper using Markdown.&lt;/p&gt;
 &lt;!-- BEGIN SLIDES --&gt;
 &lt;h1 id="downside-to-using-markdown"&gt;Downside to using Markdown?&lt;/h1&gt;
 &lt;!-- END SLIDES --&gt;
@@ -450,10 +460,10 @@ $$ {#eq:pi}&lt;/code&gt;&lt;/pre&gt;
 &lt;!-- END SLIDES --&gt;
 &lt;p&gt;In theory, you can write a filter that finds a &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; table block in Markdown, converts it to an image and renders that in Word. Or you can write a filter that inputs other files during run time, allowing you to split your source document.&lt;/p&gt;
 &lt;p&gt;My understanding is that the Python &lt;code&gt;pandocfilters&lt;/code&gt; package is limited in scope. Alternatively, if you choose to, you can yield Pandoc’s complete power by writing a Haskell filter instead of using Python, but then you will be writing Haskell ;)&lt;/p&gt;
-&lt;p&gt;I would tag the custom filters functionality I’ve described in this section as an advanced feature. Know that they are there when you need them.&lt;/p&gt;
+&lt;p&gt;I would tag the custom filters functionality I’ve described in this section as an advanced feature. I’ve not had to write my own filter for writing a technical paper (so far). Know that they are there when you need them.&lt;/p&gt;
 &lt;!-- BEGIN SLIDES --&gt;
 &lt;h1 id="tldr"&gt;TLDR&lt;/h1&gt;
-&lt;p&gt;You can write a complete paper in Markdown and render it in PDF without any issues. I recommend using Markdown and Pandoc for writing over &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; and Word because of its ease of use and its flexibility and versatility &lt;a href="#fig:learningcurve"&gt;1&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can write a complete paper in Markdown and render it in PDF without any issues. I recommend using Markdown and Pandoc for writing over &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; and Word because of its ease of use and its flexibility and versatility. And if you think Markdown is not cutting it for you, you can always convert it to a Word document or a TEX file and continue using your usual workflow. Check out my scientific attempt at describing the space of complexity of document vs difficulty in implementation when using Word, &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; and Markdown &lt;a href="#fig:learningcurve"&gt;1&lt;/a&gt;.&lt;/p&gt;
 &lt;a name="fig:learningcurve"&gt;&lt;/a&gt;
 &lt;figure&gt;
 &lt;img src="../images/learningcurve.png" alt="Figure 1. My very scientific comparison of Word, \LaTeX and Markdown" id="fig:learningcurve" /&gt;&lt;figcaption&gt;Figure 1. My very scientific comparison of Word, &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; and Markdown&lt;/figcaption&gt;
@@ -480,35 +490,35 @@ $$ {#eq:pi}&lt;/code&gt;&lt;/pre&gt;
 &lt;div id="ref-_wikibooks"&gt;
 &lt;p&gt;[6] “Wikibooks LaTeX Tables.” [Online]. Available: &lt;a href="https://en.wikibooks.org/wiki/LaTeX/Tables" class="uri"&gt;https://en.wikibooks.org/wiki/LaTeX/Tables&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id="ref-_googlegroups"&gt;
-&lt;p&gt;[7] “GoogleGroups.” [Online]. Available: &lt;a href="https://groups.google.com/d/msg/pandoc-discuss/_KyoGN1Zf5g/rzq367675ecJ" class="uri"&gt;https://groups.google.com/d/msg/pandoc-discuss/_KyoGN1Zf5g/rzq367675ecJ&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
 &lt;div id="ref-_github"&gt;
-&lt;p&gt;[8] “Github repository to Pandoc.” [Online]. Available: &lt;a href="https://github.com/jgm/pandoc/releases" class="uri"&gt;https://github.com/jgm/pandoc/releases&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;[7] “Github repository to Pandoc.” [Online]. Available: &lt;a href="https://github.com/jgm/pandoc/releases" class="uri"&gt;https://github.com/jgm/pandoc/releases&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id="ref-krishnamurthy_github"&gt;
-&lt;p&gt;[9] D. Krishnamurthy, “Github repository to Pandoc Paper Template. GitHub.” [Online]. Available: &lt;a href="https://github.com/kdheepak89/pandoc-paper" class="uri"&gt;https://github.com/kdheepak89/pandoc-paper&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;[8] D. Krishnamurthy, “Github repository to Pandoc Paper Template. GitHub.” [Online]. Available: &lt;a href="https://github.com/kdheepak89/pandoc-paper" class="uri"&gt;https://github.com/kdheepak89/pandoc-paper&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id="ref-krishnamurthy_using"&gt;
-&lt;p&gt;[10] D. Krishnamurthy, “Using conda to manage packages.” [Online]. Available: &lt;a href="http://kdheepak.com/blog/using-conda-to-manage-packages.html" class="uri"&gt;http://kdheepak.com/blog/using-conda-to-manage-packages.html&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;[9] D. Krishnamurthy, “Using conda to manage packages.” [Online]. Available: &lt;a href="http://kdheepak.com/blog/using-conda-to-manage-packages.html" class="uri"&gt;http://kdheepak.com/blog/using-conda-to-manage-packages.html&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id="ref-healy_plain"&gt;
-&lt;p&gt;[11] K. Healy, “Plain Text, Papers, Pandoc.” [Online]. Available: &lt;a href="http://kieranhealy.org/blog/archives/2014/01/23/plain-text/" class="uri"&gt;http://kieranhealy.org/blog/archives/2014/01/23/plain-text/&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;[10] K. Healy, “Plain Text, Papers, Pandoc.” [Online]. Available: &lt;a href="http://kieranhealy.org/blog/archives/2014/01/23/plain-text/" class="uri"&gt;http://kieranhealy.org/blog/archives/2014/01/23/plain-text/&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id="ref-_writing"&gt;
-&lt;p&gt;[12] “Writing academic papers in plain text with Markdown and Jupyter notebook. Sylvain deville.” [Online]. Available: &lt;a href="http://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/" class="uri"&gt;http://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;[11] “Writing academic papers in plain text with Markdown and Jupyter notebook. Sylvain deville.” [Online]. Available: &lt;a href="http://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/" class="uri"&gt;http://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id="ref-_writing-1"&gt;
-&lt;p&gt;[13] “Writing academic papers in Markdown using Pandoc.” [Online]. Available: &lt;a href="http://blog.cigrainger.com/2014/07/pandoc-markdown.html" class="uri"&gt;http://blog.cigrainger.com/2014/07/pandoc-markdown.html&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;[12] “Writing academic papers in Markdown using Pandoc.” [Online]. Available: &lt;a href="http://blog.cigrainger.com/2014/07/pandoc-markdown.html" class="uri"&gt;http://blog.cigrainger.com/2014/07/pandoc-markdown.html&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id="ref-_academic"&gt;
-&lt;p&gt;[14] “Academic Markdown and Citations.” [Online]. Available: &lt;a href="http://www.chriskrycho.com/2015/academic-markdown-and-citations.html" class="uri"&gt;http://www.chriskrycho.com/2015/academic-markdown-and-citations.html&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;[13] “Academic Markdown and Citations.” [Online]. Available: &lt;a href="http://www.chriskrycho.com/2015/academic-markdown-and-citations.html" class="uri"&gt;http://www.chriskrycho.com/2015/academic-markdown-and-citations.html&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id="ref-citation_example"&gt;
-&lt;p&gt;[15] citation, “Example of a citation.”.&lt;/p&gt;
+&lt;p&gt;[14] citation, “Example of a citation.”.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id="ref-_pandoc"&gt;
-&lt;p&gt;[16] “Pandoc README.” [Online]. Available: &lt;a href="http://pandoc.org/README.html" class="uri"&gt;http://pandoc.org/README.html&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;[15] “Pandoc README.” [Online]. Available: &lt;a href="http://pandoc.org/README.html" class="uri"&gt;http://pandoc.org/README.html&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="ref-_googlegroups"&gt;
+&lt;p&gt;[16] “GoogleGroups.” [Online]. Available: &lt;a href="https://groups.google.com/d/msg/pandoc-discuss/_KyoGN1Zf5g/rzq367675ecJ" class="uri"&gt;https://groups.google.com/d/msg/pandoc-discuss/_KyoGN1Zf5g/rzq367675ecJ&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id="ref-duck_github"&gt;
 &lt;p&gt;[17] T. Duck, “Github repositories of Tom Duck. GitHub.” [Online]. Available: &lt;a href="https://github.com/tomduck" class="uri"&gt;https://github.com/tomduck&lt;/a&gt;.&lt;/p&gt;
