@@ -1,5 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/all.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2016-12-20T00:00:00-07:00</updated><entry><title>Writing Technical Papers with Markdown</title><link href="http://kdheepak.com/blog/writing-papers-with-markdown.html" rel="alternate"></link><updated>2016-12-20T00:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2016-12-20:blog/writing-papers-with-markdown.html</id><summary type="html">&lt;!-- BEGIN COMMENT --&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/all.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-12-25T04:32:51-07:00</updated><entry><title>Using conda to manage packages</title><link href="http://kdheepak.com/blog/using-conda-to-manage-packages.html" rel="alternate"></link><updated>2015-12-25T04:32:51-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-12-25:blog/using-conda-to-manage-packages.html</id><summary type="html">&lt;h1 id="why-use-conda"&gt;Why use conda&lt;/h1&gt;
+&lt;p&gt;The following quote is from Conda’s github page &lt;span class="citation" data-cites="_condaconda"&gt;[&lt;a href="#ref-_condaconda"&gt;1&lt;/a&gt;]&lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Conda is a cross-platform, Python-agnostic binary package manager. It is the package manager used by Anaconda installations, but it may be used for other systems as well. Conda makes environments first-class citizens, making it easy to create independent environments even for C libraries. Conda is written entirely in Python, and is BSD licensed open source.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The main advantage of using conda to manage your packages and environment is that it will work across platforms&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="/images/condacrossplatform.jpg" alt="Slide deck [2] comparing package managers in different platforms" /&gt;&lt;figcaption&gt;Slide deck &lt;span class="citation" data-cites="_conda"&gt;[&lt;a href="#ref-_conda"&gt;2&lt;/a&gt;]&lt;/span&gt; comparing package managers in different platforms&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;conda also uses hard linking, so it is inexpensive to create multiple copies of the same package&lt;/p&gt;
+&lt;h1 id="how-to"&gt;How to&lt;/h1&gt;
+&lt;p&gt;One simple way to start is to first specify a &lt;code&gt;environment.yml&lt;/code&gt; file&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# environment.yml
+name: psst-env
+dependencies:
+- python
+- nose
+- numpy
+- pandas
+- pip:
+    - pyomo&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The name of the environment can be changed. Activate the environment by using the following.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;source activate psst-env &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then you can create the environment by&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;conda env create&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can update the environment after adding a package to &lt;code&gt;environment.yml&lt;/code&gt; by using the following&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;conda env update&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Alternatively, you can create a new empty environment by using either one of the following&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;conda create -n pelican-env python=2 
+conda create --name pelican-env python=2&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In this case, &lt;code&gt;pelican-env&lt;/code&gt; is the name of the environment. You can follow the name of the environment with all the packages you want separated by spaces. You must have atleast one package to create a environment.&lt;/p&gt;
+&lt;p&gt;After the environment is created, you can source the environment :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;source activate pelican-env&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can install packages here using one of the following :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;conda install &amp;lt;PACKAGE-NAME&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;When you have set up the environment and would like to share it, you can run the following to generate a .yml file&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;conda env export&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I like to update by &lt;code&gt;environment.yml&lt;/code&gt; by running the following&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;conda env export &amp;gt; environment.yml&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="references" class="unnumbered"&gt;References&lt;/h1&gt;
+&lt;div id="refs" class="references"&gt;
+&lt;div id="ref-_condaconda"&gt;
+&lt;p&gt;[1] “Conda/conda. GitHub.” [Online]. Available: &lt;a href="https://github.com/conda/conda" class="uri"&gt;https://github.com/conda/conda&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="ref-_conda"&gt;
+&lt;p&gt;[2] “Conda: A Cross-Platform Package Manager for Any Binary Distribution.” [Online]. Available: &lt;a href="http://www.slideshare.net/AaronMeurer/conda-a-binary-scipy2014" class="uri"&gt;http://www.slideshare.net/AaronMeurer/conda-a-binary-scipy2014&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="python"></category></entry><entry><title>Writing Technical Papers with Markdown</title><link href="http://kdheepak.com/blog/writing-papers-with-markdown.html" rel="alternate"></link><updated>2015-12-20T00:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-12-20:blog/writing-papers-with-markdown.html</id><summary type="html">&lt;!-- BEGIN COMMENT --&gt;
 &lt;p&gt;I’ve had several people ask me about Markdown for academic writing recently. I figured I’d use this post to write about my workflow and my resources on this topic.&lt;/p&gt;
 &lt;!-- END COMMENT --&gt;
 &lt;h1 id="why-markdown"&gt;Why Markdown&lt;/h1&gt;
@@ -77,7 +125,7 @@ The following is a list in this subsection
 &lt;li&gt;Easy: the syntax is simple&lt;/li&gt;
 &lt;li&gt;Fast: the simple formatting saves time and speeds up workflows of writers&lt;/li&gt;
 &lt;li&gt;Portable: documents are cross-platform by nature&lt;/li&gt;
-&lt;li&gt;Flexible: html, pdf, docx, tex are all supported output formats&lt;/li&gt;
+&lt;li&gt;Flexible: HTML, PDF, DOCX, TEX are all supported output formats&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Markdown is awesome at a set of things, and a much better alternative than Word or &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; for those specific set of things.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;  Right     Left     Center     Default
@@ -107,7 +155,7 @@ Right &amp;amp; Left &amp;amp; Center &amp;amp; Default\tabularnewline
 &lt;figure&gt;
 &lt;img src="../images/table.png" alt="Tabular LaTeX example [6]" /&gt;&lt;figcaption&gt;Tabular LaTeX example &lt;span class="citation" data-cites="_wikibooks"&gt;[&lt;a href="#ref-_wikibooks"&gt;6&lt;/a&gt;]&lt;/span&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt;Markdown by itself may not be as powerful as &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;. But its easy to write easy to read syntax, open standard format and a strong backing from the community make it a ideal candidate for writing. You can write in Markdown once, and have documents generated in a multitude of formats later - pdf, docx, slides, html etc. Let us look at how to convert a Markdown file to other formats.&lt;/p&gt;
+&lt;p&gt;Markdown by itself may not be as powerful as &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;. But its easy to write easy to read syntax, open standard format and a strong backing from the community make it a ideal candidate for writing. You can write in Markdown once, and have documents generated in a multitude of formats later - PDF, DOCX, slides, HTML etc. Let us look at how to convert a Markdown file to other formats.&lt;/p&gt;
 &lt;h1 id="pandoc---a-swiss-army-knife"&gt;Pandoc - A “swiss army knife”&lt;/h1&gt;
 &lt;p&gt;Pandoc is a software tool written in Haskell that can convert a document from just about any format to just about any other format, and works really well.&lt;/p&gt;
 &lt;p&gt;Input formats :&lt;/p&gt;
@@ -175,7 +223,7 @@ Right &amp;amp; Left &amp;amp; Center &amp;amp; Default\tabularnewline
 &lt;li&gt;s5 (S5 HTML and javascript slide show)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;With 21 input formats and 37 output formats, it doesn’t take long to guess that there’s no way they implemented a converter for each input to output format. Pandoc employs a Abstract Syntax Tree (AST) structure as an intermediate stage to convert from one format to another. (This will be important when we talk about filters.) The point here is that because of this pandoc is great at converting from and to a wide variety of formats. Pandoc is also constantly under development which is a great thing.&lt;/p&gt;
-&lt;p&gt;We can use Pandoc to convert a markdown file with content, to a pdf, html or docx file for a technical paper. (The docx converter doesn’t work great though, blame Microsoft’s lack of documentation &lt;span class="citation" data-cites="_googlegroups"&gt;[&lt;a href="#ref-_googlegroups"&gt;7&lt;/a&gt;]&lt;/span&gt;)&lt;/p&gt;
+&lt;p&gt;We can use Pandoc to convert a markdown file with content, to a PDF, HTML or DOCX file for a technical paper. (The docx converter doesn’t work great though, blame Microsoft’s lack of documentation &lt;span class="citation" data-cites="_googlegroups"&gt;[&lt;a href="#ref-_googlegroups"&gt;7&lt;/a&gt;]&lt;/span&gt;)&lt;/p&gt;
 &lt;p&gt;First off, you will need &lt;code&gt;pandoc&lt;/code&gt;. You can get the latest version on their GitHub page &lt;span class="citation" data-cites="_github"&gt;[&lt;a href="#ref-_github"&gt;8&lt;/a&gt;]&lt;/span&gt;. You may need &lt;code&gt;pandoc-citeproc&lt;/code&gt; as well.&lt;a href="#fn2" class="footnoteRef" id="fnref2"&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; You will also need &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;I’ve found that the following python packages are useful.&lt;/p&gt;
 &lt;ul&gt;
@@ -324,17 +372,17 @@ $$&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Once you have typed all the content, you can use the &lt;code&gt;pandoc&lt;/code&gt; command to convert the document into the format you want. Pandoc uses the output filename extension to figure out what the output file format should be. Btw, Pandoc is a command line tool only. So you will have to use the command line for any conversion.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;pandoc document.md -o document.pdf&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;I highly recommend reading pandoc’s README &lt;span class="citation" data-cites="_pandoc"&gt;[&lt;a href="#ref-_pandoc"&gt;16&lt;/a&gt;]&lt;/span&gt;. It has loads of examples and you might be able to find what you are looking for by straight up picking an example or by making a minor tweak to it.&lt;/p&gt;
-&lt;p&gt;With pdf files, you can specify the following&lt;/p&gt;
+&lt;p&gt;With PDF files, you can specify the following :&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;--latex-engine=pdflatex&lt;/code&gt; : latex engine&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;--latex-template=latex.template&lt;/code&gt; : latex template file&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;With html files, you can specify the following&lt;/p&gt;
+&lt;p&gt;With html files, you can specify the following :&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;--template=html.template&lt;/code&gt; : html template file&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;--css=cssfile.css&lt;/code&gt; : css file&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;With docx files unfortunately, you cannot specify a template (at the time of writing this post). You can however, specify a reference-docx, which might do the job&lt;/p&gt;
+&lt;p&gt;With docx files unfortunately, you cannot specify a template (at the time of writing this post). You can however, specify a reference-docx :&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;--reference-docx=reference.docx&lt;/code&gt; : docx for reference styles&lt;/li&gt;
 &lt;/ul&gt;
@@ -353,16 +401,16 @@ $$&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 &lt;p&gt;As you can see, there are a lot of arguments that can be passed to Pandoc. I’ve found using Makefiles for recording your past commands and documenting these instructions extremely useful.&lt;/p&gt;
 &lt;h1 id="downside-to-using-markdown"&gt;Downside to using Markdown?&lt;/h1&gt;
-&lt;p&gt;Pandoc allows you to define &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; blocks in a markdown file, which are passed straight through to &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; without any change. &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; then processes it and renders it correctly. Which means if you want to generate a pdf, you are in luck! You have the entire arsenal of &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; commands at your disposal.&lt;/p&gt;
-&lt;p&gt;However, when converting to html or docx files, pandoc will just choose to remove &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; blocks. There is a workaround for equations. You can specify &lt;code&gt;--mathjax&lt;/code&gt; which will attempt to render &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; as mathjax, which works most of the time. This page for example was generated entirely from a markdown file, rendered to html using pandoc. I have found a few cases where mathjax did not work correctly for me. So there may be some experimenting involved. With DOCX, pandoc will (currently) convert to mathjax and then to Word’s equation editor format, but this seems to work only with the certain set of the markdown equation syntax that pandoc supports. In the case of tables, it is Markdown or bust. You have to format it in the Markdown table format that pandoc supports if you want a HTML or DOCX output.&lt;/p&gt;
-&lt;p&gt;The good news is that anything you do in &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;, you can do in Markdown and render as a pdf. This includes equations, tables, citations, references, images, lists, tikz diagrams etc. The bad news is that if you do decide to use &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; syntax, you are still writing &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; (although a lot less of it), and you have lost complete html and docx conversion capability. Also, Markdown / Pandoc (currently) does not support splitting the source document across multiple files. This was not as much a deal breaker for me, since the markup is pretty light and having it all in a single file is fine for a technical paper. However, for large reports extending hundreds of pages this may be a issue. There are workarounds for this, however they are not perfectly clean.&lt;/p&gt;
+&lt;p&gt;Pandoc allows you to define &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; blocks in a markdown file, which are passed straight through to &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; without any change. &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; then processes it and renders it correctly. Which means if you want to generate a PDF, you are in luck! You have the entire arsenal of &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; commands at your disposal.&lt;/p&gt;
+&lt;p&gt;However, when converting to html or docx files, pandoc will choose to remove &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; blocks. There is a workaround for equations. You can specify &lt;code&gt;--mathjax&lt;/code&gt; and force Pandoc to attempt to render &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; as mathjax, which works most of the time. This page for example was generated entirely from a markdown file, rendered to html using pandoc. I have found a few cases where mathjax did not work correctly for me, so there may be some experimenting involved. With DOCX, you can pass in the &lt;code&gt;--mathjax&lt;/code&gt; flag, and Pandoc will convert it to Word’s equation editor format, but this seems to work only with the certain set of the markdown equation syntax that pandoc supports. In the case of tables, it is Markdown or bust. You have to format it in the Markdown table format that pandoc supports if you want a HTML or DOCX output.&lt;/p&gt;
+&lt;p&gt;The good news is that anything you do in &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt;, you can do in Markdown and render as a PDF. This includes equations, tables, citations, references, images, lists, tikz diagrams etc. The bad news is that if you do decide to use &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; syntax, you are still writing &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; (although a lot less of it), and you have lost complete HTML and DOCX conversion capability. Also, Markdown / Pandoc (currently) does not support splitting the source document across multiple files. This was not as much a deal breaker for me, since the markup is pretty light and having it all in a single file is fine for a technical paper. However, for large reports extending hundreds of pages this may be a issue. There are workarounds for this, however they are not perfectly clean.&lt;/p&gt;
 &lt;h1 id="bending-markdown-to-your-will"&gt;Bending Markdown to your will&lt;/h1&gt;
-&lt;p&gt;Fortunately, some of the problems I mentioned in the previous section can be solved using an excellent feature of pandoc. Remember the filter argument for pandoc? You can write your own custom filter, and you can use it to parse certain blocks in a custom fashion. For most people this will not be necessary since Pandoc is feature compelete and constantly being developed But if you come across a case where pandoc does not do what you want it to do, you can write a filter for it. There is even a python package called &lt;code&gt;pandocfilters&lt;/code&gt; that allows you to walk the AST and parse specific formats or keys. It is very powerful, and can offer unique ways to expand on pandoc’s functionality. I wrote a pandocfilter &lt;span class="citation" data-cites="krishnamurthy_github-1"&gt;[&lt;a href="#ref-krishnamurthy_github-1"&gt;17&lt;/a&gt;]&lt;/span&gt; to embed a jupyter notebook using a liquid tag style syntax, which I currently use for this blog.&lt;/p&gt;
+&lt;p&gt;Fortunately, some of the problems I mentioned in the previous section can be solved using an excellent feature of pandoc. Remember the filter argument for pandoc? You can write your own custom filter, and you can use it to parse certain blocks in a custom fashion. For most people this will not be necessary since Pandoc is feature compelete and constantly being developed But if you come across a case where pandoc does not do what you want it to do, you can write a filter for it. There is even a python package called &lt;code&gt;pandocfilters&lt;/code&gt; that allows you to walk the AST and parse specific formats or keys. It is very powerful, and can offer unique ways to expand on pandoc’s functionality. I wrote a pandocfilter &lt;span class="citation" data-cites="krishnamurthy_github-1"&gt;[&lt;a href="#ref-krishnamurthy_github-1"&gt;17&lt;/a&gt;]&lt;/span&gt; to embed a jupyter notebook using a liquid tag style syntax, which I currently use for this &lt;a href="kdheepak.com/blog/active-reactive-and-apparent-power.html"&gt;post&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In theory, you can write a filter that finds a &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; table block in Markdown, converts it to an image and renders that in Word. Or you can write a filter that inputs other files during run time, allowing you to split your source document.&lt;/p&gt;
 &lt;p&gt;My understanding is that the Python &lt;code&gt;pandocfilters&lt;/code&gt; package is limited in scope. Alternatively, if you choose to, you can yield Pandoc’s complete power by writing a Haskell filter instead of using Python, but then you will be writing Haskell ;)&lt;/p&gt;
 &lt;p&gt;I would tag the custom filters functionality I’ve described in this section as an advanced feature. Know that they are there when you need them.&lt;/p&gt;
 &lt;h1 id="tldr"&gt;TLDR&lt;/h1&gt;
-&lt;p&gt;You can write a complete paper in Markdown and render it in pdf without any issues. I recommend it over &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; and Word.&lt;/p&gt;
+&lt;p&gt;You can write a complete paper in Markdown and render it in PDF without any issues. I recommend it over &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; and Word.&lt;/p&gt;
 &lt;figure&gt;
 &lt;img src="../images/learningcurve.png" alt="My very scientific comparison of Word, \LaTeX and Markdown" /&gt;&lt;figcaption&gt;My very scientific comparison of Word, &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; and Markdown&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -429,55 +477,7 @@ $$&lt;/code&gt;&lt;/pre&gt;
 &lt;li id="fn3"&gt;&lt;p&gt;Footnote! If you are viewing the web version, you can continue reading by clicking here -&amp;gt;&lt;a href="#fnref3"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
-</summary><category term="m"></category><category term="a"></category><category term="r"></category><category term="k"></category><category term="d"></category><category term="o"></category><category term="w"></category><category term="n"></category><category term=","></category><category term="w"></category><category term="r"></category><category term="i"></category><category term="t"></category><category term="i"></category><category term="n"></category><category term="g"></category></entry><entry><title>Using conda to manage packages</title><link href="http://kdheepak.com/blog/using-conda-to-manage-packages.html" rel="alternate"></link><updated>2015-12-25T04:32:51-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-12-25:blog/using-conda-to-manage-packages.html</id><summary type="html">&lt;h1 id="why-use-conda"&gt;Why use conda&lt;/h1&gt;
-&lt;p&gt;The following quote is from Conda’s github page &lt;span class="citation" data-cites="_condaconda"&gt;[&lt;a href="#ref-_condaconda"&gt;1&lt;/a&gt;]&lt;/span&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Conda is a cross-platform, Python-agnostic binary package manager. It is the package manager used by Anaconda installations, but it may be used for other systems as well. Conda makes environments first-class citizens, making it easy to create independent environments even for C libraries. Conda is written entirely in Python, and is BSD licensed open source.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The main advantage of using conda to manage your packages and environment is that it will work across platforms&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="/images/condacrossplatform.jpg" alt="Slide deck [2] comparing package managers in different platforms" /&gt;&lt;figcaption&gt;Slide deck &lt;span class="citation" data-cites="_conda"&gt;[&lt;a href="#ref-_conda"&gt;2&lt;/a&gt;]&lt;/span&gt; comparing package managers in different platforms&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;conda also uses hard linking, so it is inexpensive to create multiple copies of the same package&lt;/p&gt;
-&lt;h1 id="how-to"&gt;How to&lt;/h1&gt;
-&lt;p&gt;One simple way to start is to first specify a &lt;code&gt;environment.yml&lt;/code&gt; file&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# environment.yml
-name: psst-env
-dependencies:
-- python
-- nose
-- numpy
-- pandas
-- pip:
-    - pyomo&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The name of the environment can be changed. Activate the environment by using the following.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;source activate psst-env &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Then you can create the environment by&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;conda env create&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You can update the environment after adding a package to &lt;code&gt;environment.yml&lt;/code&gt; by using the following&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;conda env update&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Alternatively, you can create a new empty environment by using either one of the following&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;conda create -n pelican-env python=2 
-conda create --name pelican-env python=2&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;In this case, &lt;code&gt;pelican-env&lt;/code&gt; is the name of the environment. You can follow the name of the environment with all the packages you want separated by spaces. You must have atleast one package to create a environment.&lt;/p&gt;
-&lt;p&gt;After the environment is created, you can source the environment :&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;source activate pelican-env&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You can install packages here using one of the following :&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;conda install &amp;lt;PACKAGE-NAME&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;When you have set up the environment and would like to share it, you can run the following to generate a .yml file&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;conda env export&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;I like to update by &lt;code&gt;environment.yml&lt;/code&gt; by running the following&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;conda env export &amp;gt; environment.yml&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="references" class="unnumbered"&gt;References&lt;/h1&gt;
-&lt;div id="refs" class="references"&gt;
-&lt;div id="ref-_condaconda"&gt;
-&lt;p&gt;[1] “Conda/conda. GitHub.” [Online]. Available: &lt;a href="https://github.com/conda/conda" class="uri"&gt;https://github.com/conda/conda&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="ref-_conda"&gt;
-&lt;p&gt;[2] “Conda: A Cross-Platform Package Manager for Any Binary Distribution.” [Online]. Available: &lt;a href="http://www.slideshare.net/AaronMeurer/conda-a-binary-scipy2014" class="uri"&gt;http://www.slideshare.net/AaronMeurer/conda-a-binary-scipy2014&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</summary><category term="python"></category></entry><entry><title>Jupyter Notebook, Reveal.js and Github Pages</title><link href="http://kdheepak.com/blog/jupyter-notebook-revealjs-and-github-pages.html" rel="alternate"></link><updated>2015-12-05T13:03:54-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-12-05:blog/jupyter-notebook-revealjs-and-github-pages.html</id><summary type="html">&lt;p&gt;Jupyter Notebook has the ability to convert an notebook &lt;code&gt;ipynb&lt;/code&gt; to markdown, rst, html and interestingly slides. And these Reveal.js powered slides can be hosted on GitHub pages, like any other html page. The following steps works well for me to generate a static set of slides from a notebook that can be used as a presentation&lt;/p&gt;
+</summary><category term="m"></category><category term="a"></category><category term="r"></category><category term="k"></category><category term="d"></category><category term="o"></category><category term="w"></category><category term="n"></category><category term=","></category><category term="w"></category><category term="r"></category><category term="i"></category><category term="t"></category><category term="i"></category><category term="n"></category><category term="g"></category></entry><entry><title>Jupyter Notebook, Reveal.js and Github Pages</title><link href="http://kdheepak.com/blog/jupyter-notebook-revealjs-and-github-pages.html" rel="alternate"></link><updated>2015-12-05T13:03:54-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-12-05:blog/jupyter-notebook-revealjs-and-github-pages.html</id><summary type="html">&lt;p&gt;Jupyter Notebook has the ability to convert an notebook &lt;code&gt;ipynb&lt;/code&gt; to markdown, rst, html and interestingly slides. And these Reveal.js powered slides can be hosted on GitHub pages, like any other html page. The following steps works well for me to generate a static set of slides from a notebook that can be used as a presentation&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Save the ipython notebook as index.ipynb.&lt;/li&gt;
 &lt;li&gt;Fork reveal.js to your GitHub account.&lt;/li&gt;

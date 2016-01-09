@@ -334,7 +334,7 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
                         <h2 class="article-subheading"> </h2>
 <span class="meta last-updated">
 Published on 
-<time pubdate="pubdate" datetime="2016-12-20T00:00:00-07:00">Dec 20, 2016</time>
+<time pubdate="pubdate" datetime="2015-12-20T00:00:00-07:00">Dec 20, 2015</time>
 </span>                    </div>
                 </div>
             </div>
@@ -425,7 +425,7 @@ The following is a list in this subsection
 <li>Easy: the syntax is simple</li>
 <li>Fast: the simple formatting saves time and speeds up workflows of writers</li>
 <li>Portable: documents are cross-platform by nature</li>
-<li>Flexible: html, pdf, docx, tex are all supported output formats</li>
+<li>Flexible: HTML, PDF, DOCX, TEX are all supported output formats</li>
 </ul>
 <p>Markdown is awesome at a set of things, and a much better alternative than Word or <span class="math inline">\(\LaTeX\)</span> for those specific set of things.</p>
 <pre><code>  Right     Left     Center     Default
@@ -455,7 +455,7 @@ Right &amp; Left &amp; Center &amp; Default\tabularnewline
 <figure>
 <img src="../images/table.png" alt="Tabular LaTeX example [6]" /><figcaption>Tabular LaTeX example <span class="citation" data-cites="_wikibooks">[<a href="#ref-_wikibooks">6</a>]</span></figcaption>
 </figure>
-<p>Markdown by itself may not be as powerful as <span class="math inline">\(\LaTeX\)</span>. But its easy to write easy to read syntax, open standard format and a strong backing from the community make it a ideal candidate for writing. You can write in Markdown once, and have documents generated in a multitude of formats later - pdf, docx, slides, html etc. Let us look at how to convert a Markdown file to other formats.</p>
+<p>Markdown by itself may not be as powerful as <span class="math inline">\(\LaTeX\)</span>. But its easy to write easy to read syntax, open standard format and a strong backing from the community make it a ideal candidate for writing. You can write in Markdown once, and have documents generated in a multitude of formats later - PDF, DOCX, slides, HTML etc. Let us look at how to convert a Markdown file to other formats.</p>
 <h1 id="pandoc---a-swiss-army-knife">Pandoc - A “swiss army knife”</h1>
 <p>Pandoc is a software tool written in Haskell that can convert a document from just about any format to just about any other format, and works really well.</p>
 <p>Input formats :</p>
@@ -523,7 +523,7 @@ Right &amp; Left &amp; Center &amp; Default\tabularnewline
 <li>s5 (S5 HTML and javascript slide show)</li>
 </ul>
 <p>With 21 input formats and 37 output formats, it doesn’t take long to guess that there’s no way they implemented a converter for each input to output format. Pandoc employs a Abstract Syntax Tree (AST) structure as an intermediate stage to convert from one format to another. (This will be important when we talk about filters.) The point here is that because of this pandoc is great at converting from and to a wide variety of formats. Pandoc is also constantly under development which is a great thing.</p>
-<p>We can use Pandoc to convert a markdown file with content, to a pdf, html or docx file for a technical paper. (The docx converter doesn’t work great though, blame Microsoft’s lack of documentation <span class="citation" data-cites="_googlegroups">[<a href="#ref-_googlegroups">7</a>]</span>)</p>
+<p>We can use Pandoc to convert a markdown file with content, to a PDF, HTML or DOCX file for a technical paper. (The docx converter doesn’t work great though, blame Microsoft’s lack of documentation <span class="citation" data-cites="_googlegroups">[<a href="#ref-_googlegroups">7</a>]</span>)</p>
 <p>First off, you will need <code>pandoc</code>. You can get the latest version on their GitHub page <span class="citation" data-cites="_github">[<a href="#ref-_github">8</a>]</span>. You may need <code>pandoc-citeproc</code> as well.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> You will also need <span class="math inline">\(\LaTeX\)</span>.</p>
 <p>I’ve found that the following python packages are useful.</p>
 <ul>
@@ -672,17 +672,17 @@ $$</code></pre>
 <p>Once you have typed all the content, you can use the <code>pandoc</code> command to convert the document into the format you want. Pandoc uses the output filename extension to figure out what the output file format should be. Btw, Pandoc is a command line tool only. So you will have to use the command line for any conversion.</p>
 <pre><code>pandoc document.md -o document.pdf</code></pre>
 <p>I highly recommend reading pandoc’s README <span class="citation" data-cites="_pandoc">[<a href="#ref-_pandoc">16</a>]</span>. It has loads of examples and you might be able to find what you are looking for by straight up picking an example or by making a minor tweak to it.</p>
-<p>With pdf files, you can specify the following</p>
+<p>With PDF files, you can specify the following :</p>
 <ul>
 <li><code>--latex-engine=pdflatex</code> : latex engine</li>
 <li><code>--latex-template=latex.template</code> : latex template file</li>
 </ul>
-<p>With html files, you can specify the following</p>
+<p>With html files, you can specify the following :</p>
 <ul>
 <li><code>--template=html.template</code> : html template file</li>
 <li><code>--css=cssfile.css</code> : css file</li>
 </ul>
-<p>With docx files unfortunately, you cannot specify a template (at the time of writing this post). You can however, specify a reference-docx, which might do the job</p>
+<p>With docx files unfortunately, you cannot specify a template (at the time of writing this post). You can however, specify a reference-docx :</p>
 <ul>
 <li><code>--reference-docx=reference.docx</code> : docx for reference styles</li>
 </ul>
@@ -701,16 +701,16 @@ $$</code></pre>
 </ul>
 <p>As you can see, there are a lot of arguments that can be passed to Pandoc. I’ve found using Makefiles for recording your past commands and documenting these instructions extremely useful.</p>
 <h1 id="downside-to-using-markdown">Downside to using Markdown?</h1>
-<p>Pandoc allows you to define <span class="math inline">\(\LaTeX\)</span> blocks in a markdown file, which are passed straight through to <span class="math inline">\(\LaTeX\)</span> without any change. <span class="math inline">\(\LaTeX\)</span> then processes it and renders it correctly. Which means if you want to generate a pdf, you are in luck! You have the entire arsenal of <span class="math inline">\(\LaTeX\)</span> commands at your disposal.</p>
-<p>However, when converting to html or docx files, pandoc will just choose to remove <span class="math inline">\(\LaTeX\)</span> blocks. There is a workaround for equations. You can specify <code>--mathjax</code> which will attempt to render <span class="math inline">\(\LaTeX\)</span> as mathjax, which works most of the time. This page for example was generated entirely from a markdown file, rendered to html using pandoc. I have found a few cases where mathjax did not work correctly for me. So there may be some experimenting involved. With DOCX, pandoc will (currently) convert to mathjax and then to Word’s equation editor format, but this seems to work only with the certain set of the markdown equation syntax that pandoc supports. In the case of tables, it is Markdown or bust. You have to format it in the Markdown table format that pandoc supports if you want a HTML or DOCX output.</p>
-<p>The good news is that anything you do in <span class="math inline">\(\LaTeX\)</span>, you can do in Markdown and render as a pdf. This includes equations, tables, citations, references, images, lists, tikz diagrams etc. The bad news is that if you do decide to use <span class="math inline">\(\LaTeX\)</span> syntax, you are still writing <span class="math inline">\(\LaTeX\)</span> (although a lot less of it), and you have lost complete html and docx conversion capability. Also, Markdown / Pandoc (currently) does not support splitting the source document across multiple files. This was not as much a deal breaker for me, since the markup is pretty light and having it all in a single file is fine for a technical paper. However, for large reports extending hundreds of pages this may be a issue. There are workarounds for this, however they are not perfectly clean.</p>
+<p>Pandoc allows you to define <span class="math inline">\(\LaTeX\)</span> blocks in a markdown file, which are passed straight through to <span class="math inline">\(\LaTeX\)</span> without any change. <span class="math inline">\(\LaTeX\)</span> then processes it and renders it correctly. Which means if you want to generate a PDF, you are in luck! You have the entire arsenal of <span class="math inline">\(\LaTeX\)</span> commands at your disposal.</p>
+<p>However, when converting to html or docx files, pandoc will choose to remove <span class="math inline">\(\LaTeX\)</span> blocks. There is a workaround for equations. You can specify <code>--mathjax</code> and force Pandoc to attempt to render <span class="math inline">\(\LaTeX\)</span> as mathjax, which works most of the time. This page for example was generated entirely from a markdown file, rendered to html using pandoc. I have found a few cases where mathjax did not work correctly for me, so there may be some experimenting involved. With DOCX, you can pass in the <code>--mathjax</code> flag, and Pandoc will convert it to Word’s equation editor format, but this seems to work only with the certain set of the markdown equation syntax that pandoc supports. In the case of tables, it is Markdown or bust. You have to format it in the Markdown table format that pandoc supports if you want a HTML or DOCX output.</p>
+<p>The good news is that anything you do in <span class="math inline">\(\LaTeX\)</span>, you can do in Markdown and render as a PDF. This includes equations, tables, citations, references, images, lists, tikz diagrams etc. The bad news is that if you do decide to use <span class="math inline">\(\LaTeX\)</span> syntax, you are still writing <span class="math inline">\(\LaTeX\)</span> (although a lot less of it), and you have lost complete HTML and DOCX conversion capability. Also, Markdown / Pandoc (currently) does not support splitting the source document across multiple files. This was not as much a deal breaker for me, since the markup is pretty light and having it all in a single file is fine for a technical paper. However, for large reports extending hundreds of pages this may be a issue. There are workarounds for this, however they are not perfectly clean.</p>
 <h1 id="bending-markdown-to-your-will">Bending Markdown to your will</h1>
-<p>Fortunately, some of the problems I mentioned in the previous section can be solved using an excellent feature of pandoc. Remember the filter argument for pandoc? You can write your own custom filter, and you can use it to parse certain blocks in a custom fashion. For most people this will not be necessary since Pandoc is feature compelete and constantly being developed But if you come across a case where pandoc does not do what you want it to do, you can write a filter for it. There is even a python package called <code>pandocfilters</code> that allows you to walk the AST and parse specific formats or keys. It is very powerful, and can offer unique ways to expand on pandoc’s functionality. I wrote a pandocfilter <span class="citation" data-cites="krishnamurthy_github-1">[<a href="#ref-krishnamurthy_github-1">17</a>]</span> to embed a jupyter notebook using a liquid tag style syntax, which I currently use for this blog.</p>
+<p>Fortunately, some of the problems I mentioned in the previous section can be solved using an excellent feature of pandoc. Remember the filter argument for pandoc? You can write your own custom filter, and you can use it to parse certain blocks in a custom fashion. For most people this will not be necessary since Pandoc is feature compelete and constantly being developed But if you come across a case where pandoc does not do what you want it to do, you can write a filter for it. There is even a python package called <code>pandocfilters</code> that allows you to walk the AST and parse specific formats or keys. It is very powerful, and can offer unique ways to expand on pandoc’s functionality. I wrote a pandocfilter <span class="citation" data-cites="krishnamurthy_github-1">[<a href="#ref-krishnamurthy_github-1">17</a>]</span> to embed a jupyter notebook using a liquid tag style syntax, which I currently use for this <a href="kdheepak.com/blog/active-reactive-and-apparent-power.html">post</a>.</p>
 <p>In theory, you can write a filter that finds a <span class="math inline">\(\LaTeX\)</span> table block in Markdown, converts it to an image and renders that in Word. Or you can write a filter that inputs other files during run time, allowing you to split your source document.</p>
 <p>My understanding is that the Python <code>pandocfilters</code> package is limited in scope. Alternatively, if you choose to, you can yield Pandoc’s complete power by writing a Haskell filter instead of using Python, but then you will be writing Haskell ;)</p>
 <p>I would tag the custom filters functionality I’ve described in this section as an advanced feature. Know that they are there when you need them.</p>
 <h1 id="tldr">TLDR</h1>
-<p>You can write a complete paper in Markdown and render it in pdf without any issues. I recommend it over <span class="math inline">\(\LaTeX\)</span> and Word.</p>
+<p>You can write a complete paper in Markdown and render it in PDF without any issues. I recommend it over <span class="math inline">\(\LaTeX\)</span> and Word.</p>
 <figure>
 <img src="../images/learningcurve.png" alt="My very scientific comparison of Word, \LaTeX and Markdown" /><figcaption>My very scientific comparison of Word, <span class="math inline">\(\LaTeX\)</span> and Markdown</figcaption>
 </figure>
