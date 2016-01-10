@@ -1997,8 +1997,7 @@ ax2.axis([0, 1/f0, -1500, 1500]);&lt;/code&gt;&lt;/pre&gt;
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="Power Systems"></category></entry><entry><title>How to set up a Pelican blog with Github pages</title><link href="http://kdheepak.com/blog/how-to-set-up-a-pelican-blog-with-github-pages.html" rel="alternate"></link><updated>2015-08-02T17:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-24:blog/how-to-set-up-a-pelican-blog-with-github-pages.html</id><summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;p&gt;I’ve been quite vocal about the benefits of blogging using Markdown, and using a static page generator instead of the conventional CMS. But a lot of people I’ve spoken to have expressed their doubts about the simplicity of the process. I figured if I could fit it in one blog post I could claim it were simple, right?&lt;/p&gt;
+</summary><category term="Power Systems"></category></entry><entry><title>How to set up a Pelican blog with Github pages</title><link href="http://kdheepak.com/blog/how-to-set-up-a-pelican-blog-with-github-pages.html" rel="alternate"></link><updated>2015-08-02T17:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-24:blog/how-to-set-up-a-pelican-blog-with-github-pages.html</id><summary type="html">&lt;p&gt;I’ve been quite vocal about the benefits of blogging using Markdown, and using a static page generator instead of the conventional CMS. But a lot of people I’ve spoken to have expressed their doubts about the simplicity of the process. I figured if I could fit it in one blog post I could claim it were simple, right?&lt;/p&gt;
 &lt;h1 id="markdown"&gt;Markdown&lt;/h1&gt;
 &lt;p&gt;Advantages&lt;/p&gt;
 &lt;ul&gt;
