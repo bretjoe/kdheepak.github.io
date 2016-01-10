@@ -195,7 +195,7 @@ Right &amp;amp; Left &amp;amp; Center &amp;amp; Default\tabularnewline
 &lt;p&gt;I hope that by now you are convinced that Markdown is a great tool for writing. In the following sections we will look at how to convert a Markdown file to other formats, and what are some potential limitations and how you might overcome them.&lt;/p&gt;
 &lt;!-- BEGIN SLIDESNOHEADER --&gt;
 &lt;h1 id="pandoc---a-swiss-army-knife"&gt;Pandoc - A “swiss army knife”&lt;/h1&gt;
-&lt;p&gt;Pandoc is a software tool written in Haskell that can convert a document from just about any format to just about any other format. And works really well.&lt;/p&gt;
+&lt;p&gt;Pandoc is a software tool by &lt;a href="http://johnmacfarlane.net/"&gt;John Macfarlane&lt;/a&gt; written in Haskell that can convert a document from just about any format to just about any other format. And works really well.&lt;/p&gt;
 &lt;!-- END SLIDES --&gt;
 &lt;p&gt;Input formats :&lt;/p&gt;
 &lt;ul&gt;
@@ -465,7 +465,7 @@ $$ {#eq:pi}&lt;/code&gt;&lt;/pre&gt;
 --csl=./styles/ieee.csl \
 --bibliography=./bib/research.bib \
 -o ieee-paper.pdf paper.md&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;As you can see, there are a lot of arguments that can be passed to Pandoc. I’ve found using Makefiles for recording your past commands and documenting these instructions extremely useful. I’ve barely scratched the surface with what you can do with Pandoc. I’ll update this post with those features if I think they are relevant to writing a paper using Markdown.&lt;/p&gt;
+&lt;p&gt;As you can see, there are a lot of arguments that can be passed to Pandoc. I’ve found using Makefiles for recording your past commands and documenting these instructions extremely useful. I’ve barely scratched the surface with what you can do with Pandoc. I’ll update this post with more features if I think they are relevant to writing a paper using Markdown.&lt;/p&gt;
 &lt;!-- BEGIN SLIDESNOHEADER --&gt;
 &lt;h1 id="downside-to-using-markdown"&gt;Downside to using Markdown?&lt;/h1&gt;
 &lt;!-- END SLIDES --&gt;
