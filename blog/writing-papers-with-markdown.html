@@ -369,7 +369,7 @@ Published on
 <p>I think there is a strong case to be made about why you should consider dropping Word for your next paper. In addition to what has been discussed above :</p>
 <!-- BEGIN SLIDES -->
 <ul>
-<li>it is slow, and consumes sometimes up to a gig of virtual memory. For what is basically a word processor, that is unnecessary.</li>
+<li>Word is slow, and consumes sometimes up to a gig of virtual memory. For what is basically a word processor, that is unnecessary.</li>
 <li>there is no clean way to permanently save comments or notes, that persist in the final version without affecting how final document looks.</li>
 <li>collaborating with other people requires foresight and planning.</li>
 <li>the equation editor painful to use.</li>
@@ -753,8 +753,8 @@ $$ {#eq:pi}</code></pre>
 <li><code>--filter pandoc-fignos</code> : figure numbers</li>
 <li><code>--filter pandoc-tablenos</code> : table numbers</li>
 </ul>
-<p>They allow you reference a figure, equation or table. For example, Equation <a href="#eq:pi">1</a> is an example of a block equation in Markdown.</p>
 <!-- END SLIDES -->
+<p>They allow you reference a figure, equation or table. For example, Equation <a href="#eq:pi">1</a> is an example of a block equation in Markdown.</p>
 <p>A paper may be generated using a command as shown below :</p>
 <pre><code>pandoc -s -S --latex-engine=pdflatex \
 --template=./templates/ieee-latex.template \
@@ -804,8 +804,7 @@ $$ {#eq:pi}</code></pre>
 <p><a href="/resources/output.docx">DOCX</a></p>
 <p><a href="/resources/output.html">HTML</a></p>
 <p><a href="/resources/slide-output.pdf">SLIDES-PDF</a></p>
-<section class="footnotes">
-</section>
+<!-- BEGIN SLIDESNOHEADER -->
 <h1 id="references">References</h1>
 <div id="refs" class="references">
 <div id="ref-stallman_emacs">
@@ -866,6 +865,7 @@ $$ {#eq:pi}</code></pre>
 <p>[19] D. Krishnamurthy, “Github repository for jupyter notebook pandocfilter. GitHub.” [Online]. Available: <a href="https://github.com/kdheepak89/pandoc-ipynb" class="uri">https://github.com/kdheepak89/pandoc-ipynb</a>.</p>
 </div>
 </div>
+<!-- END SLIDES -->
 <section class="footnotes">
 <hr />
 <ol>
