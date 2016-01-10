@@ -29,7 +29,7 @@ MARKDOWNFOLDER = ./..
 
 OUTPUT = .
 
-OUTPUTFILE = writing-with-markdown
+OUTPUTFILE = writing-papers-with-markdown
 
 all: ieeepdf ieeedocx ieeehtml pdf docx html slidespdf
 
