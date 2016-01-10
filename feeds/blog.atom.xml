@@ -72,7 +72,7 @@ conda create --name pelican-env python=2&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;Word is slow, and consumes sometimes up to a gig of virtual memory. For what is basically a word processor, that is unnecessary.&lt;/li&gt;
 &lt;li&gt;there is no clean way to permanently save comments or notes, that persist in the final version without affecting how final document looks.&lt;/li&gt;
 &lt;li&gt;collaborating with other people requires foresight and planning.&lt;/li&gt;
-&lt;li&gt;the equation editor painful to use.&lt;/li&gt;
+&lt;li&gt;the equation editor is painful to use.&lt;/li&gt;
 &lt;li&gt;Word does not work in the workflow for &lt;strong&gt;scientific research papers or reports&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;!-- END SLIDES --&gt;
