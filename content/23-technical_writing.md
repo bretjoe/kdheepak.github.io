@@ -510,6 +510,8 @@ when I don't know what I'm doing.
 
 **Example**
 
+<!-- BEGIN MARKDOWNBLOCK -->
+
   Right     Left     Center     Default
 -------     ------ ----------   -------
      12     12        12            12
@@ -517,6 +519,8 @@ when I don't know what I'm doing.
       1     1          1             1
 
 Table:  Demonstration of simple table syntax. {#tbl:table}
+
+<!-- END MARKDOWNBLOCK -->
 
 ### ***Footnotes***
 
@@ -659,7 +663,7 @@ I'll update this post with more features if I think they are relevant to writing
 
 <!-- BEGIN SLIDESNOHEADER -->
 
-# Downside to using Markdown?
+## Downside to using Markdown?
 
 <!-- END SLIDES -->
 
@@ -692,7 +696,7 @@ There are workarounds for this (see next section), however they may be a bit of 
 
 <!-- BEGIN SLIDESNOHEADER -->
 
-# Bending Markdown to your will
+## Bending Markdown to your will
 
 Fortunately, some of the problems I mentioned in the previous section can be solved using an excellent feature of Pandoc - filters!
 
@@ -741,6 +745,32 @@ If you have gotten this far in the post, congratulations!
 This was a lot to take in, and I hope I shed some light on the potential for Markdown as an academic and technical writing tool.
 Let me know if you have any questions in the comments below. You can view this post in the following forms, thanks to Pandoc!
 
+\begin{table}
+\centering
+\begin{tabular}[c]{@{}ll@{}}
+\toprule
+Format & Link\tabularnewline
+\midrule
+IEEE-PDF &
+\href{http://kdheepak.com/downloads/writing-papers-with-markdown.ieee.pdf}{LINK}\tabularnewline
+IEEE-DOCX &
+\href{http://kdheepak.com/downloads/writing-papers-with-markdown.ieee.docx}{LINK}\tabularnewline
+IEEE-HTML &
+\href{http://kdheepak.com/downloads/writing-papers-with-markdown.ieee.html}{LINK}\tabularnewline
+PDF &
+\href{http://kdheepak.com/downloads/writing-papers-with-markdown.pdf}{LINK}\tabularnewline
+DOCX &
+\href{http://kdheepak.com/downloads/writing-papers-with-markdown.docx}{LINK}\tabularnewline
+HTML &
+\href{http://kdheepak.com/downloads/writing-papers-with-markdown.html}{LINK}\tabularnewline
+SLIDES-PDF &
+\href{http://kdheepak.com/downloads/writing-papers-with-markdown.slides.pdf}{LINK}\tabularnewline
+\bottomrule
+\end{tabular}
+\end{table}
+
+<!-- BEGIN MARKDOWNBLOCK -->
+
 Format      Link
 -------     -------
 IEEE-PDF    [LINK](http://kdheepak.com/downloads/writing-papers-with-markdown.ieee.pdf)
@@ -753,6 +783,7 @@ SLIDES-PDF  [LINK](http://kdheepak.com/downloads/writing-papers-with-markdown.sl
 
 Table:  Links to multiple formats
 
+<!-- END MARKDOWNBLOCK -->
 
 <!-- BEGIN SLIDESNOHEADER -->
 

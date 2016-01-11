@@ -31,10 +31,31 @@ OUTPUT = .
 
 OUTPUTFILE = writing-papers-with-markdown
 
+EXTENSIONS = markdown+table_captions+yaml_metadata_block+superscript+subscript+auto_identifiers+implicit_header_references
+
+BIBLIOGRAPHY = blog
+
 all: ieeepdf ieeedocx ieeehtml pdf docx html slidespdf
 
 ieeepdf:
-	pandoc -r markdown+table_captions+yaml_metadata_block -s -S --latex-engine=pdflatex --template=$(PAPER)/templates/latex.template --filter pandoc-fignos --filter pandoc-eqnos --filter pandoc-tablenos --filter pandoc-citeproc --csl=$(PAPER)/styles/ieee.csl --bibliography=$(MARKDOWNFOLDER)/blog.bib -o $(OUTPUT)/$(OUTPUTFILE).ieee.pdf $(MARKDOWN).md --filter $(SCRIPTS)/comments.py --meta link-citations=true
+	pandoc \
+		-r $(EXTENSIONS) \
+		-s -S \
+		--latex-engine=pdflatex \
+		--template=$(PAPER)/templates/latex.template \
+		--filter $(SCRIPTS)/remove-markdown.py \
+		--filter pandoc-fignos \
+		--filter pandoc-eqnos \
+		--filter pandoc-tablenos \
+		--filter pandoc-citeproc \
+		--csl=$(PAPER)/styles/ieee.csl \
+		--bibliography=$(MARKDOWNFOLDER)/$(BIBLIOGRAPHY).bib \
+		-o $(OUTPUT)/$(OUTPUTFILE).ieee.pdf $(MARKDOWN).md \
+		--filter $(SCRIPTS)/comments.py \
+		--meta link-citations=true \
+		--number-sections \
+		--meta autoref=false
+
 
 ieeedocx:
 	pandoc --mathjax -r markdown+table_captions+yaml_metadata_block -s -S --filter pandoc-fignos --filter pandoc-eqnos --filter pandoc-tablenos --filter pandoc-citeproc --csl=$(PAPER)/styles/ieee.csl --bibliography=$(MARKDOWNFOLDER)/blog.bib -o $(OUTPUT)/$(OUTPUTFILE).ieee.docx $(MARKDOWN).md --reference-docx=$(PAPER)/templates/trans_jour.docx --filter $(SCRIPTS)/fix-latex-symbol.py --filter $(SCRIPTS)/comments.py --meta link-citations=true
