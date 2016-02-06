@@ -5,14 +5,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://kdheepak.com/</loc>
-<lastmod>2016-02-05T22:41:47-00:00</lastmod>
+<lastmod>2016-02-05T23:24:47-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://kdheepak.com/archives.html</loc>
-<lastmod>2016-02-05T22:41:47-00:00</lastmod>
+<lastmod>2016-02-05T23:24:47-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -25,168 +25,168 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/using-conda-to-manage-packages.html</loc>
+<loc>http://kdheepak.com/using-conda-to-manage-packages.html</loc>
 <lastmod>2015-12-25T04:32:51-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/writing-papers-with-markdown.html</loc>
+<loc>http://kdheepak.com/writing-papers-with-markdown.html</loc>
 <lastmod>2015-12-20T00:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/jupyter-notebook-revealjs-and-github-pages.html</loc>
+<loc>http://kdheepak.com/jupyter-notebook-revealjs-and-github-pages.html</loc>
 <lastmod>2015-12-05T13:03:54-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/spotify-and-tmux.html</loc>
+<loc>http://kdheepak.com/spotify-and-tmux.html</loc>
 <lastmod>2015-09-20T09:26:15-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/change-path-inside-vim.html</loc>
+<loc>http://kdheepak.com/change-path-inside-vim.html</loc>
 <lastmod>2015-09-19T09:05:36-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/patched-fonts-madness.html</loc>
+<loc>http://kdheepak.com/patched-fonts-madness.html</loc>
 <lastmod>2015-09-12T19:59:22-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/uninstalling-and-re-installing-homebrew-on-osx.html</loc>
+<loc>http://kdheepak.com/uninstalling-and-re-installing-homebrew-on-osx.html</loc>
 <lastmod>2015-08-27T22:52:17-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/how-to-add-line-numbers-for-code-blocks-in-pelican.html</loc>
+<loc>http://kdheepak.com/how-to-add-line-numbers-for-code-blocks-in-pelican.html</loc>
 <lastmod>2015-09-20T10:01:48-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/emacsclient-and-tmux-split-navigation.html</loc>
+<loc>http://kdheepak.com/emacsclient-and-tmux-split-navigation.html</loc>
 <lastmod>2015-07-26T22:00:00-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/emacs-workflow-using-emacs-in-the-terminal.html</loc>
+<loc>http://kdheepak.com/emacs-workflow-using-emacs-in-the-terminal.html</loc>
 <lastmod>2015-07-25T22:00:50-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/emacs-tips-close-compilation-buffer-if-successful.html</loc>
+<loc>http://kdheepak.com/emacs-tips-close-compilation-buffer-if-successful.html</loc>
 <lastmod>2015-07-19T12:43:56-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/create-emacsclientapp-using-applescript.html</loc>
+<loc>http://kdheepak.com/create-emacsclientapp-using-applescript.html</loc>
 <lastmod>2015-07-18T10:00:00-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/better-git-log-with-git-ls.html</loc>
+<loc>http://kdheepak.com/better-git-log-with-git-ls.html</loc>
 <lastmod>2015-06-01T20:45:00-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/vim-tmux-zsh.html</loc>
+<loc>http://kdheepak.com/vim-tmux-zsh.html</loc>
 <lastmod>2015-05-08T22:58:18-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/beginners-guide-to-getting-started-with-vim.html</loc>
+<loc>http://kdheepak.com/beginners-guide-to-getting-started-with-vim.html</loc>
 <lastmod>2015-05-01T22:59:49-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/active-reactive-and-apparent-power.html</loc>
+<loc>http://kdheepak.com/active-reactive-and-apparent-power.html</loc>
 <lastmod>2015-12-20T18:39:09-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/how-to-set-up-a-pelican-blog-with-github-pages.html</loc>
+<loc>http://kdheepak.com/how-to-set-up-a-pelican-blog-with-github-pages.html</loc>
 <lastmod>2015-08-02T17:00:00-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/mac-osx-productivity-apps.html</loc>
+<loc>http://kdheepak.com/mac-osx-productivity-apps.html</loc>
 <lastmod>2015-04-01T19:00:00-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/mac-osx-tweaks.html</loc>
+<loc>http://kdheepak.com/mac-osx-tweaks.html</loc>
 <lastmod>2015-03-21T19:00:00-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/geektool-and-desktop-widgets-in-osx.html</loc>
+<loc>http://kdheepak.com/geektool-and-desktop-widgets-in-osx.html</loc>
 <lastmod>2014-12-13T10:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/robotics.html</loc>
+<loc>http://kdheepak.com/robotics.html</loc>
 <lastmod>2014-12-13T10:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/tasker-and-google-maps.html</loc>
+<loc>http://kdheepak.com/tasker-and-google-maps.html</loc>
 <lastmod>2014-12-13T10:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/tasker-projects.html</loc>
+<loc>http://kdheepak.com/tasker-projects.html</loc>
 <lastmod>2014-12-12T19:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://kdheepak.com/blog/home-monitoring-system.html</loc>
+<loc>http://kdheepak.com/home-monitoring-system.html</loc>
 <lastmod>2014-12-11T09:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>

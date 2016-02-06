@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Tasker in combination with Python with SL4A can be used to calculate information about events from Google Calendar. This is very similar to what Google Now does but more customizable ..." />
+        <meta name="description" content="I use the following set of lisps my .emacs to get seamless navigation between emacs splits and tmux panes ..." />
 
     <meta name="author" content="Dheepak Krishnamurthy" />
     <meta name="copyright" content="Dheepak Krishnamurthy" />
@@ -214,7 +214,7 @@ jQuery(document).ready(function($) {
 
 
 
-<title>Tasker and Google Maps - Dheepak Krishnamurthy</title>
+<title>Emacsclient and tmux split navigation - Dheepak Krishnamurthy</title>
 
     <!-- iPython Notebook script -->
     <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
@@ -302,7 +302,7 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
     <!-- end Mixpanel -->
 
 <script>
-    mixpanel.track("Page", {"Name": "Tasker and Google Maps", "url": "blog/tasker-and-google-maps.html"  }) ;
+    mixpanel.track("Page", {"Name": "Emacsclient and tmux split navigation", "url": "emacsclient-and-tmux-split-navigation.html"  }) ;
 </script>
 </head>
 
@@ -330,11 +330,11 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
                     </a>
                     </div>
                     <div class="col-sm-10 col-sm-offset-1">
-                    <h1 class="article-heading">Tasker and Google Maps</h1>
+                    <h1 class="article-heading">Emacsclient and tmux split navigation</h1>
                         <h2 class="article-subheading"> </h2>
 <span class="meta last-updated">
 Published on 
-<time pubdate="pubdate" datetime="2014-12-13T10:00:00-07:00">Dec 13, 2014</time>
+<time pubdate="pubdate" datetime="2015-07-26T22:00:00-06:00">Jul 26, 2015</time>
 </span>                    </div>
                 </div>
             </div>
@@ -347,92 +347,41 @@ Published on
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
-                    <h3>
-Android Projects
-</h3>
-<p>
-I’ve shared this on <a href="http://unleashthephones.com/2013/06/03/tasker-tutorial-integrating-google-calendar-and-google-directions-using-transit/">UnleashThePhones</a> a while back as well. This is a small tutorial on how to use Python with SL4A.
-</p>
-<p style="text-align: center;">
-<img class="aligncenter" title="" alt="" src="https://raw.githubusercontent.com/kdheepak89/tasker_sl4a/master/Screenshots/5.png" width="270" height="480">
-</p>
-<p>
-When Google Now first came out, it would tell you which bus you could take at what time to get to your meeting or event on time based on the location and time information available in Google Calendar. It’s every student’s dream, especially in countries like the United States or Singapore, where transit navigation is very accurate.
-</p>
-<p>
-I loved the idea, but I wanted it to be ever so slightly better. For example, I wanted my phone to inform me well in advance at what time I should consider leaving home to get to the bus on time. I also wanted information on earlier and later buses, so I could have knowledge of my options, very similar to the way it shows in Google Directions.
-</p>
-<p>
-Enter Tasker. I have a profile set up, which responds to a Google Calendar event reminder. (Tasker requires accessibility access for this by the way.) All my events in Google Calendar have a reminder set to pop up one hour before the event. This triggers a python script that pulls the next event details from Google Calendar, strips and parses the necessary information. Using my current location, the directions to the location is fetched and parsed again for transit details. Tasker then displays this as a notification.
-</p>
-<p style="text-align: center;">
-<img class="aligncenter" title="" alt="" src="https://raw.githubusercontent.com/kdheepak89/tasker_sl4a/master/Screenshots/7.png" width="270" height="480">
-</p>
-<p>
-This is very similar to a thread found on XDA-Dev. The idea is based on the thread, but in the thread brandall decided to do everything in Tasker. While this is completely doable it made it a little complicated to debug. Also, the profiles attached in his thread require the calendar event to have the name ‘Meeting’ and also require a description to be entered. Again, not something you cannot do, but you will have to invest a significant amount of time in case you want to make any significant change.
-</p>
-<p>
-If you would like to setup something similar follow the steps below.
-</p>
-<p>
-<ol type="1">
-<li>Install Tasker, SL4A and the Python intepreter.
-</p>
-<p>
-<ol start="2" type="1">
-<li>Paste the python script from the link here in the SL4A folder. This script has to be modified depending on what you want done. To use information from your Google Calendar, you need to add your private Google Calendar link to the script. I’ve written this to pull Transit details from a xml data, but you can theoretically do anything.
-</p>
-<p>
-<ol start="3" type="1">
-<li>Setup a tasker profile similar to what I have below.
-</p>
-<p style="text-align: center;">
-<img class="aligncenter" alt="" src="https://raw.githubusercontent.com/kdheepak89/tasker_sl4a/master/Screenshots/1.png" width="270" height="480">
-</p>
-<p>
-<ol start="4" type="1">
-<li>The Task that will be performed when this context is triggered is setup as below.
-</p>
-<p style="text-align: center;" title>
-<img title="" alt="" src="https://raw.githubusercontent.com/kdheepak89/tasker_sl4a/master/Screenshots/2.png" width="270" height="480"><span style="text-align: center; line-height: 1.5em;"> </span><img alt="" src="https://raw.githubusercontent.com/kdheepak89/tasker_sl4a/master/Screenshots/3.png" width="270" height="480">
-</p>
-<p>
-<ol start="5" type="1">
-<li>The above task turns on GPS, finds your current location using GPS and NET, stores the location data in a file and runs the python script. The python script uses the location data written into the file along with your next calendar event information to find out transit details. This then calls the show route task.
-</p>
-<p>
-<ol start="6" type="1">
-<li>The show route is attached below.
-</p>
-<p style="text-align: center;">
-<img class="aligncenter" alt="" src="https://raw.githubusercontent.com/kdheepak89/tasker_sl4a/master/Screenshots/4.png" width="270" height="480">
-</p>
-<p>
-<ol start="7" type="1">
-<li>All you need to do now is create an event on your Calendar with location information and you are good to go!
-</p>
-<p>
-Here are some screenshots of what it looks like after you are done.
-</p>
-<p style="text-align: center;" title>
-<img alt="" src="https://raw.githubusercontent.com/kdheepak89/tasker_sl4a/master/Screenshots/6.png" width="270" height="480" title="" style=""> <img alt="" src="https://raw.githubusercontent.com/kdheepak89/tasker_sl4a/master/Screenshots/7.png" width="270" height="480">
-</p>
-<p>
-I’ve attached the xml from Tasker <a href="https://github.com/kdheepak89/tasker_sl4a/blob/master/pyCode.py">here</a> so that it can be imported. Show Route and GetCalData. I’ve used Autonotification, a tasker plugin by joaomgcd to display the notification. You will need to use this if you want a button in the notification. This entire setup is currently in a primitive stage, I haven’t added any error handling or additional functionality but I intend to. I will update this post when I do that.
-</p>
-<p>
-BeautifulSoup is supported by SL4A in python, which can make it extremely easy to parse information. I haven’t used it in my script though, since mine was a very small program. But it is nice to know that is an option. Big shoutout to PocketTables for offering a world of useful information on Tasker. I found their posts to be extremely helpful. Tasker is an amazing application and is extremely powerful. It can allow for a world of customization.
-</p>
-<p>
-If you have any questions about this setup please do let me know.
-</p></li>
-</ol></li>
-</ol></li>
-</ol></li>
-</ol></li>
-</ol></li>
-</ol></li>
-</ol>
+                    <p>I’ve described some of the scripts that I use regularly when using emacs in the terminal. I also using emacs with tmux, even though it seems like emacs itself could be tweaked to replace tmux. Currently, my tmux+zsh setup has been much more powerful that what emacs alone can provide. zsh did not play well, even with multiterm and I’ve had mixed results with getting ipython to work well inside emacs.</p>
+<p>I use the following set of lisps my .emacs to get seamless navigation between emacs splits and tmux panes.</p>
+<pre><code>;; Many thanks to the author of and contributors to the following posts:
+;; https://gist.github.com/mislav/5189704
+;; http://robots.thoughtbot.com/post/53022241323/seamlessly-navigate-vim-and-tmux-splits
+;;
+;; TODO: Make a script that generates tmux and emacs code without duplication
+;;
+;; NOTE: My keybindings are not the default emacs ones, using windmove
+
+;; Try to move direction, which is supplied as arg
+;; If cannot move that direction, send a tmux command to do appropriate move
+(defun windmove-emacs-or-tmux(dir tmux-cmd)
+(interactive)
+(if (ignore-errors (funcall (intern (concat &quot;windmove-&quot; dir))))
+nil                       ;; Moving within emacs
+(shell-command tmux-cmd)) ;; At edges, send command to tmux
+)
+
+;Move between windows with custom keybindings
+(global-set-key (kbd &quot;C-k&quot;)
+   &#39;(lambda () (interactive) (windmove-emacs-or-tmux &quot;up&quot;  &quot;tmux select-pane -U&quot;)))
+(global-set-key (kbd &quot;C-j&quot;)
+   &#39;(lambda () (interactive) (windmove-emacs-or-tmux &quot;down&quot;  &quot;tmux select-pane -D&quot;)))
+(global-set-key (kbd &quot;C-l&quot;)
+   &#39;(lambda () (interactive) (windmove-emacs-or-tmux &quot;right&quot; &quot;tmux select-pane -R&quot;)))
+(global-set-key (kbd &quot;C-h&quot;)
+   &#39;(lambda () (interactive) (windmove-emacs-or-tmux &quot;left&quot;  &quot;tmux select-pane -L&quot;)))</code></pre>
+<p>The following was added to .tmux.conf</p>
+<pre><code>## Smart pane switching with awareness of emacs splits.
+bind -n C-h run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys C-h) || tmux select-pane -L&quot;
+bind -n C-j run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys C-j) || tmux select-pane -D&quot;
+bind -n C-k run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys C-k) || tmux select-pane -U&quot;
+bind -n C-l run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys C-l) || tmux select-pane -R&quot;
+bind -n C-\ run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|emacs?)(diff)?$&#39; &amp;&amp; tmux send-keys &#39;C-\\&#39;) || tmux select-pane -l&quot;</code></pre>
 <div id="refs" class="references">
 
 </div>
@@ -445,7 +394,7 @@ If you have any questions about this setup please do let me know.
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'kdheepak89'; // required: replace example with your forum shortname
-            var disqus_identifier = 'tasker-and-google-maps';
+            var disqus_identifier = 'emacsclient-and-tmux-split-navigation';
             /* * * DON'T EDIT BELOW THIS LINE * * */
             (function () {
                 var dsq = document.createElement('script');

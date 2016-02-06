@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="A collection of Tasker projects I&#39;ve worked on ..." />
+        <meta name="description" content="Here, I will show how to set up a working static blog on github pages using Pelican. Pelican is a static site generator, written in Python ..." />
 
     <meta name="author" content="Dheepak Krishnamurthy" />
     <meta name="copyright" content="Dheepak Krishnamurthy" />
@@ -214,7 +214,7 @@ jQuery(document).ready(function($) {
 
 
 
-<title>Tasker Projects - Dheepak Krishnamurthy</title>
+<title>How to set up a Pelican blog with Github pages - Dheepak Krishnamurthy</title>
 
     <!-- iPython Notebook script -->
     <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
@@ -302,7 +302,7 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
     <!-- end Mixpanel -->
 
 <script>
-    mixpanel.track("Page", {"Name": "Tasker Projects", "url": "blog/tasker-projects.html"  }) ;
+    mixpanel.track("Page", {"Name": "How to set up a Pelican blog with Github pages", "url": "how-to-set-up-a-pelican-blog-with-github-pages.html"  }) ;
 </script>
 </head>
 
@@ -330,11 +330,11 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
                     </a>
                     </div>
                     <div class="col-sm-10 col-sm-offset-1">
-                    <h1 class="article-heading">Tasker Projects</h1>
+                    <h1 class="article-heading">How to set up a Pelican blog with Github pages</h1>
                         <h2 class="article-subheading"> </h2>
 <span class="meta last-updated">
-Published on 
-<time pubdate="pubdate" datetime="2014-12-12T19:00:00-07:00">Dec 12, 2014</time>
+Updated on 
+<time datetime="2015-08-02T17:00:00-06:00">Aug 2, 2015</time>
 </span>                    </div>
                 </div>
             </div>
@@ -347,15 +347,107 @@ Published on
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
-                    <h1 id="google-calendar">Google Calendar</h1>
-<p><a href="http://kdheepak.com/blog/tasker-and-google-maps.html">This page</a> contains information about the <a href="https://github.com/kdheepak89/tasker_sl4a">profile</a> that uses Tasker to get contextual information from Google Calendar and react based on it.</p>
-<p><a href="https://github.com/kdheepak89/tasker_sl4a"><img src="https://raw.githubusercontent.com/kdheepak89/tasker_sl4a/master/Screenshots/7.png" align="middle" height="600"></a></p>
-<h1 id="tell-me-a-joke">Tell me a Joke</h1>
-<p><a href="https://github.com/kdheepak89/Tasker_Jokes">This profile</a> reads a random joke from <a href="https://reddit.com/r/jokes/top">here</a></p>
-<p><a href="https://github.com/kdheepak89/Tasker_Jokes"><img src="https://raw.githubusercontent.com/kdheepak89/Tasker_Jokes/master/Tasker_Demo.gif" align="middle" height="400"></a></p>
-<h1 id="whatsapp-client">WhatsApp Client</h1>
-<p><a href="https://github.com/kdheepak89/Tasker_WhatsPush">This profile</a> interacts with WhatsApp and allows you to send messages using your desktop</p>
-<p><a href="http://www.youtube.com/watch?v=plTJ5NGCchM" title="Tasker"><img src="http://img.youtube.com/vi/plTJ5NGCchM/0.jpg" alt="Tasker" /></a></p>
+                    <p>I’ve been quite vocal about the benefits of blogging using Markdown, and using a static page generator instead of the conventional CMS. But a lot of people I’ve spoken to have expressed their doubts about the simplicity of the process. I figured if I could fit it in one blog post I could claim it were simple, right?</p>
+<h1 id="markdown">Markdown</h1>
+<p>Advantages</p>
+<ul>
+<li>Easy to learn - It has almost no syntax. You can learn how to format like a pro in half an hour.</li>
+<li>Fast - You don’t have to deal with HTML tags or WYSIWYG editors.</li>
+<li>Platform independent - You can edit your blog posts from anywhere, be it on your PC, tablet or mobile device. You can even use your favourite text editor. (which is obviously VIM, right?)</li>
+<li>Markdown handles all of the following beautifully:
+<ul>
+<li>lists</li>
+<li>links</li>
+<li>headers</li>
+<li>blockquotes</li>
+<li>bold and emphasized text</li>
+<li>blockquotes</li>
+<li>code blocks</li>
+</ul></li>
+</ul>
+<p>This is what this post looks like in Markdown.</p>
+<figure>
+<img src="../../images/markdown-example.png" />
+</figure>
+<p>It really is that simple.</p>
+<h1 id="static-pages">Static pages</h1>
+<p>Advantages</p>
+<ul>
+<li>Fast - It loads extremely quickly.</li>
+<li>Portable - You can easily move from a server space and deploy it elsewhere.</li>
+<li>Cheaper - It is cost effective for a small website / personal blogs.</li>
+</ul>
+<p>Disadvantages</p>
+<ul>
+<li>Typically required web development experience to make changes to website.</li>
+<li>Complicated and a lot of work when you have a lot of pages e.g. a personal blog.</li>
+</ul>
+<h1 id="enter-github-pages-and-pelican">Enter Github pages and Pelican</h1>
+<p>Github pages takes away from all the disadvantages of static pages, and adds a few pros as well. Version control was a big plus for me. And static site generators like Jekyll and Pelican make it extremely easy to create web content without any actual web development. I choose Pelican because it was Python based, and it seemed to have a good selection of themes.</p>
+<h1 id="install-required-packages">Install required packages</h1>
+<pre><code>pip install pelican
+pip install markdown
+pip install ghp-import</code></pre>
+<p>ghp-import is a cli that allows you to easily push your changes to your github repository</p>
+<p>These are optional packages to install that may come in handy later</p>
+<pre><code>pip install Pillow beautifulsoup4 cssmin cssprefixer cssutils pretty six smartypants typogrify webassets</code></pre>
+<h1 id="create-a-github-account-and-a-user-or-project-page">Create a Github account and a User or Project page</h1>
+<p><a href="http://pages.github.com/">Github pages</a> has instructions on how to create a User or Project page, and will in fact walk you through the process. If you create a User page, your website will be live at <code>$GHUSERNAME</code>.github.io and a Project page will go up at <code>$GHUSERNAME</code>.github.io/<code>$PROJECTNAME</code>. The rest of this blog assumes you want to create a User page.</p>
+<h1 id="create-a-directory-for-your-website">Create a directory for your website</h1>
+<p>Assuming <code>$GHUSERNAME</code> is your github username, run the following commands. You can rename the ‘website’ folder to anything you want.</p>
+<pre><code>git clone https://github.com/$GHUSERNAME/$GHUSERNAME.github.io/ website
+cd website</code></pre>
+<h1 id="run-pelican-quickstart">Run Pelican quickstart</h1>
+<pre><code>pelican-quickstart</code></pre>
+<p>This is what you might get. Answer all the questions</p>
+<pre><code>➜  website  pelican-quickstart
+
+Welcome to pelican-quickstart v3.5.0.
+
+This script will help you create a new Pelican-based website.
+
+Please answer the following questions so this script can generate the files
+needed by Pelican.
+
+
+&gt; Where do you want to create your new web site? [.] 
+&gt; What will be the title of this web site? Dheepak Krishnamurthy
+&gt; Who will be the author of this web site? Dheepak Krishnamurthy
+&gt; What will be the default language of this web site? [en] 
+&gt; Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) Y
+&gt; What is your URL prefix? (see above example; no trailing slash) http://kdheepak.com
+&gt; Do you want to enable article pagination? (Y/n) Y
+&gt; How many articles per page do you want? [10] 
+&gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) Y
+&gt; Do you want an auto-reload &amp; simpleHTTP script to assist with theme and site development? (Y/n) Y
+&gt; Do you want to upload your website using FTP? (y/N) N
+&gt; Do you want to upload your website using SSH? (y/N) N
+&gt; Do you want to upload your website using Dropbox? (y/N) N
+&gt; Do you want to upload your website using S3? (y/N) N
+&gt; Do you want to upload your website using Rackspace Cloud Files? (y/N) N
+&gt; Do you want to upload your website using GitHub Pages? (y/N) Y
+&gt; Is this your personal page (username.github.io)? (y/N) Y
+Done. Your new project is available at /path/to/website
+
+➜  website  </code></pre>
+<h1 id="content-of-your-blog">Content of your blog</h1>
+<p>Create an sample post.</p>
+<pre><code>vim content/example.md</code></pre>
+<p>Type in the following and save it.</p>
+<pre><code>Title: My First Post
+Date: 2015-11-23 10:20
+Category: Example
+
+Hello world.</code></pre>
+<p>Type the following to convert all your markdown or ReST posts to HTML.</p>
+<pre><code>make html</code></pre>
+<p>You can also type the following to serve a local version of your site to view the output of your hardwork</p>
+<pre><code>make serve</code></pre>
+<p>This will be visible at localhost:8000 by default.</p>
+<h1 id="push-your-content-to-github">Push your content to Github</h1>
+<p>If you installed everything correctly, you can type the following to push your website to your Github repository. You need to have ghp-import installed for this to work.</p>
+<pre><code>make github</code></pre>
+<p>You are done! If you have any questions regarding any of this, you can shoot me questions in the comments below.</p>
 <div id="refs" class="references">
 
 </div>
@@ -368,7 +460,7 @@ Published on
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'kdheepak89'; // required: replace example with your forum shortname
-            var disqus_identifier = 'tasker-projects';
+            var disqus_identifier = 'how-to-set-up-a-pelican-blog-with-github-pages';
             /* * * DON'T EDIT BELOW THIS LINE * * */
             (function () {
                 var dsq = document.createElement('script');

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Use conda env to manage packages" />
+        <meta name="description" content="OSX is more customizable that you think. Here are a bunch of tweaks that I found useful. Since I&#39;ve posted this, I&#39;ve maintained a updated version of these tweaks along with my dotfiles on GitHub ..." />
 
     <meta name="author" content="Dheepak Krishnamurthy" />
     <meta name="copyright" content="Dheepak Krishnamurthy" />
@@ -214,7 +214,7 @@ jQuery(document).ready(function($) {
 
 
 
-<title>Using conda to manage packages - Dheepak Krishnamurthy</title>
+<title>Mac OSX Tweaks - Dheepak Krishnamurthy</title>
 
     <!-- iPython Notebook script -->
     <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
@@ -302,7 +302,7 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
     <!-- end Mixpanel -->
 
 <script>
-    mixpanel.track("Page", {"Name": "Using conda to manage packages", "url": "blog/using-conda-to-manage-packages.html"  }) ;
+    mixpanel.track("Page", {"Name": "Mac OSX Tweaks", "url": "mac-osx-tweaks.html"  }) ;
 </script>
 </head>
 
@@ -330,11 +330,11 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
                     </a>
                     </div>
                     <div class="col-sm-10 col-sm-offset-1">
-                    <h1 class="article-heading">Using conda to manage packages</h1>
+                    <h1 class="article-heading">Mac OSX Tweaks</h1>
                         <h2 class="article-subheading"> </h2>
 <span class="meta last-updated">
 Published on 
-<time pubdate="pubdate" datetime="2015-12-25T04:32:51-07:00">Dec 25, 2015</time>
+<time pubdate="pubdate" datetime="2015-03-21T19:00:00-06:00">Mar 21, 2015</time>
 </span>                    </div>
                 </div>
             </div>
@@ -347,53 +347,114 @@ Published on
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
-                    <h1 id="why-use-conda">Why use conda</h1>
-<p>The following quote is from Conda’s github page <span class="citation" data-cites="_condaconda">[<a href="#ref-_condaconda">1</a>]</span></p>
-<blockquote>
-<p>Conda is a cross-platform, Python-agnostic binary package manager. It is the package manager used by Anaconda installations, but it may be used for other systems as well. Conda makes environments first-class citizens, making it easy to create independent environments even for C libraries. Conda is written entirely in Python, and is BSD licensed open source.</p>
-</blockquote>
-<p>The main advantage of using conda to manage your packages and environment is that it will work across platforms</p>
-<figure>
-<img src="/images/condacrossplatform.jpg" alt="Slide deck [2] comparing package managers in different platforms" /><figcaption>Slide deck <span class="citation" data-cites="_conda">[<a href="#ref-_conda">2</a>]</span> comparing package managers in different platforms</figcaption>
-</figure>
-<p>conda also uses hard linking, so it is inexpensive to create multiple copies of the same package</p>
-<h1 id="how-to">How to</h1>
-<p>One simple way to start is to first specify a <code>environment.yml</code> file</p>
-<pre><code># environment.yml
-name: psst-env
-dependencies:
-- python
-- nose
-- numpy
-- pandas
-- pip:
-    - pyomo</code></pre>
-<p>The name of the environment can be changed. Activate the environment by using the following.</p>
-<pre><code>source activate psst-env </code></pre>
-<p>Then you can create the environment by</p>
-<pre><code>conda env create</code></pre>
-<p>You can update the environment after adding a package to <code>environment.yml</code> by using the following</p>
-<pre><code>conda env update</code></pre>
-<p>Alternatively, you can create a new empty environment by using either one of the following</p>
-<pre><code>conda create -n pelican-env python=2 
-conda create --name pelican-env python=2</code></pre>
-<p>In this case, <code>pelican-env</code> is the name of the environment. You can follow the name of the environment with all the packages you want separated by spaces. You must have atleast one package to create a environment.</p>
-<p>After the environment is created, you can source the environment :</p>
-<pre><code>source activate pelican-env</code></pre>
-<p>You can install packages here using one of the following :</p>
-<pre><code>conda install &lt;PACKAGE-NAME&gt;</code></pre>
-<p>When you have set up the environment and would like to share it, you can run the following to generate a .yml file</p>
-<pre><code>conda env export</code></pre>
-<p>I like to update by <code>environment.yml</code> by running the following</p>
-<pre><code>conda env export &gt; environment.yml</code></pre>
-<h1 id="references" class="unnumbered">References</h1>
+                    <h1 id="update">Update</h1>
+<p>I’ve decided to maintain a repo <a href="https://github.com/kdheepak89/dotfiles/blob/master/.osx">here</a> instead.</p>
+<hr />
+<h1 id="general-ui">General UI</h1>
+<pre><code># Disable Dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
+
+# Don’t show Dashboard as a Space
+defaults write com.apple.dock dashboard-in-overlay -bool true
+
+# disable automatic spell checking
+defaults write -g NSAllowContinuousSpellChecking -bool false
+
+# don&#39;t treat period or colon as part of words
+# en_US_POSIX corresponds to the &quot;United States (Computer)&quot; setting that was shown in System Preferences in 10.8 and earlier
+defaults write -g AppleTextBreakLocale en_US_POSIX
+
+# Disable the sound effects on boot
+sudo nvram SystemAudioVolume=&quot; &quot;</code></pre>
+<h1 id="disks">Disks</h1>
+<pre><code># Disks: disable Time Machine prompts
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
+# Disks: disable local Time Machine backups
+hash tmutil &amp;&gt; /dev/null &amp;&amp; sudo tmutil disablelocal
+
+# Disks: disable disk image verification
+# defaults write com.apple.frameworks.diskimages skip-verify -bool true
+# defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
+# defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
+
+# don&#39;t save .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+# Don’t automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false</code></pre>
+<h1 id="keyboard">Keyboard</h1>
+<pre><code># Set a blazingly fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 0</code></pre>
+<h1 id="finder">Finder</h1>
+<pre><code># Disable automatic termination of inactive apps
+defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+
+# Finder: disable window animations and Get Info animations
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+# Finder: show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Disable the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Save to disk (not to iCloud) by default
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
+# Finder: disable window and Get Info animations
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+# Finder: show the ~/Library folder (in OS X Lion)
+chflags nohidden ~/Library
+
+# Finder: empty Trash securely by default
+defaults write com.apple.finder EmptyTrashSecurely -bool true</code></pre>
+<h1 id="dock-hot-corners">Dock &amp; hot corners</h1>
+<pre><code># Autohide the Dock
+defaults write com.apple.dock autohide -bool true
+
+# Magnify Dock icons on hover
+defaults write com.apple.dock magnification -bool false</code></pre>
+<h1 id="panels">Panels</h1>
+<pre><code># Panels: expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+# Panels: expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+
+# Panels: disable the “Are you sure you want to open this application?” dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# Panels: enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3</code></pre>
+<h1 id="screen">Screen</h1>
+<pre><code># Screen: save screenshots to the desktop
+defaults write com.apple.screencapture location -string &quot;$HOME/Desktop&quot;
+
+# Screen: disable shadow in screenshots
+defaults write com.apple.screencapture disable-shadow -bool true</code></pre>
+<h1 id="misc">Misc</h1>
+<pre><code># Misc: only use UTF-8 in Terminal.app
+defaults write com.apple.terminal StringEncodings -array 4
+
+# Misc: disable Dictionary results
+defaults write com.apple.spotlight DictionaryLookupEnabled -bool false
+
+# Misc: disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false</code></pre>
+<!---
+{% comment %} 
+for app in "Dashboard" "Dock" "Finder" "SystemUIServer" "Terminal" "iTunes"; do
+    killall "$app" > /dev/null 2>&1
+done
+{% uncomment %} 
+-->
 <div id="refs" class="references">
-<div id="ref-_condaconda">
-<p>[1] “Conda/conda. GitHub.” [Online]. Available: <a href="https://github.com/conda/conda" class="uri">https://github.com/conda/conda</a>.</p>
-</div>
-<div id="ref-_conda">
-<p>[2] “Conda: A Cross-Platform Package Manager for Any Binary Distribution.” [Online]. Available: <a href="http://www.slideshare.net/AaronMeurer/conda-a-binary-scipy2014" class="uri">http://www.slideshare.net/AaronMeurer/conda-a-binary-scipy2014</a>.</p>
-</div>
+
 </div>
 
                     </div>
@@ -404,7 +465,7 @@ conda create --name pelican-env python=2</code></pre>
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'kdheepak89'; // required: replace example with your forum shortname
-            var disqus_identifier = 'using-conda-to-manage-packages';
+            var disqus_identifier = 'mac-osx-tweaks';
             /* * * DON'T EDIT BELOW THIS LINE * * */
             (function () {
                 var dsq = document.createElement('script');

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="This is a Geektool tutorial on customizing OSX desktop - Calvin &amp; Hobbes themed ..." />
+        <meta name="description" content="I&#39;ve not found a greater combination of tools than vim, tmux and zsh. I&#39;ve detailed below some of the configuration ..." />
 
     <meta name="author" content="Dheepak Krishnamurthy" />
     <meta name="copyright" content="Dheepak Krishnamurthy" />
@@ -214,7 +214,7 @@ jQuery(document).ready(function($) {
 
 
 
-<title>Geektool and Desktop Widgets in OSX - Dheepak Krishnamurthy</title>
+<title>Vim, tmux and zsh - the productivity trio - Dheepak Krishnamurthy</title>
 
     <!-- iPython Notebook script -->
     <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
@@ -302,7 +302,7 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
     <!-- end Mixpanel -->
 
 <script>
-    mixpanel.track("Page", {"Name": "Geektool and Desktop Widgets in OSX", "url": "blog/geektool-and-desktop-widgets-in-osx.html"  }) ;
+    mixpanel.track("Page", {"Name": "Vim, tmux and zsh - the productivity trio", "url": "vim-tmux-zsh.html"  }) ;
 </script>
 </head>
 
@@ -330,11 +330,11 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
                     </a>
                     </div>
                     <div class="col-sm-10 col-sm-offset-1">
-                    <h1 class="article-heading">Geektool and Desktop Widgets in OSX</h1>
+                    <h1 class="article-heading">Vim, tmux and zsh - the productivity trio</h1>
                         <h2 class="article-subheading"> </h2>
 <span class="meta last-updated">
 Published on 
-<time pubdate="pubdate" datetime="2014-12-13T10:00:00-07:00">Dec 13, 2014</time>
+<time pubdate="pubdate" datetime="2015-05-08T22:58:18-06:00">May 8, 2015</time>
 </span>                    </div>
                 </div>
             </div>
@@ -347,47 +347,136 @@ Published on
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
-                    <p>
-This is a Geektool tutorial on how to customize your Mac OSX desktop homescreen. Using Geektool you can add a widget like functionality to your desktop.
-</p>
-<p title>
-<a href="https://plus.google.com/photos/+DheepakKrishnamurthy/albums/5969008662076135425" title=""><img alt="" src="https://lh4.googleusercontent.com/TZkEbkEUgfXVhtL3XNgQ8tYNuaO_WF_WhgtuN0nYGJEx=s0" width="100%/" title="" style=""></a>
-</p>
-<p>
-<a href="https://plus.google.com/photos/+DheepakKrishnamurthy/albums/5969008662076135425"><img alt="" src="https://raw.githubusercontent.com/kdheepak89/GeekToolBash/master/Screenshots/1.png" width="45%" ></a> <a href="https://plus.google.com/photos/+DheepakKrishnamurthy/albums/5969008662076135425"><img alt="" src="https://raw.githubusercontent.com/kdheepak89/GeekToolBash/master/Screenshots/2.jpg" width="45%" ></a>
-</p>
-<p>
-All you need to do is download the following script from <a href="https://github.com/kdheepak89/GeekToolBash/blob/master/bashScript">here</a> and place it in any folder. Then add a Geektool script and link it to the bash script you’ve downloaded.
-</p>
-<p>
-<img alt="" src="https://raw.githubusercontent.com/kdheepak89/GeekToolBash/master/Screenshots/3.png" width="100%">
-</p>
-<p style="text-align: center;">
-<img class="aligncenter" alt="" src="https://raw.githubusercontent.com/kdheepak89/GeekToolBash/master/Screenshots/4.png" width="50%/">
-</p>
-<p>
-I’ve also used a Calvin and Hobbes / Bill Watterson font to display the day, time and weather using the following codes.
-</p>
-<p>
-Day
-</p>
-<pre class="brush: bash; title: ; notranslate" title="">date '+%A' | tr [:lower:] [:upper:]
-</pre>
-<p>
-Time
-</p>
-<pre class="brush: bash; title: ; notranslate" title="">date '+%I: %M %p'
-</pre>
-<p>
-Weather
-</p>
-<pre class="brush: bash; title: ; notranslate" title="">curl --silent "http://xml.weather.yahoo.com/forecastrss?p=50014&amp;u=f" | grep -E '(Current Conditions:|F&lt;BR)' | sed -e 's/Current Conditions://' -e 's/
-//' -e 's/&lt;b&gt;//' -e 's/&lt;\/b&gt;//' -e 's/
-//' -e 's///' -e 's/&lt;\/description&gt;//'
-</pre>
-<p>
-<br> You can also display your battery level, uptime, network connectivity status. There are also loads of preset Geeklets that you can download to get yourself a good looking homescreen. Sky is the limit!
-</p>
+                    <p>I’ve not found a greater combination of tools than vim, tmux and zsh. I’ve detailed below some of the configuration to get it working the way I want it to.</p>
+<figure>
+<img src="/images/vim-tmux-zsh.png" alt="vim-tmux-zsh" /><figcaption>vim-tmux-zsh</figcaption>
+</figure>
+<h2 id="tmux">tmux</h2>
+<pre><code># Change prefix key to `
+unbind C-b
+set -g prefix `
+bind-key ` send-prefix
+bind-key C-a set-option -g prefix C-a
+bind-key C-b set-option -g prefix `
+
+# we might need ` at some point, allow switching
+bind-key C-a set-option -g prefix C-a
+bind-key C-b set-option -g prefix `
+
+setw -g monitor-activity on
+set -g visual-activity on
+
+set-window-option -g window-status-current-bg yellow
+
+set -g mouse-resize-pane on
+set-option -g mouse-select-pane on
+set-option -g mouse-select-window on
+set-window-option -g mode-mouse on
+
+setw -g mode-mouse on
+set -g terminal-overrides &#39;xterm*:smcup@:rmcup@&#39;
+
+# set-option -g default-command &quot;reattach-to-user-namespace -l zsh&quot;
+
+# Use vim keybindings in copy mode
+setw -g mode-keys vi
+
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy y copy-pipe &quot;reattach-to-user-namespace pbcopy&quot;
+
+unbind -t vi-copy Enter
+bind-key -t vi-copy Enter copy-pipe &quot;reattach-to-user-namespace pbcopy&quot;
+
+## Keep your finger on ctrl, or don&#39;t
+bind-key ^D detach-client
+
+## Pane resize in all four directions using vi bindings.
+## Can use these raw but I map them to shift-ctrl-&lt;h,j,k,l&gt; in iTerm.
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+## Smart pane switching with awareness of vim splits.
+## Source: https://github.com/christoomey/vim-tmux-navigator
+bind -n C-h run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|vim?)(diff)?$&#39; &amp;&amp; tmux send-keys C-h) || tmux select-pane -L&quot;
+bind -n C-j run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|vim?)(diff)?$&#39; &amp;&amp; tmux send-keys C-j) || tmux select-pane -D&quot;
+bind -n C-k run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|vim?)(diff)?$&#39; &amp;&amp; tmux send-keys C-k) || tmux select-pane -U&quot;
+bind -n C-l run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|vim?)(diff)?$&#39; &amp;&amp; tmux send-keys C-l) || tmux select-pane -R&quot;
+bind -n C-\ run &quot;(tmux display-message -p &#39;#{pane_current_command}&#39; | grep -iqE &#39;(^|\/)g?(view|vim?)(diff)?$&#39; &amp;&amp; tmux send-keys &#39;C-\\&#39;) || tmux select-pane -l&quot;
+
+set -g default-terminal &quot;xterm&quot;
+
+## No escape time for vi mode
+set -sg escape-time 0
+
+## Screen like binding for last window
+unbind l
+bind C-a last-window
+
+## Bigger history
+set -g history-limit 10000
+
+## New windows/pane in $PWD
+bind c new-window -c &quot;#{pane_current_path}&quot;
+
+## force a reload of the config file
+unbind r
+bind r source-file ~/.tmux.conf \; display &quot;Reloaded!&quot;
+
+## Easy bindings for split
+unbind %
+bind | split-window -h  -c &quot;#{pane_current_path}&quot;
+bind - split-window -v  -c &quot;#{pane_current_path}&quot;
+
+#bind y run &#39;tmux save-buffer - | reattach-to-user-namespace pbcopy &#39;
+#bind C-y run &#39;tmux save-buffer - | reattach-to-user-namespace pbcopy &#39;
+
+# start window numbering at 1
+set -g base-index 1
+
+# start pane numbering at 1
+set -g pane-base-index 1
+
+bind-key -n C-S-Left swap-window -t -1
+bind-key -n C-S-Right swap-window -t +1
+
+## Here is a jewel of a bind which does the task of flipping the orientation of the current pane with the pane before it (in the ordering) -- I had a SO question on this and nobody answered.
+bind -n M-f move-pane -t &#39;.-&#39;
+bind M-f move-pane -t &#39;.-&#39;
+bind -n M-r move-pane -h -t &#39;.-&#39;
+bind M-r move-pane -h -t &#39;.-&#39;
+
+### Join windows: &lt;prefix&gt; s, &lt;prefix&gt; j
+bind-key j command-prompt -p &quot;join pane from:&quot;  &quot;join-pane -s &#39;%%&#39;&quot;
+bind-key s command-prompt -p &quot;send pane to:&quot;  &quot;join-pane -t &#39;%%&#39;&quot;</code></pre>
+<h2 id="zsh">zsh</h2>
+<pre><code># Path to your oh-my-zsh installation.
+export ZSH=/Users/dheepakkrishnamurthy/.oh-my-zsh
+
+ZSH_THEME=&quot;rawsyntax&quot;
+
+alias vim=&#39;mvim -v&#39;
+
+export TERM=xterm-256color
+ 
+source $ZSH/oh-my-zsh.sh</code></pre>
+<h2 id="vim">vim</h2>
+<pre><code>Plugin &#39;altercation/vim-colors-solarized&#39;
+Plugin &#39;bling/vim-airline&#39;
+Plugin &#39;christoomey/vim-tmux-navigator&#39;
+Plugin &#39;fholgado/minibufexpl.vim&#39;
+Plugin &#39;honza/vim-snippets&#39;
+Plugin &#39;jeffkreeftmeijer/vim-numbertoggle&#39;
+Plugin &#39;morhetz/gruvbox&#39;
+Plugin &#39;plasticboy/vim-markdown&#39;
+Plugin &#39;scrooloose/nerdcommenter&#39;
+Plugin &#39;scrooloose/nerdtree&#39;
+Plugin &#39;searchcomplete&#39;
+Plugin &#39;sjl/gundo.vim&#39;
+Plugin &#39;tomasr/molokai&#39;
+Plugin &#39;tpope/vim-repeat&#39;
+Plugin &#39;tpope/vim-surround&#39;</code></pre>
 <div id="refs" class="references">
 
 </div>
@@ -400,7 +489,7 @@ Weather
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'kdheepak89'; // required: replace example with your forum shortname
-            var disqus_identifier = 'geektool-and-desktop-widgets-in-osx';
+            var disqus_identifier = 'vim-tmux-zsh';
             /* * * DON'T EDIT BELOW THIS LINE * * */
             (function () {
                 var dsq = document.createElement('script');

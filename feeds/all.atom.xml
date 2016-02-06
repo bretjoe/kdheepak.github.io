@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/all.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-12-25T04:32:51-07:00</updated><entry><title>Using conda to manage packages</title><link href="http://kdheepak.com/blog/using-conda-to-manage-packages.html" rel="alternate"></link><updated>2015-12-25T04:32:51-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-12-25:blog/using-conda-to-manage-packages.html</id><summary type="html">&lt;h1 id="why-use-conda"&gt;Why use conda&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dheepak Krishnamurthy</title><link href="http://kdheepak.com/" rel="alternate"></link><link href="http://kdheepak.com/feeds/all.atom.xml" rel="self"></link><id>http://kdheepak.com/</id><updated>2015-12-25T04:32:51-07:00</updated><entry><title>Using conda to manage packages</title><link href="http://kdheepak.com/using-conda-to-manage-packages.html" rel="alternate"></link><updated>2015-12-25T04:32:51-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-12-25:using-conda-to-manage-packages.html</id><summary type="html">&lt;h1 id="why-use-conda"&gt;Why use conda&lt;/h1&gt;
 &lt;p&gt;The following quote is from Conda’s github page &lt;span class="citation" data-cites="_condaconda"&gt;[&lt;a href="#ref-_condaconda"&gt;1&lt;/a&gt;]&lt;/span&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Conda is a cross-platform, Python-agnostic binary package manager. It is the package manager used by Anaconda installations, but it may be used for other systems as well. Conda makes environments first-class citizens, making it easy to create independent environments even for C libraries. Conda is written entirely in Python, and is BSD licensed open source.&lt;/p&gt;
@@ -47,7 +47,7 @@ conda create --name pelican-env python=2&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;[2] “Conda: A Cross-Platform Package Manager for Any Binary Distribution.” [Online]. Available: &lt;a href="http://www.slideshare.net/AaronMeurer/conda-a-binary-scipy2014" class="uri"&gt;http://www.slideshare.net/AaronMeurer/conda-a-binary-scipy2014&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="python"></category></entry><entry><title>Writing Technical Papers with Markdown</title><link href="http://kdheepak.com/blog/writing-papers-with-markdown.html" rel="alternate"></link><updated>2015-12-20T00:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-12-20:blog/writing-papers-with-markdown.html</id><summary type="html">&lt;!-- BEGIN SLIDESNOHEADER --&gt;
+</summary><category term="python"></category></entry><entry><title>Writing Technical Papers with Markdown</title><link href="http://kdheepak.com/writing-papers-with-markdown.html" rel="alternate"></link><updated>2015-12-20T00:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-12-20:writing-papers-with-markdown.html</id><summary type="html">&lt;!-- BEGIN SLIDESNOHEADER --&gt;
 &lt;!-- END SLIDES --&gt;
 &lt;!-- BEGIN ABSTRACTCOMMENT --&gt;
 &lt;p&gt;I’ve had several people ask me about Markdown for academic writing recently. I figured I’d use this post to write about my workflow and my resources on this topic.&lt;/p&gt;
@@ -609,7 +609,7 @@ $$ {#eq:pi}&lt;/code&gt;&lt;/pre&gt;
 &lt;li id="fn6"&gt;&lt;p&gt;The features for references for figures, equations and tables are all python &lt;code&gt;pandocfilters&lt;/code&gt; packages written by the one person &lt;span class="citation" data-cites="duck_github"&gt;[&lt;a href="#ref-duck_github"&gt;17&lt;/a&gt;]&lt;/span&gt;. There is a two year long standing discussion on cross references &lt;span class="citation" data-cites="_pandoc-1"&gt;[&lt;a href="#ref-_pandoc-1"&gt;18&lt;/a&gt;]&lt;/span&gt; that the curious reader is referred to.&lt;a href="#fnref6"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
-</summary><category term="m"></category><category term="a"></category><category term="r"></category><category term="k"></category><category term="d"></category><category term="o"></category><category term="w"></category><category term="n"></category><category term=","></category><category term="w"></category><category term="r"></category><category term="i"></category><category term="t"></category><category term="i"></category><category term="n"></category><category term="g"></category></entry><entry><title>Jupyter Notebook, Reveal.js and Github Pages</title><link href="http://kdheepak.com/blog/jupyter-notebook-revealjs-and-github-pages.html" rel="alternate"></link><updated>2015-12-05T13:03:54-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-12-05:blog/jupyter-notebook-revealjs-and-github-pages.html</id><summary type="html">&lt;p&gt;Jupyter Notebook has the ability to convert an notebook &lt;code&gt;ipynb&lt;/code&gt; to markdown, rst, html and interestingly slides. And these Reveal.js powered slides can be hosted on GitHub pages, like any other html page. The following steps works well for me to generate a static set of slides from a notebook that can be used as a presentation&lt;/p&gt;
+</summary><category term="m"></category><category term="a"></category><category term="r"></category><category term="k"></category><category term="d"></category><category term="o"></category><category term="w"></category><category term="n"></category><category term=","></category><category term="w"></category><category term="r"></category><category term="i"></category><category term="t"></category><category term="i"></category><category term="n"></category><category term="g"></category></entry><entry><title>Jupyter Notebook, Reveal.js and Github Pages</title><link href="http://kdheepak.com/jupyter-notebook-revealjs-and-github-pages.html" rel="alternate"></link><updated>2015-12-05T13:03:54-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-12-05:jupyter-notebook-revealjs-and-github-pages.html</id><summary type="html">&lt;p&gt;Jupyter Notebook has the ability to convert an notebook &lt;code&gt;ipynb&lt;/code&gt; to markdown, rst, html and interestingly slides. And these Reveal.js powered slides can be hosted on GitHub pages, like any other html page. The following steps works well for me to generate a static set of slides from a notebook that can be used as a presentation&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Save the ipython notebook as index.ipynb.&lt;/li&gt;
 &lt;li&gt;Fork reveal.js to your GitHub account.&lt;/li&gt;
@@ -625,7 +625,7 @@ $$ {#eq:pi}&lt;/code&gt;&lt;/pre&gt;
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="reveal.js"></category><category term="github pages"></category></entry><entry><title>Spotify and tmux</title><link href="http://kdheepak.com/blog/spotify-and-tmux.html" rel="alternate"></link><updated>2015-09-20T09:26:15-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-09-20:blog/spotify-and-tmux.html</id><summary type="html">&lt;p&gt;Create a file named tmux-spotify-info and place it in a directory that in your &lt;code&gt;$PATH&lt;/code&gt;. Add the following snippet of code into the file and make sure it is executable.&lt;/p&gt;
+</summary><category term="reveal.js"></category><category term="github pages"></category></entry><entry><title>Spotify and tmux</title><link href="http://kdheepak.com/spotify-and-tmux.html" rel="alternate"></link><updated>2015-09-20T09:26:15-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-09-20:spotify-and-tmux.html</id><summary type="html">&lt;p&gt;Create a file named tmux-spotify-info and place it in a directory that in your &lt;code&gt;$PATH&lt;/code&gt;. Add the following snippet of code into the file and make sure it is executable.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#!/usr/bin/env osascript
 # Returns the current playing song in Spotify for OSX
 
@@ -669,7 +669,7 @@ set -g window-status-current-format &amp;quot;#[fg=colour234,bg=colour39]#[fg
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="tmux"></category></entry><entry><title>Change $PATH inside vim</title><link href="http://kdheepak.com/blog/change-path-inside-vim.html" rel="alternate"></link><updated>2015-09-19T09:05:36-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-09-19:blog/change-path-inside-vim.html</id><summary type="html">&lt;p&gt;Save the following script in &lt;code&gt;/usr/local/bin/cpvim&lt;/code&gt;&lt;/p&gt;
+</summary><category term="tmux"></category></entry><entry><title>Change $PATH inside vim</title><link href="http://kdheepak.com/change-path-inside-vim.html" rel="alternate"></link><updated>2015-09-19T09:05:36-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-09-19:change-path-inside-vim.html</id><summary type="html">&lt;p&gt;Save the following script in &lt;code&gt;/usr/local/bin/cpvim&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#!/bin/zsh
 source ~/.zshrc &amp;gt;/dev/null 2&amp;gt;&amp;amp;1
 PATH=$VIM_PATH 
@@ -679,7 +679,7 @@ exec nvim &amp;quot;$@&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="neovim"></category><category term="vim"></category><category term="osx"></category></entry><entry><title>Patched fonts madness</title><link href="http://kdheepak.com/blog/patched-fonts-madness.html" rel="alternate"></link><updated>2015-09-12T19:59:22-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-09-12:blog/patched-fonts-madness.html</id><summary type="html">&lt;p&gt;Getting patched fonts for a powerline in the terminal can be quite an adventure. I almost gave up on it, but now that I’ve figured it out it seems extremely obvious.&lt;/p&gt;
+</summary><category term="neovim"></category><category term="vim"></category><category term="osx"></category></entry><entry><title>Patched fonts madness</title><link href="http://kdheepak.com/patched-fonts-madness.html" rel="alternate"></link><updated>2015-09-12T19:59:22-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-09-12:patched-fonts-madness.html</id><summary type="html">&lt;p&gt;Getting patched fonts for a powerline in the terminal can be quite an adventure. I almost gave up on it, but now that I’ve figured it out it seems extremely obvious.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;# pip install --user powerline-status
 # brew install fontforge --with-python
 git clone https://github.com/powerline/fonts.git
@@ -689,7 +689,7 @@ cd fonts
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="vim"></category><category term="tmux"></category></entry><entry><title>Uninstalling and Re-Installing Homebrew on OSX</title><link href="http://kdheepak.com/blog/uninstalling-and-re-installing-homebrew-on-osx.html" rel="alternate"></link><updated>2015-08-27T22:52:17-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-08-27:blog/uninstalling-and-re-installing-homebrew-on-osx.html</id><summary type="html">&lt;p&gt;&lt;a href="https://gist.github.com/mxcl/1173223"&gt;Gist&lt;/a&gt;&lt;/p&gt;
+</summary><category term="vim"></category><category term="tmux"></category></entry><entry><title>Uninstalling and Re-Installing Homebrew on OSX</title><link href="http://kdheepak.com/uninstalling-and-re-installing-homebrew-on-osx.html" rel="alternate"></link><updated>2015-08-27T22:52:17-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-08-27:uninstalling-and-re-installing-homebrew-on-osx.html</id><summary type="html">&lt;p&gt;&lt;a href="https://gist.github.com/mxcl/1173223"&gt;Gist&lt;/a&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#!/bin/sh
 # Just copy and paste the lines below (all at once, it won&amp;#39;t work line by line!)
 # MAKE SURE YOU ARE HAPPY WITH WHAT IT DOES FIRST! THERE IS NO WARRANTY!
@@ -724,7 +724,7 @@ rm -rf /Library/Caches/Homebrew&lt;/code&gt;&lt;/pre&gt;
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="osx"></category></entry><entry><title>How to add line numbers for code blocks in Pelican</title><link href="http://kdheepak.com/blog/how-to-add-line-numbers-for-code-blocks-in-pelican.html" rel="alternate"></link><updated>2015-09-20T10:01:48-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-08-18:blog/how-to-add-line-numbers-for-code-blocks-in-pelican.html</id><summary type="html">&lt;p&gt;Update : I’ve removed line numbers because it is selected along with the code if someone wants to copy. I’ll post here if I find a better solution.&lt;/p&gt;
+</summary><category term="osx"></category></entry><entry><title>How to add line numbers for code blocks in Pelican</title><link href="http://kdheepak.com/how-to-add-line-numbers-for-code-blocks-in-pelican.html" rel="alternate"></link><updated>2015-09-20T10:01:48-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-08-18:how-to-add-line-numbers-for-code-blocks-in-pelican.html</id><summary type="html">&lt;p&gt;Update : I’ve removed line numbers because it is selected along with the code if someone wants to copy. I’ll post here if I find a better solution.&lt;/p&gt;
 &lt;p&gt;I’ve found that line numbering with word wrap could only be achieved in Pelican by a certain set of steps. I’ve listed the CSS and the Plugin I’ve used to get that to work.&lt;/p&gt;
 &lt;p&gt;Add the following lines in your theme.css&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;/* For use with the code_line-number_word-wrap_switcher_jquery.js Pelican plugin */
@@ -764,7 +764,7 @@ PLUGINS = [&amp;#39;better_codeblock_line_numbering&amp;#39;]&lt;/code&gt;&lt;/p
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="pelican"></category></entry><entry><title>Emacsclient and tmux split navigation</title><link href="http://kdheepak.com/blog/emacsclient-and-tmux-split-navigation.html" rel="alternate"></link><updated>2015-07-26T22:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-07-26:blog/emacsclient-and-tmux-split-navigation.html</id><summary type="html">&lt;p&gt;I’ve described some of the scripts that I use regularly when using emacs in the terminal. I also using emacs with tmux, even though it seems like emacs itself could be tweaked to replace tmux. Currently, my tmux+zsh setup has been much more powerful that what emacs alone can provide. zsh did not play well, even with multiterm and I’ve had mixed results with getting ipython to work well inside emacs.&lt;/p&gt;
+</summary><category term="pelican"></category></entry><entry><title>Emacsclient and tmux split navigation</title><link href="http://kdheepak.com/emacsclient-and-tmux-split-navigation.html" rel="alternate"></link><updated>2015-07-26T22:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-07-26:emacsclient-and-tmux-split-navigation.html</id><summary type="html">&lt;p&gt;I’ve described some of the scripts that I use regularly when using emacs in the terminal. I also using emacs with tmux, even though it seems like emacs itself could be tweaked to replace tmux. Currently, my tmux+zsh setup has been much more powerful that what emacs alone can provide. zsh did not play well, even with multiterm and I’ve had mixed results with getting ipython to work well inside emacs.&lt;/p&gt;
 &lt;p&gt;I use the following set of lisps my .emacs to get seamless navigation between emacs splits and tmux panes.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;;; Many thanks to the author of and contributors to the following posts:
 ;; https://gist.github.com/mislav/5189704
@@ -802,7 +802,7 @@ bind -n C-\ run &amp;quot;(tmux display-message -p &amp;#39;#{pane_current_comma
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="emacs"></category><category term="osx"></category></entry><entry><title>Emacs workflow - Using Emacs in the terminal</title><link href="http://kdheepak.com/blog/emacs-workflow-using-emacs-in-the-terminal.html" rel="alternate"></link><updated>2015-07-25T22:00:50-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-07-25:blog/emacs-workflow-using-emacs-in-the-terminal.html</id><summary type="html">&lt;p&gt;I use the command line a lot, frequently editing files locally or remotely. Up until now, I’ve been using &lt;a href="vim-tmux-zsh.html"&gt;vim with tmux and zsh&lt;/a&gt;. I’ve recently been experimenting with emacs and have been trying to get it to work well inplace of vim. I personally think the author of &lt;a href="http://mjwall.com/blog/2013/10/04/how-i-use-emacs/"&gt;this post&lt;/a&gt; nailed it regarding emacs workflow. I’ve only made minor modifications to get it to suit my requirements.&lt;/p&gt;
+</summary><category term="emacs"></category><category term="osx"></category></entry><entry><title>Emacs workflow - Using Emacs in the terminal</title><link href="http://kdheepak.com/emacs-workflow-using-emacs-in-the-terminal.html" rel="alternate"></link><updated>2015-07-25T22:00:50-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-07-25:emacs-workflow-using-emacs-in-the-terminal.html</id><summary type="html">&lt;p&gt;I use the command line a lot, frequently editing files locally or remotely. Up until now, I’ve been using &lt;a href="vim-tmux-zsh.html"&gt;vim with tmux and zsh&lt;/a&gt;. I’ve recently been experimenting with emacs and have been trying to get it to work well inplace of vim. I personally think the author of &lt;a href="http://mjwall.com/blog/2013/10/04/how-i-use-emacs/"&gt;this post&lt;/a&gt; nailed it regarding emacs workflow. I’ve only made minor modifications to get it to suit my requirements.&lt;/p&gt;
 &lt;p&gt;I’ve created a separate script called ess (emacsserverstart) added a &lt;code&gt;&amp;amp;&lt;/code&gt; at the end of the emacs script to get it to run in the background.&lt;/p&gt;
 &lt;p&gt;/usr/local/bin/ess&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#!/bin/zsh
@@ -913,7 +913,7 @@ fi&lt;/code&gt;&lt;/pre&gt;
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="emacs"></category><category term="tmux"></category></entry><entry><title>Emacs Tips - Close compilation buffer</title><link href="http://kdheepak.com/blog/emacs-tips-close-compilation-buffer-if-successful.html" rel="alternate"></link><updated>2015-07-19T12:43:56-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-07-19:blog/emacs-tips-close-compilation-buffer-if-successful.html</id><summary type="html">&lt;p&gt;When I work with markdown, &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; or code that requires compiling, I like to check often if everything looks okay. Emacs has a good description of everything you can do with the &lt;a href="http://emacswiki.org/emacs/CompileCommand"&gt;CompileCommand&lt;/a&gt;.&lt;/p&gt;
+</summary><category term="emacs"></category><category term="tmux"></category></entry><entry><title>Emacs Tips - Close compilation buffer</title><link href="http://kdheepak.com/emacs-tips-close-compilation-buffer-if-successful.html" rel="alternate"></link><updated>2015-07-19T12:43:56-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-07-19:emacs-tips-close-compilation-buffer-if-successful.html</id><summary type="html">&lt;p&gt;When I work with markdown, &lt;span class="math inline"&gt;\(\LaTeX\)&lt;/span&gt; or code that requires compiling, I like to check often if everything looks okay. Emacs has a good description of everything you can do with the &lt;a href="http://emacswiki.org/emacs/CompileCommand"&gt;CompileCommand&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;However, it does not have a description for auto-closing the buffer if the compilation was successful. &lt;a href="http://emacs.stackexchange.com/a/336"&gt;StackOverflow&lt;/a&gt; to the rescue!&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;#!lisp
 ; from enberg on #emacs
@@ -930,7 +930,7 @@ fi&lt;/code&gt;&lt;/pre&gt;
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="Emacs"></category><category term="LaTeX"></category></entry><entry><title>Create Emacsclient.app using AppleScript</title><link href="http://kdheepak.com/blog/create-emacsclientapp-using-applescript.html" rel="alternate"></link><updated>2015-07-18T10:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-07-18:blog/create-emacsclientapp-using-applescript.html</id><summary type="html">&lt;p&gt;Open Automator and go to File-&amp;gt;New. Click on Application.&lt;/p&gt;
+</summary><category term="Emacs"></category><category term="LaTeX"></category></entry><entry><title>Create Emacsclient.app using AppleScript</title><link href="http://kdheepak.com/create-emacsclientapp-using-applescript.html" rel="alternate"></link><updated>2015-07-18T10:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-07-18:create-emacsclientapp-using-applescript.html</id><summary type="html">&lt;p&gt;Open Automator and go to File-&amp;gt;New. Click on Application.&lt;/p&gt;
 &lt;figure&gt;
 &lt;img src="../../images/emacsclient1.png" /&gt;
 &lt;/figure&gt;
@@ -946,7 +946,7 @@ fi&lt;/code&gt;&lt;/pre&gt;
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="emacs"></category><category term="applescript"></category><category term="osx"></category></entry><entry><title>Better git log with git ls</title><link href="http://kdheepak.com/blog/better-git-log-with-git-ls.html" rel="alternate"></link><updated>2015-06-01T20:45:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-06-01:blog/better-git-log-with-git-ls.html</id><summary type="html">&lt;p&gt;Add the following command to ~/.gitconfig&lt;/p&gt;
+</summary><category term="emacs"></category><category term="applescript"></category><category term="osx"></category></entry><entry><title>Better git log with git ls</title><link href="http://kdheepak.com/better-git-log-with-git-ls.html" rel="alternate"></link><updated>2015-06-01T20:45:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-06-01:better-git-log-with-git-ls.html</id><summary type="html">&lt;p&gt;Add the following command to ~/.gitconfig&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;[alias]
     ls = log --graph --abbrev-commit --decorate --color=always --date=relative --format=format:&amp;#39;%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) - %C(dim red)%an%C(reset)%C(bold yellow)%d%C(reset)&amp;#39; --all&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Here is an example of what the command output looks like.&lt;/p&gt;
@@ -956,7 +956,7 @@ fi&lt;/code&gt;&lt;/pre&gt;
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="git"></category></entry><entry><title>Vim, tmux and zsh - the productivity trio</title><link href="http://kdheepak.com/blog/vim-tmux-zsh.html" rel="alternate"></link><updated>2015-05-08T22:58:18-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-05-08:blog/vim-tmux-zsh.html</id><summary type="html">&lt;p&gt;I’ve not found a greater combination of tools than vim, tmux and zsh. I’ve detailed below some of the configuration to get it working the way I want it to.&lt;/p&gt;
+</summary><category term="git"></category></entry><entry><title>Vim, tmux and zsh - the productivity trio</title><link href="http://kdheepak.com/vim-tmux-zsh.html" rel="alternate"></link><updated>2015-05-08T22:58:18-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-05-08:vim-tmux-zsh.html</id><summary type="html">&lt;p&gt;I’ve not found a greater combination of tools than vim, tmux and zsh. I’ve detailed below some of the configuration to get it working the way I want it to.&lt;/p&gt;
 &lt;figure&gt;
 &lt;img src="/images/vim-tmux-zsh.png" alt="vim-tmux-zsh" /&gt;&lt;figcaption&gt;vim-tmux-zsh&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1089,7 +1089,7 @@ Plugin &amp;#39;tpope/vim-surround&amp;#39;&lt;/code&gt;&lt;/pre&gt;
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="vim"></category><category term="tmux"></category><category term="zsh"></category></entry><entry><title>Beginners guide to getting started with Vim</title><link href="http://kdheepak.com/blog/beginners-guide-to-getting-started-with-vim.html" rel="alternate"></link><updated>2015-05-01T22:59:49-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-05-01:blog/beginners-guide-to-getting-started-with-vim.html</id><summary type="html">&lt;p&gt;When I first started using vim, I found it frustrating and difficult to get anything done. I now realize that there were a list of things I had to do to understand how to use vim. Learning vim can be an extremely gratifying experience, but it is probably unlike anything you have seen before. So having a guide to getting started may be useful.&lt;/p&gt;
+</summary><category term="vim"></category><category term="tmux"></category><category term="zsh"></category></entry><entry><title>Beginners guide to getting started with Vim</title><link href="http://kdheepak.com/beginners-guide-to-getting-started-with-vim.html" rel="alternate"></link><updated>2015-05-01T22:59:49-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-05-01:beginners-guide-to-getting-started-with-vim.html</id><summary type="html">&lt;p&gt;When I first started using vim, I found it frustrating and difficult to get anything done. I now realize that there were a list of things I had to do to understand how to use vim. Learning vim can be an extremely gratifying experience, but it is probably unlike anything you have seen before. So having a guide to getting started may be useful.&lt;/p&gt;
 &lt;p&gt;I haven’t been using vim for very long, so I’m by no means an expert. But since I’m starting out, I figured it would be useful for beginners if I put down what I think is the order in which you should approach vim.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Spend half an hour (maybe over lunch) using vimtutor
@@ -1117,7 +1117,7 @@ Plugin &amp;#39;tpope/vim-surround&amp;#39;&lt;/code&gt;&lt;/pre&gt;
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="vim"></category></entry><entry><title>Active, Reactive and Apparent Power</title><link href="http://kdheepak.com/blog/active-reactive-and-apparent-power.html" rel="alternate"></link><updated>2015-12-20T18:39:09-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-29:blog/active-reactive-and-apparent-power.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Edit&lt;/strong&gt; - I’m no longer using the liquidtags.notebook plugin, since I moved to pandoc. The blog post will now closely resemble a jupyter notebook.&lt;/p&gt;
+</summary><category term="vim"></category></entry><entry><title>Active, Reactive and Apparent Power</title><link href="http://kdheepak.com/active-reactive-and-apparent-power.html" rel="alternate"></link><updated>2015-12-20T18:39:09-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-29:active-reactive-and-apparent-power.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Edit&lt;/strong&gt; - I’m no longer using the liquidtags.notebook plugin, since I moved to pandoc. The blog post will now closely resemble a jupyter notebook.&lt;/p&gt;
 &lt;p&gt;This post covers the basics of the types of Power in power systems. This post was generated from an iPython Notebook&lt;/p&gt;
 &lt;div id="notebook" class="border-box-sizing" tabindex="-1"&gt;
 &lt;div id="notebook-container" class="container"&gt;
@@ -2029,7 +2029,7 @@ ax2.axis([0, 1/f0, -1500, 1500]);&lt;/code&gt;&lt;/pre&gt;
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="Power Systems"></category></entry><entry><title>How to set up a Pelican blog with Github pages</title><link href="http://kdheepak.com/blog/how-to-set-up-a-pelican-blog-with-github-pages.html" rel="alternate"></link><updated>2015-08-02T17:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-24:blog/how-to-set-up-a-pelican-blog-with-github-pages.html</id><summary type="html">&lt;p&gt;I’ve been quite vocal about the benefits of blogging using Markdown, and using a static page generator instead of the conventional CMS. But a lot of people I’ve spoken to have expressed their doubts about the simplicity of the process. I figured if I could fit it in one blog post I could claim it were simple, right?&lt;/p&gt;
+</summary><category term="Power Systems"></category></entry><entry><title>How to set up a Pelican blog with Github pages</title><link href="http://kdheepak.com/how-to-set-up-a-pelican-blog-with-github-pages.html" rel="alternate"></link><updated>2015-08-02T17:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-24:how-to-set-up-a-pelican-blog-with-github-pages.html</id><summary type="html">&lt;p&gt;I’ve been quite vocal about the benefits of blogging using Markdown, and using a static page generator instead of the conventional CMS. But a lot of people I’ve spoken to have expressed their doubts about the simplicity of the process. I figured if I could fit it in one blog post I could claim it were simple, right?&lt;/p&gt;
 &lt;h1 id="markdown"&gt;Markdown&lt;/h1&gt;
 &lt;p&gt;Advantages&lt;/p&gt;
 &lt;ul&gt;
@@ -2133,7 +2133,7 @@ Hello world.&lt;/code&gt;&lt;/pre&gt;
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="Pelican"></category></entry><entry><title>Mac OSX Productivity Apps</title><link href="http://kdheepak.com/blog/mac-osx-productivity-apps.html" rel="alternate"></link><updated>2015-04-01T19:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-01:blog/mac-osx-productivity-apps.html</id><summary type="html">&lt;h2 id="alfred"&gt;1. Alfred&lt;/h2&gt;
+</summary><category term="Pelican"></category></entry><entry><title>Mac OSX Productivity Apps</title><link href="http://kdheepak.com/mac-osx-productivity-apps.html" rel="alternate"></link><updated>2015-04-01T19:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-04-01:mac-osx-productivity-apps.html</id><summary type="html">&lt;h2 id="alfred"&gt;1. Alfred&lt;/h2&gt;
 &lt;figure&gt;
 &lt;img src="http://www.alfredapp.com/images/features/main/open_applications_files@2x.jpg" /&gt;
 &lt;/figure&gt;
@@ -2206,7 +2206,7 @@ $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install) 
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="OSX"></category></entry><entry><title>Mac OSX Tweaks</title><link href="http://kdheepak.com/blog/mac-osx-tweaks.html" rel="alternate"></link><updated>2015-03-21T19:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-03-21:blog/mac-osx-tweaks.html</id><summary type="html">&lt;h1 id="update"&gt;Update&lt;/h1&gt;
+</summary><category term="OSX"></category></entry><entry><title>Mac OSX Tweaks</title><link href="http://kdheepak.com/mac-osx-tweaks.html" rel="alternate"></link><updated>2015-03-21T19:00:00-06:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2015-03-21:mac-osx-tweaks.html</id><summary type="html">&lt;h1 id="update"&gt;Update&lt;/h1&gt;
 &lt;p&gt;I’ve decided to maintain a repo &lt;a href="https://github.com/kdheepak89/dotfiles/blob/master/.osx"&gt;here&lt;/a&gt; instead.&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h1 id="general-ui"&gt;General UI&lt;/h1&gt;
@@ -2315,7 +2315,7 @@ done
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="OSX"></category></entry><entry><title>Geektool and Desktop Widgets in OSX</title><link href="http://kdheepak.com/blog/geektool-and-desktop-widgets-in-osx.html" rel="alternate"></link><updated>2014-12-13T10:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-13:blog/geektool-and-desktop-widgets-in-osx.html</id><summary type="html">&lt;p&gt;
+</summary><category term="OSX"></category></entry><entry><title>Geektool and Desktop Widgets in OSX</title><link href="http://kdheepak.com/geektool-and-desktop-widgets-in-osx.html" rel="alternate"></link><updated>2014-12-13T10:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-13:geektool-and-desktop-widgets-in-osx.html</id><summary type="html">&lt;p&gt;
 This is a Geektool tutorial on how to customize your Mac OSX desktop homescreen. Using Geektool you can add a widget like functionality to your desktop.
 &lt;/p&gt;
 &lt;p title&gt;
@@ -2359,7 +2359,7 @@ Weather
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="OSX"></category></entry><entry><title>Robotics</title><link href="http://kdheepak.com/blog/robotics.html" rel="alternate"></link><updated>2014-12-13T10:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-13:blog/robotics.html</id><summary type="html">&lt;h3&gt;
+</summary><category term="OSX"></category></entry><entry><title>Robotics</title><link href="http://kdheepak.com/robotics.html" rel="alternate"></link><updated>2014-12-13T10:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-13:robotics.html</id><summary type="html">&lt;h3&gt;
 Robotics and Microcontroller Projects
 &lt;/h3&gt;
 &lt;iframe width="420" height="345" src="https://www.youtube.com/embed/eoN-HOUOjBk"&gt;
@@ -2369,7 +2369,7 @@ Robotics and Microcontroller Projects
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="Robotics"></category></entry><entry><title>Tasker and Google Maps</title><link href="http://kdheepak.com/blog/tasker-and-google-maps.html" rel="alternate"></link><updated>2014-12-13T10:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-13:blog/tasker-and-google-maps.html</id><summary type="html">&lt;h3&gt;
+</summary><category term="Robotics"></category></entry><entry><title>Tasker and Google Maps</title><link href="http://kdheepak.com/tasker-and-google-maps.html" rel="alternate"></link><updated>2014-12-13T10:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-13:tasker-and-google-maps.html</id><summary type="html">&lt;h3&gt;
 Android Projects
 &lt;/h3&gt;
 &lt;p&gt;
@@ -2458,7 +2458,7 @@ If you have any questions about this setup please do let me know.
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="Tasker"></category><category term="Android"></category></entry><entry><title>Tasker Projects</title><link href="http://kdheepak.com/blog/tasker-projects.html" rel="alternate"></link><updated>2014-12-12T19:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-12:blog/tasker-projects.html</id><summary type="html">&lt;h1 id="google-calendar"&gt;Google Calendar&lt;/h1&gt;
+</summary><category term="Tasker"></category><category term="Android"></category></entry><entry><title>Tasker Projects</title><link href="http://kdheepak.com/tasker-projects.html" rel="alternate"></link><updated>2014-12-12T19:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-12:tasker-projects.html</id><summary type="html">&lt;h1 id="google-calendar"&gt;Google Calendar&lt;/h1&gt;
 &lt;p&gt;&lt;a href="http://kdheepak.com/blog/tasker-and-google-maps.html"&gt;This page&lt;/a&gt; contains information about the &lt;a href="https://github.com/kdheepak89/tasker_sl4a"&gt;profile&lt;/a&gt; that uses Tasker to get contextual information from Google Calendar and react based on it.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/kdheepak89/tasker_sl4a"&gt;&lt;img src="https://raw.githubusercontent.com/kdheepak89/tasker_sl4a/master/Screenshots/7.png" align="middle" height="600"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id="tell-me-a-joke"&gt;Tell me a Joke&lt;/h1&gt;
@@ -2470,7 +2470,7 @@ If you have any questions about this setup please do let me know.
 &lt;div id="refs" class="references"&gt;
 
 &lt;/div&gt;
-</summary><category term="Tasker"></category><category term="Android"></category></entry><entry><title>Home monitoring system</title><link href="http://kdheepak.com/blog/home-monitoring-system.html" rel="alternate"></link><updated>2014-12-11T09:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-11:blog/home-monitoring-system.html</id><summary type="html">&lt;h1 id="example"&gt;Example&lt;/h1&gt;
+</summary><category term="Tasker"></category><category term="Android"></category></entry><entry><title>Home monitoring system</title><link href="http://kdheepak.com/home-monitoring-system.html" rel="alternate"></link><updated>2014-12-11T09:00:00-07:00</updated><author><name>Dheepak Krishnamurthy</name></author><id>tag:kdheepak.com,2014-12-11:home-monitoring-system.html</id><summary type="html">&lt;h1 id="example"&gt;Example&lt;/h1&gt;
 &lt;p&gt;Monitoring temperature using Raspberry Pi&lt;/p&gt;
 &lt;div id="containerTextF"&gt;
 &lt;p&gt;The current ambient room temperature is: 75.76 °F&lt;/p&gt;

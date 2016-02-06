@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Jupyter Notebook has the ability ..." />
+        <meta name="description" content="Brief tutorial on adding the right css for getting line numbering for code blocks in pelican ..." />
 
     <meta name="author" content="Dheepak Krishnamurthy" />
     <meta name="copyright" content="Dheepak Krishnamurthy" />
@@ -214,7 +214,7 @@ jQuery(document).ready(function($) {
 
 
 
-<title>Jupyter Notebook, Reveal.js and Github Pages - Dheepak Krishnamurthy</title>
+<title>How to add line numbers for code blocks in Pelican - Dheepak Krishnamurthy</title>
 
     <!-- iPython Notebook script -->
     <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
@@ -302,7 +302,7 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
     <!-- end Mixpanel -->
 
 <script>
-    mixpanel.track("Page", {"Name": "Jupyter Notebook, Reveal.js and Github Pages", "url": "blog/jupyter-notebook-revealjs-and-github-pages.html"  }) ;
+    mixpanel.track("Page", {"Name": "How to add line numbers for code blocks in Pelican", "url": "how-to-add-line-numbers-for-code-blocks-in-pelican.html"  }) ;
 </script>
 </head>
 
@@ -330,11 +330,11 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
                     </a>
                     </div>
                     <div class="col-sm-10 col-sm-offset-1">
-                    <h1 class="article-heading">Jupyter Notebook, Reveal.js and Github Pages</h1>
+                    <h1 class="article-heading">How to add line numbers for code blocks in Pelican</h1>
                         <h2 class="article-subheading"> </h2>
 <span class="meta last-updated">
-Published on 
-<time pubdate="pubdate" datetime="2015-12-05T13:03:54-07:00">Dec 5, 2015</time>
+Updated on 
+<time datetime="2015-09-20T10:01:48-06:00">Sep 20, 2015</time>
 </span>                    </div>
                 </div>
             </div>
@@ -347,19 +347,43 @@ Published on
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
-                    <p>Jupyter Notebook has the ability to convert an notebook <code>ipynb</code> to markdown, rst, html and interestingly slides. And these Reveal.js powered slides can be hosted on GitHub pages, like any other html page. The following steps works well for me to generate a static set of slides from a notebook that can be used as a presentation</p>
-<ul>
-<li>Save the ipython notebook as index.ipynb.</li>
-<li>Fork reveal.js to your GitHub account.</li>
-<li>Push the <code>master</code> branch into the <code>gh-pages</code> branch. This is necessary because we want to use a single reveal.js repository to link to from the GitHub pages slideshow. Alternatively, you can clone reveal.js into your repository where the slideshow / presentation exists.</li>
-<li><p>Use the following script to convert the notebook to <code>index.slides.html</code></p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ipython</span> nbconvert index.ipynb --to slides --reveal-prefix ../reveal.js</code></pre></div>
-<p>If you did not Fork reveal.js and force update master to origin/gh-pages, and instead cloned <code>reveal.js</code> to this folder, you can add it as a submodule and use the following instead</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ipython</span> nbconvert index.ipynb --to slides --reveal-prefix reveal.js</code></pre></div></li>
-<li>Rename <code>index.slides.html</code> to <code>index.html</code></li>
-<li><p>Push your changes to a repository</p></li>
-</ul>
-<p>You can find an example <a href="http://kdheepak.com/jupyter-notebook">here</a> and the original notebook <a href="https://github.com/kdheepak89/jupyter-notebook">here</a>.</p>
+                    <p>Update : I’ve removed line numbers because it is selected along with the code if someone wants to copy. I’ll post here if I find a better solution.</p>
+<p>I’ve found that line numbering with word wrap could only be achieved in Pelican by a certain set of steps. I’ve listed the CSS and the Plugin I’ve used to get that to work.</p>
+<p>Add the following lines in your theme.css</p>
+<pre><code>/* For use with the code_line-number_word-wrap_switcher_jquery.js Pelican plugin */
+code {
+    overflow: auto;
+    /* This uses `white-space: pre-wrap` to get elements within &lt;pre&gt; tags to wrap. Python, for code chunks within three backticks (```), doesn&#39;t wordwrap code lines by default, because they&#39;re within &lt;pre&gt; tags, which don&#39;t wrap by default. See https://github.com/github/markup/issues/168 , which is specifically about this parsing issue, even though that link&#39;s discussion is talking about GitHub. */
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+/* Following http://bililite.com/blog/2012/08/05/line-numbering-in-pre-elements/, use CSS to add line numbers to all spans that have the class &#39;code-line&#39; */
+
+.highlight pre {
+    counter-reset: linecounter;
+    padding-left: 2em;
+}
+.highlight pre span.code-line {
+    counter-increment: linecounter;
+    padding-left: 1em;
+    text-indent: -1em;
+    display: inline-block;
+}
+.highlight pre span.code-line:before {
+    content: counter(linecounter);
+    padding-right: 1em;
+    display: inline-block;
+    color: grey;
+    text-align: right;
+}</code></pre>
+<p>Then, we turn off the default linenums in codehilite. Also add the following pelican-plugin.</p>
+<pre><code>MD_EXTENSIONS = [&#39;fenced_code&#39;, &#39;codehilite(css_class=highlight, linenums=False)&#39;, ]
+
+PLUGINS = [&#39;better_codeblock_line_numbering&#39;]</code></pre>
 <div id="refs" class="references">
 
 </div>
@@ -372,7 +396,7 @@ Published on
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'kdheepak89'; // required: replace example with your forum shortname
-            var disqus_identifier = 'jupyter-notebook-revealjs-and-github-pages';
+            var disqus_identifier = 'how-to-add-line-numbers-for-code-blocks-in-pelican';
             /* * * DON'T EDIT BELOW THIS LINE * * */
             (function () {
                 var dsq = document.createElement('script');

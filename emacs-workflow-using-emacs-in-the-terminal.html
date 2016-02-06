@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="This post shows how to close the compilation buffer in emacs if compile was successful ..." />
+        <meta name="description" content="A description of my emacs workflow" />
 
     <meta name="author" content="Dheepak Krishnamurthy" />
     <meta name="copyright" content="Dheepak Krishnamurthy" />
@@ -214,7 +214,7 @@ jQuery(document).ready(function($) {
 
 
 
-<title>Emacs Tips - Close compilation buffer - Dheepak Krishnamurthy</title>
+<title>Emacs workflow - Using Emacs in the terminal - Dheepak Krishnamurthy</title>
 
     <!-- iPython Notebook script -->
     <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
@@ -302,7 +302,7 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
     <!-- end Mixpanel -->
 
 <script>
-    mixpanel.track("Page", {"Name": "Emacs Tips - Close compilation buffer", "url": "blog/emacs-tips-close-compilation-buffer-if-successful.html"  }) ;
+    mixpanel.track("Page", {"Name": "Emacs workflow - Using Emacs in the terminal", "url": "emacs-workflow-using-emacs-in-the-terminal.html"  }) ;
 </script>
 </head>
 
@@ -330,11 +330,11 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
                     </a>
                     </div>
                     <div class="col-sm-10 col-sm-offset-1">
-                    <h1 class="article-heading">Emacs Tips - Close compilation buffer</h1>
+                    <h1 class="article-heading">Emacs workflow - Using Emacs in the terminal</h1>
                         <h2 class="article-subheading"> </h2>
 <span class="meta last-updated">
 Published on 
-<time pubdate="pubdate" datetime="2015-07-19T12:43:56-06:00">Jul 19, 2015</time>
+<time pubdate="pubdate" datetime="2015-07-25T22:00:50-06:00">Jul 25, 2015</time>
 </span>                    </div>
                 </div>
             </div>
@@ -347,20 +347,114 @@ Published on
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
-                    <p>When I work with markdown, <span class="math inline">\(\LaTeX\)</span> or code that requires compiling, I like to check often if everything looks okay. Emacs has a good description of everything you can do with the <a href="http://emacswiki.org/emacs/CompileCommand">CompileCommand</a>.</p>
-<p>However, it does not have a description for auto-closing the buffer if the compilation was successful. <a href="http://emacs.stackexchange.com/a/336">StackOverflow</a> to the rescue!</p>
-<pre><code>#!lisp
-; from enberg on #emacs
-(setq compilation-finish-function
-(lambda (buf str)
-    (if (null (string-match &quot;.*exited abnormally.*&quot; str))
-        ;;no errors, make the compilation window go away in a few seconds
-        (progn
-            (run-at-time
-            &quot;1 sec&quot; nil &#39;delete-windows-on
-            (get-buffer-create &quot;*compilation*&quot;))
-        (message &quot;No Compilation Errors!&quot;)))))</code></pre>
-<p>Insert the above code into your .emacs file. You can change the time you wish the buffer to be available by changing the “1 sec” in the above code</p>
+                    <p>I use the command line a lot, frequently editing files locally or remotely. Up until now, I’ve been using <a href="vim-tmux-zsh.html">vim with tmux and zsh</a>. I’ve recently been experimenting with emacs and have been trying to get it to work well inplace of vim. I personally think the author of <a href="http://mjwall.com/blog/2013/10/04/how-i-use-emacs/">this post</a> nailed it regarding emacs workflow. I’ve only made minor modifications to get it to suit my requirements.</p>
+<p>I’ve created a separate script called ess (emacsserverstart) added a <code>&amp;</code> at the end of the emacs script to get it to run in the background.</p>
+<p>/usr/local/bin/ess</p>
+<pre><code>#!/bin/zsh
+/Applications/Emacs.app/Contents/MacOS/Emacs &amp;</code></pre>
+<p>/usr/local/bin/emacs</p>
+<pre><code>#!/bin/zsh
+/Applications/Emacs.app/Contents/MacOS/Emacs &quot;$@&quot;</code></pre>
+<p>I’ve found that when using emacsclient connecting to <code>emacs --daemon</code> renders certain things differently, as compared to opening emacs, starting a server and connecting to that instead. I also have <code>(server-start)</code> in my .emacs file.</p>
+<p>The following script connects a emacsclient to an already existing emacs server. If a server does not exist, it starts a daemon and then connects to it. This is done using the <code>-a &quot;&quot;</code> flag, which allows you to set an alternate editor. If no editor it set it defaults to running a daemon. It also shifts focus to the emacsclient after it opens.</p>
+<p>/usr/local/bin/ec</p>
+<pre><code>#!/bin/zsh
+
+# This script starts emacs daemon if it is not running, opens whatever file
+# you pass in and changes the focus to emacs.  Without any arguments, it just
+# opens the current buffer or *scratch* if nothing else is open.  The following
+# example will open ~/.bashrc
+
+# ec ~/.bashrc
+
+# You can also pass it multiple files, it will open them all.  Unbury-buffer
+# will cycle through those files in order
+
+# The compliment to the script is et, which opens emacs in the terminal
+# attached to a daemon
+
+# If you want to execute elisp, pass in -e whatever.
+# You may also want to stop the output from returning to the terminal, like
+# ec -e &quot;(message \&quot;Hello\&quot;)&quot; &gt; /dev/null
+
+# emacsclient options for reference
+# -a &quot;&quot; starts emacs daemon and reattaches
+# -c creates a new frame
+# -n returns control back to the terminal
+# -e eval the script
+
+# Number of current visible frames,
+# Emacs daemon always has a visible frame called F1
+visible_frames() {
+  emacsclient -a &quot;&quot; -e &#39;(length (visible-frame-list))&#39;
+}
+
+change_focus() {
+  emacsclient -n -e &quot;(select-frame-set-input-focus (selected-frame))&quot; &gt; /dev/null
+}
+
+
+# try switching to the frame incase it is just minimized
+# will start a server if not running
+test &quot;$(visible_frames)&quot; -eq &quot;1&quot; &amp;&amp; change_focus
+
+if [ &quot;$(visible_frames)&quot; -lt  &quot;2&quot; ]; then # need to create a frame
+  # -c $@ with no args just opens the scratch buffer
+  emacsclient -n -c &quot;$@&quot; &amp;&amp; change_focus
+else # there is already a visible frame besides the daemon, so
+  change_focus
+  # -n $@ errors if there are no args
+  test  &quot;$#&quot; -ne &quot;0&quot; &amp;&amp; emacsclient -n &quot;$@&quot;
+fi</code></pre>
+<p>This script opens an emacsclient in the terminal and connects it to a running server. The <code>-t</code> flag opens it in the terminal.</p>
+<p>/usr/local/bin/et</p>
+<pre><code>#!/bin/zsh
+
+# Makes sure emacs daemon is running and opens the file in Emacs in
+# the terminal.
+
+# If you want to execute elisp, use -e whatever, like so
+
+# et -e &quot;(message \&quot;Word up\&quot;)&quot;
+
+# You may want to redirect that to /dev/null if you don&#39;t want the
+# return to printed on the terminal.  Also, just echoing a message
+# may not be visible if Emacs then gives you a message about what
+# to do when do with the frame
+
+# The compliment to this script is ec
+
+# Emacsclient option reference
+# -a &quot;&quot; starts emacs daemon and reattaches
+# -t starts in terminal, since I won&#39;t be using the gui
+# can also pass in -n if you want to have the shell return right away
+
+exec emacsclient -a &quot;&quot; -t &quot;$@&quot;</code></pre>
+<p>This following scripts stops the emacs server.</p>
+<p>/usr/local/bin/es</p>
+<pre><code>#!/bin/zsh
+
+# simple script to shutdown the running Emacs daemon
+
+# emacsclient options for reference
+# -a Alternate editor, runs bin/false in this case
+# -e eval the script
+
+# If the server-process is bound and the server is in a good state, then kill
+# the server
+
+server_ok() {
+  emacsclient -a &quot;false&quot; -e &quot;(boundp &#39;server-process)&quot;
+}
+
+if [ &quot;t&quot; == &quot;$(server_ok)&quot; ]; then
+  echo &quot;Shutting down Emacs server&quot;
+  # wasn&#39;t removing emacs from ALT-TAB on mac
+  # emacsclient -e &quot;(server-force-delete)&quot;
+  emacsclient -e &#39;(spacemacs/kill-emacs)&#39;
+else
+  echo &quot;Emacs server not running&quot;
+fi</code></pre>
 <div id="refs" class="references">
 
 </div>
@@ -373,7 +467,7 @@ Published on
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'kdheepak89'; // required: replace example with your forum shortname
-            var disqus_identifier = 'emacs-tips-close-compilation-buffer-if-successful';
+            var disqus_identifier = 'emacs-workflow-using-emacs-in-the-terminal';
             /* * * DON'T EDIT BELOW THIS LINE * * */
             (function () {
                 var dsq = document.createElement('script');

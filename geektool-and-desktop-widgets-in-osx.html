@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="I&#39;ve created an Emacsclient.app using AppleScript to aid with my Alfred workflow ..." />
+        <meta name="description" content="This is a Geektool tutorial on customizing OSX desktop - Calvin &amp; Hobbes themed ..." />
 
     <meta name="author" content="Dheepak Krishnamurthy" />
     <meta name="copyright" content="Dheepak Krishnamurthy" />
@@ -214,7 +214,7 @@ jQuery(document).ready(function($) {
 
 
 
-<title>Create Emacsclient.app using AppleScript - Dheepak Krishnamurthy</title>
+<title>Geektool and Desktop Widgets in OSX - Dheepak Krishnamurthy</title>
 
     <!-- iPython Notebook script -->
     <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
@@ -302,7 +302,7 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
     <!-- end Mixpanel -->
 
 <script>
-    mixpanel.track("Page", {"Name": "Create Emacsclient.app using AppleScript", "url": "blog/create-emacsclientapp-using-applescript.html"  }) ;
+    mixpanel.track("Page", {"Name": "Geektool and Desktop Widgets in OSX", "url": "geektool-and-desktop-widgets-in-osx.html"  }) ;
 </script>
 </head>
 
@@ -330,11 +330,11 @@ mixpanel.init("e36b00b2053ec1228c81cca16622581f");</script>
                     </a>
                     </div>
                     <div class="col-sm-10 col-sm-offset-1">
-                    <h1 class="article-heading">Create Emacsclient.app using AppleScript</h1>
+                    <h1 class="article-heading">Geektool and Desktop Widgets in OSX</h1>
                         <h2 class="article-subheading"> </h2>
 <span class="meta last-updated">
 Published on 
-<time pubdate="pubdate" datetime="2015-07-18T10:00:00-06:00">Jul 18, 2015</time>
+<time pubdate="pubdate" datetime="2014-12-13T10:00:00-07:00">Dec 13, 2014</time>
 </span>                    </div>
                 </div>
             </div>
@@ -347,19 +347,47 @@ Published on
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="entry-content">
-                    <p>Open Automator and go to File-&gt;New. Click on Application.</p>
-<figure>
-<img src="../../images/emacsclient1.png" />
-</figure>
-<p>Then search for ‘Run AppleScript’ and drag it to the window on the right.</p>
-<figure>
-<img src="../../images/emacsclient2.png" />
-</figure>
-<p>Copy paste the following gist to the window</p>
-<script src="https://gist.github.com/kdheepak89/9e287b937edb2509eab9.js"></script>
-<p>Save the application in /Applications or /Users/$USER/Applications. Now you can quickly open emacsclient from Alfred.</p>
-<p>Also check out Alfred workflows in the link below</p>
-<p><a href="https://github.com/franzheidl/alfred-workflows#open-with-emacs" class="uri">https://github.com/franzheidl/alfred-workflows#open-with-emacs</a></p>
+                    <p>
+This is a Geektool tutorial on how to customize your Mac OSX desktop homescreen. Using Geektool you can add a widget like functionality to your desktop.
+</p>
+<p title>
+<a href="https://plus.google.com/photos/+DheepakKrishnamurthy/albums/5969008662076135425" title=""><img alt="" src="https://lh4.googleusercontent.com/TZkEbkEUgfXVhtL3XNgQ8tYNuaO_WF_WhgtuN0nYGJEx=s0" width="100%/" title="" style=""></a>
+</p>
+<p>
+<a href="https://plus.google.com/photos/+DheepakKrishnamurthy/albums/5969008662076135425"><img alt="" src="https://raw.githubusercontent.com/kdheepak89/GeekToolBash/master/Screenshots/1.png" width="45%" ></a> <a href="https://plus.google.com/photos/+DheepakKrishnamurthy/albums/5969008662076135425"><img alt="" src="https://raw.githubusercontent.com/kdheepak89/GeekToolBash/master/Screenshots/2.jpg" width="45%" ></a>
+</p>
+<p>
+All you need to do is download the following script from <a href="https://github.com/kdheepak89/GeekToolBash/blob/master/bashScript">here</a> and place it in any folder. Then add a Geektool script and link it to the bash script you’ve downloaded.
+</p>
+<p>
+<img alt="" src="https://raw.githubusercontent.com/kdheepak89/GeekToolBash/master/Screenshots/3.png" width="100%">
+</p>
+<p style="text-align: center;">
+<img class="aligncenter" alt="" src="https://raw.githubusercontent.com/kdheepak89/GeekToolBash/master/Screenshots/4.png" width="50%/">
+</p>
+<p>
+I’ve also used a Calvin and Hobbes / Bill Watterson font to display the day, time and weather using the following codes.
+</p>
+<p>
+Day
+</p>
+<pre class="brush: bash; title: ; notranslate" title="">date '+%A' | tr [:lower:] [:upper:]
+</pre>
+<p>
+Time
+</p>
+<pre class="brush: bash; title: ; notranslate" title="">date '+%I: %M %p'
+</pre>
+<p>
+Weather
+</p>
+<pre class="brush: bash; title: ; notranslate" title="">curl --silent "http://xml.weather.yahoo.com/forecastrss?p=50014&amp;u=f" | grep -E '(Current Conditions:|F&lt;BR)' | sed -e 's/Current Conditions://' -e 's/
+//' -e 's/&lt;b&gt;//' -e 's/&lt;\/b&gt;//' -e 's/
+//' -e 's///' -e 's/&lt;\/description&gt;//'
+</pre>
+<p>
+<br> You can also display your battery level, uptime, network connectivity status. There are also loads of preset Geeklets that you can download to get yourself a good looking homescreen. Sky is the limit!
+</p>
 <div id="refs" class="references">
 
 </div>
@@ -372,7 +400,7 @@ Published on
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'kdheepak89'; // required: replace example with your forum shortname
-            var disqus_identifier = 'create-emacsclientapp-using-applescript';
+            var disqus_identifier = 'geektool-and-desktop-widgets-in-osx';
             /* * * DON'T EDIT BELOW THIS LINE * * */
             (function () {
                 var dsq = document.createElement('script');
